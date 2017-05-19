@@ -23,7 +23,7 @@ function NumberList(props) {
 export default class MyPage extends React.Component {
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
-    const res = await fetch('https://spiceflow.net.ee/wp-json/wc/v1/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9')
+    const res = await fetch('https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9')
     const json = await res.json()
     return {
       stars: json[7].name,
