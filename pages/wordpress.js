@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import 'isomorphic-fetch'
 
+import ReactPaginate from 'react-paginate'
 
 function NumberList(props) {
   const products = props.products;
@@ -38,13 +39,16 @@ export default class MyPage extends React.Component {
     const res = await fetch('https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=183')
     const json = await res.json()
     const resHeaders = res.headers.get('Link')
+    const totalPages = res.headers.get('X-WP-TotalPages')
 
     return {
       responseData: res,
       stars: json[7].name,
       products: json,
       isToggleOn: true,
-      header: resHeaders
+      header: resHeaders,
+      totalPages: parseInt(totalPages),
+      page: 1
     }
   }
 
@@ -53,7 +57,8 @@ export default class MyPage extends React.Component {
     this.state = {
       initialProps: props,
       date: new Date(),
-      products: props.products
+      products: props.products,
+      page: 1
     }
   }
 
@@ -63,8 +68,16 @@ export default class MyPage extends React.Component {
     }));
   }
 
+  updateProductPage = (page) => {
+    this.setState({page: page.selected + 1})
+
+    this.updateProducts()
+  }
+
   updateProducts = () => {
-    fetch('https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=155')
+    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + this.state.page
+
+    fetch(url)
     .then(
       (response) => {
         if (response.status !== 200) {
@@ -100,7 +113,19 @@ export default class MyPage extends React.Component {
         <p>Next.js has {this.props.stars} ⭐️</p>
         <Link prefetch href='/preact'><a>How about preact?</a></Link>
         <Link href='/wordpress'><a>wordpress?</a></Link>
-        <NumberList products={this.state.products} />,
+        <NumberList products={this.state.products} />
+
+        <ReactPaginate previousLabel={"previous"}
+                nextLabel={"next"}
+                breakLabel={<a href="">...</a>}
+                breakClassName={"break-me"}
+                pageCount={this.props.totalPages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={this.updateProductPage}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"} />
       </div>
     )
   }
