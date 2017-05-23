@@ -16,8 +16,16 @@ export default class extends React.Component {
 
   render () {
     return (
-      <Page>
+      <Page title={this.props.product.name}>
 
+        <div>
+          <h1>My {this.props.id} blog post</h1>
+          <img src={this.props.product.images[0].src} alt=""/>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
 
       </Page>
     )
