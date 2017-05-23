@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import 'isomorphic-fetch'
+import Page from '../layouts/main'
 
 export default class MyPage extends React.Component {
   static async getInitialProps () {

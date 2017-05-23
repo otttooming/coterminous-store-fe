@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import 'isomorphic-fetch'
+import Page from '../layouts/main'
 
 export default class extends React.Component {
   static async getInitialProps ({ query: { id } }) {
@@ -14,13 +15,11 @@ export default class extends React.Component {
   }
 
   render () {
-    return <div>
-      <h1>My {this.props.id} blog post</h1>
-      <img src={this.props.product.images[0].src} alt=""/>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
+    return (
+      <Page>
+
+
+      </Page>
+    )
   }
 }
