@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import 'isomorphic-fetch'
+import Page from '../layouts/main'
 
 import ReactPaginate from 'react-paginate'
 
@@ -30,6 +31,36 @@ function NumberList2(props) {
   );
   return (
     <ul>{listProducts}</ul>
+  );
+}
+
+function ProductsListing(props) {
+  const products = props.products;
+  const listProducts = products.map((product) =>
+    <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item">
+      <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}>
+        <img width={220} height={300}
+          className="aspect-ratio__img lazyloaded "
+          alt="B Swish Bcute Classic Pearl"
+          itemProp="image" sizes="(max-width: 220px) 100vw, 220px"
+          data-src="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg"
+          data-srcset="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
+          // srcSet="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
+          src={product.images[0].src} />
+      </figure>
+      <a itemProp="url" className="products-listing__link" href={'product/' + product.id}>
+        <h3 itemProp="name" className="products-listing__name">
+          {product.name}
+        </h3>
+      </a>
+      <div className="products-listing__price-block">
+        <span className="price__block">22,50€</span>
+      </div>
+    </li>
+
+  );
+  return (
+    <ul className="row row--no-gutters products-listing">{listProducts}</ul>
   );
 }
 
@@ -102,7 +133,7 @@ export default class MyPage extends React.Component {
 
   render () {
     return (
-      <div>
+      <Page title='Products'>
         <button onClick={this.handleClick}>
           {this.state.isToggleOn ? 'ON' : 'OFF'}
         </button>
@@ -113,20 +144,28 @@ export default class MyPage extends React.Component {
         <p>Next.js has {this.props.stars} ⭐️</p>
         <Link prefetch href='/preact'><a>How about preact?</a></Link>
         <Link href='/wordpress'><a>wordpress?</a></Link>
-        <NumberList products={this.state.products} />
 
-        <ReactPaginate previousLabel={"previous"}
-                nextLabel={"next"}
-                breakLabel={<a href="">...</a>}
-                breakClassName={"break-me"}
-                pageCount={this.props.totalPages}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={this.updateProductPage}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
-                activeClassName={"active"} />
-      </div>
+        <div className="col-xs-12 col-lg-9">
+          <main>
+            <ProductsListing products={this.state.products} />
+          </main>
+
+          <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={<a href="">...</a>}
+              breakClassName={"pagination__btn button medium"}
+              pageCount={this.props.totalPages}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={this.updateProductPage}
+              containerClassName={"pagination"}
+              pageClassName={"pagination__btn button medium"}
+              nextClassName={"pagination__btn button medium"}
+              previousClassName={"pagination__btn button medium"}
+              activeClassName={"active"} />
+        </div>
+      </Page>
     )
   }
 }

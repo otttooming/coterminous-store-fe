@@ -8,12 +8,13 @@ export default ({children, title={title}}) => (
 
           <style>{`
             body {
-              color: #333;
+              // color: #333;
             }
           `}</style>
       </Head>
 
       <header>
+        <div className="bg__site"></div>
       </header>
     </div>
 )
