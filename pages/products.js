@@ -72,10 +72,16 @@ export default class MyPage extends React.Component {
     const resHeaders = res.headers.get('Link')
     const totalPages = res.headers.get('X-WP-TotalPages')
 
+
+    const menuUrl = 'https://spiceflow.net.ee/wp-json/wp-api-menus/v2/menus/325?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9';
+    const menuRes = await fetch(menuUrl)
+    const menuJson = await menuRes.json()
+
     return {
       responseData: res,
       stars: json[7].name,
       products: json,
+      menuItems: menuJson,
       isToggleOn: true,
       header: resHeaders,
       totalPages: parseInt(totalPages),
@@ -133,7 +139,7 @@ export default class MyPage extends React.Component {
 
   render () {
     return (
-      <Page title='Products'>
+      <Page title='Products' menuItems={this.props.menuItems}>
         <button onClick={this.handleClick}>
           {this.state.isToggleOn ? 'ON' : 'OFF'}
         </button>
