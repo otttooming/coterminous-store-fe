@@ -77,11 +77,16 @@ export default class MyPage extends React.Component {
     const menuRes = await fetch(menuUrl)
     const menuJson = await menuRes.json()
 
+    const sideMenuUrl = 'https://spiceflow.net.ee/wp-json/wc/v2/products/categories?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=1';
+    const sideMenuRes = await fetch(sideMenuUrl)
+    const sideMenuJson = await sideMenuRes.json()
+
     return {
       responseData: res,
       stars: json[7].name,
       products: json,
       menuItems: menuJson,
+      sideMenuItems: sideMenuJson,
       isToggleOn: true,
       header: resHeaders,
       totalPages: parseInt(totalPages),
@@ -139,7 +144,7 @@ export default class MyPage extends React.Component {
 
   render () {
     return (
-      <Page title='Products' menuItems={this.props.menuItems}>
+      <Page title='Products' menuItems={this.props.menuItems} sideMenuItems={this.props.sideMenuItems}>
         <button onClick={this.handleClick}>
           {this.state.isToggleOn ? 'ON' : 'OFF'}
         </button>
@@ -151,7 +156,6 @@ export default class MyPage extends React.Component {
         <Link prefetch href='/preact'><a>How about preact?</a></Link>
         <Link href='/wordpress'><a>wordpress?</a></Link>
 
-        <div className="col-xs-12 col-lg-9">
           <main>
             <ProductsListing products={this.state.products} />
           </main>
@@ -170,7 +174,6 @@ export default class MyPage extends React.Component {
               nextClassName={"pagination__btn button medium"}
               previousClassName={"pagination__btn button medium"}
               activeClassName={"active"} />
-        </div>
       </Page>
     )
   }
