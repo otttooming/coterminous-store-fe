@@ -4,13 +4,13 @@ import 'isomorphic-fetch'
 
 function MainMenu(props) {
   const menuItems = props.menuItems.map((item) =>
-    <li key={item.id}>
-      {item.title}
+    <li key={item.id} className='menu-item'>
+      <a href="">{item.title}</a>
     </li>
   );
 
   return (
-    <ul>{menuItems}</ul>
+      <ul className='menu'>{menuItems}</ul>
   );
 }
 
@@ -37,10 +37,17 @@ export default class Header extends React.Component {
           `}</style>
       </Head>
 
-      <header>
-        <MainMenu menuItems={this.props.menuItems.items} />
-        <div className="bg__site"></div>
+      <header className='container'>
+        <div className='row hidden-md-down'>
+          <div className='col-xs-8'>
+            <nav className='menu'>
+              <MainMenu menuItems={this.props.menuItems.items} />
+            </nav>
+          </div>
+        </div>
       </header>
+
+      <div className="bg__site"></div>
     </div>
     )
   }

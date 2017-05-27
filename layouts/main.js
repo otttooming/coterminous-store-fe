@@ -5,7 +5,11 @@ import Footer from '../components/footer'
 export default ({ children, title={title}, menuItems={menuItems} }) => (
   <div>
     <Header title={title} menuItems={menuItems} />
-      { children }
+      <div className='container'>
+        <div className='row'>
+          { children }
+        </div>
+      </div>
     <Footer />
   </div>
 )
