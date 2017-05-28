@@ -104,20 +104,24 @@ export default class MyPage extends React.Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    console.log('componentWillUpdate(nextProps, nextState)')
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate(prevProps, prevState)')
+  }
+
   handleClick = () => {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }));
   }
 
-  updateProductPage = (page) => {
-    this.setState({page: page.selected + 1})
+  updateProducts = (page) => {
+    let pageNr = page ? page.selected + 1 : this.state.page;
 
-    this.updateProducts()
-  }
-
-  updateProducts = () => {
-    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + this.state.page
+    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr
 
     fetch(url)
     .then(
@@ -131,7 +135,7 @@ export default class MyPage extends React.Component {
         // Examine the text in the response
         response.json().then((data) => {
           console.log(data);
-          this.setState({products: data})
+          this.setState({products: data, page: page.selected + 1})
 
         });
       }
@@ -168,7 +172,7 @@ export default class MyPage extends React.Component {
               pageCount={this.props.totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
-              onPageChange={this.updateProductPage}
+              onPageChange={this.updateProducts}
               containerClassName={"pagination"}
               pageClassName={"pagination__btn button medium"}
               nextClassName={"pagination__btn button medium"}
