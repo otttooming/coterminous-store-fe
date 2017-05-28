@@ -35,6 +35,39 @@ export default class Header extends React.Component {
             body {
               // color: #333;
             }
+            .loader,
+            .loader:after {
+              width: 30em;
+              height: 30em;
+              border-radius: 50%;
+            }
+            .loader {
+              position: absolute;
+              top: calc(50% - 22em);
+              left: calc(50% - 22em);
+              transform: translateZ(0);
+              animation: load8 1.1s infinite linear;
+              text-indent: -9999em;
+              border-top: 5em solid rgba(255, 255, 255, 0.2);
+              border-right: 5em solid rgba(255, 255, 255, 0.2);
+              border-bottom: 5em solid rgba(255, 255, 255, 0.2);
+              border-left: 5em solid #fff;
+              font-size: 10px;
+              z-index: 9999;
+            }
+            .loader__dark {
+              border-top-color: rgba(0, 0, 0, 0.2);
+              border-right-color: rgba(0, 0, 0, 0.2);
+              border-bottom-color: rgba(0, 0, 0, 0.2);
+            }
+            @keyframes load8 {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
           `}</style>
       </Head>
 

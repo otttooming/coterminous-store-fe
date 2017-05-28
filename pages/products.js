@@ -6,6 +6,16 @@ import Page from '../layouts/main'
 
 import ReactPaginate from 'react-paginate'
 
+function Loader(props) {
+  let isHidden = props.isHidden ? 'hidden-xs-up' : '';
+
+  return(
+    <div className={isHidden + ' loader loader__dark'}>
+      Loading
+    </div>
+  )
+}
+
 function NumberList(props) {
   const products = props.products;
   const listProducts = products.map((product) =>
@@ -100,7 +110,8 @@ export default class MyPage extends React.Component {
       initialProps: props,
       date: new Date(),
       products: props.products,
-      page: 1
+      page: 1,
+      loaderIsHidden: true
     }
   }
 
@@ -119,6 +130,8 @@ export default class MyPage extends React.Component {
   }
 
   updateProducts = (page) => {
+    this.setState({loaderIsHidden: false})
+
     let pageNr = page ? page.selected + 1 : this.state.page;
 
     let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr
@@ -135,7 +148,7 @@ export default class MyPage extends React.Component {
         // Examine the text in the response
         response.json().then((data) => {
           console.log(data);
-          this.setState({products: data, page: page.selected + 1})
+          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true})
 
         });
       }
@@ -161,6 +174,7 @@ export default class MyPage extends React.Component {
         <Link href='/wordpress'><a>wordpress?</a></Link>
 
           <main>
+            <Loader isHidden={this.state.loaderIsHidden} />
             <ProductsListing products={this.state.products} />
           </main>
 
