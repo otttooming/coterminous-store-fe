@@ -146,7 +146,8 @@ export default class MyPage extends React.Component {
       products: props.products,
       page: 1,
       loaderIsHidden: true,
-      category: ''
+      category: '',
+      totalPages: parseInt(props.totalPages),
     }
   }
 
@@ -173,7 +174,7 @@ export default class MyPage extends React.Component {
     this.setState({loaderIsHidden: false})
 
     let pageNr = page ? page.selected + 1 : (this.state.page ? this.state.page : 1);
-    let category = catProp ? catProp : '';
+    let category = catProp ? catProp : (this.state.category ? this.state.category : '');
 
     let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + '&category=' + category
 
@@ -186,10 +187,13 @@ export default class MyPage extends React.Component {
           return;
         }
 
+        let totalPages = response.headers.get('X-WP-TotalPages')
+
+
         // Examine the text in the response
         response.json().then((data) => {
           console.log(data);
-          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true, category: category})
+          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true, category: category, totalPages: totalPages})
 
         });
       }
@@ -236,7 +240,7 @@ export default class MyPage extends React.Component {
               nextLabel={">"}
               breakLabel={<a href="">...</a>}
               breakClassName={"pagination__btn button medium"}
-              pageCount={this.props.totalPages}
+              pageCount={this.state.totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={this.updateProducts}
