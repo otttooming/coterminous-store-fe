@@ -74,6 +74,40 @@ function ProductsListing(props) {
   );
 }
 
+class Categories extends React.Component {
+    constructor(props) {
+      super(props);
+      this.handleCatChange = this.handleCatChange.bind(this)
+    }
+
+    handleCatChange(event) {
+      this.props.onCatChange(event)
+    }
+
+    render() {
+        const sideMenuItems = this.props.sideMenuItems.map((item) =>
+          <div className="cat-list__group ">
+            <h2 className="cat-list__title">
+              <a href="#" data-category={item.name} onClick={() => this.handleCatChange(item.id)}>
+                <span className="cat-list__name">{item.name}</span>
+                <span className="cat-list__desc" />
+                <span className="cat-list__count">4</span>
+              </a>
+              <div className="cat-list__subcat-control control__items">
+                <svg className="control__down" xmlns="http://www.w3.org/2000/svg" width={25} height={25} viewBox="0 0 501.5 501.5"><g><path fill="currentColor" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z" /></g></svg>
+              </div>
+            </h2>
+            <ul className="cat-list__subcat">
+            </ul>
+          </div>
+        )
+
+        return (
+            <ul className='menu'>{sideMenuItems}</ul>
+        )
+    }
+}
+
 export default class MyPage extends React.Component {
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
@@ -111,7 +145,8 @@ export default class MyPage extends React.Component {
       date: new Date(),
       products: props.products,
       page: 1,
-      loaderIsHidden: true
+      loaderIsHidden: true,
+      category: ''
     }
   }
 
@@ -129,12 +164,17 @@ export default class MyPage extends React.Component {
     }));
   }
 
-  updateProducts = (page) => {
+  handleCatChange = (props) => {
+    this.setState({category: props})
+  }
+
+  updateProducts = (page, catProp) => {
     this.setState({loaderIsHidden: false})
 
     let pageNr = page ? page.selected + 1 : this.state.page;
+    let category = catProp ? catProp : '';
 
-    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr
+    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + category
 
     fetch(url)
     .then(
@@ -162,6 +202,16 @@ export default class MyPage extends React.Component {
   render () {
     return (
       <Page title='Products' menuItems={this.props.menuItems} sideMenuItems={this.props.sideMenuItems}>
+          <aside className='col-lg-3 sidebar_grid hidden-md-down'>
+            <div className="widget-container widget_desirees-subcategories">
+              <div className="widget-container cat-list">
+                  <Categories sideMenuItems={this.props.sideMenuItems} onCatChange={this.handleCatChange} />
+              </div>
+            </div>
+          </aside>
+
+          <div className="col-xs-12 col-lg-9">
+
         <button onClick={this.handleClick}>
           {this.state.isToggleOn ? 'ON' : 'OFF'}
         </button>
@@ -192,6 +242,7 @@ export default class MyPage extends React.Component {
               nextClassName={"pagination__btn button medium"}
               previousClassName={"pagination__btn button medium"}
               activeClassName={"active"} />
+          </div>
       </Page>
     )
   }
