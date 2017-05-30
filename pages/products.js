@@ -121,7 +121,7 @@ export default class MyPage extends React.Component {
     const menuRes = await fetch(menuUrl)
     const menuJson = await menuRes.json()
 
-    const sideMenuUrl = 'https://spiceflow.net.ee/wp-json/wc/v2/products/categories?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=1';
+    const sideMenuUrl = 'https://spiceflow.net.ee/wp-json/wc/v2/products/categories?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=1&parent=0&per_page=100';
     const sideMenuRes = await fetch(sideMenuUrl)
     const sideMenuJson = await sideMenuRes.json()
 
@@ -165,16 +165,17 @@ export default class MyPage extends React.Component {
   }
 
   handleCatChange = (props) => {
-    this.setState({category: props})
+    //this.setState({category: props})
+    this.updateProducts(false, props)
   }
 
   updateProducts = (page, catProp) => {
     this.setState({loaderIsHidden: false})
 
-    let pageNr = page ? page.selected + 1 : this.state.page;
+    let pageNr = page ? page.selected + 1 : (this.state.page ? this.state.page : 1);
     let category = catProp ? catProp : '';
 
-    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + category
+    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + '&category=' + category
 
     fetch(url)
     .then(
@@ -188,7 +189,7 @@ export default class MyPage extends React.Component {
         // Examine the text in the response
         response.json().then((data) => {
           console.log(data);
-          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true})
+          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true, category: category})
 
         });
       }
