@@ -213,16 +213,18 @@ export default class MyPage extends React.Component {
 
           <div className="col-xs-12 col-lg-9">
 
-        <button onClick={this.handleClick}>
-          {this.state.isToggleOn ? 'ON' : 'OFF'}
-        </button>
+          <div className='hidden-xs-up'>
+            <button onClick={this.handleClick}>
+              {this.state.isToggleOn ? 'ON' : 'OFF'}
+            </button>
 
-        <button onClick={this.updateProducts}>
-          next
-        </button>
-        <p>Next.js has {this.props.stars} ⭐️</p>
-        <Link prefetch href='/preact'><a>How about preact?</a></Link>
-        <Link href='/wordpress'><a>wordpress?</a></Link>
+            <button onClick={this.updateProducts}>
+              next
+            </button>
+            <p>Next.js has {this.props.stars} ⭐️</p>
+            <Link prefetch href='/preact'><a>How about preact?</a></Link>
+            <Link href='/wordpress'><a>wordpress?</a></Link>
+          </div>
 
           <main>
             <Loader isHidden={this.state.loaderIsHidden} />
