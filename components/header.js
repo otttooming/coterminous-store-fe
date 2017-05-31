@@ -68,6 +68,7 @@ export default class Header extends React.Component {
                 transform: rotate(360deg);
               }
             }
+
           `}</style>
       </Head>
 

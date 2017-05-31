@@ -5,6 +5,7 @@ import 'isomorphic-fetch'
 import Page from '../layouts/main'
 
 import ReactPaginate from 'react-paginate'
+import ReactModal from 'react-modal'
 
 function Loader(props) {
   let isHidden = props.isHidden ? 'hidden-xs-up' : '';
@@ -44,35 +45,45 @@ function NumberList2(props) {
   );
 }
 
-function ProductsListing(props) {
-  const products = props.products;
-  const listProducts = products.map((product) =>
-    <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item">
-      <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}>
-        <img width={220} height={300}
-          className="aspect-ratio__img lazyloaded "
-          alt="B Swish Bcute Classic Pearl"
-          itemProp="image" sizes="(max-width: 220px) 100vw, 220px"
-          data-src="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg"
-          data-srcset="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
-          // srcSet="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
-          src={product.images[0].src}
-          />
-      </figure>
-      <a itemProp="url" className="products-listing__link" href={'product/' + product.id}>
-        <h3 itemProp="name" className="products-listing__name">
-          {product.name}
-        </h3>
-      </a>
-      <div className="products-listing__price-block">
-        <span className="price__block">22,50€</span>
-      </div>
-    </li>
+class ProductsListing extends React.Component {
+    constructor(props) {
+      super(props)
+    }
 
-  );
-  return (
-    <ul className="row row--no-gutters products-listing">{listProducts}</ul>
-  );
+    handleProductClick = (event) => {
+      this.props.openProduct(event)
+    }
+
+    render() {
+        const products = this.props.products;
+        const listProducts = products.map((product) =>
+          <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item">
+            <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}>
+              <img width={220} height={300}
+                className="aspect-ratio__img lazyloaded "
+                alt="B Swish Bcute Classic Pearl"
+                itemProp="image" sizes="(max-width: 220px) 100vw, 220px"
+                data-src="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg"
+                data-srcset="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
+                // srcSet="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
+                src={product.images[0].src}
+                />
+            </figure>
+            <a itemProp="url" className="products-listing__link" onClick={() => this.handleProductClick(product.id)}>
+              <h3 itemProp="name" className="products-listing__name">
+                {product.name}
+              </h3>
+            </a>
+            <div className="products-listing__price-block">
+              <span className="price__block">22,50€</span>
+            </div>
+          </li>
+        )
+
+        return (
+          <ul className="row row--no-gutters products-listing">{listProducts}</ul>
+        )
+    }
 }
 
 class Categories extends React.Component {
@@ -104,6 +115,20 @@ class Categories extends React.Component {
 
         return (
             <ul className='menu'>{sideMenuItems}</ul>
+        )
+    }
+}
+
+class Product extends React.Component {
+    constructor(props) {
+      super(props)
+    }
+
+    render() {
+        return (
+            <div className="overlay overlay--transparent">
+              <h1>{this.props.product.name}</h1>
+            </div>
         )
     }
 }
@@ -148,6 +173,7 @@ export default class MyPage extends React.Component {
       loaderIsHidden: true,
       category: '',
       totalPages: parseInt(props.totalPages),
+      showModal: false
     }
   }
 
@@ -176,6 +202,40 @@ export default class MyPage extends React.Component {
     let category = this.state.category;
 
     this.updateProducts({page: pageNr, category: category });
+  }
+
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  }
+
+  handleProductOpen = (props) => {
+    let id = props
+
+    fetch('https://spiceflow.net.ee/wp-json/wc/v2/products/' + id + '?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9')
+    .then(
+      (response) => {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then((data) => {
+          console.log(data);
+          this.setState({activeProduct: data, showModal: true})
+
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
+
   }
 
   updateProducts = (props) => {
@@ -240,7 +300,17 @@ export default class MyPage extends React.Component {
 
           <main>
             <Loader isHidden={this.state.loaderIsHidden} />
-            <ProductsListing products={this.state.products} />
+            <ProductsListing products={this.state.products} openProduct={this.handleProductOpen} />
+
+            <ReactModal
+              isOpen={this.state.showModal}
+              contentLabel="Minimal Modal Example"
+            >
+              <button onClick={this.handleCloseModal}>Close Modal</button>
+
+              <Product product={this.state.activeProduct} />
+
+            </ReactModal>
           </main>
 
           <ReactPaginate
