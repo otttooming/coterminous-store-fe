@@ -56,7 +56,8 @@ function ProductsListing(props) {
           data-src="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg"
           data-srcset="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
           // srcSet="https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/11/b_swish_bcute_classic_pearl_purple.jpg 1135w"
-          src={product.images[0].src} />
+          src={product.images[0].src}
+          />
       </figure>
       <a itemProp="url" className="products-listing__link" href={'product/' + product.id}>
         <h3 itemProp="name" className="products-listing__name">
@@ -76,11 +77,10 @@ function ProductsListing(props) {
 
 class Categories extends React.Component {
     constructor(props) {
-      super(props);
-      this.handleCatChange = this.handleCatChange.bind(this)
+      super(props)
     }
 
-    handleCatChange(event) {
+    handleCatChange = (event) => {
       this.props.onCatChange(event)
     }
 
@@ -166,17 +166,25 @@ export default class MyPage extends React.Component {
   }
 
   handleCatChange = (props) => {
-    //this.setState({category: props})
-    this.updateProducts(false, props)
+    let category = props;
+
+    this.updateProducts({page: 1, category: category})
   }
 
-  updateProducts = (page, catProp) => {
+  handlePagination = (props) => {
+    let pageNr = props.selected + 1;
+    let category = this.state.category;
+
+    this.updateProducts({page: pageNr, category: category });
+  }
+
+  updateProducts = (props) => {
     this.setState({loaderIsHidden: false})
 
-    let pageNr = page ? page.selected + 1 : (this.state.page ? this.state.page : 1);
-    let category = catProp ? catProp : (this.state.category ? this.state.category : '');
+    let pageNr = props.page ? props.page : (this.state.page ? this.state.page : 1);
+    let category = props.category ? '&category=' + props.category : (this.state.category ? '&category=' + this.state.category : '');
 
-    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + '&category=' + category
+    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + category
 
     fetch(url)
     .then(
@@ -187,13 +195,13 @@ export default class MyPage extends React.Component {
           return;
         }
 
-        let totalPages = response.headers.get('X-WP-TotalPages')
+        let totalPages = parseInt(response.headers.get('X-WP-TotalPages'))
 
 
         // Examine the text in the response
         response.json().then((data) => {
           console.log(data);
-          this.setState({products: data, page: page.selected + 1, loaderIsHidden: true, category: category, totalPages: totalPages})
+          this.setState({products: data, page: pageNr, loaderIsHidden: true, category: category, totalPages: totalPages})
 
         });
       }
@@ -243,7 +251,7 @@ export default class MyPage extends React.Component {
               pageCount={this.state.totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
-              onPageChange={this.updateProducts}
+              onPageChange={this.handlePagination}
               containerClassName={"pagination"}
               pageClassName={"pagination__btn button medium"}
               nextClassName={"pagination__btn button medium"}
