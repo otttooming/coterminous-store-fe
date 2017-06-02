@@ -149,6 +149,26 @@ class Product extends React.Component {
               </figure>
             </a>
         )
+
+        let attributes = this.props.product.attributes
+        let productAttributes = attributes.map((attribute) =>
+            <tr className>
+              <th>{attribute.name}</th>
+              <td>
+                <p>{attribute.options.map((option) => option + ' ')}</p>
+              </td>
+            </tr>
+        )
+
+        let categories = this.props.product.categories
+        let productCategories = categories.map((category) =>
+            <a href="#" rel="tag">{category.name}</a>
+        )
+
+        let tags = this.props.product.tags
+        let productTags = tags.map((tag) =>
+            <a href="#" rel="tag">{tag.name}</a>
+        )
         return (
             <div className="container">
               <div itemScope itemType="http://schema.org/Product" className="row product">
@@ -224,147 +244,36 @@ class Product extends React.Component {
                   </div>
                   <div className="product__details-wrap mt1">
                     <div className="product__details-block">
-                      <h2 className="tab-title  opened">
-                        Description              </h2>
-                      <div id="content_tab_1" className="tab-content" style={{display: 'block'}}>
-                        <div className="tekst_vasakule">
-                          <p>Kaasaegse disaini ja olemusega ning keskmise suurusega jänkuvibraator. Toote kaasaegsust näitab ka asjaolu, et toode vahetab rütme ka hääletooni peale – selleks tuleb valjuhääldi nuppu alla vajutada. Pritsmekindel korpus on sametiselt siidine ja libe ning kurviline kuju tagab kõigi erogeensete punktide igakülgse stimulatsiooni. Kliitoristimulaator on painduvam ja elastsem varrest ning Vincenti jänkukõrvad lisavad täiendavat erootilist võbelust. Vibraatoril on 12 erinevat ja vaikset rütmi, mida juhitakse 3 erineva nupu abil. Töötab taaslaetavate akudega –&nbsp;kusjuures aktiivne&nbsp;kasutusaeg on 2x pikem laadimisajast. Pakitud nägusasse kinkekarpi, kus kaasas ka nägus hoikukotike. Kogupikkust tootel 21 cm, sisestatavat osa 10-11 cm ja läbimõõtu 2,2-3,2 cm. Kliitoristimulaatoril pikkust 3,5 ja läbimõõtu 2,2 cm.</p>
-                          <blockquote className="fl-l"><p>Arvamus: Sobib nii igapäevaseks kasutamiseks, kui ka eksperimenteerimiseks ja erinevateks voodimängudeks.</p>
-                          </blockquote>
-                        </div>
-                        <div className="skaala_paremale">
-                          <p>
-                          </p><div className="progress-bar">
-                            <div className="progress-bar__title">Jämedus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">50%</div>
-                              <div className="progress-bar__value" style={{width: '50%'}} />
-                            </div>
-                          </div>
-                          <br />
-                          <div className="progress-bar">
-                            <div className="progress-bar__title">Pikkus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">50%</div>
-                              <div className="progress-bar__value" style={{width: '50%'}} />
-                            </div>
-                          </div>
-                          <br />
-                          <div className="progress-bar">
-                            <div className="progress-bar__title">Jäikus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">70%</div>
-                              <div className="progress-bar__value" style={{width: '70%'}} />
-                            </div>
-                          </div>
-                          <br />
-                          <div className="progress-bar">
-                            <div className="progress-bar__title">Kõvadus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">70%</div>
-                              <div className="progress-bar__value" style={{width: '70%'}} />
-                            </div>
-                          </div>
-                          <br />
-                          <div className="progress-bar">
-                            <div className="progress-bar__title">Reljeefsus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">35%</div>
-                              <div className="progress-bar__value" style={{width: '35%'}} />
-                            </div>
-                          </div>
-                          <br />
-                          <div className="progress-bar">
-                            <div className="progress-bar__title">Rütmilisus</div>
-                            <div className="progress-bar__graph">
-                              <div className="progress-bar__percentage">70%</div>
-                              <div className="progress-bar__value" style={{width: '70%'}} />
-                            </div>
-                          </div>
-                          <p />
-                        </div>
-                      </div>
+                      <h2 className="tab-title opened">
+                        Description
+                      </h2>
+                      <div id="content_tab_1" className="tab-content" style={{display: 'block'}} dangerouslySetInnerHTML={{__html: this.props.product.description}}></div>
                     </div>
+
                     <div className="product__details-block">
                       <h2 className="tab-title ">
-                        Additional Information              </h2>
+                        Additional Information
+                      </h2>
                       <div id="content_tab_2" className="tab-content">
                         <div className="product__attributes">
                           <table className="shop_attributes">
-                            <tbody><tr className>
-                                <th>Materjal</th>
-                                <td><p>Silikoon</p>
-                                </td>
-                              </tr>
-                              <tr className="alt">
-                                <th>Color</th>
-                                <td><p>Pink</p>
-                                </td>
-                              </tr>
-                              <tr className>
-                                <th>Patareid</th>
-                                <td><p>Sisseehitatud aku</p>
-                                </td>
-                              </tr>
-                              <tr className="alt">
-                                <th>Veekindlus</th>
-                                <td><p>Pritsmekindel</p>
-                                </td>
-                              </tr>
-                              <tr className>
-                                <th>Ohutus</th>
-                                <td><p>Phthalate free</p>
-                                </td>
-                              </tr>
-                            </tbody></table>
+                            <tbody>
+                              {productAttributes}
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     </div>
-                    <div className="product__details-block product-meta posted_in"><h2 className="posted-in__header">Product categories</h2> <a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/" rel="tag">Vibrators</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/pretty-love/" rel="tag">Pretty Love</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/kliitoristimulaatorid/" rel="tag">Clitoral Stimulator</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/harulised/" rel="tag">Branched</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/varvilised/" rel="tag">Colored</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/rutmilised/" rel="tag">Multi-function</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/keskmised/" rel="tag">Medium</a><a href="https://www.aadliaare.ee/en/tootekategooria/vibraatorid/eksklusiivsed/" rel="tag">Exclusive</a></div>
-                    <div className="product__details-block product-meta tagged_as"><h2 className="tagged-as__header">Company</h2> <a href="https://www.aadliaare.ee/en/tootesilt/liaoyang-baile/" rel="tag">Liaoyang Baile</a><a href="https://www.aadliaare.ee/en/tootesilt/pretty-love/" rel="tag">Pretty Love</a></div>
+                    <div className="product__details-block product-meta posted_in">
+                      <h2 className="posted-in__header">Product categories</h2>
+                      {productCategories}
+                    </div>
+                    <div className="product__details-block product-meta tagged_as">
+                      <h2 className="tagged-as__header">Company</h2>
+                      {productTags}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="row row--no-gutters bg__common m-10-0-0-0 related swiper-container-horizontal">
-                <h2 className="col-xs-12 px1 related__header">Related Products</h2>
-                <ul className="col-xs-12 products-listing related__wrapper swiper-wrapper">
-                  <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item swiper-slide-active" style={{width: 233}}>
-                    <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}><img width={220} height={300} className="aspect-ratio__img lazyload lazyloaded" alt="Fairy Handy Wand" itemProp="image" sizes="(max-width: 220px) 100vw, 220px" data-src="https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-220x300.jpg" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand.jpg 1135w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand.jpg 1135w" src="https://www.aadliaare.ee/wp-content/uploads/2015/12/fairy_handy_wand-220x300.jpg" /></figure>
-                    <a itemProp="url" className="products-listing__link" href="https://www.aadliaare.ee/en/pood/fairy-handy-wand/">
-                      <h3 itemProp="name" className="products-listing__name">
-                        Fairy Handy Wand			</h3>
-                    </a>
-                    <div className="products-listing__price-block">
-                      <span className="price__block">60€</span></div>
-                  </li>
-                  <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item swiper-slide-next" style={{width: 233}}>
-                    <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}><img width={220} height={300} className="aspect-ratio__img lazyload lazyloaded" alt="Seven Creations Slim Hummer G-Spot Vibe 7 funct." itemProp="image" sizes="(max-width: 220px) 100vw, 220px" data-src="https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--220x300.jpg" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495-.jpg 1135w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495-.jpg 1135w" src="https://www.aadliaare.ee/wp-content/uploads/2014/10/SEVCR00495--220x300.jpg" /></figure>
-                    <a itemProp="url" className="products-listing__link" href="https://www.aadliaare.ee/en/pood/seven-creations-slim-humming-bird-g-spot-vibe-7-funct/">
-                      <h3 itemProp="name" className="products-listing__name">
-                        Seven Creations Slim Hummer G-Spot Vibe 7 funct.			</h3>
-                    </a>
-                    <div className="products-listing__price-block">
-                      <span className="price__block">40€</span></div>
-                  </li>
-                  <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item" style={{width: 233}}>
-                    <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}><img width={220} height={300} className="aspect-ratio__img lazyload lazyloaded" alt="Vinyl P-Shape Vibrator" itemProp="image" sizes="(max-width: 220px) 100vw, 220px" data-src="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-220x300.jpg" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-768x1049.jpg 768w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black.jpg 1135w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-768x1049.jpg 768w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black.jpg 1135w" src="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_black-220x300.jpg" /></figure>
-                    <a itemProp="url" className="products-listing__link" href="https://www.aadliaare.ee/en/pood/vinyl-p-shape-vibrator/">
-                      <h3 itemProp="name" className="products-listing__name">
-                        Vinyl P-Shape Vibrator			</h3>
-                    </a>
-                    <div className="products-listing__price-block">
-                      <span className="price__block">11,50€</span></div>
-                  </li>
-                  <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item" style={{width: 233}}>
-                    <figure className="aspect-ratio" style={{paddingBottom: '136.36363636364%'}}><img width={220} height={300} className="aspect-ratio__img lazyload lazyloaded" alt="Vinyl P-Shape Vibrator" itemProp="image" sizes="(max-width: 220px) 100vw, 220px" data-src="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-220x300.jpg" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-768x1049.jpg 768w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1.jpg 1135w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-768x1049.jpg 768w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1.jpg 1135w" src="https://www.aadliaare.ee/wp-content/uploads/2017/01/vinyl_pshape_vibrator_white-1-220x300.jpg" /></figure>
-                    <a itemProp="url" className="products-listing__link" href="https://www.aadliaare.ee/en/pood/vinyl-p-shape-vibrator-3/">
-                      <h3 itemProp="name" className="products-listing__name">
-                        Vinyl P-Shape Vibrator			</h3>
-                    </a>
-                    <div className="products-listing__price-block">
-                      <span className="price__block">11,50€</span></div>
-                  </li>
-                </ul>
               </div>
             </div>
         )
