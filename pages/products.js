@@ -7,6 +7,47 @@ import Page from '../layouts/main'
 import ReactPaginate from 'react-paginate'
 import ReactModal from 'react-modal'
 
+const SITEURL = 'https://spiceflow.net.ee'
+
+const APIURL =  'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&per_page=16'
+
+const APIWC = 'wp-json/wc/v2'
+const APIWP = 'wp-json/wc/v2'
+const APIWPMENUS = 'wp-json/wp-api-menus/v2'
+const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9'
+
+function buildApiUrl(props) {
+    // {paths: [], parameters: []}
+    let url = []
+
+    url.push(SITEURL)
+
+    if (props.paths === undefined || props.paths.length === 0) {
+      return url.join('') + '?' + APISECRET
+    }
+
+    props.paths.map((path) => {
+      url.push('/')
+      url.push(path)
+    })
+
+    console.log(props.parameters);
+
+    if (props.parameters === undefined || props.parameters.length === 0) {
+      return url.join('') + '?' + APISECRET
+    }
+
+    url.push('?')
+
+    props.parameters.map((parameter, i) => {
+      url.push(parameter)
+
+      props.parameters.length === i + 1 ? '' : url.push('&')
+    })
+
+    return url.join('') + '&' + APISECRET
+}
+
 const modalCustomStyles = {
     content: {
           backgroundImage: 'radial-gradient(circle at 50%,rgba(115,14,150,1.0) 40%,rgba(38,5,49,1.0) 100%)'
@@ -283,17 +324,17 @@ class Product extends React.Component {
 export default class MyPage extends React.Component {
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
-    const res = await fetch('https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=183')
+    const res = await fetch(buildApiUrl({paths: [APIWC, 'products'], parameters: ['per_page=16']}))
     const json = await res.json()
     const resHeaders = res.headers.get('Link')
     const totalPages = res.headers.get('X-WP-TotalPages')
 
 
-    const menuUrl = 'https://spiceflow.net.ee/wp-json/wp-api-menus/v2/menus/325?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9';
+    const menuUrl = buildApiUrl({paths: [APIWPMENUS, 'menus', '325']});
     const menuRes = await fetch(menuUrl)
     const menuJson = await menuRes.json()
 
-    const sideMenuUrl = 'https://spiceflow.net.ee/wp-json/wc/v2/products/categories?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=1&parent=0&per_page=100';
+    const sideMenuUrl = buildApiUrl({paths: [APIWC, 'products', 'categories'], parameters: ['parent=0', 'per_page=100']});
     const sideMenuRes = await fetch(sideMenuUrl)
     const sideMenuJson = await sideMenuRes.json()
 
@@ -362,7 +403,7 @@ export default class MyPage extends React.Component {
   handleProductOpen = (props) => {
     let id = props
 
-    fetch('https://spiceflow.net.ee/wp-json/wc/v2/products/' + id + '?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9')
+    fetch(buildApiUrl({paths: [APIWC, 'products', id], }))
     .then(
       (response) => {
         if (response.status !== 200) {
@@ -391,7 +432,7 @@ export default class MyPage extends React.Component {
     let pageNr = props.page ? props.page : (this.state.page ? this.state.page : 1);
     let category = props.category ? '&category=' + props.category : (this.state.category ? '&category=' + this.state.category : '');
 
-    let url = 'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&page=' + pageNr + category
+    let url = buildApiUrl({paths: [APIWC, 'products'], parameters: [pageNr, category]})
 
     fetch(url)
     .then(
