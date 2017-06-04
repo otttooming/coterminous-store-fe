@@ -430,9 +430,10 @@ export default class MyPage extends React.Component {
     this.setState({loaderIsHidden: false})
 
     let pageNr = props.page ? props.page : (this.state.page ? this.state.page : 1);
-    let category = props.category ? '&category=' + props.category : (this.state.category ? '&category=' + this.state.category : '');
+    let category = props.category ? props.category : (this.state.category ? this.state.category : '');
+    let categoryParameter = category ? 'category=' + category : ''
 
-    let url = buildApiUrl({paths: [APIWC, 'products'], parameters: [pageNr, category]})
+    let url = buildApiUrl({paths: [APIWC, 'products'], parameters: [categoryParameter, 'page=' + pageNr]})
 
     fetch(url)
     .then(
