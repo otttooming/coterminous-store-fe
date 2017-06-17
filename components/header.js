@@ -3,11 +3,18 @@ import Head from 'next/head'
 import 'isomorphic-fetch'
 
 function MainMenu(props) {
-  const menuItems = props.menuItems.map((item) =>
-    <li key={item.id} className='menu-item'>
-      <a href="">{item.title}</a>
+  let menuItems = () =>
+    <li key='1' className='menu-item'>
+      <a href="">Aaa</a>
     </li>
-  );
+
+  if  (typeof props.menuItems !== 'undefined') {
+    let menuItems = props.menuItems.map((item) =>
+      <li key={item.id} className='menu-item'>
+        <a href="">{item.title}</a>
+      </li>
+    );
+  }
 
   return (
       <ul className='menu'>{menuItems}</ul>
