@@ -116,7 +116,19 @@ class ProductsListing extends React.Component {
                 src={product.images[0].src}
                 />
             </figure>
-            <a itemProp="url" className="products-listing__link" onClick={() => this.handleProductClick(product.id)}>
+            {/*<a itemProp="url" className="products-listing__link" onClick={() => this.handleProductClick(product.id)}>
+              <h3 itemProp="name" className="products-listing__name">
+                {product.name}
+              </h3>
+            </a>*/}
+            {/*<Link prefetch href={"/product/" + product.slug}>
+            <a itemProp="url" className="products-listing__link">
+              <h3 itemProp="name" className="products-listing__name">
+                {product.name}
+              </h3>
+            </a>
+            </Link>*/}
+            <a href={"/product/" + product.slug} itemProp="url" className="products-listing__link">
               <h3 itemProp="name" className="products-listing__name">
                 {product.name}
               </h3>
