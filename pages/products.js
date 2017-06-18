@@ -1,3 +1,4 @@
+import * as api from '../components/api'
 
 import React from 'react'
 import Link from 'next/link'
@@ -8,47 +9,6 @@ import ReactPaginate from 'react-paginate'
 import ReactModal from 'react-modal'
 
 import Product from '../components/product'
-
-const SITEURL = 'https://spiceflow.net.ee'
-
-const APIURL =  'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&per_page=16'
-
-const APIWC = 'wp-json/wc/v2'
-const APIWP = 'wp-json/wc/v2'
-const APIWPMENUS = 'wp-json/wp-api-menus/v2'
-const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9'
-
-function buildApiUrl(props) {
-    // {paths: [], parameters: []}
-    let url = []
-
-    url.push(SITEURL)
-
-    if (props.paths === undefined || props.paths.length === 0) {
-      return url.join('') + '?' + APISECRET
-    }
-
-    props.paths.map((path) => {
-      url.push('/')
-      url.push(path)
-    })
-
-    console.log(props.parameters);
-
-    if (props.parameters === undefined || props.parameters.length === 0) {
-      return url.join('') + '?' + APISECRET
-    }
-
-    url.push('?')
-
-    props.parameters.map((parameter, i) => {
-      url.push(parameter)
-
-      props.parameters.length === i + 1 ? '' : url.push('&')
-    })
-
-    return url.join('') + '&' + APISECRET
-}
 
 const modalCustomStyles = {
     content: {
@@ -118,11 +78,11 @@ class ProductsListing extends React.Component {
                 src={product.images[0].src}
                 />
             </figure>
-            <a itemProp="url" className="products-listing__link" onClick={() => this.handleProductClick(product.id)}>
+            {/*<a itemProp="url" className="products-listing__link" onClick={() => this.handleProductClick(product.id)}>
               <h3 itemProp="name" className="products-listing__name">
                 {product.name}
               </h3>
-            </a>
+            </a>*/}
             {/*<Link prefetch href={"/product/" + product.slug}>
             <a itemProp="url" className="products-listing__link">
               <h3 itemProp="name" className="products-listing__name">
@@ -130,11 +90,11 @@ class ProductsListing extends React.Component {
               </h3>
             </a>
             </Link>*/}
-            {/*<a href={"/product/" + product.slug} itemProp="url" className="products-listing__link">
+            <a href={"/product/" + product.slug} itemProp="url" className="products-listing__link">
               <h3 itemProp="name" className="products-listing__name">
                 {product.name}
               </h3>
-            </a>*/}
+            </a>
             <div className="products-listing__price-block">
               <span className="price__block">22,50€</span>
             </div>
@@ -183,17 +143,17 @@ class Categories extends React.Component {
 export default class MyPage extends React.Component {
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
-    const res = await fetch(buildApiUrl({paths: [APIWC, 'products'], parameters: ['per_page=16']}))
+    const res = await fetch(api.buildUrl({paths: [api.WC, 'products'], parameters: ['per_page=16']}))
     const json = await res.json()
     const resHeaders = res.headers.get('Link')
     const totalPages = res.headers.get('X-WP-TotalPages')
 
 
-    const menuUrl = buildApiUrl({paths: [APIWPMENUS, 'menus', '325']});
+    const menuUrl = api.buildUrl({paths: [api.WPMENUS, 'menus', '325']});
     const menuRes = await fetch(menuUrl)
     const menuJson = await menuRes.json()
 
-    const sideMenuUrl = buildApiUrl({paths: [APIWC, 'products', 'categories'], parameters: ['parent=0', 'per_page=100']});
+    const sideMenuUrl = api.buildUrl({paths: [api.WC, 'products', 'categories'], parameters: ['parent=0', 'per_page=100']});
     const sideMenuRes = await fetch(sideMenuUrl)
     const sideMenuJson = await sideMenuRes.json()
 
@@ -262,7 +222,7 @@ export default class MyPage extends React.Component {
   handleProductOpen = (props) => {
     let id = props
 
-    fetch(buildApiUrl({paths: [APIWC, 'products', id], }))
+    fetch(api.buildUrl({paths: [api.WC, 'products', id], }))
     .then(
       (response) => {
         if (response.status !== 200) {
@@ -292,7 +252,7 @@ export default class MyPage extends React.Component {
     let category = props.category ? props.category : (this.state.category ? this.state.category : '');
     let categoryParameter = category ? 'category=' + category : ''
 
-    let url = buildApiUrl({paths: [APIWC, 'products'], parameters: [categoryParameter, 'page=' + pageNr]})
+    let url = api.buildUrl({paths: [api.WC, 'products'], parameters: [categoryParameter, 'page=' + pageNr]})
 
     fetch(url)
     .then(
