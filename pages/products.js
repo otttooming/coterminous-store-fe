@@ -251,8 +251,9 @@ export default class MyPage extends React.Component {
     let pageNr = props.page ? props.page : (this.state.page ? this.state.page : 1);
     let category = props.category ? props.category : (this.state.category ? this.state.category : '');
     let categoryParameter = category ? 'category=' + category : ''
+    let perPage = props.perPage ? props.perPage : 16
 
-    let url = api.buildUrl({paths: [api.WC, 'products'], parameters: [categoryParameter, 'page=' + pageNr]})
+    let url = api.buildUrl({paths: [api.WC, 'products'], parameters: [categoryParameter, 'page=' + pageNr, 'per_page=' + perPage]})
 
     fetch(url)
     .then(
