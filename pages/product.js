@@ -8,18 +8,19 @@ import Page from '../layouts/main'
 import Product from '../components/product'
 
 export default class extends React.Component {
-  static async getInitialProps ({ query: { id } }) {
+  static async getInitialProps({ query, res }) {
+    const id = query.slug
 
-    const res = await fetch( api.buildUrl({paths: [api.WC, 'products'], parameters: ['slug=' + id]}) )
-    const json = await res.json()
+    const resp = await fetch(api.buildUrl({ paths: [api.WC, 'products'], parameters: ['slug=' + id] }))
+    const json = await resp.json()
 
     return {
-        id: id,
-        product: json[0]
-     }
+      id: query.slug,
+      product: json[0]
+    }
   }
 
-  render () {
+  render() {
     return (
       <Page title={this.props.product.name}>
 
