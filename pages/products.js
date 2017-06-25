@@ -143,7 +143,11 @@ class Categories extends React.Component {
 export default class MyPage extends React.Component {
   static async getInitialProps({ query, res }) {
     // eslint-disable-next-line no-undef
-    const resp = await fetch(api.buildUrl({ paths: [api.WC, 'products'], parameters: ['per_page=16'] }))
+
+    const pageNr = query.slug ? query.slug : 1
+    const url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['page=' + pageNr, 'per_page=16'] })
+
+    const resp = await fetch(url)
     const json = await resp.json()
     const resHeaders = resp.headers.get('Link')
     const totalPages = resp.headers.get('X-WP-TotalPages')
@@ -167,7 +171,7 @@ export default class MyPage extends React.Component {
       isToggleOn: true,
       header: resHeaders,
       totalPages: parseInt(totalPages),
-      page: 1
+      page: pageNr
     }
   }
 
@@ -178,7 +182,7 @@ export default class MyPage extends React.Component {
       initialProps: props,
       date: new Date(),
       products: props.products,
-      page: 1,
+      page: props.page,
       loaderIsHidden: true,
       category: '',
       totalPages: parseInt(props.totalPages),
@@ -338,7 +342,8 @@ export default class MyPage extends React.Component {
             pageClassName={"pagination__btn button medium"}
             nextClassName={"pagination__btn button medium"}
             previousClassName={"pagination__btn button medium"}
-            activeClassName={"active"} />
+            activeClassName={"active"}
+          />
         </div>
       </Page>
     )

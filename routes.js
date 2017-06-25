@@ -3,5 +3,6 @@ const routes = module.exports = nextRoutes()
 
 routes.add('blog', '/blog/:slug')
 routes.add('product', '/product/:slug')
+routes.add('products', '/products/')
 routes.add('products', '/products/:slug')
 routes.add('about', '/about-us/:foo(bar|baz)')
