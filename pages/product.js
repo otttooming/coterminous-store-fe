@@ -18,11 +18,7 @@ function fetchVariationData(idQuery) {
       })
       .then(variation => {
 
-        resolve({
-          id: id,
-          variations: variation,
-          variationsUrl: api.buildUrl({ paths: [api.WC, 'products', id, 'variations'] })
-        })
+        resolve(variation)
       })
   })
 
@@ -71,7 +67,7 @@ export default class extends React.Component {
     return (
       <Page title={this.props.product.name}>
 
-        <Product product={this.props.product} />
+        <Product product={this.props.product} variations={this.props.variations} />
 
       </Page>
     )
