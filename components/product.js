@@ -1,4 +1,5 @@
 import React from 'react'
+import Media from '../components/media'
 
 class VariationItems extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class VariationItems extends React.Component {
       <div className="product-variations__item">
         <div className="description" />
         <div className="product-variations__attribute"><span>{item.attributes[0].name}: {item.attributes[0].option}</span></div>
-        <div className="product-variations__price "><span className="price__block">{item.price}</span></div>
+        <div className="product-variations__price ">
+          <span className="price__block">{item.price}€</span>
+        </div>
         <div className="form">
           <form className="product-variations__cart addto" action="https://www.aadliaare.ee/en/pood/pretty-love-uriah-vincent/" method="post" encType="multipart/form-data">
             <div className="product-qty__wrap qty-block" id="product-quantity">
@@ -64,22 +67,7 @@ export default class Product extends React.Component {
   render() {
     let thumbs = this.props.product.images
     let productThumbs = thumbs.map((image) =>
-      <a className="product-thumb__link lightbox" itemProp="associatedMedia" itemScope itemType="http://schema.org/ImageObject" href="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg" data-size="1135x1550" data-pswp-uid={2}>
-        <figure className="aspect-ratio" style={{ paddingBottom: '136.36363636364%' }}>
-          <img
-            width={220}
-            height={300}
-            className="product__image aspect-ratio__img lazyloaded "
-            alt="Pretty Love Uriah / Vincent"
-            itemProp="thumbnail"
-            sizes="(max-width: 220px) 100vw, 220px"
-            data-src="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg"
-            data-srcset="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg 1135w"
-            //srcSet="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg 1135w"
-            src={image.src}
-          />
-        </figure>
-      </a>
+      <Media id={image.id} />
     )
 
     let attributes = this.props.product.attributes
@@ -137,14 +125,14 @@ export default class Product extends React.Component {
               <div className="product__details-block">
                 <h2 className="tab-title opened">
                   Description
-                      </h2>
+                </h2>
                 <div id="content_tab_1" className="tab-content" style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: this.props.product.description }}></div>
               </div>
 
               <div className="product__details-block">
-                <h2 className="tab-title ">
+                <h2 className="tab-title">
                   Additional Information
-                      </h2>
+                </h2>
                 <div id="content_tab_2" className="tab-content">
                   <div className="product__attributes">
                     <table className="shop_attributes">
@@ -155,8 +143,11 @@ export default class Product extends React.Component {
                   </div>
                 </div>
               </div>
+
               <div className="product__details-block product-meta posted_in">
-                <h2 className="posted-in__header">Product categories</h2>
+                <h2 className="posted-in__header">
+                  Product categories
+                </h2>
                 {productCategories}
               </div>
               <div className="product__details-block product-meta tagged_as">

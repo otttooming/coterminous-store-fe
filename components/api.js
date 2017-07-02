@@ -3,7 +3,7 @@ export const SITEURL = 'https://spiceflow.net.ee'
 export const APIURL =  'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&per_page=16'
 
 export const WC = 'wp-json/wc/v2'
-export const WP = 'wp-json/wc/v2'
+export const WP = 'wp-json/wp/v2'
 export const WPMENUS = 'wp-json/wp-api-menus/v2'
 export const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9'
 
