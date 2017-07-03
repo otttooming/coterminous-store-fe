@@ -67,7 +67,7 @@ export default class Product extends React.Component {
   render() {
     let thumbs = this.props.product.images
     let productThumbs = thumbs.map((image) =>
-      <Media id={image.id} />
+      <Media id={image.id} className='product-thumb__link lightbox' title={this.props.product.title} />
     )
 
     let attributes = this.props.product.attributes
@@ -93,14 +93,8 @@ export default class Product extends React.Component {
       <div className="container">
         <div itemScope itemType="http://schema.org/Product" className="row product">
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            <a className="main-image product__main-image lightbox" itemProp="image" href="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent.jpg" rel="thumbnails" title="pretty_love_uriah_vincent" data-size="1135x1550" data-pswp-uid={1}>
-              <figure className="aspect-ratio" style={{ paddingBottom: '136.58854166667%' }}><img width={768} height={1049} className="aspect-ratio__img lazyloaded " alt="Pretty Love Uriah / Vincent" itemProp="image" sizes="(max-width: 768px) 100vw, 768px"
-                data-src="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent.jpg"
-                data-srcset="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent.jpg 1135w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-73x100.jpg 73w"
-                // srcSet="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent.jpg 1135w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent-73x100.jpg 73w"
-                src={this.props.product.images[0].src} />
-              </figure>
-            </a>
+            <Media id={this.props.product.images[0].id} className='main-image product__main-image' />
+
             <div className="product-thumb__gallery" itemScope itemType="http://schema.org/ImageGallery">
               {productThumbs}
             </div>
