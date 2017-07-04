@@ -28,30 +28,30 @@ function calcAspectRatio(width, height) {
 }
 
 export default class Media extends React.Component {
- constructor(props) {
-   super(props)
+  constructor(props) {
+    super(props)
 
-   this.state = {
-     loaded: false,
-     media: {},
-     aspectRatio: null,
-     apiUrl: api.buildUrl({ paths: [api.WP, 'media', props.id] })
-   }
- }
+    this.state = {
+      loaded: false,
+      media: {},
+      aspectRatio: null,
+      apiUrl: api.buildUrl({ paths: [api.WP, 'media', props.id] })
+    }
+  }
 
- componentDidMount() {
-   fetchMedia(this.props.id).then(res => {
-     this.setState({
-       loaded: true,
-       media: res,
-       aspectRatio: calcAspectRatio(res.media_details.width, res.media_details.height)
+  componentDidMount() {
+    fetchMedia(this.props.id).then(res => {
+      this.setState({
+        loaded: true,
+        media: res,
+        aspectRatio: calcAspectRatio(res.media_details.width, res.media_details.height)
       })
-   })
- }
+    })
+  }
 
- render() {
+  render() {
     if (this.state.loaded !== true) {
-        return null;
+      return null;
     }
 
     return (
@@ -67,7 +67,7 @@ export default class Media extends React.Component {
             data-src="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg"
             data-srcset="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg 1135w"
             //srcSet="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg 1135w"
-            src={this.state.media.media_details.sizes.large.source_url}
+            src={this.state.media.media_details.sizes.large !== undefined ? this.state.media.media_details.sizes.large.source_url : this.state.media.media_details.sizes.shop_single.source_url}
           />
         </figure>
       </a>
