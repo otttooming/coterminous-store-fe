@@ -252,7 +252,7 @@ export default class MyPage extends React.Component {
   }
 
   updateProducts = (props) => {
-    this.setState({ loaderIsHidden: false })
+    this.setState({ loaderIsHidden: false, products: [] })
 
     let pageNr = props.page ? props.page : (this.state.page ? this.state.page : 1);
     let category = props.category ? props.category : (this.state.category ? this.state.category : '');
