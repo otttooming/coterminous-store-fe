@@ -145,7 +145,7 @@ export default class MyPage extends React.Component {
     // eslint-disable-next-line no-undef
 
     const pageNr = query.slug ? query.slug : 1
-    const url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['in_stock=true', 'page=' + pageNr, 'per_page=16'] })
+    const url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['in_stock=true', 'status=publish', 'page=' + pageNr, 'per_page=16'] })
 
     const resp = await fetch(url)
     const json = await resp.json()
@@ -161,7 +161,7 @@ export default class MyPage extends React.Component {
     const sideMenuJson = await sideMenuRes.json()
 
     return {
-      test: 'test',
+      test: url,
       query: query,
       responseData: resp,
       stars: json[7].name,
@@ -259,7 +259,7 @@ export default class MyPage extends React.Component {
     let categoryParameter = category ? 'category=' + category : ''
     let perPage = props.perPage ? props.perPage : 16
 
-    let url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['in_stock=true', categoryParameter, 'page=' + pageNr, 'per_page=' + perPage] })
+    let url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['in_stock=true', 'status=publish', categoryParameter, 'page=' + pageNr, 'per_page=' + perPage] })
 
     fetch(url)
       .then(
