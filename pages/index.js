@@ -5,14 +5,14 @@ import 'isomorphic-fetch'
 import Page from '../layouts/main'
 
 export default class MyPage extends React.Component {
-  static async getInitialProps () {
+  static async getInitialProps() {
     // eslint-disable-next-line no-undef
     const res = await fetch('https://api.github.com/repos/zeit/next.js')
     const json = await res.json()
     return { stars: json.stargazers_count }
   }
 
-  render () {
+  render() {
     return (
       <div>
         <p>Next.js has {this.props.stars} ⭐️</p>
