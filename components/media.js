@@ -32,21 +32,23 @@ export default class Media extends React.Component {
     super(props)
 
     this.state = {
-      loaded: false,
-      media: {},
-      aspectRatio: null,
+      loaded: !!this.props.image ? true : false,
+      media: !!this.props.image ? this.props.image : {},
+      aspectRatio: !!this.props.image ? calcAspectRatio(this.props.image.media_details.width, this.props.image.media_details.height) : null,
       apiUrl: api.buildUrl({ paths: [api.WP, 'media', props.id] })
     }
   }
 
   componentDidMount() {
-    fetchMedia(this.props.id).then(res => {
-      this.setState({
-        loaded: true,
-        media: res,
-        aspectRatio: calcAspectRatio(res.media_details.width, res.media_details.height)
+    if (!!this.props.image) {
+      fetchMedia(this.props.id).then(res => {
+        this.setState({
+          loaded: true,
+          media: res,
+          aspectRatio: calcAspectRatio(res.media_details.width, res.media_details.height)
+        })
       })
-    })
+    }
   }
 
   render() {

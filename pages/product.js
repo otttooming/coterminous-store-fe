@@ -25,12 +25,36 @@ function fetchVariationData(idQuery) {
   return resp
 }
 
+function fetchAllmedia(idArr) {
+
+  return Promise.all(idArr.map(id => fetchMedia(id))).then(images => images)
+}
+
+function fetchMedia(idQuery) {
+
+  const id = idQuery
+
+  const resp = new Promise(resolve => {
+    fetch(api.buildUrl({ paths: [api.WP, 'media', id] }))
+      .then(req => {
+        return req.json()
+      })
+      .then(media => {
+
+        resolve(media)
+      })
+  })
+
+  return resp
+}
+
 function fetchData(query) {
 
   const id = query.slug
 
   let variationsJson = []
-  let product = []
+  let product = {}
+  let images = []
 
   const resp = new Promise(resolve => {
 
@@ -40,17 +64,23 @@ function fetchData(query) {
         return req.json()
       })
       .then(item => {
-        product.push(item[0])
+        product = item[0]
 
-        return fetchVariationData(item[0].id)
+        return fetchAllmedia(product.images.map(item => item.id))
+      })
+      .then(imageResponse => {
+        images = imageResponse
+
+        return fetchVariationData(product.id)
       })
       .then(variations => {
 
         resolve({
           id: query.slug,
-          product: product[0],
+          product: product,
+          images: images,
           variations: variations,
-          varUrl: api.buildUrl({ paths: [api.WC, 'products', product[0].id, 'variations'] })
+          varUrl: api.buildUrl({ paths: [api.WC, 'products', product.id, 'variations'] })
         })
       })
   })
@@ -67,7 +97,7 @@ export default class extends React.Component {
     return (
       <Page title={this.props.product.name}>
 
-        <Product product={this.props.product} variations={this.props.variations} />
+        <Product product={this.props.product} images={this.props.images} variations={this.props.variations} />
 
       </Page>
     )

@@ -28,9 +28,9 @@ export default class Product extends React.Component {
   }
 
   render() {
-    let thumbs = this.props.product.images
+    let thumbs = this.props.images
     let productThumbs = thumbs.map((image) =>
-      <Media id={image.id} className='product-thumb__link lightbox' title={this.props.product.title} />
+      <Media id={image.id} image={image} className='product-thumb__link lightbox' title={this.props.product.title} />
     )
 
     let attributes = this.props.product.attributes
@@ -56,7 +56,7 @@ export default class Product extends React.Component {
       <div className="container">
         <div itemScope itemType="http://schema.org/Product" className="row product">
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            <Media id={this.props.product.images[0].id} className='main-image product__main-image' />
+            <Media id={this.props.product.images[0].id} image={this.props.images[0]} className='main-image product__main-image' />
 
             <div className="product-thumb__gallery" itemScope itemType="http://schema.org/ImageGallery">
               {productThumbs}
