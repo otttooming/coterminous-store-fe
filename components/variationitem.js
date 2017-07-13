@@ -23,7 +23,9 @@ class VariationItems extends React.Component {
     let items = this.props.variations.map((item) =>
       <div className="product-variations__item">
         <div className="description" />
-        <div className="product-variations__attribute"><span>{item.attributes[0].name}: {item.attributes[0].option}</span></div>
+        {!!item.attributes[0].name &&
+          <div className="product-variations__attribute"><span>{item.attributes[0].name}: {item.attributes[0].option}</span></div>
+        }
         <div className="product-variations__price ">
           <span className="price__block">{item.price}€</span>
         </div>

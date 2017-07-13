@@ -2,6 +2,19 @@ import React from 'react'
 import Media from '../components/media'
 import VariationItems from './variationitem'
 
+function buildSingleProductVariation(props) {
+  const variation = [{
+    price: props.price,
+    attributes: [{
+      name: '',
+      option: ''
+    }],
+    name: ''
+  }]
+
+  return variation
+}
+
 class ProductVariations extends React.Component {
   constructor(props) {
     super(props)
@@ -66,11 +79,11 @@ export default class Product extends React.Component {
             <div className="product__mainblock product_description_mainblock productcol summary">
               <h1 itemProp="name" className="product__title">{this.props.product.name}</h1>
               <div className="main-info product___price-wrap" itemProp="offers" itemScope itemType="http://schema.org/Offer">
-                {this.props.product.price &&
+                {/* {this.props.product.price &&
                   <div itemProp="price" className="product__price-block product__price-block-big">
                     <span className="price__block">{this.props.product.price}</span>
                   </div>
-                }
+                } */}
 
                 <meta itemProp="price" content={60} />
                 <meta itemProp="priceCurrency" content="EUR" />
@@ -82,7 +95,7 @@ export default class Product extends React.Component {
                   </div>
                 }
 
-                <ProductVariations product={this.props.product} variations={this.props.variations} />
+                <ProductVariations product={this.props.product} variations={this.props.variations.length > 0 ? this.props.variations : buildSingleProductVariation(this.props.product)} />
               </div>
             </div>
             <div className="product__details-wrap mt1">
