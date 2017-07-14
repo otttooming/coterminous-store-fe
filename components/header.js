@@ -37,7 +37,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Head>
-          <title>{this.props.title}This page has a title 🤔</title>
+          <title>{!!this.props.title ? this.props.title : ''}This page has a title 🤔</title>
           <link rel='stylesheet' id='desirees-style-css' href='https://www.aadliaare.ee/wp-content/themes/desirees/dist/styles/style.min.css?ver=3' type='text/css' media='all' />
           <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&subset=cyrillic" rel="stylesheet" />
 

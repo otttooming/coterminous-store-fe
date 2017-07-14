@@ -3,6 +3,7 @@ import Media from '../components/media'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import withRedux from 'next-redux-wrapper'
 
 import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store'
 
@@ -65,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VariationItems)
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(VariationItems)

@@ -4,7 +4,6 @@ import Sidemenu from '../components/sidemenu'
 import Footer from '../components/footer'
 import { bindActionCreators } from 'redux'
 import { initStore, startClock, addCount, serverRenderClock } from '../store'
-import withRedux from 'next-redux-wrapper'
 
 const main = ({ children, title = { title }, menuItems = { menuItems }, sideMenuItems = { sideMenuItems } }) => (
   <div>
@@ -21,4 +20,4 @@ const main = ({ children, title = { title }, menuItems = { menuItems }, sideMenu
   </div>
 )
 
-export default withRedux(initStore, null, null)(main)
+export default main
