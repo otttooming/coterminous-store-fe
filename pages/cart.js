@@ -17,8 +17,8 @@ class CartPage extends React.Component {
   }
 
 
-  removeFromCart = () => {
-    this.props.removeFromCart('2')
+  removeFromCart = (item) => {
+    this.props.removeFromCart(item)
   }
 
   render() {
@@ -46,7 +46,7 @@ class CartPage extends React.Component {
           <span className="price__block">25€</span>					</td>
         {/* Remove from cart link */}
         <td className="product-remove cart_del_column">
-          <a href="https://www.aadliaare.ee/en/ostukorv/?remove_item=a23ace9d76faf5405d7cbf121471ecb6&_wpnonce=8a921890b7" className="delete-btn" title="Remove this item"><svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 149.337 149.337"><path fill="currentColor" d="M149.337 143.96L80.044 74.668l69.292-69.292L143.96 0 74.668 69.292 5.378 0 0 5.376l69.292 69.292L0 143.96l5.376 5.376 69.292-69.292 69.293 69.292z" /></svg></a>					</td>
+          <a href="#" className="delete-btn" title="Remove this item" onClick={() => this.removeFromCart(item)}><svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 149.337 149.337"><path fill="currentColor" d="M149.337 143.96L80.044 74.668l69.292-69.292L143.96 0 74.668 69.292 5.378 0 0 5.376l69.292 69.292L0 143.96l5.376 5.376 69.292-69.292 69.293 69.292z" /></svg></a>					</td>
       </tr>
     )
     return (
