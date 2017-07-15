@@ -29,7 +29,7 @@ class ProductVariations extends React.Component {
 
     return (
       <div>
-        <VariationItems variations={this.props.variations} />
+        <VariationItems product={this.props.product} variations={this.props.variations} />
       </div>
     )
   }

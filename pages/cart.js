@@ -26,10 +26,17 @@ class CartPage extends React.Component {
       <tr className="cart_table_item">
         {/* The thumbnail */}
         <td className="cart__thumbnail cart_del_column visible-desktop">
-          <a href="https://www.aadliaare.ee/en/pood/devil-sticks-handcuffs/"><img width={73} height={100} className="attachment-shop_thumbnail size-shop_thumbnail wp-post-image lazyloaded" alt sizes="(max-width: 73px) 100vw, 73px" data-src="https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-73x100.jpg" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1.jpg 1135w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-73x100.jpg 73w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-55x75.jpg 55w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-220x300.jpg 220w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-440x600.jpg 440w, https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1.jpg 1135w" src="https://www.aadliaare.ee/wp-content/uploads/2014/12/cuffs1-73x100.jpg" /></a>					</td>
+          <a href="https://www.aadliaare.ee/en/pood/devil-sticks-handcuffs/">
+            {item !== null && !!item.image &&
+              <img width={73} height={100} className="attachment-shop_thumbnail size-shop_thumbnail wp-post-image lazyloaded" alt sizes="(max-width: 73px) 100vw, 73px"
+                src={item !== null && !!item.image ? item.image.src : ''}
+              />
+            }
+          </a>
+        </td>
         {/* Product Name */}
         <td className="product-name">
-          <a href="https://www.aadliaare.ee/en/pood/devil-sticks-handcuffs/">Devil Sticks Handcuffs</a><dl className="variation">
+          <a href="https://www.aadliaare.ee/en/pood/devil-sticks-handcuffs/">{item !== null && !!item.name ? item.name : ''}</a><dl className="variation">
             <dt className="variation-Color">Color:</dt>
             <dd className="variation-Color"><p>Red</p>
             </dd>
@@ -37,7 +44,7 @@ class CartPage extends React.Component {
         </td>
         {/* Product price */}
         <td className="product-price cart_del_column">
-          <span className="price__block">25€</span>					</td>
+          <span className="price__block">{item !== null && !!item.price ? `${item.price}€` : ''}</span>					</td>
         {/* Quantity inputs */}
         <td className="product-quantity" id="cart-quantity">
           <div className="qty-block quantity"><input name="cart[a23ace9d76faf5405d7cbf121471ecb6][qty]" type="number" data-min data-max={5} defaultValue={1} size={4} title="Qty" className="input-text qty text" maxLength={12} /></div>					</td>
