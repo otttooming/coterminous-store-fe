@@ -27,7 +27,12 @@ class Cart extends React.Component {
   }
 }
 
-const mapStateToProps = ({ cartItems, totalAmount }) => ({ cartItems, totalAmount })
+const mapStateToProps = (state) => (
+  {
+    cartItems: state.storeReducer.cartItems,
+    totalAmount: state.storeReducer.totalAmount
+  }
+)
 
 const mapDispatchToProps = (dispatch) => {
   return {

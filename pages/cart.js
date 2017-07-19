@@ -86,7 +86,7 @@ class CartPage extends React.Component {
                       <input type="hidden" id="_wpnonce" name="_wpnonce" defaultValue="8a921890b7" /><input type="hidden" name="_wp_http_referer" defaultValue="/en/ostukorv/" /></div>
                     <hr />
                     <div className="wc-proceed-to-checkout">
-                      <a href="https://www.aadliaare.ee/en/kassa/" className="checkout-button button alt wc-forward">
+                      <a href="checkout/" className="checkout-button button alt wc-forward">
                         Proceed to Checkout</a>
                     </div>
                   </form>
@@ -100,7 +100,11 @@ class CartPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ cartItems }) => ({ cartItems })
+const mapStateToProps = (state) => (
+  {
+    cartItems: state.storeReducer.cartItems
+  }
+)
 
 const mapDispatchToProps = (dispatch) => {
   return {

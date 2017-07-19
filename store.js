@@ -1,7 +1,9 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import { persistStore, autoRehydrate } from 'redux-persist'
+
+import { reducer as formReducer } from 'redux-form'
 
 const exampleInitialState = {
   lastUpdate: 0,
@@ -19,7 +21,7 @@ export const actionTypes = {
 }
 
 // REDUCERS
-export const reducer = (state = exampleInitialState, action) => {
+const storeReducer = (state = exampleInitialState, action) => {
   switch (action.type) {
     case actionTypes.TICK:
       return Object.assign({}, state, { lastUpdate: action.ts, light: !!action.light })
@@ -34,7 +36,7 @@ export const reducer = (state = exampleInitialState, action) => {
 
         ...state,
         cartItems: [...state.cartItems, action.id],
-        totalAmount: sumValues(state.cartItems)
+        totalAmount: sumValues([...state.cartItems, action.id])
       }
     case actionTypes.REMOVE_FROM_CART:
       console.log('REMOVEFROMCART');
@@ -43,13 +45,18 @@ export const reducer = (state = exampleInitialState, action) => {
 
         ...state,
         cartItems: removeItem(state.cartItems, action.id),
-        totalAmount: sumValues(state.cartItems)
+        totalAmount: sumValues(removeItem(state.cartItems, action.id))
       }
     default: return state
   }
 }
 
-export let store = createStore(reducer, exampleInitialState, composeWithDevTools(applyMiddleware(thunkMiddleware), autoRehydrate()))
+const rootReducer = combineReducers({
+  storeReducer,
+  form: formReducer
+})
+
+export const store = createStore(rootReducer, exampleInitialState, composeWithDevTools(applyMiddleware(thunkMiddleware), autoRehydrate()))
 
 // ACTIONS
 export const serverRenderClock = (isServer) => dispatch => {
@@ -104,7 +111,9 @@ function updateObjectInArray(array, action) {
 }
 
 function sumValues(arr) {
-  const sum = arr.map(entry => entry && typeof entry === "object" && typeof entry.price !== 'undefined' ? parseFloat(entry.price) : 0).reduce((prev, current) => prev + current);
+  const sum = arr.length === 0
+    ? 0
+    : arr.map(entry => entry && typeof entry === "object" && typeof entry.price !== 'undefined' ? parseFloat(entry.price) : 0).reduce((prev, current) => prev + current);
 
   return sum;
 }
