@@ -6,7 +6,9 @@ function PaymentGateways(props) {
     if (!!item.enabled) {
       return (
         <li className="wc_payment_method payment_method_bacs">
-          <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text />
+          {/* <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text /> */}
+          <Field name="payment_method" component="input" type="radio" value={item.id} />
+
           <label htmlFor="payment_method_bacs">
             {!!item.method_title ? (
               item.method_title
