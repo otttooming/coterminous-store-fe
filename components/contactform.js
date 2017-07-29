@@ -1,8 +1,39 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+function PaymentGateways(props) {
+  const listPaymentGateways = props.paymentGateways.map(item => {
+    if (!!item.enabled) {
+      return (
+        <li className="wc_payment_method payment_method_bacs">
+          <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text />
+          <label htmlFor="payment_method_bacs">
+            {!!item.method_title ? (
+              item.method_title
+            ) : (
+              item.id
+            )}
+          </label>
+          {!!item.description &&
+            <div className="payment_box payment_method_bacs">
+              <p>{item.description}</p>
+            </div>
+          }
+        </li>
+      )
+    }
+  }
+  )
+
+  return (
+    <ul className="wc_payment_methods payment_methods methods list-style-none">
+      {listPaymentGateways}
+    </ul>
+  )
+}
+
 let ContactForm = props => {
-  const { handleSubmit } = props
+  const { handleSubmit, paymentGateways, shippingMethods } = props
   return (
 
     <form name="checkout" id="contact-form" onSubmit={handleSubmit}>
@@ -309,21 +340,9 @@ let ContactForm = props => {
             <div className="bg__common p1 mb1">
               <div id="payment" className="woocommerce-checkout-payment">
                 <h2 className="mb1">Pay</h2>
-                <ul className="wc_payment_methods payment_methods methods list-style-none">
-                  <li className="wc_payment_method payment_method_bacs">
-                    <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text />
-                    <label htmlFor="payment_method_bacs">
-                      Pangaülekanne 	</label>
-                    <div className="payment_box payment_method_bacs">
-                      <p>Tellimuse eest tasumiseks saad teha pangaülekande meie kontole. Palun kirjuta tellimuse number makse selgitusse. Sinu tellimust ei saadeta teele enne makse laekumist meie kontole.</p>
-                    </div>
-                  </li>
-                  <li className="wc_payment_method payment_method_swedbank">
-                    <input id="payment_method_swedbank" type="radio" className="input-radio" name="payment_method" defaultValue="swedbank" data-order_button_text />
-                    <label htmlFor="payment_method_swedbank">
-                      Swedbank <img src="https://www.aadliaare.ee/wp-content/plugins/estonian-banklinks-for-woocommerce/assets/img/swedbank.png" alt="Swedbank" />	</label>
-                  </li>
-                </ul>
+
+                <PaymentGateways paymentGateways={paymentGateways} />
+
                 <hr />
                 <div className="form-row place-order">
 

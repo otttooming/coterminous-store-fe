@@ -59,7 +59,13 @@ class CheckoutPage extends React.Component {
         <div className="container container__content">
           <div className="row">
             <div className="col-xs-12 grid_content with-sidebar-top cfx">
-              <ContactForm onSubmit={this.submit} totalAmount={this.props.totalAmount} cartItems={this.props.cartItems} />
+              <ContactForm
+                onSubmit={this.submit}
+                totalAmount={this.props.totalAmount}
+                cartItems={this.props.cartItems}
+                paymentGateways={this.props.paymentGateways}
+                shippingMethods={this.props.shippingMethods}
+              />
             </div>
           </div>
         </div>
