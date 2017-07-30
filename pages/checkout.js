@@ -28,7 +28,7 @@ import * as api from '../components/api'
 class CheckoutPage extends React.Component {
   static async getInitialProps() {
     const paymentGateways = await fetch(api.buildUrl({ paths: [api.WC, 'payment_gateways'] })).then(resp => resp.json()).then(data => { return data })
-    const shippingMethods = await fetch(api.buildUrl({ paths: [api.WC, 'shipping_methods'] })).then(resp => resp.json()).then(data => { return data })
+    const shippingMethods = await fetch(api.buildUrl({ paths: [api.WC, 'shipping', 'zones', '1', 'methods'] })).then(resp => resp.json()).then(data => { return data })
 
     return {
       paymentGateways,

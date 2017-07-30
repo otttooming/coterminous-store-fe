@@ -1,11 +1,30 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-function PaymentGateways(props) {
-  const listPaymentGateways = props.paymentGateways.map(item => {
+function ShippingMethods(props) {
+  const listShippingMethods = props.shippingMethods.map((item, index) => {
     if (!!item.enabled) {
       return (
-        <li className="wc_payment_method payment_method_bacs">
+        <li key={index} className="wc_payment_method">
+          <Field name="shipping_method" component="input" type="radio" value={item.title} className="shipping_method" />
+          <label htmlFor="shipping_method">{item.title}</label>
+        </li>
+      )
+    }
+  })
+
+  return (
+    <ul className="list-style-none">
+      {listShippingMethods}
+    </ul>
+  )
+}
+
+function PaymentGateways(props) {
+  const listPaymentGateways = props.paymentGateways.map((item, index) => {
+    if (!!item.enabled) {
+      return (
+        <li key={index} className="wc_payment_method payment_method_bacs">
           {/* <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text /> */}
           <Field name="payment_method" component="input" type="radio" value={item.id} />
 
@@ -13,8 +32,8 @@ function PaymentGateways(props) {
             {!!item.method_title ? (
               item.method_title
             ) : (
-              item.id
-            )}
+                item.id
+              )}
           </label>
           {!!item.description &&
             <div className="payment_box payment_method_bacs">
@@ -24,8 +43,7 @@ function PaymentGateways(props) {
         </li>
       )
     }
-  }
-  )
+  })
 
   return (
     <ul className="wc_payment_methods payment_methods methods list-style-none">
@@ -148,190 +166,11 @@ let ContactForm = props => {
                   <tr className="shipping">
                     <th>Shipping</th>
                     <td data-title="Shipping">
-                      <ul id="shipping_method">
-                        <li>
-                          <input type="radio" name="shipping_method[0]" data-index={0} id="shipping_method_0_smartpost_estonia" defaultValue="smartpost_estonia" className="shipping_method" defaultChecked="checked" />
-                          <label htmlFor="shipping_method_0_smartpost_estonia">Smartposti Pakiautomaadid: <span className="price__block">1,50€</span></label>					</li>
-                        <li>
-                          <input type="radio" name="shipping_method[0]" data-index={0} id="shipping_method_0_smartpost_courier" defaultValue="smartpost_courier" className="shipping_method" />
-                          <label htmlFor="shipping_method_0_smartpost_courier">SmartKULLER: <span className="price__block">5€</span></label>					</li>
-                        <li>
-                          <input type="radio" name="shipping_method[0]" data-index={0} id="shipping_method_0_omniva_parcel_machines_ee" defaultValue="omniva_parcel_machines_ee" className="shipping_method" />
-                          <label htmlFor="shipping_method_0_omniva_parcel_machines_ee">Omniva Pakiautomaadid: <span className="price__block">1,50€</span></label>					</li>
-                      </ul>
+
+
                     </td>
                   </tr>
-                  <tr className="wc_shipping_smartpost">
-                    <th><label htmlFor="wc_shipping_smartpost_estonia_terminal">Choose terminal</label></th>
-                    <td>
-                      <select name="wc_shipping_smartpost_estonia_terminal" id="wc_shipping_smartpost_estonia_terminal">
-                        <option value selected="selected">- Choose terminal -</option>
-                        <optgroup label="Elva">
-                          <option value={144}>Elva mini-Rimi</option>
-                        </optgroup>
-                        <optgroup label="Haapsalu">
-                          <option value={167}>Haapsalu Rimi</option>
-                        </optgroup>
-                        <optgroup label="Harjumaa">
-                          <option value={179}>Peetri Selver</option>
-                        </optgroup>
-                        <optgroup label="Jõgeva">
-                          <option value={111}>Jõgeva Kaubahall</option>
-                        </optgroup>
-                        <optgroup label="Jõhvi">
-                          <option value={184}>Jõhvi Grossi Toidukaubad</option>
-                          <option value={108}>Jõhvi Tsentraal</option>
-                        </optgroup>
-                        <optgroup label="Jüri">
-                          <option value={183}>Jüri Konsum</option>
-                        </optgroup>
-                        <optgroup label="Keila">
-                          <option value={134}>Keila Selver</option>
-                        </optgroup>
-                        <optgroup label="Kohtla-Järve">
-                          <option value={198}>Ahtme Maxima</option>
-                          <option value={131}>Kohtla-Järve Vironia Keskus </option>
-                        </optgroup>
-                        <optgroup label="Kuressaare">
-                          <option value={157}>Kuressaare Kihelkonna mini-Rimi</option>
-                          <option value={116}>Kuressaare Saare Selver</option>
-                        </optgroup>
-                        <optgroup label="Kärdla">
-                          <option value={115}>Kärdla Selver</option>
-                        </optgroup>
-                        <optgroup label="Laagri">
-                          <option value={133}>Laagri Maksimarket</option>
-                        </optgroup>
-                        <optgroup label="Maardu">
-                          <option value={161}>Maardu Maxima</option>
-                        </optgroup>
-                        <optgroup label="Märjamaa">
-                          <option value={145}>Märjamaa mini-Rimi</option>
-                        </optgroup>
-                        <optgroup label="Narva">
-                          <option value={109}>Narva Astri Keskus</option>
-                          <option value={181}>Narva Prisma</option>
-                        </optgroup>
-                        <optgroup label="Otepää">
-                          <option value={149}>Otepää Maxima</option>
-                        </optgroup>
-                        <optgroup label="Paide">
-                          <option value={182}>Paide Maksimarket</option>
-                          <option value={112}>Paide Selver</option>
-                        </optgroup>
-                        <optgroup label="Pärnu">
-                          <option value={117}>Pärnu Kaubamajakas</option>
-                          <option value={130}>Pärnu Keskus</option>
-                          <option value={189}>Pärnu Mai Selver</option>
-                          <option value={173}>Pärnu Maksimarket</option>
-                          <option value={158}>Pärnu Maxima XXX</option>
-                          <option value={127}>Pärnu Ülejõe Selver</option>
-                        </optgroup>
-                        <optgroup label="Põltsamaa">
-                          <option value={123}>Põltsamaa Selver</option>
-                        </optgroup>
-                        <optgroup label="Põlva">
-                          <option value={128}>Põlva Edu Keskus</option>
-                        </optgroup>
-                        <optgroup label="Rakvere">
-                          <option value={110}>Rakvere Kroonikeskus</option>
-                          <option value={152}>Rakvere Põhjakeskus</option>
-                        </optgroup>
-                        <optgroup label="Rapla">
-                          <option value={113}>Rapla Maxima</option>
-                          <option value={190}>Rapla Selver</option>
-                        </optgroup>
-                        <optgroup label="Saku">
-                          <option value={156}>Saku Selver</option>
-                        </optgroup>
-                        <optgroup label="Saue">
-                          <option value={177}>Saue Maxima</option>
-                        </optgroup>
-                        <optgroup label="Sillamäe">
-                          <option value={140}>Sillamäe SK-Market (Konsum)</option>
-                        </optgroup>
-                        <optgroup label="Tabasalu">
-                          <option value={180}>Tabasalu Rimi</option>
-                        </optgroup>
-                        <optgroup label="Tallinn">
-                          <option value={199}>Kärberi Selver</option>
-                          <option value={178}>Muuga Maxima</option>
-                          <option value={193}>Priisle Maxima XXX</option>
-                          <option value={174}>Raudalu Konsum</option>
-                          <option value={200}>Stockmann</option>
-                          <option value={121}>Tallinna Haabersti Rimi</option>
-                          <option value={126}>Tallinna Järve Keskus</option>
-                          <option value={185}>Tallinna Kadaka Selver</option>
-                          <option value={160}>Tallinna Kaubamaja</option>
-                          <option value={146}>Tallinna Kristiine Keskus</option>
-                          <option value={120}>Tallinna Lasnamäe Centrum (RIMI)</option>
-                          <option value={103}>Tallinna Lasnamäe Prisma</option>
-                          <option value={175}>Tallinna Läänemere Selver</option>
-                          <option value={164}>Tallinna Magistrali Keskus</option>
-                          <option value={102}>Tallinna Merimetsa Selver</option>
-                          <option value={195}>Tallinna Mustamäe Keskus</option>
-                          <option value={138}>Tallinna Mustika Prisma</option>
-                          <option value={124}>Tallinna Nõmme Keskus</option>
-                          <option value={125}>Tallinna Pirita Selver</option>
-                          <option value={153}>Tallinna Rocca Al Mare Keskus</option>
-                          <option value={154}>Tallinna Sikupilli Prisma</option>
-                          <option value={141}>Tallinna Smuuli Maxima</option>
-                          <option value={155}>Tallinna Solaris Keskus</option>
-                          <option value={188}>Tallinna Stroomi Keskus</option>
-                          <option value={137}>Tallinna Tondi Selver</option>
-                          <option value={122}>Tallinna Torupilli Selver</option>
-                          <option value={197}>Tallinna Tööstuse RIMI</option>
-                          <option value={187}>Tallinna Ülemiste keskus</option>
-                          <option value={194}>Vilde tee Maxima XX</option>
-                        </optgroup>
-                        <optgroup label="Tapa">
-                          <option value={147}>Tapa Bussijaam</option>
-                        </optgroup>
-                        <optgroup label="Tartu">
-                          <option value={172}>Tartu Aardla Selver</option>
-                          <option value={171}>Tartu Anne Prisma</option>
-                          <option value={106}>Tartu Anne Selver</option>
-                          <option value={150}>Tartu Eeden</option>
-                          <option value={176}>Tartu Kaubamaja</option>
-                          <option value={166}>Tartu Lembitu Konsum</option>
-                          <option value={107}>Tartu Lõunakeskuse Rimi</option>
-                          <option value={163}>Tartu Raadi Maxima</option>
-                          <option value={136}>Tartu Rebase Rimi</option>
-                          <option value={169}>Tartu Ringtee Selver</option>
-                          <option value={135}>Tartu Tasku moe- ja vabaajakeskus</option>
-                          <option value={196}>Tartu Veeriku Selver</option>
-                        </optgroup>
-                        <optgroup label="Tõrva">
-                          <option value={148}>Tõrva Maxima</option>
-                        </optgroup>
-                        <optgroup label="Türi">
-                          <option value={143}>Türi Säästumarket</option>
-                        </optgroup>
-                        <optgroup label="Uuemõisa">
-                          <option value={114}>Rannarootsi Keskus</option>
-                        </optgroup>
-                        <optgroup label="Valga">
-                          <option value={118}>Valga Selver</option>
-                        </optgroup>
-                        <optgroup label="Viimsi">
-                          <option value={139}>Viimsi Kaubanduskeskus</option>
-                          <option value={192}>Viimsi Selver</option>
-                        </optgroup>
-                        <optgroup label="Viljandi">
-                          <option value={101}>Viljandi Männimäe Selver</option>
-                          <option value={191}>Viljandi Turu Konsum</option>
-                          <option value={162}>Viljandi Uku keskus</option>
-                        </optgroup>
-                        <optgroup label="Vändra">
-                          <option value={142}>Vändra Konsum</option>
-                        </optgroup>
-                        <optgroup label="Võru">
-                          <option value={119}>Võru Kagukeskus</option>
-                          <option value={168}>Võru Rimi</option>
-                        </optgroup>
-                      </select>
-                    </td>
-                  </tr>
+
                   <tr className="order-total">
                     <th>Order Total</th>
                     <td className="right-align"><strong><span className="price__block">{props.totalAmount}€</span></strong> </td>
@@ -339,6 +178,13 @@ let ContactForm = props => {
                 </tfoot>
               </table>
             </div>
+
+            <div className="bg__common p1 mb1">
+              <h2 className="mb1">Shipping</h2>
+
+              <ShippingMethods shippingMethods={shippingMethods} />
+            </div>
+
             <div className="bg__common p1 mb1">
               <div id="payment" className="woocommerce-checkout-payment">
                 <h2 className="mb1">Pay</h2>
