@@ -38,3 +38,100 @@ export function buildUrl(props) {
 
     return url.join('') + '&' + APISECRET
 }
+
+export function createOrder(order, api) {
+  const orderReq = new Promise(resolve => {
+    fetch('https://spiceflow.net.ee/wp-json/wc/v2/orders', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa(api.consumerKey + ':' + api.consumerSecret)}`
+      },
+      body: JSON.stringify(order)
+    })
+      .then(response => {
+
+        return response.json();
+      })
+      .then(order => {
+
+        console.log(order);
+
+        resolve(order);
+      })
+  })
+
+  return orderReq;
+}
+
+// var data = JSON.stringify({
+//   "payment_method": "bacs",
+//   "payment_method_title": "Direct Bank Transfer",
+//   "set_paid": true,
+//   "billing": {
+//     "first_name": "John",
+//     "last_name": "Doe",
+//     "address_1": "969 Market",
+//     "address_2": "",
+//     "city": "San Francisco",
+//     "state": "CA",
+//     "postcode": "94103",
+//     "country": "US",
+//     "email": "john.doe@example.com",
+//     "phone": "(555) 555-5555"
+//   },
+//   "shipping": {
+//     "first_name": "John",
+//     "last_name": "Doe",
+//     "address_1": "969 Market",
+//     "address_2": "",
+//     "city": "San Francisco",
+//     "state": "CA",
+//     "postcode": "94103",
+//     "country": "US"
+//   },
+//   "line_items": [
+//     {
+//       "product_id": 93,
+//       "quantity": 2
+//     },
+//     {
+//       "product_id": 22,
+//       "variation_id": 23,
+//       "quantity": 1
+//     }
+//   ],
+//   "shipping_lines": [
+//     {
+//       "method_id": "flat_rate",
+//       "method_title": "Flat Rate",
+//       "total": 10
+//     }
+//   ]
+// });
+
+// var xhr = new XMLHttpRequest();
+// xhr.withCredentials = true;
+
+// xhr.addEventListener("readystatechange", function () {
+//   if (this.readyState === this.DONE) {
+//     console.log(this.responseText);
+//   }
+// });
+
+// xhr.open("POST", "https://spiceflow.net.ee/wp-json/wc/v2/orders");
+// xhr.setRequestHeader("content-type", "application/json");
+// xhr.setRequestHeader("authorization", "Basic Y2tfMjdjOTZkYTZjMjhhYTJkOTAyMmVmMzVkODI0NjA3MTg5Zjc2YjU0OTpjc18xMGVkN2QzMDQxNmQxNDcyNzdmMGMwN2Y4ZTQzZTZmOThlMGQyYmY5");
+
+// xhr.send(data);
+
+// fetch('https://spiceflow.net.ee/wp-json/wc/v2/orders', {
+//   method: 'post',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Basic Y2tfMjdjOTZkYTZjMjhhYTJkOTAyMmVmMzVkODI0NjA3MTg5Zjc2YjU0OTpjc18xMGVkN2QzMDQxNmQxNDcyNzdmMGMwN2Y4ZTQzZTZmOThlMGQyYmY5'
+//   },
+//   body: data
+// })

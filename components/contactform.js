@@ -73,29 +73,29 @@ let ContactForm = props => {
                 <h2>Billing Address</h2>
                 <div>
                   <label htmlFor="first_name">First Name</label>
-                  <Field name="first_name" component="input" type="text" />
+                  <Field name="first_name" component="input" type="text" required />
                 </div>
                 <div>
                   <label htmlFor="last_name">Last Name</label>
-                  <Field name="last_name" component="input" type="text" />
+                  <Field name="last_name" component="input" type="text" required />
                 </div>
                 <div>
                   <label htmlFor="email">Email</label>
-                  <Field name="email" component="input" type="email" />
+                  <Field name="email" component="input" type="email"  />
                 </div>
                 <div>
                   <label htmlFor="phone">Phone</label>
-                  <Field name="phone" component="input" type="text" />
+                  <Field name="phone" component="input" type="text" required />
                 </div>
                 <div>
                   <label htmlFor="country">Country</label>
-                  <Field name="country" component="select" defaultValue="estonia">
+                  <Field name="country" component="select" defaultValue="estonia" value="estonia">
                     <option value="estonia">Estonia</option>
                   </Field>
                 </div>
                 <div>
                   <label htmlFor="address_1">Address</label>
-                  <Field name="address_1" component="input" type="text" />
+                  <Field name="address_1" component="input" type="text" required />
 
                 </div>
                 <div>
@@ -103,11 +103,11 @@ let ContactForm = props => {
                 </div>
                 <div>
                   <label htmlFor="postcode">Postcode / ZIP</label>
-                  <Field name="postcode" component="input" type="text" />
+                  <Field name="postcode" component="input" type="text" required />
                 </div>
                 <div>
                   <label htmlFor="city">Town / City</label>
-                  <Field name="city" component="input" type="text" />
+                  <Field name="city" component="input" type="text" required />
                 </div>
               </div>
             </div>
@@ -198,7 +198,7 @@ let ContactForm = props => {
                     <label><Field name="terms" component="input" type="checkbox" value="terms" required /> I’ve read and accept the <a href="https://www.aadliaare.ee/en/info/kasutustingimused/" target="_blank">terms &amp; conditions</a></label>
                   </p>
                   <input type="submit" className="button big" name="woocommerce_checkout_place_order" id="place_order" defaultValue="Place order" data-value="Place order" />
-                  <input type="hidden" id="_wpnonce" name="_wpnonce" defaultValue="34ff1618f0" /><input type="hidden" name="_wp_http_referer" defaultValue="/en/kassa/?wc-ajax=update_order_review" />	</div>
+                </div>
               </div>
             </div>
           </div>
