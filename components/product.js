@@ -42,13 +42,13 @@ export default class Product extends React.Component {
 
   render() {
     let thumbs = this.props.images
-    let productThumbs = thumbs.map((image) =>
-      <Media id={image.id} image={image} className='product-thumb__link lightbox' title={this.props.product.title} />
+    let productThumbs = thumbs.map((image, index) =>
+      <Media key={index} id={image.id} image={image} className='product-thumb__link lightbox' title={this.props.product.title} />
     )
 
     let attributes = this.props.product.attributes
-    let productAttributes = attributes.map((attribute) =>
-      <tr className>
+    let productAttributes = attributes.map((attribute, index) =>
+      <tr key={index} className>
         <th>{attribute.name}</th>
         <td>
           <p>{attribute.options.map((option) => option + ' ')}</p>
@@ -57,14 +57,15 @@ export default class Product extends React.Component {
     )
 
     let categories = this.props.product.categories
-    let productCategories = categories.map((category) =>
-      <a href="#" rel="tag">{category.name}</a>
+    let productCategories = categories.map((category, index) =>
+      <a key={index} href="#" rel="tag">{category.name}</a>
     )
 
     let tags = this.props.product.tags
-    let productTags = tags.map((tag) =>
-      <a href="#" rel="tag">{tag.name}</a>
+    let productTags = tags.map((tag, index) =>
+      <a key={index} href="#" rel="tag">{tag.name}</a>
     )
+
     return (
       <div className="container">
         <div itemScope itemType="http://schema.org/Product" className="row product">

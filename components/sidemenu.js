@@ -1,8 +1,8 @@
 import React from 'react'
 
 function Categories(props) {
-  const sideMenuItems = props.sideMenuItems.map((item) =>
-    <div className="cat-list__group ">
+  const sideMenuItems = props.sideMenuItems.map((item, index) =>
+    <div key={index} className="cat-list__group ">
       <h2 className="cat-list__title">
         <a href="#">
           <span className="cat-list__name">{item.name}</span>

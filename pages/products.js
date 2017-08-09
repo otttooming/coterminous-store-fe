@@ -65,8 +65,8 @@ class ProductsListing extends React.Component {
 
   render() {
     const products = this.props.products;
-    const listProducts = products.map((product) =>
-      <li itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item">
+    const listProducts = products.map((product, index) =>
+      <li key={index} itemScope itemType="http://schema.org/Product" className="col-xs-12 col-md-3 col-sm-6 products-listing__item">
         <figure className="aspect-ratio" style={{ paddingBottom: '136.36363636364%' }}>
           <img width={220} height={300}
             className="aspect-ratio__img lazyloaded "
@@ -117,8 +117,8 @@ class Categories extends React.Component {
   }
 
   render() {
-    const sideMenuItems = this.props.sideMenuItems.map((item) =>
-      <div className="cat-list__group ">
+    const sideMenuItems = this.props.sideMenuItems.map((item, index) =>
+      <div key={index} className="cat-list__group ">
         <h2 className="cat-list__title">
           <a href="#" data-category={item.name} onClick={() => this.handleCatChange(item.id)}>
             <span className="cat-list__name">{item.name}</span>
