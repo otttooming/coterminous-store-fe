@@ -6,22 +6,20 @@ import { initStore, store } from '../store'
 import Cart from '../components/cart'
 
 function MainMenu(props) {
-  let menuItems = () =>
-    <li key='1' className='menu-item'>
-      <a href="">Aaa</a>
-    </li>
 
-  if (typeof props.menuItems !== 'undefined') {
+  if (!!props.menuItems) {
     let menuItems = props.menuItems.map((item) =>
       <li key={item.id} className='menu-item'>
         <a href="">{item.title}</a>
       </li>
     );
-  }
 
-  return (
-    <ul className='menu'>{menuItems}</ul>
-  );
+    return (
+      <ul className='menu'>{menuItems}</ul>
+    )
+  } else {
+    return null;
+  }
 }
 
 export default class Header extends React.Component {

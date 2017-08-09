@@ -90,14 +90,23 @@ function fetchData(query) {
 
 export default class extends React.Component {
   static async getInitialProps({ query, res }) {
-    return await fetchData(query)
+    const menuUrl = api.buildUrl({ paths: [api.WPMENUS, 'menus', '325'] });
+    const menuRes = await fetch(menuUrl)
+    const menuJson = await menuRes.json()
+
+    const productData = await fetchData(query)
+
+    return {
+      menuItems: menuJson,
+      productData
+    }
   }
 
   render() {
     return (
-      <Page title={this.props.product.name}>
+      <Page title={this.props.productData.product.name} menuItems={this.props.menuItems}>
 
-        <Product product={this.props.product} images={this.props.images} variations={this.props.variations} />
+        <Product product={this.props.productData.product} images={this.props.productData.images} variations={this.props.productData.variations} />
 
       </Page>
     )
