@@ -26,34 +26,6 @@ function Loader(props) {
   )
 }
 
-function NumberList(props) {
-  const products = props.products;
-  const listProducts = products.map((product) =>
-    <li key={product.id}>
-      {product.images[0].src}
-    </li>
-  );
-  return (
-    <ul>{listProducts}</ul>
-  );
-}
-
-function NumberList2(props) {
-  const products = props.products;
-  const listProducts = products.map((product) =>
-    <li key={product.id}>
-      {product.name}
-      {product.images[0].src}
-      <img
-        src={product.images[0].src}
-      />
-    </li>
-  );
-  return (
-    <ul>{listProducts}</ul>
-  );
-}
-
 class ProductsListing extends React.Component {
   constructor(props) {
     super(props)
@@ -142,7 +114,6 @@ class Categories extends React.Component {
 
 export default class MyPage extends React.Component {
   static async getInitialProps({ query, res }) {
-    // eslint-disable-next-line no-undef
 
     const pageNr = query.slug ? query.slug : 1
     const url = api.buildUrl({ paths: [api.WC, 'products'], parameters: ['in_stock=true', 'status=publish', 'page=' + pageNr, 'per_page=16'] })
@@ -196,12 +167,6 @@ export default class MyPage extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate(prevProps, prevState)')
-  }
-
-  handleClick = () => {
-    this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
-    }));
   }
 
   handleCatChange = (props) => {
@@ -299,20 +264,6 @@ export default class MyPage extends React.Component {
         </aside>
 
         <div className="col-xs-12 col-lg-9">
-
-          <div className='hidden-xs-up'>
-            <button onClick={this.handleClick}>
-              {this.state.isToggleOn ? 'ON' : 'OFF'}
-            </button>
-
-            <button onClick={this.updateProducts}>
-              next
-            </button>
-            <p>Next.js has {this.props.stars} ⭐️</p>
-            <Link prefetch href='/preact'><a>How about preact?</a></Link>
-            <Link href='/wordpress'><a>wordpress?</a></Link>
-          </div>
-
           <main>
             <Loader isHidden={this.state.loaderIsHidden} />
             <ProductsListing products={this.state.products} openProduct={this.handleProductOpen} />
