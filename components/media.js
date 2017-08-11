@@ -57,7 +57,15 @@ export default class Media extends React.Component {
     }
 
     return (
-      <a className={this.props.className} itemProp="associatedMedia" itemScope itemType="http://schema.org/ImageObject" href="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg" data-size="1135x1550" data-pswp-uid={2}>
+      <a
+        className={this.props.className}
+        itemProp="associatedMedia"
+        itemScope itemType="http://schema.org/ImageObject"
+        href="https://www.aadliaare.ee/wp-content/uploads/2016/01/pretty_love_uriah_vincent1.jpg"
+        data-size="1135x1550"
+        data-pswp-uid={2}
+        onClick={this.props.handleClick}
+      >
         <figure className="aspect-ratio" style={{ paddingBottom: this.state.aspectRatio }}>
           <img
             width={this.state.media.media_details.width}

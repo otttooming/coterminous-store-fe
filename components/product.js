@@ -2,6 +2,8 @@ import React from 'react'
 import Media from '../components/media'
 import VariationItems from './variationitem'
 
+import { PhotoSwipe } from 'react-photoswipe';
+
 function buildSingleProductVariation(props) {
   const variation = [{
     price: props.price,
@@ -13,6 +15,21 @@ function buildSingleProductVariation(props) {
   }]
 
   return variation
+}
+
+function buildGalleryItems(images) {
+  const slides = []
+
+  images.map((item, index) => slides.push(
+    {
+      src: item.media_details.sizes.large !== undefined ? item.media_details.sizes.large.source_url : item.media_details.sizes.shop_single.source_url,
+      thumbs: item.media_details.sizes.thumbnail.source_url,
+      w: item.media_details.width,
+      h: item.media_details.height,
+    }
+  ))
+
+  return slides;
 }
 
 class ProductVariations extends React.Component {
@@ -38,12 +55,27 @@ class ProductVariations extends React.Component {
 export default class Product extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      gallery: buildGalleryItems(props.images),
+      galleryOptions: {},
+      isGalleryOpen: false,
+    }
+  }
+
+  handleGalleryClose = () => {
+    this.setState({ isGalleryOpen: false })
+  }
+
+  handleGalleryOpen = (event) => {
+    event.preventDefault();
+    this.setState({ isGalleryOpen: true })
   }
 
   render() {
     let thumbs = this.props.images
     let productThumbs = thumbs.map((image, index) =>
-      <Media key={index} id={image.id} image={image} className='product-thumb__link lightbox' title={this.props.product.title} />
+      <Media key={index} id={image.id} image={image} className='product-thumb__link lightbox' title={this.props.product.title} handleClick={this.handleGalleryOpen} />
     )
 
     let attributes = this.props.product.attributes
@@ -68,9 +100,11 @@ export default class Product extends React.Component {
 
     return (
       <div className="container">
+        <PhotoSwipe isOpen={this.state.isGalleryOpen} items={this.state.gallery} options={this.state.galleryOptions} onClose={this.handleGalleryClose} />
+
         <div itemScope itemType="http://schema.org/Product" className="row product">
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            <Media id={this.props.product.images[0].id} image={this.props.images[0]} className='main-image product__main-image' />
+            <Media id={this.props.product.images[0].id} image={this.props.images[0]} className='main-image product__main-image' handleClick={this.handleGalleryOpen} />
 
             <div className="product-thumb__gallery" itemScope itemType="http://schema.org/ImageGallery">
               {productThumbs}

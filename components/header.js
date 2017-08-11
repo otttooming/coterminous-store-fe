@@ -42,6 +42,7 @@ export default class Header extends React.Component {
           <style>{`
             body {
               // color: #333;
+              // display: none;
             }
             .loader,
             .loader:after {
