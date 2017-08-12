@@ -25,9 +25,9 @@ import * as api from '../components/api'
 //      })
 // }
 
-function getShippingTitle(shippingId, shippingMethods) {
+function getTitleFromArray(id, shippingMethods) {
   function idMatch(element) {
-    return element.id === parseInt(shippingId);
+    return element.id === id;
   }
 
   const result = shippingMethods.find(idMatch)
@@ -65,6 +65,7 @@ class CheckoutPage extends React.Component {
 
     let order = {
       payment_method: values.payment_method,
+      payment_method_title: getTitleFromArray(values.payment_method, this.props.paymentGateways),
       set_paid: false,
       billing: {
         first_name: values.first_name,
@@ -79,7 +80,7 @@ class CheckoutPage extends React.Component {
       shipping_lines: [
         {
           method_id: values.shipping_method,
-          method_title: getShippingTitle(values.shipping_method, this.props.shippingMethods),
+          method_title: getTitleFromArray(parseInt(values.shipping_method), this.props.shippingMethods),
           total: 0
         }
       ]
