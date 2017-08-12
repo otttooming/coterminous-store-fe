@@ -65,6 +65,14 @@ export function createOrder(order, api) {
   return orderReq;
 }
 
+export async function fetchExternalIp() {
+
+  const response = await fetch('https://api.ipify.org?format=json');
+  const json = await response.json();
+
+  return json;
+}
+
 // var data = JSON.stringify({
 //   "payment_method": "bacs",
 //   "payment_method_title": "Direct Bank Transfer",

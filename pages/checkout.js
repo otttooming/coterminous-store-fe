@@ -48,17 +48,39 @@ class CheckoutPage extends React.Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      customer: {
+        ip: '',
+        ua: '',
+      }
+    }
   }
 
+  componentDidMount(nextProps, nextState) {
+    console.log('componentWillUpdate(nextProps, nextState)')
+    this.setState({
+      customer: {
+        ip: api.fetchExternalIp().then(data => { this.setCustomerIp(data.ip) }),
+        ua: window.navigator.userAgent,
+      }
+    })
+  }
+
+  setCustomerIp = (ip) => {
+    this.setState({
+      customer: {
+        ...this.state.customer,
+        ip: ip,
+      }
+    })
+  }
 
   removeFromCart = (item) => {
     this.props.removeFromCart(item)
   }
 
   submit = (values) => {
-    // print the form values to the console
-    console.log(values)
-
     let items = []
 
     this.props.cartItems.map(item => { items.push({ product_id: item.id, quantity: 1 }) })
@@ -83,7 +105,9 @@ class CheckoutPage extends React.Component {
           method_title: getTitleFromArray(parseInt(values.shipping_method), this.props.shippingMethods),
           total: 0
         }
-      ]
+      ],
+      // customer_ip_address: apifetchExternalIp(),
+      // customer_user_agent: window.navigator.userAgent,
     }
 
     console.log(order);
