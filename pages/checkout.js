@@ -25,6 +25,16 @@ import * as api from '../components/api'
 //      })
 // }
 
+function getShippingTitle(shippingId, shippingMethods) {
+  function idMatch(element) {
+    return element.id === parseInt(shippingId);
+  }
+
+  const result = shippingMethods.find(idMatch)
+
+  return result.title;
+}
+
 class CheckoutPage extends React.Component {
   static async getInitialProps() {
     const paymentGateways = await fetch(api.buildUrl({ paths: [api.WC, 'payment_gateways'] })).then(resp => resp.json()).then(data => { return data })
@@ -68,9 +78,9 @@ class CheckoutPage extends React.Component {
       line_items: items,
       shipping_lines: [
         {
-          method_id: 'flat_rate',
-          method_title: values.shipping_method,
-          total: 1
+          method_id: values.shipping_method,
+          method_title: getShippingTitle(values.shipping_method, this.props.shippingMethods),
+          total: 0
         }
       ]
     }

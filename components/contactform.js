@@ -6,7 +6,7 @@ function ShippingMethods(props) {
     if (!!item.enabled) {
       return (
         <li key={index} className="wc_payment_method">
-          <Field name="shipping_method" component="input" type="radio" value={item.title} className="shipping_method" />
+          <Field name="shipping_method" component="input" type="radio" value={item.id.toString(10)} className="shipping_method" />
           <label htmlFor="shipping_method">{item.title}</label>
         </li>
       )
