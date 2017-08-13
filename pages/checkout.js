@@ -95,7 +95,7 @@ class CheckoutPage extends React.Component {
         address_1: values.address_1,
         city: values.city,
         postcode: values.postcode,
-        country: "estonia",
+        country: "EE", // Billing address country code in ISO 3166-1 alpha-2 format
         phone: values.phone
       },
       line_items: items,
@@ -103,9 +103,25 @@ class CheckoutPage extends React.Component {
         {
           method_id: values.shipping_method,
           method_title: getTitleFromArray(parseInt(values.shipping_method), this.props.shippingMethods),
-          total: 0
+          total: 10,
+          meta_data: [
+            {
+              key: "Pakk",
+              value: "Automaat"
+            }
+          ]
         }
       ],
+      meta_data: [
+        {
+          key: "customerIP",
+          value: this.state.customer.ip
+        },
+        {
+          key: "customerUA",
+          value: this.state.customer.ua
+        }
+      ]
       // customer_ip_address: apifetchExternalIp(),
       // customer_user_agent: window.navigator.userAgent,
     }
