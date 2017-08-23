@@ -1,13 +1,46 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { shippingOmnivaJSON } from '../components/apiShipping'
+import DropdownMenu from '../components/DropdownMenu'
+
+// getOmnivaShippingLocations($tmp, 'EE')
+function getOmnivaShippingLocations(arr, local) {
+  const stateNames = [...new Set(arr.map(item => { if (item.A0_NAME === local) { return item.A1_NAME } else { return 'other'; } }))].sort();
+  const states = stateNames.map((item) => { return { title: item, locations: [] } })
+
+  const shippingLocations = states;
+
+  function stateMap(location) {
+    states.map((item, index) => {
+      if (item.title === location.A1_NAME) {
+        shippingLocations[index].locations.push(
+          {
+            name: location.NAME,
+            serviceHours: location.SERVICE_HOURS,
+          }
+        )
+      }
+    })
+  }
+
+  arr.map((location) => {
+    stateMap(location);
+  })
+
+  return shippingLocations;
+}
 
 function ShippingMethods(props) {
+
   const listShippingMethods = props.shippingMethods.map((item, index) => {
     if (!!item.enabled) {
       return (
         <li key={index} className="wc_payment_method">
           <Field name="shipping_method" component="input" type="radio" value={item.id.toString(10)} className="shipping_method" />
           <label htmlFor="shipping_method">{item.title}</label>
+          <div style={{ width: '100%' }}>
+            <DropdownMenu options={getOmnivaShippingLocations(shippingOmnivaJSON, 'EE')} />
+          </div>
         </li>
       )
     }
@@ -18,6 +51,10 @@ function ShippingMethods(props) {
       {listShippingMethods}
     </ul>
   )
+}
+
+function logChange(val) {
+  console.log("Selected: " + JSON.stringify(val));
 }
 
 function PaymentGateways(props) {
@@ -57,6 +94,7 @@ let ContactForm = props => {
   return (
 
     <form name="checkout" id="contact-form" onSubmit={handleSubmit}>
+
 
       <div className="woocommerce">
         <div className="woocommerce-info">Have a coupon? <a href="#" className="showcoupon mb1">Click here to enter your code</a></div>
