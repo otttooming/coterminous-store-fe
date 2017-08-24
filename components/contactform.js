@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { shippingOmnivaJSON } from '../components/apiShipping'
+import { shippingOmnivaJSON, shippingSmartpostJSON } from '../components/apiShipping'
 import DropdownMenu from '../components/DropdownMenu'
 
 // getOmnivaShippingLocations($tmp, 'EE')
@@ -30,6 +30,33 @@ function getOmnivaShippingLocations(arr, local) {
   return shippingLocations;
 }
 
+// getSmartpostShippingLocations($tmp)
+function getSmartpostShippingLocations(arr) {
+  const stateNames = [...new Set(arr.map(item => { return item.group_name }))].sort();
+  const states = stateNames.map((item) => { return { title: item, locations: [] } })
+
+  const shippingLocations = states;
+
+  function stateMap(location) {
+    states.map((item, index) => {
+      if (item.title === location.group_name) {
+        shippingLocations[index].locations.push(
+          {
+            name: location.address,
+            serviceHours: location.opened,
+          }
+        )
+      }
+    })
+  }
+
+  arr.map((location) => {
+    stateMap(location);
+  })
+
+  return shippingLocations;
+}
+
 function ShippingMethods(props) {
 
   const listShippingMethods = props.shippingMethods.map((item, index) => {
@@ -40,6 +67,7 @@ function ShippingMethods(props) {
           <label htmlFor="shipping_method">{item.title}</label>
           <div style={{ width: '100%' }}>
             <DropdownMenu options={getOmnivaShippingLocations(shippingOmnivaJSON, 'EE')} />
+            <DropdownMenu options={getSmartpostShippingLocations(shippingSmartpostJSON, 'EE')} />
           </div>
         </li>
       )
