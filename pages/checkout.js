@@ -25,6 +25,34 @@ import * as api from '../components/api'
 //      })
 // }
 
+function buildShippingLines(method, location) {
+  const shipping_lines = [{
+    method_id: method.id,
+    method_title: method.title,
+    total: 0,
+    meta_data: [
+      {
+        key: 'Pickup point',
+        value: location.name,
+      },
+      {
+        key: 'State',
+        value: location.state,
+      },
+      {
+        key: 'Address',
+        value: location.address,
+      },
+      {
+        key: 'Service hours',
+        value: location.service_hours,
+      },
+    ]
+  }]
+
+  return shipping_lines;
+}
+
 function getTitleFromArray(id, shippingMethods) {
   function idMatch(element) {
     return element.id === id;
@@ -38,7 +66,8 @@ function getTitleFromArray(id, shippingMethods) {
 class CheckoutPage extends React.Component {
   static async getInitialProps() {
     const paymentGateways = await fetch(api.buildUrl({ paths: [api.WC, 'payment_gateways'] })).then(resp => resp.json()).then(data => { return data })
-    const shippingMethods = await fetch(api.buildUrl({ paths: [api.WC, 'shipping', 'zones', '1', 'methods'] })).then(resp => resp.json()).then(data => { return data })
+    const shippingMethods = await fetch(api.buildUrl({ paths: [api.WC, 'shipping_methods'] })).then(resp => resp.json()).then(data => { return data })
+    // const shippingMethods = await fetch(api.buildUrl({ paths: [api.WC, 'shipping', 'zones', '1', 'methods'] })).then(resp => resp.json()).then(data => { return data })
 
     return {
       paymentGateways,
@@ -81,6 +110,8 @@ class CheckoutPage extends React.Component {
   }
 
   submit = (values) => {
+    console.log(values);
+
     let items = []
 
     this.props.cartItems.map(item => { items.push({ product_id: item.id, quantity: 1 }) })
@@ -99,19 +130,8 @@ class CheckoutPage extends React.Component {
         phone: values.phone
       },
       line_items: items,
-      shipping_lines: [
-        {
-          method_id: values.shipping_method,
-          method_title: getTitleFromArray(parseInt(values.shipping_method), this.props.shippingMethods),
-          total: 10,
-          meta_data: [
-            {
-              key: "Pakk",
-              value: "Automaat"
-            }
-          ]
-        }
-      ],
+      shipping_lines: buildShippingLines({ id: values.shipping_method }, values.shipping_method_location),
+
       meta_data: [
         {
           key: "customerIP",

@@ -16,7 +16,18 @@ function getOmnivaShippingLocations(arr, local) {
         shippingLocations[index].locations.push(
           {
             name: location.NAME,
-            serviceHours: location.SERVICE_HOURS,
+            address: [
+              location.A2_NAME,
+              location.A3_NAME,
+              location.A4_NAME,
+              location.A5_NAME,
+              location.A6_NAME,
+              location.A7_NAME,
+              location.A8_NAME
+            ].filter((item) => item !== 'NULL').join(', '),
+            state: location.A1_NAME,
+            service_hours: location.SERVICE_HOURS,
+            raw: location,
           }
         )
       }
@@ -42,8 +53,14 @@ function getSmartpostShippingLocations(arr) {
       if (item.title === location.group_name) {
         shippingLocations[index].locations.push(
           {
-            name: location.address,
-            serviceHours: location.opened,
+            name: location.name,
+            address: [
+              location.city,
+              location.address,
+            ].filter((item) => item !== 'NULL').join(', '),
+            state: location.group_name,
+            service_hours: location.opened,
+            raw: location,
           }
         )
       }
@@ -60,18 +77,20 @@ function getSmartpostShippingLocations(arr) {
 function ShippingMethods(props) {
 
   const listShippingMethods = props.shippingMethods.map((item, index) => {
-    if (!!item.enabled) {
-      return (
-        <li key={index} className="wc_payment_method">
-          <Field name="shipping_method" component="input" type="radio" value={item.id.toString(10)} className="shipping_method" />
-          <label htmlFor="shipping_method">{item.title}</label>
-          <div style={{ width: '100%' }}>
-            <DropdownMenu options={getOmnivaShippingLocations(shippingOmnivaJSON, 'EE')} />
-            <DropdownMenu options={getSmartpostShippingLocations(shippingSmartpostJSON, 'EE')} />
-          </div>
-        </li>
-      )
-    }
+    return (
+      <li key={index} className="wc_payment_method">
+        <Field name="shipping_method" component="input" type="radio" value={item.id.toString(10)} className="shipping_method" />
+        <label htmlFor="shipping_method">{item.title}</label>
+        <div style={{ width: '100%' }}>
+          {item.id === 'desirees_smartpost_shipping_method' &&
+            <Field name="shipping_method_location" component={DropdownMenu} options={getSmartpostShippingLocations(shippingSmartpostJSON, 'EE')} className="shipping_method" />
+          }
+          {item.id === 'desirees_omniva_shipping_method' &&
+            <Field name="shipping_method_location" component={DropdownMenu} options={getOmnivaShippingLocations(shippingOmnivaJSON, 'EE')} className="shipping_method" />
+          }
+        </div>
+      </li>
+    )
   })
 
   return (
@@ -80,6 +99,30 @@ function ShippingMethods(props) {
     </ul>
   )
 }
+
+// function ShippingMethods(props) {
+
+//   const listShippingMethods = props.shippingMethods.map((item, index) => {
+//     if (!!item.enabled) {
+//       return (
+//         <li key={index} className="wc_payment_method">
+//           <Field name="shipping_method" component="input" type="radio" value={item.id.toString(10)} className="shipping_method" />
+//           <label htmlFor="shipping_method">{item.title}</label>
+//           <div style={{ width: '100%' }}>
+//             <DropdownMenu options={getOmnivaShippingLocations(shippingOmnivaJSON, 'EE')} />
+//             <DropdownMenu options={getSmartpostShippingLocations(shippingSmartpostJSON, 'EE')} />
+//           </div>
+//         </li>
+//       )
+//     }
+//   })
+
+//   return (
+//     <ul className="list-style-none">
+//       {listShippingMethods}
+//     </ul>
+//   )
+// }
 
 function logChange(val) {
   console.log("Selected: " + JSON.stringify(val));

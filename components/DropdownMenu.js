@@ -134,11 +134,11 @@ function shouldRenderSuggestions() {
 }
 
 export default class DropdownMenu extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      value: '',
+      value: this.props.input && !!this.props.input.value.name ? this.props.input.value.value : '', // Fix needed for SSR. Redux Forms will not pass correct props from input object.
       suggestions: []
     };
   }
@@ -148,6 +148,19 @@ export default class DropdownMenu extends React.Component {
       value: newValue
     });
   };
+
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+    console.log(suggestion, suggestionValue, suggestionIndex, sectionIndex, method);
+
+    this.setState({
+      name: suggestion.name,
+
+    });
+
+    this.props.input.onChange({
+      ...suggestion,
+    });
+  }
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -162,26 +175,32 @@ export default class DropdownMenu extends React.Component {
   };
 
   render() {
-    const { value, suggestions } = this.state;
+    const { value, suggestions, name } = this.state;
     const inputProps = {
-      placeholder: "Type 'c'",
+      placeholder: "Pick or search...",
       value,
       onChange: this.onChange
     };
 
     return (
-      <Autosuggest
-        multiSection={true}
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        renderSectionTitle={renderSectionTitle}
-        getSectionSuggestions={getSectionSuggestions}
-        inputProps={inputProps}
-        shouldRenderSuggestions={shouldRenderSuggestions}
-      />
+      <div>
+        <div>
+          {name}
+        </div>
+        <Autosuggest
+          multiSection={true}
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          renderSectionTitle={renderSectionTitle}
+          getSectionSuggestions={getSectionSuggestions}
+          inputProps={inputProps}
+          shouldRenderSuggestions={shouldRenderSuggestions}
+          onSuggestionSelected={this.onSuggestionSelected}
+        />
+      </div>
     );
   }
 }
