@@ -21,9 +21,13 @@
     "redux-persist": "^4.8.2",
     "redux-thunk": "^2.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.0.5",
+    "concurrently": "^3.5.0",
+    "typescript": "^2.5.2"
+  },
   "scripts": {
-    "dev": "node server.js",
+    "dev": "concurrently \"tsc --watch\" \"node server.js\"",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
