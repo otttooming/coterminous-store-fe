@@ -2,7 +2,7 @@ import React from 'react'
 import Page from '../layouts/main'
 
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+
 import withRedux from 'next-redux-wrapper'
 
 import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store'

@@ -10,6 +10,9 @@ import ReactModal from 'react-modal'
 
 import Product from '../components/product'
 
+import withRedux from 'next-redux-wrapper'
+import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store'
+
 const modalCustomStyles = {
   content: {
     backgroundImage: 'radial-gradient(circle at 50%,rgba(115,14,150,1.0) 40%,rgba(38,5,49,1.0) 100%)'
@@ -112,7 +115,7 @@ class Categories extends React.Component {
   }
 }
 
-export default class MyPage extends React.Component {
+class ProductListing extends React.Component {
   static async getInitialProps({ query, res }) {
 
     const pageNr = query.slug ? query.slug : 1
@@ -300,3 +303,5 @@ export default class MyPage extends React.Component {
     )
   }
 }
+
+export default withRedux(initStore, null, null)(ProductListing)
