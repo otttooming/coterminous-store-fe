@@ -19,7 +19,11 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.0.4",
     "redux-persist": "^4.9.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.2.1",
+    "tslint-loader": "^3.5.3",
+    "tslint-react": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.5",

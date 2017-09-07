@@ -4,6 +4,10 @@ Next.js website built using WP REST API
 
 **Visit https://learnnextjs.com to get started with Next.js.**
 
+# Terminal
+
+- `npm update -S` Update NPM packages
+
 ## Development environment
 
 * [Visual Studio Code](https://code.visualstudio.com/)
