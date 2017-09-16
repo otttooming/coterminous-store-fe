@@ -1,72 +1,72 @@
-export const SITEURL = 'https://spiceflow.net.ee'
+export const SITEURL = 'https://spiceflow.net.ee';
 
-export const APIURL =  'https://spiceflow.net.ee/wp-json/wc/v2/products?consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9&per_page=16'
+export const WC = 'wp-json/wc/v2';
+export const WP = 'wp-json/wp/v2';
+export const WPMENUS = 'wp-json/wp-api-menus/v2';
+export const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9';
 
-export const WC = 'wp-json/wc/v2'
-export const WP = 'wp-json/wp/v2'
-export const WPMENUS = 'wp-json/wp-api-menus/v2'
-export const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9'
+interface buildUrlProps {
+  paths?: string[];
+  parameters?: string[];
+}
 
-export function buildUrl(props) {
-    // {paths: [], parameters: []}
-    let url = []
+export function buildUrl(props: buildUrlProps) {
+  const url = [];
 
-    url.push(SITEURL)
+  url.push(SITEURL);
 
-    if (props.paths === undefined || props.paths.length === 0) {
-      return url.join('') + '?' + APISECRET
-    }
+  if (props.paths === undefined || props.paths.length === 0) {
+    return url.join('') + '?' + APISECRET;
+  }
 
-    props.paths.map((path) => {
-      url.push('/')
-      url.push(path)
-    })
+  props.paths.map((path) => {
+    url.push('/');
+    url.push(path);
+  });
 
-    console.log(props.parameters);
+  if (props.parameters === undefined || props.parameters.length === 0) {
+    return url.join('') + '?' + APISECRET;
+  }
 
-    if (props.parameters === undefined || props.parameters.length === 0) {
-      return url.join('') + '?' + APISECRET
-    }
+  url.push('?');
 
-    url.push('?')
+  props.parameters.map((parameter, i) => {
+    url.push(parameter);
 
-    props.parameters.map((parameter, i) => {
-      url.push(parameter)
+    props.parameters.length === i + 1 ? '' : url.push('&');
+  });
 
-      props.parameters.length === i + 1 ? '' : url.push('&')
-    })
-
-    return url.join('') + '&' + APISECRET
+  return url.join('') + '&' + APISECRET;
 }
 
 export function createOrder(order, api) {
-  const orderReq = new Promise(resolve => {
+  const headers = new Headers();
+  headers.append('Accept', 'application/json');
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', `Basic ${btoa(api.consumerKey + ':' + api.consumerSecret)}`);
+
+  const orderReq = new Promise((resolve) => {
     fetch('https://spiceflow.net.ee/wp-json/wc/v2/orders', {
+      headers,
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Basic ${btoa(api.consumerKey + ':' + api.consumerSecret)}`
-      },
-      body: JSON.stringify(order)
+      body: JSON.stringify(order),
     })
-      .then(response => {
+    .then((response) => {
 
-        return response.json();
-      })
-      .then(order => {
+      return response.json();
+    })
+    .then((order) => {
 
-        console.log(order);
+      console.log(order);
 
-        resolve(order);
-      })
-  })
+      resolve(order);
+    });
+  });
 
   return orderReq;
 }
 
 export async function fetchExternalIp() {
-
   const response = await fetch('https://api.ipify.org?format=json');
   const json = await response.json();
 
