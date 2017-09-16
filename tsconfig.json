@@ -17,6 +17,7 @@
     }
   },
   "files": [
+    "./typings/custom/index.d.ts"
   ],
   "include": [
   ],
