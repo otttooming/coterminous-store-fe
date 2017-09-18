@@ -1,8 +1,12 @@
-export const SITEURL = 'https://spiceflow.net.ee';
+export const SITEURL = {
+  host: 'https://spiceflow.net.ee',
+  consumerKey: 'ck_27c96da6c28aa2d9022ef35d824607189f76b549',
+  consumerSecret: 'cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9',
+};
 
-export const WC = 'wp-json/wc/v2';
-export const WP = 'wp-json/wp/v2';
-export const WPMENUS = 'wp-json/wp-api-menus/v2';
+export const WP = 'wp/v2';
+export const WC = 'wc/v2';
+export const WPMENUS = 'wp-api-menus/v2';
 export const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9';
 
 interface buildUrlProps {
@@ -10,33 +14,28 @@ interface buildUrlProps {
   parameters?: string[];
 }
 
-export function buildUrl(props: buildUrlProps) {
-  const url = [];
+interface hostProps {
+  host: string;
+  consumerKey: string;
+  consumerSecret: string;
+}
 
-  url.push(SITEURL);
+export function buildUrl(props: buildUrlProps, host: hostProps) {
+  const { paths = [], parameters = [] } = props;
 
-  if (props.paths === undefined || props.paths.length === 0) {
-    return url.join('') + '?' + APISECRET;
-  }
+  const path = [
+    host.host,
+    'wp-json',
+    ...paths,
+  ].join('/');
 
-  props.paths.map((path) => {
-    url.push('/');
-    url.push(path);
-  });
+  const parameter = [
+    ...parameters,
+    `consumer_key=${host.consumerKey}`,
+    `consumer_secret=${host.consumerSecret}`,
+  ].join('&');
 
-  if (props.parameters === undefined || props.parameters.length === 0) {
-    return url.join('') + '?' + APISECRET;
-  }
-
-  url.push('?');
-
-  props.parameters.map((parameter, i) => {
-    url.push(parameter);
-
-    props.parameters.length === i + 1 ? '' : url.push('&');
-  });
-
-  return url.join('') + '&' + APISECRET;
+  return `${path}/?${parameter}`;
 }
 
 export function createOrder(order, api) {
