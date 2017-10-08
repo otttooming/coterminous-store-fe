@@ -3,7 +3,7 @@ const next = require('next');
 const routes = require('./routes');
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({ dir: './dist', dev });
 const handler = routes.getRequestHandler(app);
 
 app.prepare()

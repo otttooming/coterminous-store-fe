@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import Media from '../components/media'
 import VariationItems from './variationitem'
 

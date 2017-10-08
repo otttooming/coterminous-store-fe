@@ -59,3 +59,9 @@ typings/
 
 # Next.js build
 .next/
+
+# Jest coverage report
+coverage/
+
+# TypeScript compiled target
+dist/

@@ -1,9 +1,10 @@
-import React from 'react'
+import * as React from 'react';
+
 import Media from '../components/media'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import withRedux from 'next-redux-wrapper'
+import * as withRedux from 'next-redux-wrapper';
 
 import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store'
 

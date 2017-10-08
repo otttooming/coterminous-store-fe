@@ -1,11 +1,11 @@
-import React from 'react'
-import Page from '../layouts/main'
+import * as React from 'react';
+import Page from '../layouts/main';
 
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
-import withRedux from 'next-redux-wrapper'
+import withRedux from 'next-redux-wrapper';
 
-import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store'
+import { initStore, startClock, addCount, store, addToCart, removeFromCart, serverRenderClock } from '../store';
 
 class CartPage extends React.Component {
   static async getInitialProps() {

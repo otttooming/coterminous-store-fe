@@ -20,3 +20,7 @@ Next.js website built using WP REST API
 - Install `Current` version of [node.js](https://nodejs.org/en/)
 - `npm install`
 - `node server.js` - Start the development server on <http://localhost:3000>
+
+#### TypeScript
+
+- Install missing TypeScript typings for dependencies in your package.json. `npm install -g typesync`

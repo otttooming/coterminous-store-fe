@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es2015",
+    "jsx": "react",
+    "allowJs": true,
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "module": "commonjs",
-    "target": "es5",
+    "moduleResolution": "node",
     "lib": [
       "es5",
       "es2015"
     ],
-    "jsx": "react",
     "experimentalDecorators": true,
-    "baseUrl": ".",
-    "paths": {
-    }
+    "outDir": "dist/"
   },
   "files": [
     "./typings/custom/index.d.ts"
   ],
   "include": [
+    "src/**/*"
   ],
   "exclude": [
     "./node_modules"

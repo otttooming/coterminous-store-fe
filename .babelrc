@@ -2,7 +2,8 @@
   "presets": [
     "es2015",
     "es2017",
-    "react"
+    "react",
+    "next/babel"
   ],
   "plugins": [
     "transform-es2015-modules-commonjs"

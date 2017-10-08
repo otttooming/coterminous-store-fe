@@ -1,34 +1,43 @@
-import React from 'react'
-import Head from 'next/head'
-import 'isomorphic-fetch'
-import withRedux from 'next-redux-wrapper'
-import { initStore, store } from '../store'
-import Cart from '../components/cart'
+import * as React from 'react';
+import Head from 'next/head';
+import 'isomorphic-fetch';
+import { withRedux } from 'next-redux-wrapper';
+import { initStore, store } from '../../store';
+import Cart from '../../components/cart';
+import styled from 'styled-components';
+
+interface Props {
+  title: string;
+  menuItems: {}[];
+}
+
+interface State {}
+
+const TitleH = styled.h1`
+  color: red;
+  font-size: 50px;
+`;
 
 function MainMenu(props) {
 
   if (!!props.menuItems) {
-    let menuItems = props.menuItems.map((item) =>
-      <li key={item.id} className='menu-item'>
+    const menuItems = props.menuItems.map((item) => (
+      <li key={item.id} className="menu-item">
         <a href="">{item.title}</a>
       </li>
-    );
+    ));
 
     return (
-      <ul className='menu'>{menuItems}</ul>
-    )
+      <ul className="menu">{menuItems}</ul>
+    );
   } else {
     return null;
   }
 }
 
-export default class Header extends React.Component {
+export default class Header extends React.Component<Props, State> {
   constructor(props) {
     super(props);
-    this.state = {
-      ini: props,
-      page: 1
-    }
   }
 
   render() {
@@ -36,7 +45,7 @@ export default class Header extends React.Component {
       <div>
         <Head>
           <title>{!!this.props.title ? this.props.title : ''}This page has a title 🤔</title>
-          <link rel='stylesheet' id='desirees-style-css' href='https://www.aadliaare.ee/wp-content/themes/desirees/dist/styles/style.min.css?ver=3' type='text/css' media='all' />
+          <link rel="stylesheet" href="https://www.aadliaare.ee/wp-content/themes/desirees/dist/styles/style.min.css?ver=3" type="text/css" media="all" />
           <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&subset=cyrillic" rel="stylesheet" />
 
           <style>{`
@@ -81,17 +90,28 @@ export default class Header extends React.Component {
           `}</style>
         </Head>
 
-        <header className='container'>
+        <header className="container">
+          <TitleH>My page</TitleH>
           <div className="row header middle-xs">
             <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3 header__logo">
-              <a className="d__block" href="/"><figure className="aspect-ratio" style={{ paddingBottom: '37.209302325581%' }}><img width={430} height={160} className="aspect-ratio__img lazyloaded " alt="Aadli Aare" itemProp="image" sizes="(max-width: 430px) 100vw, 430px" data-src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png" data-srcset="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png 430w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-75x28.png 75w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-300x112.png 300w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-100x37.png 100w" srcSet="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png 430w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-75x28.png 75w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-300x112.png 300w, https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo-100x37.png 100w" src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png" /></figure></a>
+              <a className="d__block" href="/">
+                <figure className="aspect-ratio" style={{ paddingBottom: '37.209302325581%' }}>
+                  <img
+                    width={430}
+                    height={160}
+                    className="aspect-ratio__img lazyloaded"
+                    alt="Aadli Aare"
+                    itemProp="image"
+                    src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
+                  />
+                </figure></a>
             </div>
             <div className="col-md-6 header__search hidden-md-down">
               <form action="https://www.aadliaare.ee/en/" method="get" id="search__form" className="search__form">
-                <input type="text" className="search__field" placeholder="Search" defaultValue name="s" id="s" />
+                <input type="text" className="search__field" placeholder="Search" name="s" id="s" />
                 <input type="hidden" name="post_type" defaultValue="product" />
                 <select name="product_cat" className="search__select">
-                  <option value>Categories</option>
+                  <option>Categories</option>
                   <option value="eriti-soodsad-tooted">Affordable Items</option>
                   <option value="dildod">Dildos</option>
                   <option value="vibraatorid">Vibrators</option>
@@ -106,7 +126,6 @@ export default class Header extends React.Component {
                   <option value="patareid">Batteries</option>
                 </select>
                 <button type="submit" value="Search" className="search__button button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 250.313 250.313"><path d="M244.186 214.604l-54.38-54.378c-.288-.29-.627-.49-.93-.76 10.7-16.23 16.946-35.66 16.946-56.554C205.822 46.075 159.747 0 102.912 0S0 46.075 0 102.91c0 56.836 46.074 102.912 102.91 102.912 20.895 0 40.323-6.245 56.554-16.945.27.3.47.64.76.93l54.38 54.38c8.168 8.167 21.412 8.167 29.582 0 8.168-8.17 8.168-21.414 0-29.583zM102.91 170.146c-37.133 0-67.235-30.102-67.235-67.235 0-37.133 30.103-67.235 67.236-67.235s67.236 30.103 67.236 67.236c0 37.134-30.103 67.236-67.235 67.236z" fillRule="evenodd" clipRule="evenodd" fill="currentColor" /></svg>
                   <span>Search</span>
                 </button>
               </form>
@@ -115,20 +134,28 @@ export default class Header extends React.Component {
               <Cart />
               <div className="menu-mobile__toggle button hidden-lg-up">
                 <span>Menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width={32} height={32} viewBox="0 0 302 302"><path d="M0 36h302v30H0zM0 236h302v30H0zM0 136h302v30H0z" fill="currentColor" /></svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={32}
+                  height={32}
+                  viewBox="0 0 302 302"
+                >
+                  <path d="M0 36h302v30H0zM0 236h302v30H0zM0 136h302v30H0z" fill="currentColor" />
+                </svg>
               </div>
             </div>
           </div>
 
-          <div className='row hidden-md-down'>
-            <div className='col-xs-8'>
-              <nav className='menu'>
+          <div className="row hidden-md-down">
+            <div className="col-xs-8">
+              <nav className="menu">
                 <MainMenu menuItems={this.props.menuItems.items} />
               </nav>
             </div>
           </div>
         </header>
       </div>
-    )
+    );
   }
 }

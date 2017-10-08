@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react';
+
 export default () => (
   <footer className="container container__footer mt1 py1">
     <div className="row">
