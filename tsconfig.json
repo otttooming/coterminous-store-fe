@@ -8,20 +8,11 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "lib": [
-      "es5",
-      "es2015"
-    ],
+    "lib": ["es5", "es2015"],
     "experimentalDecorators": true,
     "outDir": "dist/"
   },
-  "files": [
-    "./typings/custom/index.d.ts"
-  ],
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+  "files": ["./typings/custom/index.d.ts"],
+  "include": ["src/**/*"],
+  "exclude": ["./node_modules"]
 }
