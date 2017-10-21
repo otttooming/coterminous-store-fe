@@ -5,7 +5,6 @@ import SubCategories from "./children/SubCategoriesListing";
 interface Props {
   categories: CategoryProps[];
   change: (id: number) => void;
-  handleCategoryChange(id: string): void;
 }
 
 export interface CategoryProps {
