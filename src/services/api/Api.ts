@@ -1,72 +1,68 @@
 export const SITEURL = {
-  host: 'https://spiceflow.net.ee',
-  consumerKey: 'ck_27c96da6c28aa2d9022ef35d824607189f76b549',
-  consumerSecret: 'cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9',
+  host: "https://spiceflow.net.ee",
+  consumerKey: "ck_27c96da6c28aa2d9022ef35d824607189f76b549",
+  consumerSecret: "cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9",
 };
 
-export const WP = 'wp/v2';
-export const WC = 'wc/v2';
-export const WPMENUS = 'wp-api-menus/v2';
-export const APISECRET = 'consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9';
+export const WP = "wp/v2";
+export const WC = "wc/v2";
+export const WPMENUS = "wp-api-menus/v2";
+export const APISECRET =
+  "consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9";
 
-interface buildUrlProps {
+interface BuildUrlProps {
   paths?: string[];
   parameters?: string[];
 }
 
-interface hostProps {
+interface HostProps {
   host: string;
   consumerKey: string;
   consumerSecret: string;
 }
 
-export function buildUrl(props: buildUrlProps, host: hostProps) {
+export function buildUrl(props: BuildUrlProps, host: HostProps) {
   const { paths = [], parameters = [] } = props;
 
-  const path = [
-    host.host,
-    'wp-json',
-    ...paths,
-  ].join('/');
+  const path = [host.host, "wp-json", ...paths].join("/");
 
   const parameter = [
     ...parameters,
     `consumer_key=${host.consumerKey}`,
     `consumer_secret=${host.consumerSecret}`,
-  ].join('&');
+  ].join("&");
 
   return `${path}/?${parameter}`;
 }
 
 export function createOrder(order, api) {
   const headers = new Headers();
-  headers.append('Accept', 'application/json');
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', `Basic ${btoa(api.consumerKey + ':' + api.consumerSecret)}`);
+  headers.append("Accept", "application/json");
+  headers.append("Content-Type", "application/json");
+  headers.append(
+    "Authorization",
+    `Basic ${btoa(api.consumerKey + ":" + api.consumerSecret)}`
+  );
 
-  const orderReq = new Promise((resolve) => {
-    fetch('https://spiceflow.net.ee/wp-json/wc/v2/orders', {
+  const orderReq = new Promise(resolve => {
+    fetch("https://spiceflow.net.ee/wp-json/wc/v2/orders", {
       headers,
-      method: 'post',
+      method: "post",
       body: JSON.stringify(order),
     })
-    .then((response) => {
-
-      return response.json();
-    })
-    .then((order) => {
-
-      console.log(order);
-
-      resolve(order);
-    });
+      .then(response => {
+        return response.json();
+      })
+      .then(order => {
+        resolve(order);
+      });
   });
 
   return orderReq;
 }
 
 export async function fetchExternalIp() {
-  const response = await fetch('https://api.ipify.org?format=json');
+  const response = await fetch("https://api.ipify.org?format=json");
   const json = await response.json();
 
   return json;

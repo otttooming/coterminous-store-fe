@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Head from 'next/head';
-import 'isomorphic-fetch';
-import { withRedux } from 'next-redux-wrapper';
-import { initStore, store } from '../../store';
-import Cart from '../../components/cart';
-import styled from 'styled-components';
+import * as React from "react";
+import Head from "next/head";
+import "isomorphic-fetch";
+import { withRedux } from "next-redux-wrapper";
+import { initStore, store } from "../../store";
+import Cart from "../../components/cart";
+import styled from "styled-components";
 
 interface Props {
   title: string;
@@ -19,17 +19,14 @@ const TitleH = styled.h1`
 `;
 
 function MainMenu(props) {
-
   if (!!props.menuItems) {
-    const menuItems = props.menuItems.map((item) => (
+    const menuItems = props.menuItems.map(item => (
       <li key={item.id} className="menu-item">
         <a href="">{item.title}</a>
       </li>
     ));
 
-    return (
-      <ul className="menu">{menuItems}</ul>
-    );
+    return <ul className="menu">{menuItems}</ul>;
   } else {
     return null;
   }
@@ -44,9 +41,19 @@ export default class Header extends React.Component<Props, State> {
     return (
       <div>
         <Head>
-          <title>{!!this.props.title ? this.props.title : ''}This page has a title 🤔</title>
-          <link rel="stylesheet" href="https://www.aadliaare.ee/wp-content/themes/desirees/dist/styles/style.min.css?ver=3" type="text/css" media="all" />
-          <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&subset=cyrillic" rel="stylesheet" />
+          <title>
+            {!!this.props.title ? this.props.title : ""}This page has a title 🤔
+          </title>
+          <link
+            rel="stylesheet"
+            href="https://www.aadliaare.ee/wp-content/themes/desirees/dist/styles/style.min.css?ver=3"
+            type="text/css"
+            media="all"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&subset=cyrillic"
+            rel="stylesheet"
+          />
 
           <style>{`
             body {
@@ -95,7 +102,10 @@ export default class Header extends React.Component<Props, State> {
           <div className="row header middle-xs">
             <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3 header__logo">
               <a className="d__block" href="/">
-                <figure className="aspect-ratio" style={{ paddingBottom: '37.209302325581%' }}>
+                <figure
+                  className="aspect-ratio"
+                  style={{ paddingBottom: "37.209302325581%" }}
+                >
                   <img
                     width={430}
                     height={160}
@@ -104,11 +114,23 @@ export default class Header extends React.Component<Props, State> {
                     itemProp="image"
                     src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
                   />
-                </figure></a>
+                </figure>
+              </a>
             </div>
             <div className="col-md-6 header__search hidden-md-down">
-              <form action="https://www.aadliaare.ee/en/" method="get" id="search__form" className="search__form">
-                <input type="text" className="search__field" placeholder="Search" name="s" id="s" />
+              <form
+                action="https://www.aadliaare.ee/en/"
+                method="get"
+                id="search__form"
+                className="search__form"
+              >
+                <input
+                  type="text"
+                  className="search__field"
+                  placeholder="Search"
+                  name="s"
+                  id="s"
+                />
                 <input type="hidden" name="post_type" defaultValue="product" />
                 <select name="product_cat" className="search__select">
                   <option>Categories</option>
@@ -125,7 +147,11 @@ export default class Header extends React.Component<Props, State> {
                   <option value="kingiideed">Gift Ideas</option>
                   <option value="patareid">Batteries</option>
                 </select>
-                <button type="submit" value="Search" className="search__button button">
+                <button
+                  type="submit"
+                  value="Search"
+                  className="search__button button"
+                >
                   <span>Search</span>
                 </button>
               </form>
@@ -141,7 +167,10 @@ export default class Header extends React.Component<Props, State> {
                   height={32}
                   viewBox="0 0 302 302"
                 >
-                  <path d="M0 36h302v30H0zM0 236h302v30H0zM0 136h302v30H0z" fill="currentColor" />
+                  <path
+                    d="M0 36h302v30H0zM0 236h302v30H0zM0 136h302v30H0z"
+                    fill="currentColor"
+                  />
                 </svg>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface Props {
   products: {}[];
@@ -7,6 +7,7 @@ interface Props {
 interface ProductItemProps {
   name: string;
   slug: string;
+  price: number;
   price_html: string;
   images?: {
     src: string;
@@ -25,9 +26,10 @@ export default class ProductsListing extends React.Component<Props, any> {
       const {
         name,
         slug,
+        price,
         price_html,
         images,
-       } = item as ProductItemProps;
+      } = item as ProductItemProps;
 
       return (
         <li
@@ -38,7 +40,7 @@ export default class ProductsListing extends React.Component<Props, any> {
         >
           <figure
             className="aspect-ratio"
-            style={{ paddingBottom: '136.36363636364%' }}
+            style={{ paddingBottom: "136.36363636364%" }}
           >
             <img
               width={220}
@@ -55,26 +57,26 @@ export default class ProductsListing extends React.Component<Props, any> {
             itemProp="url"
             className="products-listing__link"
           >
-            <h3
-              itemProp="name"
-              className="products-listing__name"
-            >
+            <h3 itemProp="name" className="products-listing__name">
               {name}
             </h3>
           </a>
-          <div className="products-listing__price-block">
-            <span className="price__block">
-              {price_html}
-            </span>
-          </div>
+          {!!price && (
+            <div className="products-listing__price-block">
+              <span
+                className="price__block"
+                dangerouslySetInnerHTML={{
+                  __html: price_html,
+                }}
+              />
+            </div>
+          )}
         </li>
       );
     });
 
     return (
-      <ul className="row row--no-gutters products-listing">
-        {listProducts}
-      </ul>
+      <ul className="row row--no-gutters products-listing">{listProducts}</ul>
     );
   }
 }

@@ -1,114 +1,142 @@
-import * as api from '../components/api'
+import * as api from "../services/api/Api";
+import * as withRedux from "next-redux-wrapper";
 
-import * as React from 'react';
-import Link from 'next/link'
-import 'isomorphic-fetch'
-import Page from '../layouts/main'
+import * as React from "react";
+import Link from "next/link";
+import "isomorphic-fetch";
+import Main from "../layouts/Main";
 
-import Product from '../components/product'
+import ProductItem from "../components/productItem/ProductItem";
+
+import {
+  initStore,
+  startClock,
+  addCount,
+  store,
+  addToCart,
+  removeFromCart,
+  serverRenderClock,
+} from "../store";
 
 function fetchVariationData(idQuery) {
-
-  const id = idQuery
+  const id = idQuery;
 
   const resp = new Promise(resolve => {
-    fetch(api.buildUrl({ paths: [api.WC, 'products', id, 'variations'] }))
+    fetch(
+      api.buildUrl(
+        { paths: [api.WC, "products", id, "variations"] },
+        api.SITEURL
+      )
+    )
       .then(req => {
-        return req.json()
+        return req.json();
       })
       .then(variation => {
+        resolve(variation);
+      });
+  });
 
-        resolve(variation)
-      })
-  })
-
-  return resp
+  return resp;
 }
 
 function fetchAllmedia(idArr) {
-
-  return Promise.all(idArr.map(id => fetchMedia(id))).then(images => images)
+  return Promise.all(idArr.map(id => fetchMedia(id))).then(images => images);
 }
 
 function fetchMedia(idQuery) {
-
-  const id = idQuery
+  const id = idQuery;
 
   const resp = new Promise(resolve => {
-    fetch(api.buildUrl({ paths: [api.WP, 'media', id] }))
+    fetch(api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL))
       .then(req => {
-        return req.json()
+        return req.json();
       })
       .then(media => {
+        resolve(media);
+      });
+  });
 
-        resolve(media)
-      })
-  })
-
-  return resp
+  return resp;
 }
 
-function fetchData(query) {
-
-  const id = query.slug
-
-  let variationsJson = []
-  let product = {}
-  let images = []
+function fetchData(name) {
+  let variationsJson = [];
+  let product = {};
+  let images = [];
 
   const resp = new Promise(resolve => {
-
-    fetch(api.buildUrl({ paths: [api.WC, 'products'], parameters: ['slug=' + id] }))
+    fetch(
+      api.buildUrl(
+        { paths: [api.WC, "products"], parameters: ["slug=" + name] },
+        api.SITEURL
+      )
+    )
       .then(req => {
-
-        return req.json()
+        return req.json();
       })
       .then(item => {
-        product = item[0]
+        product = item[0];
 
-        return fetchAllmedia(product.images.map(item => item.id))
+        return fetchAllmedia(product.images.map(item => item.id));
       })
       .then(imageResponse => {
-        images = imageResponse
+        images = imageResponse;
 
-        return fetchVariationData(product.id)
+        return fetchVariationData(product.id);
       })
       .then(variations => {
-
         resolve({
-          id: query.slug,
+          id: name,
           product: product,
           images: images,
           variations: variations,
-          varUrl: api.buildUrl({ paths: [api.WC, 'products', product.id, 'variations'] })
-        })
-      })
-  })
+          varUrl: api.buildUrl(
+            {
+              paths: [api.WC, "products", product.id, "variations"],
+            },
+            api.SITEURL
+          ),
+        });
+      });
+  });
 
-  return resp
+  return resp;
 }
 
-export default class extends React.Component {
+class Product extends React.Component {
   static async getInitialProps({ query, res }) {
-    const menuUrl = api.buildUrl({ paths: [api.WPMENUS, 'menus', '325'] });
-    const menuRes = await fetch(menuUrl)
-    const menuJson = await menuRes.json()
+    const { params } = query;
+    const { name } = params;
 
-    const productData = await fetchData(query)
+    const menuUrl = api.buildUrl(
+      { paths: [api.WPMENUS, "menus", "325"] },
+      api.SITEURL
+    );
+    const menuRes = await fetch(menuUrl);
+    const menuJson = await menuRes.json();
+
+    const productData = await fetchData(name);
 
     return {
       menuItems: menuJson,
-      productData
-    }
+      productData,
+    };
   }
 
   render() {
     return (
-      <Page title={this.props.productData.product.name} menuItems={this.props.menuItems}>
-
-        <Product product={this.props.productData.product} images={this.props.productData.images} variations={this.props.productData.variations} />
-
-      </Page>
-    )
+      <Main
+        title={this.props.productData.product.name}
+        menuItems={this.props.menuItems}
+      >
+        <ProductItem
+          product={this.props.productData.product}
+          images={this.props.productData.images}
+          variations={this.props.productData.variations}
+        />
+      </Main>
+    );
   }
 }
+
+export default withRedux(initStore, null, null)(Product);
