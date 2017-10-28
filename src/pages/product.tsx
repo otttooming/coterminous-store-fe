@@ -39,68 +39,47 @@ function fetchVariationData(idQuery) {
   return resp;
 }
 
-function fetchAllmedia(idArr) {
-  return Promise.all(idArr.map(id => fetchMedia(id))).then(images => images);
+function fetchAllmedia(ids) {
+  return Promise.all(ids.map(id => fetchMedia(id))).then(images => images);
 }
 
-function fetchMedia(idQuery) {
-  const id = idQuery;
+async function fetchMedia(id) {
+  const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
 
-  const resp = new Promise(resolve => {
-    fetch(api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL))
-      .then(req => {
-        return req.json();
-      })
-      .then(media => {
-        resolve(media);
-      });
-  });
+  const data = await fetch(url);
+  const dataJson = await data.json();
 
-  return resp;
+  return dataJson;
 }
 
-function fetchData(name) {
-  let variationsJson = [];
-  let product = {};
-  let images = [];
+async function fetchData(name) {
+  const url = api.buildUrl(
+    { paths: [api.WC, "products"], parameters: ["slug=" + name] },
+    api.SITEURL
+  );
 
-  const resp = new Promise(resolve => {
-    fetch(
-      api.buildUrl(
-        { paths: [api.WC, "products"], parameters: ["slug=" + name] },
-        api.SITEURL
-      )
-    )
-      .then(req => {
-        return req.json();
-      })
-      .then(item => {
-        product = item[0];
+  const productReq = await fetch(url);
+  const productData = await productReq.json();
+  const productItem = await productData[0];
 
-        return fetchAllmedia(product.images.map(item => item.id));
-      })
-      .then(imageResponse => {
-        images = imageResponse;
+  const imagesItems = await fetchAllmedia(
+    productItem.images.map(item => item.id)
+  );
 
-        return fetchVariationData(product.id);
-      })
-      .then(variations => {
-        resolve({
-          id: name,
-          product: product,
-          images: images,
-          variations: variations,
-          varUrl: api.buildUrl(
-            {
-              paths: [api.WC, "products", product.id, "variations"],
-            },
-            api.SITEURL
-          ),
-        });
-      });
-  });
+  const varData = await fetchVariationData(productItem.id);
 
-  return resp;
+  return {
+    id: name,
+    product: productItem,
+    images: imagesItems,
+    variations: varData,
+    varUrl: api.buildUrl(
+      {
+        paths: [api.WC, "products", productItem.id, "variations"],
+      },
+      api.SITEURL
+    ),
+  };
 }
 
 class Product extends React.Component {

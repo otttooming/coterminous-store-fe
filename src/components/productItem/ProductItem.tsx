@@ -1,5 +1,5 @@
 import * as React from "react";
-import Media from "../../components/media";
+import Media from "../../components/media/Media";
 import Variations from "./children/Variations";
 import { PhotoSwipe } from "react-photoswipe";
 
