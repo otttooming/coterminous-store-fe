@@ -8,7 +8,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "lib": ["es5", "es2015"],
+    "lib": ["dom", "es5", "es2015"],
     "experimentalDecorators": true,
     "outDir": "dist/"
   },
