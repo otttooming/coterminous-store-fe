@@ -24,3 +24,4 @@ Next.js website built using WP REST API
 #### TypeScript
 
 - Install missing TypeScript typings for dependencies in your package.json. `npm install -g typesync`
+  > [typesync](https://github.com/jeffijoe/typesync)
