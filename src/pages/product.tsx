@@ -18,38 +18,29 @@ import {
   serverRenderClock,
 } from "../store";
 
-function fetchVariationData(idQuery) {
-  const id = idQuery;
+async function fetchVariations(id) {
+  const url = api.buildUrl(
+    { paths: [api.WC, "products", id, "variations"] },
+    api.SITEURL
+  );
 
-  const resp = new Promise(resolve => {
-    fetch(
-      api.buildUrl(
-        { paths: [api.WC, "products", id, "variations"] },
-        api.SITEURL
-      )
-    )
-      .then(req => {
-        return req.json();
-      })
-      .then(variation => {
-        resolve(variation);
-      });
-  });
+  const request = await fetch(url);
+  const data = await request.json();
 
-  return resp;
+  return data;
 }
 
-function fetchAllmedia(ids) {
-  return Promise.all(ids.map(id => fetchMedia(id))).then(images => images);
+async function fetchAllMedia(ids) {
+  const images = ids.map(id => fetchMedia(id));
+
+  return await Promise.all(images);
 }
 
 async function fetchMedia(id) {
   const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
+  const response = await fetch(url);
 
-  const data = await fetch(url);
-  const dataJson = await data.json();
-
-  return dataJson;
+  return await response.json();
 }
 
 async function fetchData(name) {
@@ -62,11 +53,11 @@ async function fetchData(name) {
   const productData = await productReq.json();
   const productItem = await productData[0];
 
-  const imagesItems = await fetchAllmedia(
+  const imagesItems = await fetchAllMedia(
     productItem.images.map(item => item.id)
   );
 
-  const varData = await fetchVariationData(productItem.id);
+  const varData = await fetchVariations(productItem.id);
 
   return {
     id: name,
@@ -97,21 +88,18 @@ class Product extends React.Component {
     const productData = await fetchData(name);
 
     return {
+      ...productData,
       menuItems: menuJson,
-      productData,
     };
   }
 
   render() {
     return (
-      <Main
-        title={this.props.productData.product.name}
-        menuItems={this.props.menuItems}
-      >
+      <Main title={this.props.product.name} menuItems={this.props.menuItems}>
         <ProductItem
-          product={this.props.productData.product}
-          images={this.props.productData.images}
-          variations={this.props.productData.variations}
+          product={this.props.product}
+          images={this.props.images}
+          variations={this.props.variations}
         />
       </Main>
     );
