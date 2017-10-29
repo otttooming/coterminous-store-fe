@@ -1,4 +1,5 @@
 import * as api from "../services/api/Api";
+import * as mediaApi from "../services/mediaApi/mediaApi";
 import * as withRedux from "next-redux-wrapper";
 
 import * as React from "react";
@@ -30,19 +31,6 @@ async function fetchVariations(id) {
   return data;
 }
 
-async function fetchAllMedia(ids) {
-  const images = ids.map(id => fetchMedia(id));
-
-  return await Promise.all(images);
-}
-
-async function fetchMedia(id) {
-  const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
-  const response = await fetch(url);
-
-  return await response.json();
-}
-
 async function fetchData(name) {
   const url = api.buildUrl(
     { paths: [api.WC, "products"], parameters: ["slug=" + name] },
@@ -53,8 +41,9 @@ async function fetchData(name) {
   const productData = await productReq.json();
   const productItem = await productData[0];
 
-  const imagesItems = await fetchAllMedia(
-    productItem.images.map(item => item.id)
+  const imagesItems = await mediaApi.getAllMedia(
+    productItem.images.map(item => item.id),
+    api
   );
 
   const varData = await fetchVariations(productItem.id);
