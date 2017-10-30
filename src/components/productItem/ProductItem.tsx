@@ -44,7 +44,7 @@ export default class ProductItem extends React.Component {
     super(props);
 
     this.state = {
-      gallery: buildGalleryItems(props.images),
+      // gallery: buildGalleryItems(props.images),
       galleryOptions: {},
       isGalleryOpen: false,
     };
@@ -64,7 +64,6 @@ export default class ProductItem extends React.Component {
     const productThumbs = thumbs.map((image, index) => (
       <Media
         key={index}
-        id={image.id}
         image={image}
         className="product-thumb__link lightbox"
         title={this.props.product.title}
@@ -112,7 +111,6 @@ export default class ProductItem extends React.Component {
         >
           <div className="col-xs-12 col-md-5 product__left-wrap">
             <Media
-              id={this.props.product.images[0].id}
               image={this.props.images[0]}
               className="main-image product__main-image"
               handleClick={this.handleGalleryOpen}

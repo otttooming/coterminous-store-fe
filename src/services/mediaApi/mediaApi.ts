@@ -1,12 +1,48 @@
-export async function getAllMedia(ids, api) {
-  const mediaItems = ids.map(id => getMedia(id, api));
+interface Dimensions {
+  width: number;
+  height: number;
+  aspectRatio: number;
+}
+
+interface Sizes {
+  file: string;
+  height: number;
+  width: number;
+  mime_type: string;
+  source_url: string;
+}
+
+export interface MediaItemProps {
+  dimensions: Dimensions;
+  sizes: Sizes[];
+}
+
+export async function getAllMedia(ids: number[], api: any) {
+  const mediaItems = ids.map((id: number) => getMedia(id, api));
 
   return await Promise.all(mediaItems);
 }
 
-export async function getMedia(id, api) {
+export async function getMedia(id: number, api: any) {
   const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
-  const response = await fetch(url);
+  const response = await (await fetch(url)).json();
+  const media: MediaItemProps = {
+    dimensions: {
+      width: response.media_details.width,
+      height: response.media_details.height,
+      aspectRatio: calcAspectRatio(
+        response.media_details.width,
+        response.media_details.height
+      ),
+    },
+    sizes: Object.values(response.media_details.sizes),
+  };
 
-  return await response.json();
+  return media;
+}
+
+function calcAspectRatio(width: number, height: number) {
+  const aspectRatio = height / width * 100;
+
+  return aspectRatio;
 }
