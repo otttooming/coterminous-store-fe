@@ -1,4 +1,5 @@
 import * as api from "../services/api/Api";
+import { getProducts } from "../services/productApi/productApi";
 
 import * as React from "react";
 import Link from "next/link";
@@ -6,7 +7,6 @@ import "isomorphic-fetch";
 import Main from "../layouts/Main";
 
 import * as ReactPaginate from "react-paginate";
-import Product from "../components/product";
 import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing from "../components/categoriesListing/CategoriesListing";
 
@@ -60,25 +60,6 @@ function Loader({ isLoaderActive }: LoaderProps) {
 
 class Products extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
-    const pageNr = query.slug ? query.slug : 1;
-
-    const url = api.buildUrl(
-      {
-        paths: [api.WC, "products"],
-        parameters: [
-          "in_stock=true",
-          "status=publish",
-          "page=" + pageNr,
-          "per_page=16",
-        ],
-      },
-      api.SITEURL
-    );
-    const resp = await fetch(url);
-    const json = await resp.json();
-    const resHeaders = resp.headers.get("Link");
-    const totalPages = resp.headers.get("X-WP-TotalPages");
-
     const menuUrl = api.buildUrl(
       { paths: [api.WPMENUS, "menus", "325"] },
       api.SITEURL
@@ -118,16 +99,14 @@ class Products extends React.Component<Props, State> {
         };
       });
 
+    const initialPage = query.slug ? query.slug : 1;
+    const initialProducts = await getProducts(api);
+
     return {
-      query,
-      responseData: resp,
-      products: json,
       menuItems: menuJson,
       sideMenuItems,
-      isToggleOn: true,
-      header: resHeaders,
-      totalPages: parseInt(totalPages, 10),
-      page: pageNr,
+      ...initialProducts,
+      ...initialPage,
     };
   }
 
@@ -135,65 +114,28 @@ class Products extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      products: props.products,
-      page: props.page,
+      ...props,
       isLoaderActive: false,
-      category: "",
-      totalPages: parseInt(props.totalPages, 10),
-      showModal: false,
     };
   }
 
-  handleCategoryChange = (id: any) => {
-    this.updateProducts({ category: id, page: 1 });
+  handleCategoryChange = (category: any) => {
+    this.updateProducts(1, category);
   };
 
   handlePagination = (props: any) => {
-    const pageNr = props.selected + 1;
+    const page = props.selected + 1;
     const category = this.state.category;
 
-    this.updateProducts({ category, page: pageNr });
+    this.updateProducts(page, category);
   };
 
-  updateProducts = (props: any) => {
-    this.setState({ isLoaderActive: true, products: [] });
-    const pageNr = props.page
-      ? props.page
-      : this.state.page ? this.state.page : 1;
-    const category = props.category
-      ? props.category
-      : this.state.category ? this.state.category : "";
-    const categoryParameter = category ? "category=" + category : "";
-    const perPage = props.perPage ? props.perPage : 16;
+  updateProducts = async (page: number, category: string) => {
+    this.setState({ isLoaderActive: true });
 
-    const url = api.buildUrl(
-      {
-        paths: [api.WC, "products"],
-        parameters: [
-          "in_stock=true",
-          "status=publish",
-          categoryParameter,
-          "page=" + pageNr,
-          "per_page=" + perPage,
-        ],
-      },
-      api.SITEURL
-    );
+    const products = await getProducts(api, page, category);
 
-    fetch(url).then(response => {
-      const totalPages = parseInt(response.headers.get("X-WP-TotalPages"), 10);
-
-      // Examine the text in the response
-      response.json().then(data => {
-        this.setState({
-          totalPages,
-          category,
-          products: data,
-          page: pageNr,
-          isLoaderActive: false,
-        });
-      });
-    });
+    this.setState({ ...products, isLoaderActive: false });
   };
 
   render() {

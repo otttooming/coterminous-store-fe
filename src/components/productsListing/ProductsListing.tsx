@@ -1,4 +1,5 @@
 import * as React from "react";
+import Media from "../../components/media/Media";
 
 interface Props {
   products: {}[];
@@ -28,8 +29,9 @@ export default class ProductsListing extends React.Component<Props, any> {
         slug,
         price,
         price_html,
-        images,
-      } = item as ProductItemProps;
+      } = item.product as ProductItemProps;
+
+      const { images } = item;
 
       return (
         <li
@@ -38,7 +40,7 @@ export default class ProductsListing extends React.Component<Props, any> {
           itemType="http://schema.org/Product"
           className="col-xs-12 col-md-3 col-sm-6 products-listing__item"
         >
-          <figure
+          {/* <figure
             className="aspect-ratio"
             style={{ paddingBottom: "136.36363636364%" }}
           >
@@ -50,8 +52,13 @@ export default class ProductsListing extends React.Component<Props, any> {
               itemProp="image"
               src={images[0].src}
             />
-          </figure>
-
+          </figure> */}
+          {!!images[0] && (
+            <Media
+              image={images[0]}
+              className="main-image product__main-image"
+            />
+          )}
           <a
             href={`/product/${slug}`}
             itemProp="url"

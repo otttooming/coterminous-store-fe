@@ -24,21 +24,25 @@ export async function getAllMedia(ids: number[], api: any) {
 }
 
 export async function getMedia(id: number, api: any) {
-  const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
-  const response = await (await fetch(url)).json();
-  const media: MediaItemProps = {
-    dimensions: {
-      width: response.media_details.width,
-      height: response.media_details.height,
-      aspectRatio: calcAspectRatio(
-        response.media_details.width,
-        response.media_details.height
-      ),
-    },
-    sizes: Object.values(response.media_details.sizes),
-  };
+  try {
+    const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
+    const response = await (await fetch(url)).json();
+    const media: MediaItemProps = {
+      dimensions: {
+        width: response.media_details.width,
+        height: response.media_details.height,
+        aspectRatio: calcAspectRatio(
+          response.media_details.width,
+          response.media_details.height
+        ),
+      },
+      sizes: Object.values(response.media_details.sizes),
+    };
 
-  return media;
+    return media;
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 function calcAspectRatio(width: number, height: number) {
