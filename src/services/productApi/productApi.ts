@@ -38,7 +38,10 @@ export async function getProducts(
 }
 
 async function getProductsItem(product: any, api) {
-  const imageIds = product.images.map(item => item.id);
+  const imageIds = product.images
+    .map(item => item.id)
+    .filter(item => item !== 0);
+
   const images = await getAllMedia(imageIds, api);
 
   return {
