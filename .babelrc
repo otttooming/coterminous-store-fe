@@ -1,11 +1,14 @@
 {
-  "presets": [
-    "es2015",
-    "es2017",
-    "react",
-    "next/babel"
-  ],
+  "presets": ["es2015", "es2017", "react", "next/babel"],
   "plugins": [
-    "transform-es2015-modules-commonjs"
+    "transform-es2015-modules-commonjs",
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ]
   ]
 }

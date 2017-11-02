@@ -7,6 +7,7 @@ Next.js website built using WP REST API
 # Terminal
 
 - `npm update -S` Update NPM packages
+- `npm install -g npm-check-updates && ncu -u` Upgrade dependencies to the latest versions, regardless of existing version constraints
 
 ## Development environment
 

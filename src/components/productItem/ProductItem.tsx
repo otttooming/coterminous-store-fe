@@ -73,7 +73,7 @@ export default class ProductItem extends React.Component {
 
     const attributes = this.props.product.attributes;
     const productAttributes = attributes.map((attribute, index) => (
-      <tr key={index} className>
+      <tr key={index}>
         <th>{attribute.name}</th>
         <td>
           <p>{attribute.options.map(option => option + " ")}</p>
