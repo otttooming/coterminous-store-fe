@@ -6,7 +6,7 @@
     "express": "4.16.2",
     "next": "4.1.4",
     "next-redux-wrapper": "1.3.4",
-    "next-routes": "1.0.40",
+    "next-routes": "1.1.0",
     "path-match": "1.2.4",
     "react": "16.0.0",
     "react-autosuggest": "9.3.2",
@@ -26,7 +26,7 @@
     "@types/jest": "21.1.5",
     "@types/next": "2.4.5",
     "@types/next-redux-wrapper": "1.3.4",
-    "@types/prettier": "1.7.0",
+    "@types/prettier": "1.7.1",
     "@types/react": "16.0.19",
     "@types/react-autosuggest": "9.3.1",
     "@types/react-dom": "16.0.2",
@@ -42,7 +42,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-es2015": "6.24.1",
-    "babel-preset-es2017": "6.14.0",
+    "babel-preset-es2017": "6.24.1",
     "babel-preset-react": "6.24.1",
     "concurrently": "3.5.0",
     "jest": "21.2.1",
@@ -66,13 +66,21 @@
     "test": "jest --no-cache"
   },
   "jest": {
-    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "coveragePathIgnorePatterns": ["/node_modules/"],
-    "moduleDirectories": ["node_modules"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "verbose": true,
     "bail": false,
     "collectCoverage": true
