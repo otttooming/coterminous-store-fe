@@ -1,0 +1,413 @@
+@include fontFace('Oswald', '../fonts/oswald-extralight', normal, 200);
+@include fontFace('Oswald', '../fonts/oswald-light', normal, 300);
+@include fontFace('Oswald', '../fonts/oswald-regular', normal, 400);
+@include fontFace('Oswald', '../fonts/oswald-medium', normal, 500);
+@include fontFace('Oswald', '../fonts/oswald-demibold', normal, 600);
+@include fontFace('Oswald', '../fonts/oswald-bold', normal, 700);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-normal;
+
+  -webkit-text-size-adjust: none; // Prevent font scaling in landscape
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+
+  @media screen and (max-width: 767px) {
+    font-size: $font-size-small;
+  }
+}
+
+body {
+  overflow-x: hidden;
+
+  margin: 0;
+
+  text-shadow: $shadow-text;
+
+  font-family: $typeface-primary;
+  color: $color-white;
+
+  @include rem(font-size, 14px);
+}
+
+a {
+  display: inline-block;
+
+  max-width: 100%;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $spacing-normal 0;
+
+  font-weight: $font-weight-normal;
+  line-height: 1.2;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+
+  font-weight: $font-weight-normal;
+}
+
+p,
+td {
+  font-family: $typeface-secondary;
+}
+
+p {
+  margin: $spacing-normal 0;
+
+  line-height: 1.4;
+
+  a {
+    color: $color-warm;
+  }
+}
+
+div {
+  box-sizing: border-box;
+}
+
+fieldset {
+  margin: $spacing-small 0;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-family: $typeface-secondary;
+}
+
+tr {
+  &.alt {
+    background: $color-bg;
+  }
+}
+
+th,
+td {
+  padding: 10px;
+
+  text-align: left;
+
+  border: 0;
+
+  font-weight: $font-weight-normal;
+
+  @media (max-width: 767px) {
+    padding: 5px;
+  }
+}
+
+dl {
+  margin: 0;
+}
+
+dt,
+dd {
+  display: inline-block;
+
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.img {
+
+  &--shadow {
+    box-shadow: $shadow-std;
+  }
+
+  &--rounded {
+    border-radius: $border-radius-std;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  margin: $spacing-normal 0;
+  padding: 0;
+
+  &[type=text] {
+    min-height: 30px;
+  }
+
+  &[type=number] {
+    text-align: center;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &[type=checkbox],
+  &[type=radio] {
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    color: $color-white;
+    border: 1px solid $color-go;
+    border-radius: $border-radius-round;
+    background: $color-button-bg-normal;
+    box-shadow: $shadow-std;
+    text-shadow: $shadow-text;
+
+    -webkit-appearance: none;
+
+    &:checked {
+      background: $color-go;
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        content: '✔';
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+  }
+}
+
+textarea,
+input {
+  &::-webkit-input-placeholder {
+    color: rgba($color-white, .5);
+  }
+  &::-moz-placeholder {
+    color: rgba($color-white, .5);
+  }
+  &:-ms-input-placeholder {
+    color: rgba($color-white, .5);
+  }
+}
+
+select,
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=number] {
+  box-sizing: border-box;
+  margin: $spacing-normal 0;
+  padding: 0 10px;
+
+  vertical-align: middle;
+
+  color: inherit;
+  border: none;
+  border-radius: $border-radius-medium;
+  outline: none;
+  background: $color-input-bg-normal;
+  box-shadow: $shadow-std;
+
+  font-size: $font-size-button;
+  line-height: 30px;
+  height: 30px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select {
+  cursor: pointer;
+
+  font-family: $typeface-primary;
+  background: $color-warm;
+  color: $color-black;
+  border-radius: $border-radius-std;
+  max-width: 100%;
+}
+
+label {
+  display: block;
+  margin-top: $spacing-small;
+  margin-bottom: $spacing-small;
+  font-family: $typeface-secondary;
+}
+
+textarea {
+  box-sizing: border-box;
+  color: $color-white;
+  border: 0;
+  border-radius: $border-radius-std;
+  background: $color-button-bg-normal;
+  box-shadow: $shadow-std;
+  text-shadow: $shadow-text;
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+}
+
+hr {
+  width: 100%;
+  margin: 15px 0;
+
+  border-width: 0;
+  border-top: 1px solid $color-grey;
+}
+
+del,
+ins {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+del {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: 75%;
+
+    content: '';
+    transform: translate3d(-50%, 0, 0);
+
+    border-top: 3px solid $color-black;
+    border-radius: $border-radius-std;
+    box-shadow: $shadow-std;
+  }
+}
+
+svg {
+  // filter: drop-shadow($shadow-text); // BUG: Disabled - Safari WebKit will not display SVG
+}
+
+mark {
+  color: inherit;
+  background: transparent;
+}
+
+address {
+  font-family: $typeface-secondary;
+}
+
+blockquote {
+  position: relative;
+  font-size: $font-size-normal;
+  background-color: $color-bg;
+  border-radius: $border-radius-std;
+  padding: $spacing-small $spacing-medium;
+  margin: $spacing-medium 0;
+  padding-left: 2 * $spacing-large;
+
+  &:before {
+    content: "\“";
+    position: absolute;
+    left: $spacing-medium;
+    font-size: 40px;
+    top: 6px;
+  }
+}
+
+.required {
+  color: $color-attention;
+}
+
+.edit {
+  color: $color-warm;
+}
+
+.amount {
+  display: inline-block;
+
+  padding: $spacing-small $spacing-normal;
+
+  color: $color-white;
+  border-radius: $border-radius-std;
+  background: $color-buy-button-bg;
+  box-shadow: $shadow-std;
+
+  font-family: $typeface-primary;
+  line-height: normal;
+
+  .product__price-block & {
+    padding: 0;
+
+    box-shadow: none;
+  }
+}
+
+.qty {
+  width: 50px;
+}
+
+.d-inlineblock {
+  display: inline-block;
+}
+
+.ws-wrap {
+  white-space: normal!important;
+}
+
+.content {
+
+  &__common {
+    font-family: $typeface-secondary;
+    text-shadow: none;
+  }
+}
+
+.bg {
+
+  &__common {
+    border-radius: $border-radius-std;
+    background: $color-bg;
+    box-shadow: $shadow-std;
+
+    &--light {
+      background: $color-bg-light;
+      color: $color-text-light;
+    }
+  }
+}
+
+.bg__site {
+  position: fixed;
+  background-image: radial-gradient(circle at 50%, rgba(17, 52, 181, .9) 40%, rgba(234, 0, 64, .9) 100%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translate3d(0,0,0);
+  z-index: -1;
+  backface-visibility: hidden;
+}

@@ -1,0 +1,22 @@
+.grid {
+  &__slider {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    margin: 0 0 $spacing-medium;
+
+    text-align: center;
+
+    border-radius: $border-radius-std;
+    background: $color-grey;
+    box-shadow: $shadow-std;
+
+    .textwidget {
+      display: flex;
+
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}

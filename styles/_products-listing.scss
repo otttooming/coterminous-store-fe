@@ -1,0 +1,85 @@
+.products-listing {
+
+  &__item {
+    position: relative;
+
+    border-radius: $border-radius-std;
+    padding: 0;
+
+    margin-bottom: $spacing-medium;
+    border-right: 1px solid $color-black;
+    background: $color-white;
+    overflow: hidden;
+    box-shadow: $shadow-std;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__name {
+    color: $color-text-light;
+    background: $color-bg-light;
+    padding: $spacing-small;
+    width: 100px;
+    white-space: nowrap;
+    border-radius: 0 $border-radius-std 0 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+
+    font-size: $font-size-small;
+    font-weight: $font-weight-light;
+    text-shadow: none;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__price-block {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: $spacing-small $spacing-medium;
+
+    text-align: center;
+
+    color: $color-white;
+    border-radius: $border-radius-std 0 0 0;
+    background: $color-buy-button-bg;
+    box-shadow: $shadow-std;
+
+    font-size: $font-size-small;
+
+    flex: 1;
+
+    del,
+    ins {
+      display: block;
+    }
+
+    .amount {
+      padding: 0;
+
+      color: $color-white !important;
+      box-shadow: none;
+
+      font-size: $font-size-small;
+    }
+
+    &-big {
+      .amount {
+        @include rem(font-size, $spacing-medium);
+      }
+    }
+
+    + .button {
+      margin: 0 0 0 $spacing-small;
+    }
+  }
+}

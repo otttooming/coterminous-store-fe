@@ -8,6 +8,7 @@ Next.js website built using WP REST API
 
 - `npm update -S` Update NPM packages
 - `npm install -g npm-check-updates && ncu -u` Upgrade dependencies to the latest versions, regardless of existing version constraints
+- `node-sass styles/main.scss static/css/styles.css` Compile legacy SCSS to CSS. Use styled-components for new development.
 
 ## Development environment
 

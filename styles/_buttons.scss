@@ -1,0 +1,65 @@
+.button {
+  display: inline-block;
+  overflow: hidden;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  padding: $spacing-normal $spacing-large;
+  margin: $spacing-normal 0;
+
+  cursor: pointer;
+  user-select: none;
+  transition: background-color $transition-normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-std;
+  background: $color-button-bg;
+  box-shadow: $shadow-std;
+  text-shadow: $shadow-text;
+
+  font-family: $typeface-primary;
+  font-size: $font-size-button;
+  line-height: 1.5;
+
+  -webkit-appearance: none;
+
+  &:hover {
+    background: $color-go;
+  }
+
+  &.active {
+    background: $color-buy-button-bg;
+  }
+
+  &.medium {
+    padding: $spacing-normal $spacing-medium;
+
+    font-size: $font-size-button;
+  }
+
+  &.alt,
+  &.big {
+    @include rem(font-size, 24px);
+    @include rem(padding, $spacing-medium);
+  }
+
+  &__icon {
+    width: 1em;
+    height: 1em;
+    margin: 0 0 0 1em;
+  }
+
+  &__disabled {
+    opacity: .5;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $color-button-bg;
+    }
+  }
+}
