@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+const path = require("path");
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
@@ -9,12 +10,16 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  server.use("/static", express.static(path.join(__dirname + "/static")));
+
   server.get("/cart", (req, res) => {
     return app.render(req, res, "/cart", req.query);
   });
+
   server.get("/checkout", (req, res) => {
     return app.render(req, res, "/checkout", req.query);
   });
+
   server.get("/product/:name", (req, res) => {
     const q = {
       params: req.params,
@@ -23,6 +28,7 @@ app.prepare().then(() => {
     };
     return app.render(req, res, "/product", q);
   });
+
   server.get("/products/:name", (req, res) => {
     const q = {
       params: req.params,
@@ -31,9 +37,11 @@ app.prepare().then(() => {
     };
     return app.render(req, res, "/products", q);
   });
+
   server.get("/about", (req, res) => {
     return app.render(req, res, "/about", req.query);
   });
+
   server.get("/order/:id", (req, res) => {
     const q = {
       params: req.params,
