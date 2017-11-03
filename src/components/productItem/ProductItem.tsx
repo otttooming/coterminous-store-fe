@@ -1,7 +1,7 @@
 import * as React from "react";
 import Media from "../../components/media/Media";
 import Variations from "./children/Variations";
-import { PhotoSwipe } from "react-photoswipe";
+// import { PhotoSwipe } from "react-photoswipe";
 
 function buildSingleProductVariation(props) {
   const variation = [
@@ -45,6 +45,7 @@ export default class ProductItem extends React.Component {
 
     this.state = {
       // gallery: buildGalleryItems(props.images),
+      gallery: [],
       galleryOptions: {},
       isGalleryOpen: false,
     };
@@ -97,12 +98,12 @@ export default class ProductItem extends React.Component {
 
     return (
       <div className="container">
-        <PhotoSwipe
+        {/* <PhotoSwipe
           isOpen={this.state.isGalleryOpen}
           items={this.state.gallery}
           options={this.state.galleryOptions}
           onClose={this.handleGalleryClose}
-        />
+        /> */}
 
         <div
           itemScope={true}
