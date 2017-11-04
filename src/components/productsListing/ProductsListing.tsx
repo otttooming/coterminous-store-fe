@@ -1,8 +1,13 @@
 import * as React from "react";
-import Media from "../../components/media/Media";
+import Media, { MediaProps } from "../../components/media/Media";
 
 interface Props {
-  products: {}[];
+  products: ProductListingProps[];
+}
+
+interface ProductListingProps {
+  product: ProductItemProps;
+  images?: MediaProps[];
 }
 
 interface ProductItemProps {
@@ -10,26 +15,18 @@ interface ProductItemProps {
   slug: string;
   price: number;
   price_html: string;
-  images?: {
-    src: string;
-  }[];
 }
 
 export default class ProductsListing extends React.Component<Props, any> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 
   render() {
-    const { products } = this.props as Props;
+    const { products } = this.props;
 
     const listProducts = products.map((item, index) => {
-      const {
-        name,
-        slug,
-        price,
-        price_html,
-      } = item.product as ProductItemProps;
+      const { name, slug, price, price_html } = item.product;
 
       const { images } = item;
 
@@ -40,23 +37,11 @@ export default class ProductsListing extends React.Component<Props, any> {
           itemType="http://schema.org/Product"
           className="col-xs-12 col-md-3 col-sm-6 products-listing__item"
         >
-          {/* <figure
-            className="aspect-ratio"
-            style={{ paddingBottom: "136.36363636364%" }}
-          >
-            <img
-              width={220}
-              height={300}
-              className="aspect-ratio__img lazyloaded "
-              alt="B Swish Bcute Classic Pearl"
-              itemProp="image"
-              src={images[0].src}
-            />
-          </figure> */}
           {!!images[0] && (
             <Media
               image={images[0]}
               className="main-image product__main-image"
+              alt={name}
             />
           )}
           <a

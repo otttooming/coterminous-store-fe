@@ -4,11 +4,11 @@ import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 interface Props {
   image: MediaItemProps;
   className?: string;
-  title?: string;
+  alt?: string;
   handleClick?: (event: any) => void;
 }
 
-const Media = ({ image, className, title }: Props) => {
+const Media = ({ image, className, alt }: Props) => {
   const { width, height, aspectRatio } = image.dimensions;
   const srcSet = image.sizes.map(item => `${item.source_url} ${item.width}w`);
   return (
@@ -23,7 +23,7 @@ const Media = ({ image, className, title }: Props) => {
         width={width}
         height={height}
         className="product__image aspect-ratio__img lazyloaded"
-        alt={title}
+        alt={alt}
         itemProp="thumbnail"
         sizes={`(max-width: ${width}px) 100vw, ${width}px`}
         srcSet={srcSet.join()}
