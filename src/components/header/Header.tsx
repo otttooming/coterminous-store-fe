@@ -2,7 +2,7 @@ import * as React from "react";
 import Head from "next/head";
 import { withRedux } from "next-redux-wrapper";
 import { initStore, store } from "../../store";
-import Cart from "../../components/cart";
+import CartButton from "./children/CartButton";
 import styled from "styled-components";
 
 interface Props {
@@ -146,7 +146,7 @@ export default class Header extends React.Component<Props, State> {
               </form>
             </div>
             <div className="col-sm-9 col-lg-3 header__cart hidden-sm-down align-self-center">
-              <Cart />
+              <CartButton />
               <div className="menu-mobile__toggle button hidden-lg-up">
                 <span>Menu</span>
 
