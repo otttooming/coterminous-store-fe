@@ -3,7 +3,7 @@ import { getProducts } from "../services/productApi/productApi";
 
 import * as React from "react";
 import Link from "next/link";
-import "isomorphic-fetch";
+import "isomorphic-unfetch";
 import Main from "../layouts/Main";
 
 import * as ReactPaginate from "react-paginate";

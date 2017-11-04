@@ -1,6 +1,5 @@
 import * as React from "react";
 import Head from "next/head";
-import "isomorphic-fetch";
 import { withRedux } from "next-redux-wrapper";
 import { initStore, store } from "../../store";
 import Cart from "../../components/cart";

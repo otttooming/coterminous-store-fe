@@ -4,7 +4,7 @@ import * as withRedux from "next-redux-wrapper";
 
 import * as React from "react";
 import Link from "next/link";
-import "isomorphic-fetch";
+import "isomorphic-unfetch";
 import Main from "../layouts/Main";
 
 import ProductItem from "../components/productItem/ProductItem";

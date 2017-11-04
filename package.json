@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "babel-plugin-styled-components": "1.3.0",
     "express": "4.16.2",
+    "isomorphic-unfetch": "^2.0.0",
     "next": "4.1.4",
     "next-redux-wrapper": "1.3.4",
     "next-routes": "1.1.0",
@@ -20,7 +22,6 @@
     "redux-form": "7.1.2",
     "redux-persist": "5.2.2",
     "redux-thunk": "2.2.0",
-    "babel-plugin-styled-components": "1.3.0",
     "styled-components": "2.2.3"
   },
   "devDependencies": {
@@ -67,21 +68,13 @@
     "test": "jest --no-cache"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
+    "coveragePathIgnorePatterns": ["/node_modules/"],
+    "moduleDirectories": ["node_modules"],
     "verbose": true,
     "bail": false,
     "collectCoverage": true
