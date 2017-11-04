@@ -1,5 +1,6 @@
 import * as React from "react";
-import Media, { MediaProps } from "../../components/media/Media";
+import { MediaItemProps } from "../../services/mediaApi/mediaApi";
+import Media from "../../components/media/Media";
 
 interface Props {
   products: ProductListingProps[];
@@ -7,7 +8,7 @@ interface Props {
 
 interface ProductListingProps {
   product: ProductItemProps;
-  images?: MediaProps[];
+  images?: MediaItemProps[];
 }
 
 interface ProductItemProps {
