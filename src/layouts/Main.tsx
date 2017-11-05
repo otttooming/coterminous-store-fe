@@ -1,7 +1,7 @@
 import * as React from "react";
 import Header from "../components/header/Header";
 import Sidemenu from "../components/sidemenu";
-import Footer from "../components/footer";
+import Footer from "../components/footer/Footer";
 import { bindActionCreators } from "redux";
 import { initStore, startClock, addCount, serverRenderClock } from "../store";
 
