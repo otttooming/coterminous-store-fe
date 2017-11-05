@@ -1,5 +1,6 @@
 import * as React from "react";
 import { CategoryProps } from ".././CategoriesListing";
+import Icon from "../../../components/icon/Icon";
 
 interface Props {
   category: CategoryProps;
@@ -55,20 +56,12 @@ export default class CategoryGroup extends React.Component<Props, State> {
               className="cat-list__subcat-control control__items"
               onClick={this.handleSubMenuToggle}
             >
-              <svg
+              <Icon
+                icon="arrow-down"
+                width={24}
+                height={24}
                 className="control__down"
-                xmlns="http://www.w3.org/2000/svg"
-                width={25}
-                height={25}
-                viewBox="0 0 501.5 501.5"
-              >
-                <g>
-                  <path
-                    fill="currentColor"
-                    d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"
-                  />
-                </g>
-              </svg>
+              />
             </div>
           )}
         </h2>
