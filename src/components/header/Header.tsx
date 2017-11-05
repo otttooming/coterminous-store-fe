@@ -165,13 +165,15 @@ export default class Header extends React.Component<Props, State> {
             </div>
           </div>
 
-          <div className="row hidden-md-down">
-            <div className="col-xs-8">
-              <nav className="menu">
-                <MainMenu menuItems={this.props.menuItems.items} />
-              </nav>
+          {!!this.props.menuItems && (
+            <div className="row hidden-md-down">
+              <div className="col-xs-8">
+                <nav className="menu">
+                  <MainMenu menuItems={this.props.menuItems.items} />
+                </nav>
+              </div>
             </div>
-          </div>
+          )}
         </header>
       </div>
     );
