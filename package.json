@@ -65,7 +65,9 @@
     "dev": "concurrently \"tsc --watch\" \"node server.js\"",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "test": "jest --no-cache"
+    "test": "jest --no-cache",
+    "sprite": "svg-sprite-generate -d ./static/assets -o ./static/sprite.svg",
+    "style": "node-sass styles/main.scss static/css/styles.css"
   },
   "jest": {
     "moduleFileExtensions": ["ts", "tsx", "js"],
