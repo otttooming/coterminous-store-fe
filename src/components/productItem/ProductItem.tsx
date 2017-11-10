@@ -3,23 +3,6 @@ import Media from "../../components/media/Media";
 import Variations from "./children/Variations";
 // import { PhotoSwipe } from "react-photoswipe";
 
-function buildSingleProductVariation(props) {
-  const variation = [
-    {
-      price: props.price,
-      attributes: [
-        {
-          name: "",
-          option: "",
-        },
-      ],
-      name: "",
-    },
-  ];
-
-  return variation;
-}
-
 function buildGalleryItems(images) {
   const slides = [];
 
@@ -150,11 +133,7 @@ export default class ProductItem extends React.Component {
 
                 <Variations
                   product={this.props.product}
-                  variations={
-                    this.props.variations.length > 0
-                      ? this.props.variations
-                      : buildSingleProductVariation(this.props.product)
-                  }
+                  variations={this.props.variations}
                 />
               </div>
             </div>

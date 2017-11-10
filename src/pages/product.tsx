@@ -1,5 +1,6 @@
 import * as api from "../services/api/Api";
 import * as mediaApi from "../services/mediaApi/mediaApi";
+import { getSingleProduct } from "../services/productApi/singleProductApi";
 import * as withRedux from "next-redux-wrapper";
 
 import * as React from "react";
@@ -19,49 +20,6 @@ import {
   serverRenderClock,
 } from "../store";
 
-async function fetchVariations(id) {
-  const url = api.buildUrl(
-    { paths: [api.WC, "products", id, "variations"] },
-    api.SITEURL
-  );
-
-  const request = await fetch(url);
-  const data = await request.json();
-
-  return data;
-}
-
-async function fetchData(name) {
-  const url = api.buildUrl(
-    { paths: [api.WC, "products"], parameters: ["slug=" + name] },
-    api.SITEURL
-  );
-
-  const productReq = await fetch(url);
-  const productData = await productReq.json();
-  const productItem = await productData[0];
-
-  const imagesItems = await mediaApi.getAllMedia(
-    productItem.images.map(item => item.id),
-    api
-  );
-
-  const varData = await fetchVariations(productItem.id);
-
-  return {
-    id: name,
-    product: productItem,
-    images: imagesItems,
-    variations: varData,
-    varUrl: api.buildUrl(
-      {
-        paths: [api.WC, "products", productItem.id, "variations"],
-      },
-      api.SITEURL
-    ),
-  };
-}
-
 class Product extends React.Component {
   static async getInitialProps({ query, res }) {
     const { params } = query;
@@ -74,10 +32,10 @@ class Product extends React.Component {
     const menuRes = await fetch(menuUrl);
     const menuJson = await menuRes.json();
 
-    const productData = await fetchData(name);
+    const initialProduct = await getSingleProduct(api, name);
 
     return {
-      ...productData,
+      ...initialProduct,
       menuItems: menuJson,
     };
   }

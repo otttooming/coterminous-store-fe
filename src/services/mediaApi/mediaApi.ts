@@ -20,7 +20,7 @@ export interface MediaItemProps {
 export async function getAllMedia(ids: number[], api: any) {
   const mediaItems = ids.map((id: number) => getMedia(id, api));
 
-  return await Promise.all(mediaItems);
+  return Promise.all(mediaItems);
 }
 
 export async function getMedia(id: number, api: any) {
