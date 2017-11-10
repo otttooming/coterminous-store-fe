@@ -30,12 +30,22 @@ export default class CategoriesListing extends React.Component<Props, any> {
     const categoriesListing = categories.map((item, index) => {
       const { id, name, count, description, subCategories } = item;
 
+      const isSubCategoriesPopulated =
+        !!subCategories.length &&
+        !!subCategories
+          .map((subItem: any) => subItem.count)
+          .filter((subCount: number) => subCount !== 0).length;
+
+      if (!count) {
+        return null;
+      }
+
       return (
         <CategoryGroup
           key={index}
           category={item}
           change={this.handleCategoryChange}
-          controls={subCategories.length > 0}
+          controls={isSubCategoriesPopulated}
         >
           {subCategories.length > 0 && (
             <SubCategories

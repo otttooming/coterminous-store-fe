@@ -36,6 +36,10 @@ export default class CategoryGroup extends React.Component<Props, State> {
     const { id, name, count, description } = this.props.category;
     const { isSubMenuOpen } = this.state;
 
+    if (!count) {
+      return null;
+    }
+
     return (
       <li
         className={`cat-list__group ${isSubMenuOpen
