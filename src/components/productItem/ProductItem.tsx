@@ -1,6 +1,7 @@
 import * as React from "react";
 import Media from "../../components/media/Media";
 import Variations from "./children/Variations";
+import Details from "./children/Details";
 // import { PhotoSwipe } from "react-photoswipe";
 
 function buildGalleryItems(images) {
@@ -22,8 +23,14 @@ function buildGalleryItems(images) {
   return slides;
 }
 
-export default class ProductItem extends React.Component {
-  constructor(props) {
+interface Props {
+  product: any;
+  images: any;
+  variations: any;
+}
+
+export default class ProductItem extends React.Component<Props, any> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -44,40 +51,33 @@ export default class ProductItem extends React.Component {
   };
 
   render() {
-    const thumbs = this.props.images;
-    const productThumbs = thumbs.map((image, index) => (
-      <Media
-        key={index}
-        image={image}
-        className="product-thumb__link lightbox"
-        title={this.props.product.title}
-        handleClick={this.handleGalleryOpen}
-      />
-    ));
+    const { images, product, variations } = this.props;
+    const {
+      attributes,
+      categories,
+      tags,
+      name,
+      description,
+      in_stock,
+    } = product;
 
-    const attributes = this.props.product.attributes;
-    const productAttributes = attributes.map((attribute, index) => (
-      <tr key={index}>
-        <th>{attribute.name}</th>
-        <td>
-          <p>{attribute.options.map(option => option + " ")}</p>
-        </td>
-      </tr>
-    ));
+    const isDetailsPopulated =
+      !!attributes.length ||
+      !!categories.length ||
+      !!description ||
+      !!tags.length;
 
-    const categories = this.props.product.categories;
-    const productCategories = categories.map((category, index) => (
-      <a key={index} href="#" rel="tag">
-        {category.name}
-      </a>
-    ));
-
-    const tags = this.props.product.tags;
-    const productTags = tags.map((tag, index) => (
-      <a key={index} href="#" rel="tag">
-        {tag.name}
-      </a>
-    ));
+    const productThumbs =
+      !!images.length &&
+      images.map((image, index) => (
+        <Media
+          key={index}
+          image={image}
+          className="product-thumb__link lightbox"
+          alt={this.props.product.title}
+          handleClick={this.handleGalleryOpen}
+        />
+      ));
 
     return (
       <div className="container">
@@ -94,9 +94,9 @@ export default class ProductItem extends React.Component {
           className="row product"
         >
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            {!!this.props.images[0] ? (
+            {!!images[0] ? (
               <Media
-                image={this.props.images[0]}
+                image={images[0]}
                 className="main-image product__main-image"
                 handleClick={this.handleGalleryOpen}
                 isProduct={true}
@@ -108,18 +108,20 @@ export default class ProductItem extends React.Component {
                 isProduct={true}
               />
             )}
-            <div
-              className="product-thumb__gallery"
-              itemScope={true}
-              itemType="http://schema.org/ImageGallery"
-            >
-              {productThumbs}
-            </div>
+            {!!images.length && (
+              <div
+                className="product-thumb__gallery"
+                itemScope={true}
+                itemType="http://schema.org/ImageGallery"
+              >
+                {productThumbs}
+              </div>
+            )}
           </div>
           <div className="col-xs-12 col-md-7">
             <div className="product__mainblock product_description_mainblock productcol summary">
               <h1 itemProp="name" className="product__title">
-                {this.props.product.name}
+                {name}
               </h1>
               <div
                 className="main-info product___price-wrap"
@@ -132,52 +134,25 @@ export default class ProductItem extends React.Component {
                   href="http://schema.org/InStock"
                 />
 
-                {this.props.in_stock && (
+                {in_stock && (
                   <div className="product-stock in-stock">
                     <span className="stock__header">Availability</span>{" "}
                     <span className="stock__number">In stock</span>
                   </div>
                 )}
 
-                <Variations
-                  product={this.props.product}
-                  variations={this.props.variations}
-                />
+                <Variations product={product} variations={variations} />
               </div>
             </div>
-            <div className="product__details-wrap mt1">
-              <div className="product__details-block">
-                <h2 className="tab-title opened">Description</h2>
-                <div
-                  id="content_tab_1"
-                  className="tab-content"
-                  style={{ display: "block" }}
-                  dangerouslySetInnerHTML={{
-                    __html: this.props.product.description,
-                  }}
-                />
-              </div>
 
-              <div className="product__details-block">
-                <h2 className="tab-title">Additional Information</h2>
-                <div id="content_tab_2" className="tab-content">
-                  <div className="product__attributes">
-                    <table className="shop_attributes">
-                      <tbody>{productAttributes}</tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              <div className="product__details-block product-meta posted_in">
-                <h2 className="posted-in__header">Product categories</h2>
-                {productCategories}
-              </div>
-              <div className="product__details-block product-meta tagged_as">
-                <h2 className="tagged-as__header">Company</h2>
-                {productTags}
-              </div>
-            </div>
+            {isDetailsPopulated && (
+              <Details
+                attributes={attributes}
+                categories={categories}
+                description={description}
+                tags={tags}
+              />
+            )}
           </div>
         </div>
       </div>
