@@ -53,6 +53,7 @@ const Media = ({ image, className, alt, isProduct }: Props) => {
   const srcSet = sizes.map(item => `${item.source_url} ${item.width}w`);
   return (
     <Figure
+      isProduct={isProduct}
       itemScope={true}
       itemProp="associatedMedia"
       itemType="http://schema.org/ImageObject"
