@@ -94,12 +94,20 @@ export default class ProductItem extends React.Component {
           className="row product"
         >
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            <Media
-              image={this.props.images[0]}
-              className="main-image product__main-image"
-              handleClick={this.handleGalleryOpen}
-            />
-
+            {!!this.props.images[0] ? (
+              <Media
+                image={this.props.images[0]}
+                className="main-image product__main-image"
+                handleClick={this.handleGalleryOpen}
+                isProduct={true}
+              />
+            ) : (
+              <Media
+                className="main-image product__main-image"
+                handleClick={this.handleGalleryOpen}
+                isProduct={true}
+              />
+            )}
             <div
               className="product-thumb__gallery"
               itemScope={true}

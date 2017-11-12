@@ -31,12 +31,14 @@ const ProductsListing = ({ products }: Props) => {
         itemType="http://schema.org/Product"
         className="col-xs-12 col-md-3 col-sm-6 products-listing__item"
       >
-        {!!images[0] && (
+        {!!images[0] ? (
           <Media
             image={images[0]}
             className="main-image product__main-image"
             alt={name}
           />
+        ) : (
+          <Media className="main-image product__main-image" alt={name} />
         )}
         <a
           href={`/product/${slug}`}
