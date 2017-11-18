@@ -2,6 +2,7 @@ import * as api from "../services/api/Api";
 import * as mediaApi from "../services/mediaApi/mediaApi";
 import { getSingleProduct } from "../services/productApi/singleProductApi";
 import * as withRedux from "next-redux-wrapper";
+import { Field, reduxForm, getFormValues } from "redux-form";
 
 import * as React from "react";
 import Link from "next/link";
@@ -53,4 +54,16 @@ class Product extends React.Component {
   }
 }
 
-export default withRedux(initStore, null, null)(Product);
+const getShoppingCartFormValues = (state: any) => {
+  return getFormValues("shoppingCart")(state) as any;
+};
+
+const mapStateToProps = (state: any) => ({
+  formValues: getShoppingCartFormValues(state),
+});
+
+export default withRedux(initStore, mapStateToProps, null)(
+  reduxForm({
+    form: "shoppingCart",
+  })(Product)
+);

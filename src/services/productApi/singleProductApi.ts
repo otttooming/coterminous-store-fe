@@ -1,6 +1,15 @@
 import { getAllMedia } from "../mediaApi/mediaApi";
 
-export async function getSingleProduct(api: any, name: string) {
+export interface SingleProductProps {
+  product: any;
+  images: any;
+  variations: any;
+}
+
+export async function getSingleProduct(
+  api: any,
+  name: string
+): Promise<SingleProductProps> {
   const url = api.buildUrl(
     { paths: [api.WC, "products"], parameters: ["slug=" + name] },
     api.SITEURL
@@ -17,11 +26,7 @@ export async function getSingleProduct(api: any, name: string) {
 
   const variations = await getVariations(product, api);
 
-  return {
-    product,
-    images,
-    variations,
-  };
+  return { product, images, variations };
 }
 
 async function getVariations(product: any, api: any) {
@@ -44,12 +49,7 @@ function buildSingleProductVariation(product: any) {
   const variation = [
     {
       price: product.price,
-      attributes: [
-        {
-          name: "",
-          option: "",
-        },
-      ],
+      attributes: [],
       name: "",
     },
   ];
