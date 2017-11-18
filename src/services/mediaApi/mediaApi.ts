@@ -1,3 +1,5 @@
+import { MediaItemResponseTypes } from "./mediaTypes";
+
 interface Dimensions {
   width: number;
   height: number;
@@ -26,7 +28,7 @@ export async function getAllMedia(ids: number[], api: any) {
 export async function getMedia(id: number, api: any) {
   try {
     const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
-    const response = await (await fetch(url)).json();
+    const response: MediaItemResponseTypes = await (await fetch(url)).json();
     const media: MediaItemProps = {
       dimensions: {
         width: response.media_details.width,
@@ -41,6 +43,7 @@ export async function getMedia(id: number, api: any) {
 
     return media;
   } catch (e) {
+    // tslint:disable-next-line
     console.log(e);
   }
 }
