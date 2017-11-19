@@ -45,8 +45,8 @@ export default class ProductItem extends React.Component<Props, any> {
     this.setState({ isGalleryOpen: false });
   };
 
-  handleGalleryOpen = event => {
-    event.preventDefault();
+  handleGalleryOpen = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     this.setState({ isGalleryOpen: true });
   };
 

@@ -1,5 +1,6 @@
 import * as api from "../services/api/Api";
 import { getProducts } from "../services/productApi/productApi";
+import { getSingleProduct } from "../services/productApi/singleProductApi";
 
 import * as React from "react";
 import Link from "next/link";
@@ -10,7 +11,12 @@ import * as ReactPaginate from "react-paginate";
 import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing from "../components/categoriesListing/CategoriesListing";
 
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import ProductItem from "../components/productItem/ProductItem";
+
 import * as withRedux from "next-redux-wrapper";
+import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 
 import {
   initStore,
@@ -22,28 +28,28 @@ import {
   serverRenderClock,
 } from "../store";
 
-interface Props {
+interface Props extends InjectedFormProps {
   totalPages: number;
   sideMenuItems: any;
   menuItems: any;
+  products: any;
+  category?: string;
+  page: number;
 }
 
 interface State {
-  category: string;
-  showModal: boolean;
+  category?: string;
   isLoaderActive: boolean;
-  products: Products[];
+  products?: any;
   page: number;
   totalPages: number;
+  isSingleProductOpen: boolean;
+  singleProduct?: any;
 }
 
 interface InitialProps {
   query: any;
   res: any;
-}
-
-interface Products {
-  item: boolean;
 }
 
 interface LoaderProps {
@@ -110,12 +116,17 @@ class Products extends React.Component<Props, State> {
     };
   }
 
-  constructor(props) {
-    super(props);
+  constructor(props: Props) {
+    super(props as Props);
 
     this.state = {
-      ...props,
+      products: props.products,
+      totalPages: props.totalPages,
+      category: props.category,
+      page: props.products,
+      singleProduct: {},
       isLoaderActive: false,
+      isSingleProductOpen: false,
     };
   }
 
@@ -138,49 +149,81 @@ class Products extends React.Component<Props, State> {
     this.setState({ ...products, isLoaderActive: false });
   };
 
+  getSingleProduct = async (
+    e: React.SyntheticEvent<HTMLAnchorElement>,
+    name: string
+  ) => {
+    e.preventDefault();
+
+    const singleProduct = await getSingleProduct(api, name);
+
+    this.setState({ singleProduct, isSingleProductOpen: true });
+  };
+
   render() {
+    const { menuItems, sideMenuItems, totalPages } = this.props;
+    const { isSingleProductOpen } = this.state;
     return (
       <Main
-        title="Products"
-        menuItems={this.props.menuItems}
-        sideMenuItems={this.props.sideMenuItems}
+        renderHeader={<Header title="Products" menuItems={menuItems} />}
+        renderSidebar={
+          !isSingleProductOpen && (
+            <CategoriesListing
+              categories={sideMenuItems}
+              change={this.handleCategoryChange}
+            />
+          )
+        }
+        renderAfterMain={
+          !isSingleProductOpen && (
+            <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={<a href="">...</a>}
+              breakClassName={"pagination__btn button medium"}
+              pageCount={this.state.totalPages}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={this.handlePagination}
+              containerClassName={"pagination"}
+              pageClassName={"pagination__btn button medium"}
+              nextClassName={"pagination__btn button medium"}
+              previousClassName={"pagination__btn button medium"}
+              activeClassName={"active"}
+            />
+          )
+        }
+        renderFooter={<Footer />}
       >
-        <aside className="col-lg-3 sidebar_grid hidden-md-down">
-          <div className="widget-container widget_desirees-subcategories">
-            <div className="widget-container cat-list">
-              <CategoriesListing
-                categories={this.props.sideMenuItems}
-                change={this.handleCategoryChange}
-              />
-            </div>
-          </div>
-        </aside>
+        <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        <div className="col-xs-12 col-lg-9">
-          <main>
-            <Loader isLoaderActive={this.state.isLoaderActive} />
-            <ProductsListing products={this.state.products} />
-          </main>
-
-          <ReactPaginate
-            previousLabel={"<"}
-            nextLabel={">"}
-            breakLabel={<a href="">...</a>}
-            breakClassName={"pagination__btn button medium"}
-            pageCount={this.state.totalPages}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={this.handlePagination}
-            containerClassName={"pagination"}
-            pageClassName={"pagination__btn button medium"}
-            nextClassName={"pagination__btn button medium"}
-            previousClassName={"pagination__btn button medium"}
-            activeClassName={"active"}
+        {!!this.state.isSingleProductOpen ? (
+          <ProductItem
+            product={this.state.singleProduct.product}
+            images={this.state.singleProduct.images}
+            variations={this.state.singleProduct.variations}
           />
-        </div>
+        ) : (
+          <ProductsListing
+            products={this.state.products}
+            onProductClick={this.getSingleProduct}
+          />
+        )}
       </Main>
     );
   }
 }
 
-export default withRedux(initStore, null, null)(Products);
+const getShoppingCartFormValues = (state: any) => {
+  return getFormValues("shoppingCart")(state) as any;
+};
+
+const mapStateToProps = (state: any) => ({
+  formValues: getShoppingCartFormValues(state),
+});
+
+export default withRedux(initStore, mapStateToProps, null)(
+  reduxForm({
+    form: "shoppingCart",
+  })(Products)
+);

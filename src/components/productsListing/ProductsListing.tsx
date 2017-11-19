@@ -4,6 +4,10 @@ import Media from "../../components/media/Media";
 
 interface Props {
   products: ProductListingProps[];
+  onProductClick: (
+    e: React.SyntheticEvent<HTMLAnchorElement>,
+    slug: string
+  ) => void;
 }
 
 interface ProductListingProps {
@@ -18,7 +22,7 @@ interface ProductItemProps {
   price_html: string;
 }
 
-const ProductsListing = ({ products }: Props) => {
+const ProductsListing = ({ products, onProductClick }: Props) => {
   const listProducts = products.map((item, index) => {
     const { name, slug, price, price_html } = item.product;
 
@@ -44,6 +48,8 @@ const ProductsListing = ({ products }: Props) => {
           href={`/product/${slug}`}
           itemProp="url"
           className="products-listing__link"
+          onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) =>
+            onProductClick(e, slug)}
         >
           <h3 itemProp="name" className="products-listing__name">
             {name}

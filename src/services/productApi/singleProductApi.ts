@@ -48,8 +48,9 @@ async function getVariations(product: any, api: any) {
 function buildSingleProductVariation(product: any) {
   const variation = [
     {
+      id: product.id,
       price: product.price,
-      attributes: [],
+      attributes: [] as any,
       name: "",
     },
   ];

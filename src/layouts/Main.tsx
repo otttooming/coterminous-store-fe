@@ -1,23 +1,46 @@
 import * as React from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
 
 interface Props {
   children: React.ReactNode;
-  title: string;
-  menuItems?: any[];
+  renderAfterMain?: React.ReactNode;
+  renderHeader?: React.ReactNode;
+  renderSidebar?: React.ReactNode;
+  renderFooter?: React.ReactNode;
 }
 
-const Main = ({ children, title, menuItems }: Props) => (
+const Main = ({
+  children,
+  renderHeader,
+  renderSidebar,
+  renderAfterMain,
+  renderFooter,
+}: Props) => (
   <div>
     <div className="wrapper">
-      <Header title={title} menuItems={menuItems} />
+      {!!renderHeader && renderHeader}
 
       <div className="container">
-        <div className="row">{children}</div>
-      </div>
+        <div className="row">
+          {!!renderSidebar && (
+            <aside className="col-lg-3 sidebar_grid hidden-md-down">
+              <div className="widget-container widget_desirees-subcategories">
+                <div className="widget-container cat-list">{renderSidebar}</div>
+              </div>
+            </aside>
+          )}
 
-      <Footer />
+          <div
+            className={`col-xs-12 ${!!renderSidebar
+              ? "col-lg-9"
+              : "col-lg-12"}`}
+          >
+            <main>{children}</main>
+
+            {!!renderAfterMain && renderAfterMain}
+          </div>
+        </div>
+      </div>
+      {!!renderFooter && renderFooter}
     </div>
 
     <div className="bg__site" />
