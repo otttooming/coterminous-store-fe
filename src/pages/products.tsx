@@ -2,6 +2,8 @@ import * as api from "../services/api/Api";
 import { getProducts } from "../services/productApi/productApi";
 import { getSingleProduct } from "../services/productApi/singleProductApi";
 
+import { PRODUCT_LISTING_SLUGS } from "../common/products/constants";
+
 import * as React from "react";
 import Link from "next/link";
 import "isomorphic-unfetch";
@@ -17,6 +19,8 @@ import ProductItem from "../components/productItem/ProductItem";
 
 import * as withRedux from "next-redux-wrapper";
 import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
+
+import { LocationChangeProps } from "../components/header/children/MainMenu";
 
 import {
   initStore,
@@ -160,12 +164,30 @@ class Products extends React.Component<Props, State> {
     this.setState({ singleProduct, isSingleProductOpen: true });
   };
 
+  handleLocationChange = ({ location }: LocationChangeProps) => {
+    switch (location) {
+      case PRODUCT_LISTING_SLUGS.DEFAULT:
+        this.setState({
+          isSingleProductOpen: false,
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
     const { menuItems, sideMenuItems, totalPages } = this.props;
     const { isSingleProductOpen } = this.state;
     return (
       <Main
-        renderHeader={<Header title="Products" menuItems={menuItems} />}
+        renderHeader={
+          <Header
+            title="Products"
+            menuItems={menuItems}
+            handleLocationChange={this.handleLocationChange}
+          />
+        }
         renderSidebar={
           !isSingleProductOpen && (
             <CategoriesListing

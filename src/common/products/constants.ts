@@ -1,0 +1,4 @@
+export enum PRODUCT_LISTING_SLUGS {
+  DEFAULT = "PRODUCT_LISTING",
+  POOD = "pood",
+}
