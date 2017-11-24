@@ -13,7 +13,7 @@ interface MenuItems {
   object_slug: string;
 }
 
-interface LocationChangeProps {
+export interface LocationChangeProps {
   type: string;
   location: PRODUCT_LISTING_SLUGS;
 }
