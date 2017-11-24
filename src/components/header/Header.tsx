@@ -2,7 +2,6 @@ import * as React from "react";
 import Head from "next/head";
 import CartButton from "./children/CartButton";
 import MainMenu from "./children/MainMenu";
-import styled from "styled-components";
 
 interface Props {
   title: string;
@@ -10,61 +9,14 @@ interface Props {
   handleLocationChange: (props: any) => void;
 }
 
-const TitleH = styled.h1`
-  color: red;
-  font-size: 50px;
-`;
-
 const Header = ({ title, menuItems, handleLocationChange }: Props) => {
   return (
     <div>
       <Head>
         <title>{!!title ? title : ""}</title>
-
-        <style>{`
-            body {
-              // color: #333;
-              // display: none;
-            }
-            .loader,
-            .loader:after {
-              width: 30em;
-              height: 30em;
-              border-radius: 50%;
-            }
-            .loader {
-              position: absolute;
-              top: calc(50% - 22em);
-              left: calc(50% - 22em);
-              transform: translateZ(0);
-              animation: load8 1.1s infinite linear;
-              text-indent: -9999em;
-              border-top: 5em solid rgba(255, 255, 255, 0.2);
-              border-right: 5em solid rgba(255, 255, 255, 0.2);
-              border-bottom: 5em solid rgba(255, 255, 255, 0.2);
-              border-left: 5em solid #fff;
-              font-size: 10px;
-              z-index: 9999;
-            }
-            .loader__dark {
-              border-top-color: rgba(0, 0, 0, 0.2);
-              border-right-color: rgba(0, 0, 0, 0.2);
-              border-bottom-color: rgba(0, 0, 0, 0.2);
-            }
-            @keyframes load8 {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-
-          `}</style>
       </Head>
 
       <header className="container">
-        <TitleH>My page</TitleH>
         <div className="row header middle-xs">
           <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3 header__logo">
             <a className="d__block" href="/">

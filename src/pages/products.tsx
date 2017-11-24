@@ -16,6 +16,7 @@ import CategoriesListing from "../components/categoriesListing/CategoriesListing
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ProductItem from "../components/productItem/ProductItem";
+import Loader from "../components/loader/Loader";
 
 import * as withRedux from "next-redux-wrapper";
 import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
@@ -54,18 +55,6 @@ interface State {
 interface InitialProps {
   query: any;
   res: any;
-}
-
-interface LoaderProps {
-  isLoaderActive: boolean;
-}
-
-function Loader({ isLoaderActive }: LoaderProps) {
-  if (!isLoaderActive) {
-    return null;
-  }
-
-  return <div className={`loader loader__dark`}>Loading</div>;
 }
 
 class Products extends React.Component<Props, State> {
