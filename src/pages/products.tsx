@@ -2,7 +2,12 @@ import * as api from "../services/api/Api";
 import { getProducts } from "../services/productApi/productApi";
 import { getSingleProduct } from "../services/productApi/singleProductApi";
 
-import { PRODUCT_LISTING_SLUGS } from "../common/products/constants";
+import {
+  CART_SLUGS,
+  LOCATION_TYPES,
+  PRODUCT_SLUGS,
+  PRODUCT_LISTING_SLUGS,
+} from "../common/products/constants";
 
 import * as React from "react";
 import Link from "next/link";
@@ -21,7 +26,7 @@ import Loader from "../components/loader/Loader";
 import * as withRedux from "next-redux-wrapper";
 import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 
-import { LocationChangeProps } from "../components/header/children/MainMenu";
+import { LocationChangeProps } from "../common/products/typings";
 
 import {
   initStore,
@@ -48,7 +53,7 @@ interface State {
   products?: any;
   page: number;
   totalPages: number;
-  isSingleProductOpen: boolean;
+  navRouting: LocationChangeProps;
   singleProduct?: any;
 }
 
@@ -119,7 +124,10 @@ class Products extends React.Component<Props, State> {
       page: props.products,
       singleProduct: {},
       isLoaderActive: false,
-      isSingleProductOpen: false,
+      navRouting: {
+        type: LOCATION_TYPES.PAGE,
+        location: PRODUCT_LISTING_SLUGS.DEFAULT,
+      },
     };
   }
 
@@ -142,32 +150,25 @@ class Products extends React.Component<Props, State> {
     this.setState({ ...products, isLoaderActive: false });
   };
 
-  getSingleProduct = async (
-    e: React.SyntheticEvent<HTMLAnchorElement>,
-    name: string
-  ) => {
-    e.preventDefault();
-
+  getSingleProduct = async (name: string) => {
     const singleProduct = await getSingleProduct(api, name);
 
-    this.setState({ singleProduct, isSingleProductOpen: true });
+    this.setState({ singleProduct });
   };
 
-  handleLocationChange = ({ location }: LocationChangeProps) => {
-    switch (location) {
-      case PRODUCT_LISTING_SLUGS.DEFAULT:
-        this.setState({
-          isSingleProductOpen: false,
-        });
-        break;
-      default:
-        break;
+  handleLocationChange = async (navRouting: LocationChangeProps) => {
+    const { query } = navRouting;
+
+    if (!!query) {
+      await this.getSingleProduct(query.slug);
     }
+
+    this.setState({ navRouting });
   };
 
   render() {
     const { menuItems, sideMenuItems, totalPages } = this.props;
-    const { isSingleProductOpen } = this.state;
+    const { navRouting } = this.state;
     return (
       <Main
         renderHeader={
@@ -178,7 +179,7 @@ class Products extends React.Component<Props, State> {
           />
         }
         renderSidebar={
-          !isSingleProductOpen && (
+          !!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
             <CategoriesListing
               categories={sideMenuItems}
               change={this.handleCategoryChange}
@@ -186,7 +187,7 @@ class Products extends React.Component<Props, State> {
           )
         }
         renderAfterMain={
-          !isSingleProductOpen && (
+          !!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
             <ReactPaginate
               previousLabel={"<"}
               nextLabel={">"}
@@ -208,7 +209,7 @@ class Products extends React.Component<Props, State> {
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        {!!this.state.isSingleProductOpen ? (
+        {!!(navRouting.location === PRODUCT_SLUGS.DEFAULT) ? (
           <ProductItem
             product={this.state.singleProduct.product}
             images={this.state.singleProduct.images}
@@ -217,7 +218,7 @@ class Products extends React.Component<Props, State> {
         ) : (
           <ProductsListing
             products={this.state.products}
-            onProductClick={this.getSingleProduct}
+            onLocationChange={this.handleLocationChange}
           />
         )}
       </Main>

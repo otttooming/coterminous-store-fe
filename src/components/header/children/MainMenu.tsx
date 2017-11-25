@@ -1,5 +1,6 @@
 import * as React from "react";
 import { PRODUCT_LISTING_SLUGS } from "../../../common/products/constants";
+import { LocationChangeProps } from "../../../common/products/typings";
 
 interface Props {
   items?: MenuItems[];
@@ -11,11 +12,6 @@ interface MenuItems {
   title: string;
   object: string;
   object_slug: string;
-}
-
-export interface LocationChangeProps {
-  type: string;
-  location: PRODUCT_LISTING_SLUGS;
 }
 
 const MENU_TYPES = {

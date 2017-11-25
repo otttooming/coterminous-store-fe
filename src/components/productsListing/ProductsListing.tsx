@@ -1,13 +1,16 @@
 import * as React from "react";
 import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 import Media from "../../components/media/Media";
+import {
+  LOCATION_TYPES,
+  PRODUCT_SLUGS,
+  PRODUCT_LISTING_SLUGS,
+} from "../../common/products/constants";
+import { LocationChangeProps } from "../../common/products/typings";
 
 interface Props {
   products: ProductListingProps[];
-  onProductClick: (
-    e: React.SyntheticEvent<HTMLAnchorElement>,
-    slug: string
-  ) => void;
+  onLocationChange?: (props: LocationChangeProps) => void;
 }
 
 interface ProductListingProps {
@@ -22,7 +25,7 @@ interface ProductItemProps {
   price_html: string;
 }
 
-const ProductsListing = ({ products, onProductClick }: Props) => {
+const ProductsListing = ({ products, onLocationChange }: Props) => {
   const listProducts = products.map((item, index) => {
     const { name, slug, price, price_html } = item.product;
 
@@ -48,8 +51,16 @@ const ProductsListing = ({ products, onProductClick }: Props) => {
           href={`/product/${slug}`}
           itemProp="url"
           className="products-listing__link"
-          onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) =>
-            onProductClick(e, slug)}
+          onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
+            e.preventDefault();
+            onLocationChange({
+              type: LOCATION_TYPES.PAGE,
+              location: PRODUCT_SLUGS.DEFAULT,
+              query: {
+                slug,
+              },
+            });
+          }}
         >
           <h3 itemProp="name" className="products-listing__name">
             {name}
