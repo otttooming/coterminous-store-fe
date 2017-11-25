@@ -75,7 +75,7 @@ const Header = ({ title, menuItems, handleLocationChange }: Props) => {
             </form>
           </div>
           <div className="col-sm-9 col-lg-3 header__cart hidden-sm-down align-self-center">
-            <CartButton />
+            <CartButton onLocationChange={handleLocationChange} />
             <div className="menu-mobile__toggle button hidden-lg-up">
               <span>Menu</span>
 

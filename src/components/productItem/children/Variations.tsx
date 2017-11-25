@@ -26,7 +26,7 @@ const Variations = (props: any) => {
         </div>
       )}
 
-      <Field name={`product.id_${id.toString()}`} component={Quantity} />
+      <Field name={`products.id_${id.toString()}`} component={Quantity} />
     </VariationItem>
   ));
 

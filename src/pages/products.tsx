@@ -17,6 +17,7 @@ import Main from "../layouts/Main";
 import * as ReactPaginate from "react-paginate";
 import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing from "../components/categoriesListing/CategoriesListing";
+import CartView from "../components/cartView/CartView";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -45,6 +46,7 @@ interface Props extends InjectedFormProps {
   products: any;
   category?: string;
   page: number;
+  formValues: any;
 }
 
 interface State {
@@ -167,7 +169,7 @@ class Products extends React.Component<Props, State> {
   };
 
   render() {
-    const { menuItems, sideMenuItems, totalPages } = this.props;
+    const { menuItems, sideMenuItems, totalPages, formValues } = this.props;
     const { navRouting } = this.state;
     return (
       <Main
@@ -209,17 +211,23 @@ class Products extends React.Component<Props, State> {
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        {!!(navRouting.location === PRODUCT_SLUGS.DEFAULT) ? (
+        {!!(navRouting.location === PRODUCT_SLUGS.DEFAULT) && (
           <ProductItem
             product={this.state.singleProduct.product}
             images={this.state.singleProduct.images}
             variations={this.state.singleProduct.variations}
           />
-        ) : (
+        )}
+
+        {!!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
           <ProductsListing
             products={this.state.products}
             onLocationChange={this.handleLocationChange}
           />
+        )}
+
+        {!!(navRouting.location === CART_SLUGS.DEFAULT) && (
+          <CartView formValues={formValues} />
         )}
       </Main>
     );
