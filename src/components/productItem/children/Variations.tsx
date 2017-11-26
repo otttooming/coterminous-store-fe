@@ -33,8 +33,7 @@ const Variations = (props: any) => {
           name={`products.id_${id.toString()}`}
           id={id}
           component={Quantity}
-          variations={variations}
-          product={product}
+          props={props}
         />
       </VariationItem>
     );

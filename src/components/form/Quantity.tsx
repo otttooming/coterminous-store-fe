@@ -1,11 +1,9 @@
 import * as React from "react";
 import Icon from "../../components/icon/Icon";
+import { WrappedFieldProps } from "redux-form";
 
-interface Props {
-  id: any;
-  name: any;
-  input: any;
-  component: any;
+interface Props extends WrappedFieldProps {
+  id: string;
   product: any;
   variations: any;
 }
