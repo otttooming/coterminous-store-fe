@@ -1,11 +1,12 @@
 import * as React from "react";
+import * as classNames from "classnames";
 const url = "/static/sprite.svg";
 
 interface Props {
   icon: string;
   width: number;
   height: number;
-  className: string;
+  className?: string;
 }
 
 const Icon = (props: Props) => (
@@ -13,7 +14,9 @@ const Icon = (props: Props) => (
     viewBox="0 0 16 16"
     width={props.width}
     height={props.height}
-    className={`icon icon-${props.icon} ${props.className}`}
+    className={classNames("icon", `icon-${props.icon}`, {
+      [`${props.className}`]: !!props.className,
+    })}
   >
     <use xlinkHref={`${url}#icon-${props.icon}`} />
   </svg>

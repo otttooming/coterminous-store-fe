@@ -1,4 +1,5 @@
 import * as React from "react";
+import Icon from "../../../components/icon/Icon";
 
 interface Props {
   formValues: any;
@@ -60,17 +61,7 @@ const CartListing = ({ formValues }: Props) => {
         {/* Remove from cart link */}
         <td className="product-remove cart_del_column">
           <a href="#" className="delete-btn" title="Remove this item">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={16}
-              height={16}
-              viewBox="0 0 149.337 149.337"
-            >
-              <path
-                fill="currentColor"
-                d="M149.337 143.96L80.044 74.668l69.292-69.292L143.96 0 74.668 69.292 5.378 0 0 5.376l69.292 69.292L0 143.96l5.376 5.376 69.292-69.292 69.293 69.292z"
-              />
-            </svg>
+            <Icon icon="close" width={16} height={16} />
           </a>{" "}
         </td>
       </tr>
