@@ -2,12 +2,19 @@ import * as React from "react";
 import Icon from "../../components/icon/Icon";
 
 interface Props {
+  id: any;
+  name: any;
   input: any;
+  component: any;
+  product: any;
+  variations: any;
 }
 
 const Quantity = (props: Props) => {
-  const { input: { value, onChange } } = props;
+  const { input: { value, onChange }, id, product, variations } = props;
   const { quantity = 0 } = value;
+
+  const variation = product.variations.find((item: any) => item.id === id);
 
   return (
     <div className="product-variations__cart addto">
@@ -18,7 +25,8 @@ const Quantity = (props: Props) => {
 
       <button
         className="button medium active"
-        onClick={() => onChange({ id: 1, name: "na", quantity: quantity + 1 })}
+        onClick={() =>
+          onChange({ id, quantity: quantity + 1, product, variations })}
       >
         <Icon icon="cart-add" width={24} height={24} className="addto__icon" />
         Add to cart

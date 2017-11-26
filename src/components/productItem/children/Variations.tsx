@@ -9,26 +9,36 @@ const VariationItem = styled.li`
 `;
 
 const Variations = (props: any) => {
-  const { variations } = props;
+  const { product, variations } = props;
 
-  const items = variations.map(({ attributes, price, id }, index) => (
-    <VariationItem key={index} className="product-variations__item">
-      {!!attributes.length && (
-        <ul className="product-variations__attribute">
-          <li>
-            {attributes[0].name}: {attributes[0].option}
-          </li>
-        </ul>
-      )}
-      {!!price && (
-        <div className="product-variations__price ">
-          <span className="price__block">{price}€</span>
-        </div>
-      )}
+  const items = variations.map((variation, index) => {
+    const { attributes, price, id } = variation;
+    const { name } = attributes;
+    return (
+      <VariationItem key={index} className="product-variations__item">
+        {!!attributes.length && (
+          <ul className="product-variations__attribute">
+            <li>
+              {attributes[0].name}: {attributes[0].option}
+            </li>
+          </ul>
+        )}
+        {!!price && (
+          <div className="product-variations__price ">
+            <span className="price__block">{price}€</span>
+          </div>
+        )}
 
-      <Field name={`products.id_${id.toString()}`} component={Quantity} />
-    </VariationItem>
-  ));
+        <Field
+          name={`products.id_${id.toString()}`}
+          id={id}
+          component={Quantity}
+          variations={variations}
+          product={product}
+        />
+      </VariationItem>
+    );
+  });
 
   return <ul className="product-variations">{items}</ul>;
 };
