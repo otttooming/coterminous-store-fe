@@ -124,7 +124,7 @@ class Products extends React.Component<Props, State> {
       totalPages: props.totalPages,
       category: props.category,
       page: props.products,
-      singleProduct: {},
+      singleProduct: null,
       isLoaderActive: false,
       navRouting: {
         type: LOCATION_TYPES.PAGE,
@@ -153,9 +153,16 @@ class Products extends React.Component<Props, State> {
   };
 
   getSingleProduct = async (name: string) => {
-    const singleProduct = await getSingleProduct(api, name);
+    if (
+      !(
+        !!this.state.singleProduct &&
+        this.state.singleProduct.product.slug === name
+      )
+    ) {
+      const singleProduct = await getSingleProduct(api, name);
 
-    this.setState({ singleProduct });
+      this.setState({ singleProduct });
+    }
   };
 
   handleLocationChange = async (navRouting: LocationChangeProps) => {
