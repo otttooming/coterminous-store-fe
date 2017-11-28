@@ -29,15 +29,7 @@ import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 
 import { LocationChangeProps } from "../common/products/typings";
 
-import {
-  initStore,
-  startClock,
-  addCount,
-  store,
-  addToCart,
-  removeFromCart,
-  serverRenderClock,
-} from "../store";
+import { initStore } from "../store";
 
 interface Props extends InjectedFormProps {
   totalPages: number;
