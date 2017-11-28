@@ -14,3 +14,7 @@ export enum PRODUCT_SLUGS {
 export enum CART_SLUGS {
   DEFAULT = "CART_VIEW",
 }
+
+export enum CHECKOUT_SLUGS {
+  DEFAULT = "CHECKOUT_VIEW",
+}

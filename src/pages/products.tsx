@@ -4,6 +4,7 @@ import { getSingleProduct } from "../services/productApi/singleProductApi";
 
 import {
   CART_SLUGS,
+  CHECKOUT_SLUGS,
   LOCATION_TYPES,
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
@@ -18,6 +19,7 @@ import * as ReactPaginate from "react-paginate";
 import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing from "../components/categoriesListing/CategoriesListing";
 import CartView from "../components/cartView/CartView";
+import CheckoutView from "../components/checkoutView/CheckoutView";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -227,7 +229,17 @@ class Products extends React.Component<Props, State> {
         )}
 
         {!!(navRouting.location === CART_SLUGS.DEFAULT) && (
-          <CartView formValues={formValues} />
+          <CartView
+            formValues={formValues}
+            onLocationChange={this.handleLocationChange}
+          />
+        )}
+
+        {!!(navRouting.location === CHECKOUT_SLUGS.DEFAULT) && (
+          <CheckoutView
+            formValues={formValues}
+            onLocationChange={this.handleLocationChange}
+          />
         )}
       </Main>
     );

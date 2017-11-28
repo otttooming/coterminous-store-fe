@@ -1,11 +1,17 @@
 import * as React from "react";
 import CartListing from "./children/CartListing";
+import {
+  LOCATION_TYPES,
+  CHECKOUT_SLUGS,
+} from "../../common/products/constants";
+import { LocationChangeProps } from "../../common/products/typings";
 
 interface Props {
   formValues?: any;
+  onLocationChange?: (props: LocationChangeProps) => void;
 }
 
-const CartView = ({ formValues }: Props) => {
+const CartView = ({ formValues, onLocationChange }: Props) => {
   return (
     <div className="row">
       <div className="col-xs-12 grid_content with-sidebar-top cfx">
@@ -61,6 +67,13 @@ const CartView = ({ formValues }: Props) => {
               <a
                 href="checkout/"
                 className="checkout-button button alt wc-forward"
+                onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  onLocationChange({
+                    type: LOCATION_TYPES.PAGE,
+                    location: CHECKOUT_SLUGS.DEFAULT,
+                  });
+                }}
               >
                 Proceed to Checkout
               </a>
