@@ -4,11 +4,21 @@ import { LOCATION_TYPES, CART_SLUGS } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
 
 interface Props {
-  amount?: number;
+  formValues: any;
   onLocationChange?: (props: LocationChangeProps) => void;
 }
 
-const CartButton = ({ amount, onLocationChange }: Props) => {
+const CartButton = ({ formValues, onLocationChange }: Props) => {
+  const amount =
+    !!formValues &&
+    Object.values(formValues.products)
+      .map(
+        item =>
+          parseFloat(
+            item.variations.find(idItem => idItem.id === item.id).price
+          ) * item.quantity
+      )
+      .reduce((accumulator, currentValue) => accumulator + currentValue);
   return (
     <a
       className="cart-links amount"

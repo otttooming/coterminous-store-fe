@@ -6,10 +6,16 @@ import MainMenu from "./children/MainMenu";
 interface Props {
   title: string;
   menuItems: any;
+  formValues: any;
   handleLocationChange: (props: any) => void;
 }
 
-const Header = ({ title, menuItems, handleLocationChange }: Props) => {
+const Header = ({
+  title,
+  menuItems,
+  handleLocationChange,
+  formValues,
+}: Props) => {
   return (
     <header className="container">
       <Head>
@@ -74,7 +80,10 @@ const Header = ({ title, menuItems, handleLocationChange }: Props) => {
           </form>
         </div>
         <div className="col-sm-9 col-lg-3 header__cart hidden-sm-down align-self-center">
-          <CartButton onLocationChange={handleLocationChange} />
+          <CartButton
+            onLocationChange={handleLocationChange}
+            formValues={formValues}
+          />
           <div className="menu-mobile__toggle button hidden-lg-up">
             <span>Menu</span>
 

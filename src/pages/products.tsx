@@ -184,6 +184,7 @@ class Products extends React.Component<Props, State> {
           <Header
             title="Products"
             menuItems={menuItems}
+            formValues={formValues}
             handleLocationChange={this.handleLocationChange}
           />
         }
