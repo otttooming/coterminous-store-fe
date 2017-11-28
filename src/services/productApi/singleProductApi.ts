@@ -42,7 +42,11 @@ async function getVariations(product: any, api: any) {
     return buildSingleProductVariation(product);
   }
 
-  return data;
+  const availableVariations = data.filter(
+    (variation: any) => variation.purchasable === true
+  );
+
+  return availableVariations;
 }
 
 function buildSingleProductVariation(product: any) {
