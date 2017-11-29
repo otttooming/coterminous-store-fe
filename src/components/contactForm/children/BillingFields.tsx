@@ -8,7 +8,7 @@ const BillingFields = () => {
       <div>
         <label htmlFor="first_name">First Name</label>
         <Field
-          name="first_name"
+          name="contacts.billing.first_name"
           component="input"
           type="text"
           required={true}
@@ -16,20 +16,30 @@ const BillingFields = () => {
       </div>
       <div>
         <label htmlFor="last_name">Last Name</label>
-        <Field name="last_name" component="input" type="text" required={true} />
+        <Field
+          name="contacts.billing.last_name"
+          component="input"
+          type="text"
+          required={true}
+        />
       </div>
       <div>
         <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email" />
+        <Field name="contacts.billing.email" component="input" type="email" />
       </div>
       <div>
         <label htmlFor="phone">Phone</label>
-        <Field name="phone" component="input" type="text" required={true} />
+        <Field
+          name="contacts.billing.phone"
+          component="input"
+          type="text"
+          required={true}
+        />
       </div>
       <div>
         <label htmlFor="country">Country</label>
         <Field
-          name="country"
+          name="contacts.billing.country"
           component="select"
           defaultValue="estonia"
           value="estonia"
@@ -39,18 +49,37 @@ const BillingFields = () => {
       </div>
       <div>
         <label htmlFor="address_1">Address</label>
-        <Field name="address_1" component="input" type="text" required={true} />
+        <Field
+          name="contacts.billing.address_1"
+          component="input"
+          type="text"
+          required={true}
+        />
       </div>
       <div>
-        <Field name="address_2" component="input" type="text" />
+        <Field
+          name="contacts.billing.address_2"
+          component="input"
+          type="text"
+        />
       </div>
       <div>
         <label htmlFor="postcode">Postcode / ZIP</label>
-        <Field name="postcode" component="input" type="text" required={true} />
+        <Field
+          name="contacts.billing.postcode"
+          component="input"
+          type="text"
+          required={true}
+        />
       </div>
       <div>
         <label htmlFor="city">Town / City</label>
-        <Field name="city" component="input" type="text" required={true} />
+        <Field
+          name="contacts.billing.city"
+          component="input"
+          type="text"
+          required={true}
+        />
       </div>
     </div>
   );
