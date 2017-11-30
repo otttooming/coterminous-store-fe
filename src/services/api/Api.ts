@@ -1,14 +1,12 @@
 export const SITEURL = {
-  host: "https://spiceflow.net.ee",
-  consumerKey: "ck_27c96da6c28aa2d9022ef35d824607189f76b549",
-  consumerSecret: "cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9",
+  host: "https://dev-spiceflow.pantheonsite.io",
+  consumerKey: "ck_a67345603373570cfc213659c53f941e2dc8c64f",
+  consumerSecret: "cs_186c4d5992dab11ceb56059bccf0dc31ea77c37b",
 };
 
 export const WP = "wp/v2";
 export const WC = "wc/v2";
 export const WPMENUS = "wp-api-menus/v2";
-export const APISECRET =
-  "consumer_key=ck_27c96da6c28aa2d9022ef35d824607189f76b549&consumer_secret=cs_10ed7d30416d147277f0c07f8e43e6f98e0d2bf9";
 
 interface BuildUrlProps {
   paths?: string[];

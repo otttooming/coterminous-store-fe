@@ -61,7 +61,7 @@ interface InitialProps {
 class Products extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
     const menuUrl = api.buildUrl(
-      { paths: [api.WPMENUS, "menus", "325"] },
+      { paths: [api.WPMENUS, "menus", "828"] },
       api.SITEURL
     );
     const menuRes = await fetch(menuUrl);
