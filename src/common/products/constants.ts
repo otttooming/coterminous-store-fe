@@ -2,6 +2,10 @@ export enum LOCATION_TYPES {
   PAGE = "page",
 }
 
+export enum LANDING_SLUGS {
+  DEFAULT = "LANDING_VIEW",
+}
+
 export enum PRODUCT_LISTING_SLUGS {
   DEFAULT = "PRODUCT_LISTING",
   POOD = "pood",

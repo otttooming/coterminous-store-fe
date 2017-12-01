@@ -8,6 +8,7 @@ import {
   LOCATION_TYPES,
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
+  LANDING_SLUGS,
 } from "../common/products/constants";
 
 import * as React from "react";
@@ -20,6 +21,7 @@ import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing from "../components/categoriesListing/CategoriesListing";
 import CartView from "../components/cartView/CartView";
 import CheckoutView from "../components/checkoutView/CheckoutView";
+import LandingView from "../components/landingView/LandingView";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -122,7 +124,7 @@ class Products extends React.Component<Props, State> {
       isLoaderActive: false,
       navRouting: {
         type: LOCATION_TYPES.PAGE,
-        location: PRODUCT_LISTING_SLUGS.DEFAULT,
+        location: LANDING_SLUGS.DEFAULT,
       },
     };
   }
@@ -212,6 +214,10 @@ class Products extends React.Component<Props, State> {
         renderFooter={<Footer />}
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
+
+        {!!(navRouting.location === LANDING_SLUGS.DEFAULT) && (
+          <LandingView onLocationChange={this.handleLocationChange} />
+        )}
 
         {!!(navRouting.location === PRODUCT_SLUGS.DEFAULT) && (
           <ProductItem

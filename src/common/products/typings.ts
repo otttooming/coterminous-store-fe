@@ -1,4 +1,5 @@
 import {
+  LANDING_SLUGS,
   CART_SLUGS,
   CHECKOUT_SLUGS,
   PRODUCT_SLUGS,
@@ -7,7 +8,12 @@ import {
 
 export interface LocationChangeProps {
   type: string;
-  location: PRODUCT_LISTING_SLUGS | CART_SLUGS | PRODUCT_SLUGS | CHECKOUT_SLUGS;
+  location:
+    | LANDING_SLUGS
+    | PRODUCT_LISTING_SLUGS
+    | CART_SLUGS
+    | PRODUCT_SLUGS
+    | CHECKOUT_SLUGS;
   query?: QueryProps;
 }
 
