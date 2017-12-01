@@ -3,6 +3,9 @@ import Head from "next/head";
 import CartButton from "./children/CartButton";
 import MainMenu from "./children/MainMenu";
 
+import { LOCATION_TYPES, LANDING_SLUGS } from "../../common/products/constants";
+import { LocationChangeProps } from "../../common/products/typings";
+
 interface Props {
   title: string;
   menuItems: any;
@@ -24,7 +27,17 @@ const Header = ({
 
       <div className="row header middle-xs">
         <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3 header__logo">
-          <a className="d__block" href="/">
+          <a
+            className="d__block"
+            href="/"
+            onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
+              e.preventDefault();
+              handleLocationChange({
+                type: LOCATION_TYPES.PAGE,
+                location: LANDING_SLUGS.DEFAULT,
+              });
+            }}
+          >
             <figure
               className="aspect-ratio"
               style={{ paddingBottom: "37.209302325581%" }}
