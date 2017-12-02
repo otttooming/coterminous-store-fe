@@ -60,7 +60,7 @@ interface InitialProps {
   res: any;
 }
 
-class Products extends React.Component<Props, State> {
+class IndexPage extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
     const menuUrl = api.buildUrl(
       { paths: [api.WPMENUS, "menus", "828"] },
@@ -263,5 +263,5 @@ const mapStateToProps = (state: any) => ({
 export default withRedux(initStore, mapStateToProps, null)(
   reduxForm({
     form: "shoppingCart",
-  })(Products)
+  })(IndexPage)
 );
