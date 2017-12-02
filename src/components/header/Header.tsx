@@ -2,9 +2,7 @@ import * as React from "react";
 import Head from "next/head";
 import CartButton from "./children/CartButton";
 import MainMenu from "./children/MainMenu";
-
-import { LOCATION_TYPES, LANDING_SLUGS } from "../../common/products/constants";
-import { LocationChangeProps } from "../../common/products/typings";
+import Logo from "./children/Logo";
 
 interface Props {
   title: string;
@@ -26,32 +24,8 @@ const Header = ({
       </Head>
 
       <div className="row header middle-xs">
-        <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3 header__logo">
-          <a
-            className="d__block"
-            href="/"
-            onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              handleLocationChange({
-                type: LOCATION_TYPES.PAGE,
-                location: LANDING_SLUGS.DEFAULT,
-              });
-            }}
-          >
-            <figure
-              className="aspect-ratio"
-              style={{ paddingBottom: "37.209302325581%" }}
-            >
-              <img
-                width={430}
-                height={160}
-                className="aspect-ratio__img lazyloaded"
-                alt="Aadli Aare"
-                itemProp="image"
-                src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
-              />
-            </figure>
-          </a>
+        <div className="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-md-offset-0 col-md-3">
+          <Logo onLocationChange={handleLocationChange} />
         </div>
         <div className="col-md-6 header__search hidden-md-down">
           <form
