@@ -24,7 +24,8 @@ const Quantity = (props: Props) => {
       <button
         className="button medium active"
         onClick={() =>
-          onChange({ id, quantity: quantity + 1, product, variations })}
+          onChange({ id, quantity: quantity + 1, product, variations })
+        }
       >
         <Icon icon="cart-add" width={24} height={24} className="addto__icon" />
         Add to cart

@@ -3,7 +3,14 @@ import { getAllMedia } from "../mediaApi/mediaApi";
 export interface SingleProductProps {
   product: any;
   images: any;
-  variations: any;
+  variations: SingleProductVariationProps[];
+}
+
+export interface SingleProductVariationProps {
+  id: number;
+  price: string;
+  attributes: any;
+  name: string;
 }
 
 export async function getSingleProduct(
@@ -50,14 +57,12 @@ async function getVariations(product: any, api: any) {
 }
 
 function buildSingleProductVariation(product: any) {
-  const variation = [
-    {
-      id: product.id,
-      price: product.price,
-      attributes: [] as any,
-      name: "",
-    },
-  ];
+  const variation: SingleProductVariationProps = {
+    id: product.id,
+    price: product.price,
+    attributes: [],
+    name: "",
+  };
 
-  return variation;
+  return [variation];
 }
