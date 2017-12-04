@@ -30,9 +30,9 @@ const Main = ({
           )}
 
           <div
-            className={`col-xs-12 ${!!renderSidebar
-              ? "col-lg-9"
-              : "col-lg-12"}`}
+            className={`col-xs-12 ${
+              !!renderSidebar ? "col-lg-9" : "col-lg-12"
+            }`}
           >
             <main>{children}</main>
 
