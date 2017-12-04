@@ -2,6 +2,8 @@ import * as api from "../services/api/Api";
 import { getProducts } from "../services/productApi/productApi";
 import { getSingleProduct } from "../services/productApi/singleProductApi";
 
+import { getMainMenu, getSideMenu } from "../services/menuApi/menuApi";
+
 import {
   CART_SLUGS,
   CHECKOUT_SLUGS,
@@ -62,50 +64,16 @@ interface InitialProps {
 
 class IndexPage extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
-    const menuUrl = api.buildUrl(
-      { paths: [api.WPMENUS, "menus", "828"] },
-      api.SITEURL
-    );
-    const menuRes = await fetch(menuUrl);
-    const menuJson = await menuRes.json();
-
-    const sideMenuUrl = api.buildUrl(
-      {
-        paths: [api.WC, "products", "categories"],
-        parameters: ["per_page=100"],
-      },
-      api.SITEURL
-    );
-    const sideMenuRes = await fetch(sideMenuUrl);
-    const sideMenuJson = await sideMenuRes.json();
-
-    const subCategoryItems = sideMenuJson
-      .filter((item: any) => item.parent !== 0)
-      .map((item: any) => {
-        return {
-          ...item,
-          subCategories: sideMenuJson.filter((subCategoryItem: any) => {
-            return subCategoryItem.parent === item.id;
-          }),
-        };
-      });
-
-    const sideMenuItems = sideMenuJson
-      .filter((item: any) => item.parent === 0)
-      .map((item: any) => {
-        return {
-          ...item,
-          subCategories: subCategoryItems.filter((subCategoryItem: any) => {
-            return subCategoryItem.parent === item.id;
-          }),
-        };
-      });
-
     const initialPage = query.slug ? query.slug : 1;
     const initialProducts = await getProducts(api);
+    const menuItems = await getMainMenu(api);
+    const sideMenuItems = await getSideMenu(api);
 
     return {
-      menuItems: menuJson,
+      express: {
+        query,
+      },
+      menuItems,
       sideMenuItems,
       ...initialProducts,
       ...initialPage,

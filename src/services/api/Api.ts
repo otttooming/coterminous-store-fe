@@ -7,6 +7,7 @@ export const SITEURL = {
 export const WP = "wp/v2";
 export const WC = "wc/v2";
 export const WPMENUS = "wp-api-menus/v2";
+export const WP_MAIN_MENU_ID = 828;
 
 interface BuildUrlProps {
   paths?: string[];
