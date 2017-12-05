@@ -6,7 +6,7 @@ export async function getMainMenu(api: any) {
   const resp = await fetch(url);
   const mainMenuItems = await resp.json();
 
-  return { mainMenuItems };
+  return mainMenuItems;
 }
 
 export async function getSideMenu(api: any) {
@@ -39,5 +39,5 @@ export async function getSideMenu(api: any) {
       };
     });
 
-  return { sideMenuItems };
+  return sideMenuItems;
 }
