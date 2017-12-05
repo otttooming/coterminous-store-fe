@@ -6,7 +6,7 @@ interface Dimensions {
   aspectRatio: number;
 }
 
-interface Sizes {
+interface ImageSizes {
   file: string;
   height: number;
   width: number;
@@ -16,7 +16,7 @@ interface Sizes {
 
 export interface MediaItemProps {
   dimensions: Dimensions;
-  sizes: Sizes[];
+  imageSizes: ImageSizes[];
 }
 
 export async function getAllMedia(ids: number[], api: any) {
@@ -38,7 +38,7 @@ export async function getMedia(id: number, api: any) {
           response.media_details.height
         ),
       },
-      sizes: Object.values(response.media_details.sizes),
+      imageSizes: Object.values(response.media_details.sizes),
     };
 
     return media;

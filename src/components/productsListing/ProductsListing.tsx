@@ -43,6 +43,11 @@ const ProductsListing = ({ products, onLocationChange }: Props) => {
             image={images[0]}
             className="main-image product__main-image"
             alt={name}
+            sizes={[
+              { size: "100vw", mediaCondition: "(max-width: 30em)" },
+              { size: "50vw", mediaCondition: "(max-width: 50em)" },
+              { size: "calc(33vw - 100px)" },
+            ]}
           />
         ) : (
           <Media className="main-image product__main-image" alt={name} />

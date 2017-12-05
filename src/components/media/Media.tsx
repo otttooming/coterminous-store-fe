@@ -9,6 +9,12 @@ interface Props {
   alt?: string;
   handleClick?: (event: any) => void;
   isProduct?: boolean;
+  sizes?: Size[];
+}
+
+interface Size {
+  size: string;
+  mediaCondition?: string;
 }
 
 interface FigureProps {
@@ -27,7 +33,23 @@ const Figure = styled.figure`
   border-radius: ${(props: FigureProps) => (props.isProduct ? "4px" : "0")};
 `;
 
-const Media = ({ image, className, alt, isProduct }: Props) => {
+const buildSizes = (sizes: Size[]) => {
+  if (sizes) {
+    return (
+      sizes
+        .map(size => {
+          if (size.mediaCondition) {
+            return `${size.mediaCondition} ${size.size}`;
+          }
+          return `${size.size}`;
+        })
+        .join(",") || undefined
+    );
+  }
+  return undefined;
+};
+
+const Media = ({ image, className, alt, isProduct, sizes = [] }: Props) => {
   if (!image) {
     return (
       <Figure
@@ -48,9 +70,9 @@ const Media = ({ image, className, alt, isProduct }: Props) => {
     );
   }
 
-  const { dimensions, sizes } = image;
+  const { dimensions, imageSizes } = image;
   const { width, height, aspectRatio } = dimensions;
-  const srcSet = sizes.map(item => `${item.source_url} ${item.width}w`);
+  const srcSet = imageSizes.map(item => `${item.source_url} ${item.width}w`);
   return (
     <Figure
       isProduct={isProduct}
@@ -66,7 +88,7 @@ const Media = ({ image, className, alt, isProduct }: Props) => {
         className="product__image aspect-ratio__img lazyloaded"
         alt={alt}
         itemProp="thumbnail"
-        sizes={`(max-width: ${width}px) 100vw, ${width}px`}
+        sizes={buildSizes(sizes)}
         srcSet={srcSet.join()}
       />
     </Figure>
