@@ -67,12 +67,10 @@ const ProductsListing = ({ products, onLocationChange }: Props) => {
           </h3>
         </a>
         {!!price && (
-          <div className="products-listing__price-block">
-            <span
-              className="price__block"
-              dangerouslySetInnerHTML={{ __html: price_html }}
-            />
-          </div>
+          <div
+            className="products-listing__price-block"
+            dangerouslySetInnerHTML={{ __html: price_html }}
+          />
         )}
       </li>
     );
