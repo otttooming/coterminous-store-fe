@@ -1,7 +1,9 @@
 import * as React from "react";
 import Media from "../../components/media/Media";
+import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 import Variations from "./children/Variations";
 import Details from "./children/Details";
+import Gallery from "./children/Gallery";
 // import { PhotoSwipe } from "react-photoswipe";
 
 function buildGalleryItems(images) {
@@ -25,7 +27,7 @@ function buildGalleryItems(images) {
 
 interface Props {
   product: any;
-  images: any;
+  images: MediaItemProps[];
   variations: any;
 }
 
@@ -51,7 +53,7 @@ export default class ProductItem extends React.Component<Props, any> {
   };
 
   render() {
-    const { images, product, variations } = this.props;
+    const { images = null, product, variations } = this.props;
     const {
       attributes,
       categories,
@@ -66,18 +68,6 @@ export default class ProductItem extends React.Component<Props, any> {
       !!categories.length ||
       !!description ||
       !!tags.length;
-
-    const productThumbs =
-      !!images.length &&
-      images.map((image, index) => (
-        <Media
-          key={index}
-          image={image}
-          className="product-thumb__link lightbox"
-          alt={this.props.product.title}
-          handleClick={this.handleGalleryOpen}
-        />
-      ));
 
     return (
       <div className="container">
@@ -94,30 +84,15 @@ export default class ProductItem extends React.Component<Props, any> {
           className="row product"
         >
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            {!!images[0] ? (
-              <Media
-                image={images[0]}
-                className="main-image product__main-image"
-                handleClick={this.handleGalleryOpen}
-                isProduct={true}
-              />
-            ) : (
-              <Media
-                className="main-image product__main-image"
-                handleClick={this.handleGalleryOpen}
-                isProduct={true}
-              />
-            )}
-            {!!images.length && (
-              <div
-                className="product-thumb__gallery"
-                itemScope={true}
-                itemType="http://schema.org/ImageGallery"
-              >
-                {productThumbs}
-              </div>
-            )}
+            <Media
+              image={!!images ? images[0] : null}
+              className="main-image product__main-image"
+              handleClick={this.handleGalleryOpen}
+              isProduct={true}
+            />
+            {!!images.length && <Gallery images={images} alt={name} />}
           </div>
+
           <div className="col-xs-12 col-md-7">
             <div className="product__mainblock product_description_mainblock productcol summary">
               <h1 itemProp="name" className="product__title">
