@@ -90,7 +90,8 @@ export default class ProductItem extends React.Component<Props, any> {
               handleClick={this.handleGalleryOpen}
               isProduct={true}
             />
-            {!!images.length && <Gallery images={images} alt={name} />}
+            {!!images &&
+              images.length !== 1 && <Gallery images={images} alt={name} />}
           </div>
 
           <div className="col-xs-12 col-md-7">
