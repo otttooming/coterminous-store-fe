@@ -8,7 +8,7 @@ export enum LANDING_SLUGS {
 
 export enum PRODUCT_LISTING_SLUGS {
   DEFAULT = "PRODUCT_LISTING",
-  POOD = "pood",
+  ET = "pood",
 }
 
 export enum PRODUCT_SLUGS {

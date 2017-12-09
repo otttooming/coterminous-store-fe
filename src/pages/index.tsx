@@ -14,7 +14,6 @@ import {
 } from "../common/products/constants";
 
 import * as React from "react";
-import Link from "next/link";
 import "isomorphic-unfetch";
 import Main from "../layouts/Main";
 
@@ -92,7 +91,7 @@ class IndexPage extends React.Component<Props, State> {
       isLoaderActive: false,
       navRouting: {
         type: LOCATION_TYPES.PAGE,
-        location: LANDING_SLUGS.DEFAULT,
+        view: LANDING_SLUGS.DEFAULT,
       },
     };
   }
@@ -133,7 +132,7 @@ class IndexPage extends React.Component<Props, State> {
     const { query } = navRouting;
 
     if (!!query) {
-      await this.getSingleProduct(query.slug);
+      await this.getSingleProduct(query.join());
     }
 
     this.setState({ navRouting });
@@ -153,7 +152,7 @@ class IndexPage extends React.Component<Props, State> {
           />
         }
         renderSidebar={
-          !!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+          !!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
             <CategoriesListing
               categories={sideMenuItems}
               change={this.handleCategoryChange}
@@ -161,7 +160,7 @@ class IndexPage extends React.Component<Props, State> {
           )
         }
         renderAfterMain={
-          !!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+          !!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
             <ReactPaginate
               previousLabel={"<"}
               nextLabel={">"}
@@ -183,11 +182,11 @@ class IndexPage extends React.Component<Props, State> {
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        {!!(navRouting.location === LANDING_SLUGS.DEFAULT) && (
+        {!!(navRouting.view === LANDING_SLUGS.DEFAULT) && (
           <LandingView onLocationChange={this.handleLocationChange} />
         )}
 
-        {!!(navRouting.location === PRODUCT_SLUGS.DEFAULT) && (
+        {!!(navRouting.view === PRODUCT_SLUGS.DEFAULT) && (
           <ProductItem
             product={this.state.singleProduct.product}
             images={this.state.singleProduct.images}
@@ -195,21 +194,21 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {!!(navRouting.location === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+        {!!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
           <ProductsListing
             products={this.state.products}
             onLocationChange={this.handleLocationChange}
           />
         )}
 
-        {!!(navRouting.location === CART_SLUGS.DEFAULT) && (
+        {!!(navRouting.view === CART_SLUGS.DEFAULT) && (
           <CartView
             formValues={formValues}
             onLocationChange={this.handleLocationChange}
           />
         )}
 
-        {!!(navRouting.location === CHECKOUT_SLUGS.DEFAULT) && (
+        {!!(navRouting.view === CHECKOUT_SLUGS.DEFAULT) && (
           <CheckoutView
             formValues={formValues}
             onLocationChange={this.handleLocationChange}

@@ -4,6 +4,7 @@ import {
   LANDING_SLUGS,
 } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
+import Link from "../../../components/link/Link";
 
 interface Props {
   onLocationChange?: (props: LocationChangeProps) => void;
@@ -11,16 +12,10 @@ interface Props {
 
 const Logo = ({ onLocationChange }: Props) => {
   return (
-    <a
+    <Link
+      location={{ type: LOCATION_TYPES.PAGE, view: LANDING_SLUGS.DEFAULT }}
       className="d__block"
-      href="/"
-      onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        onLocationChange({
-          type: LOCATION_TYPES.PAGE,
-          location: LANDING_SLUGS.DEFAULT,
-        });
-      }}
+      onLocationChange={onLocationChange}
     >
       <figure
         className="aspect-ratio"
@@ -35,7 +30,7 @@ const Logo = ({ onLocationChange }: Props) => {
           src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
         />
       </figure>
-    </a>
+    </Link>
   );
 };
 

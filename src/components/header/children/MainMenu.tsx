@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PRODUCT_LISTING_SLUGS } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
+import Link from "../../../components/link/Link";
 
 interface Props {
   items?: MenuItems[];
@@ -28,19 +29,16 @@ const MainMenu = ({ items, onLocationChange }: Props) => {
   if (!!items.length) {
     const menuItems = items.map(({ id, title, object, object_slug }) => (
       <li key={id} className="menu__item">
-        <a
-          className="menu__link"
-          href={`/${object}/${object_slug}`}
-          onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
-            e.preventDefault();
-            onLocationChange({
-              type: object,
-              location: getLocation(object_slug, MENU_TYPES),
-            });
+        <Link
+          location={{
+            type: object,
+            view: getLocation(object_slug, MENU_TYPES),
           }}
+          className="menu__link"
+          onLocationChange={onLocationChange}
         >
           {title}
-        </a>
+        </Link>
       </li>
     ));
 

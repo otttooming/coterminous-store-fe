@@ -8,15 +8,18 @@ import {
 
 export interface LocationChangeProps {
   type: string;
-  location:
-    | LANDING_SLUGS
-    | PRODUCT_LISTING_SLUGS
-    | CART_SLUGS
-    | PRODUCT_SLUGS
-    | CHECKOUT_SLUGS;
-  query?: QueryProps;
+  view?: ViewNames;
+  pathName?: string[];
+  query?: string[];
 }
 
-interface QueryProps {
-  slug: string;
+type ViewNames =
+  | LANDING_SLUGS
+  | PRODUCT_LISTING_SLUGS
+  | CART_SLUGS
+  | PRODUCT_SLUGS
+  | CHECKOUT_SLUGS;
+
+export interface SeoProps {
+  itemProp: string;
 }

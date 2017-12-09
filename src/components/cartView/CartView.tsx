@@ -1,5 +1,7 @@
 import * as React from "react";
 import CartListing from "./children/CartListing";
+import Link from "../../components/link/Link";
+
 import {
   LOCATION_TYPES,
   CHECKOUT_SLUGS,
@@ -64,19 +66,16 @@ const CartView = ({ formValues, onLocationChange }: Props) => {
             </div>
             <hr />
             <div className="wc-proceed-to-checkout">
-              <a
-                href="checkout/"
-                className="checkout-button button alt wc-forward"
-                onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  onLocationChange({
-                    type: LOCATION_TYPES.PAGE,
-                    location: CHECKOUT_SLUGS.DEFAULT,
-                  });
+              <Link
+                location={{
+                  type: LOCATION_TYPES.PAGE,
+                  view: CHECKOUT_SLUGS.DEFAULT,
                 }}
+                className="checkout-button button alt wc-forward"
+                onLocationChange={onLocationChange}
               >
                 Proceed to Checkout
-              </a>
+              </Link>
             </div>
           </form>
         </div>
