@@ -11,6 +11,7 @@ import {
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
   LANDING_SLUGS,
+  SITE_NAME,
 } from "../common/products/constants";
 
 import * as React from "react";
@@ -128,14 +129,38 @@ class IndexPage extends React.Component<Props, State> {
     }
   };
 
-  handleLocationChange = async (navRouting: LocationChangeProps) => {
-    const { query } = navRouting;
+  handleHistoryChange = (navRouting: LocationChangeProps) => {
+    const siteName = SITE_NAME.DEFAULT;
 
-    if (!!query) {
-      await this.getSingleProduct(query.join());
-    }
+    const title = Object.values(LANDING_SLUGS).includes(navRouting.view)
+      ? ""
+      : navRouting.view.toLowerCase();
+
+    const pathName = !!navRouting.pathName ? navRouting.pathName.join("/") : "";
+
+    const root = `${window.location.protocol}//${window.location.host}`;
+
+    history.pushState("", siteName, `${root}/${title}/${pathName}`);
 
     this.setState({ navRouting });
+  };
+
+  handleLocationChange = async (navRouting: LocationChangeProps) => {
+    const { pathName = null } = navRouting;
+
+    if (navRouting.view === PRODUCT_SLUGS.DEFAULT && !!pathName) {
+      await this.getSingleProduct(pathName[0]);
+
+      this.handleHistoryChange(navRouting);
+    }
+
+    if (
+      navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
+      navRouting.view === CART_SLUGS.DEFAULT ||
+      navRouting.view === CHECKOUT_SLUGS.DEFAULT
+    ) {
+      this.handleHistoryChange(navRouting);
+    }
   };
 
   render() {

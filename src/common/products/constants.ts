@@ -1,3 +1,7 @@
+export enum SITE_NAME {
+  DEFAULT = "Aadli Aare",
+}
+
 export enum LOCATION_TYPES {
   PAGE = "page",
 }
@@ -7,7 +11,7 @@ export enum LANDING_SLUGS {
 }
 
 export enum PRODUCT_LISTING_SLUGS {
-  DEFAULT = "PRODUCT_LISTING",
+  DEFAULT = "PRODUCTS",
   ET = "pood",
 }
 
@@ -16,9 +20,9 @@ export enum PRODUCT_SLUGS {
 }
 
 export enum CART_SLUGS {
-  DEFAULT = "CART_VIEW",
+  DEFAULT = "CART",
 }
 
 export enum CHECKOUT_SLUGS {
-  DEFAULT = "CHECKOUT_VIEW",
+  DEFAULT = "CHECKOUT",
 }

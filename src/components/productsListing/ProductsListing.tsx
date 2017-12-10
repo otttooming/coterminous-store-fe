@@ -1,6 +1,7 @@
 import * as React from "react";
 import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 import Media from "../../components/media/Media";
+import Link from "../../components/link/Link";
 import {
   LOCATION_TYPES,
   PRODUCT_SLUGS,
@@ -52,25 +53,22 @@ const ProductsListing = ({ products, onLocationChange }: Props) => {
         ) : (
           <Media className="main-image product__main-image" alt={name} />
         )}
-        <a
-          href={`/product/${slug}`}
-          itemProp="url"
-          className="products-listing__link"
-          onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) => {
-            e.preventDefault();
-            onLocationChange({
-              type: LOCATION_TYPES.PAGE,
-              location: PRODUCT_SLUGS.DEFAULT,
-              query: {
-                slug,
-              },
-            });
+
+        <Link
+          location={{
+            type: LOCATION_TYPES.PAGE,
+            view: PRODUCT_SLUGS.DEFAULT,
+            pathName: [slug],
           }}
+          className="products-listing__link"
+          seo={{ itemProp: "url" }}
+          onLocationChange={onLocationChange}
         >
           <h3 itemProp="name" className="products-listing__name">
             {name}
           </h3>
-        </a>
+        </Link>
+
         {!!price && (
           <div
             className="products-listing__price-block"
