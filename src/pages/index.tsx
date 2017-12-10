@@ -87,7 +87,7 @@ class IndexPage extends React.Component<Props, State> {
       products: props.products,
       totalPages: props.totalPages,
       category: props.category,
-      page: props.products,
+      page: props.products.page,
       singleProduct: null,
       isLoaderActive: false,
       navRouting: {
@@ -98,22 +98,22 @@ class IndexPage extends React.Component<Props, State> {
   }
 
   handleCategoryChange = (category: any) => {
-    this.updateProducts(1, category);
+    this.getProductsListing(1, category);
   };
 
   handlePagination = (props: any) => {
     const page = props.selected + 1;
     const category = this.state.category;
 
-    this.updateProducts(page, category);
+    this.getProductsListing(page, category);
   };
 
-  updateProducts = async (page: number, category: string) => {
-    this.setState({ isLoaderActive: true });
+  getProductsListing = async (page: number, category: string) => {
+    if (this.state.page !== page || this.state.category !== category) {
+      const products = await getProducts(api, page, category);
 
-    const products = await getProducts(api, page, category);
-
-    this.setState({ ...products, isLoaderActive: false });
+      this.setState({ ...products });
+    }
   };
 
   getSingleProduct = async (name: string) => {
@@ -142,24 +142,27 @@ class IndexPage extends React.Component<Props, State> {
 
     history.pushState("", siteName, `${root}/${title}/${pathName}`);
 
-    this.setState({ navRouting });
+    this.setState({ navRouting, isLoaderActive: false });
   };
 
   handleLocationChange = async (navRouting: LocationChangeProps) => {
-    const { pathName = null } = navRouting;
+    const { view, pathName = null } = navRouting;
 
-    if (navRouting.view === PRODUCT_SLUGS.DEFAULT && !!pathName) {
-      await this.getSingleProduct(pathName[0]);
+    this.setState({ isLoaderActive: true });
 
-      this.handleHistoryChange(navRouting);
-    }
+    switch (view) {
+      case PRODUCT_SLUGS.DEFAULT:
+        await this.getSingleProduct(pathName[0]);
 
-    if (
-      navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
-      navRouting.view === CART_SLUGS.DEFAULT ||
-      navRouting.view === CHECKOUT_SLUGS.DEFAULT
-    ) {
-      this.handleHistoryChange(navRouting);
+        return this.handleHistoryChange(navRouting);
+      case PRODUCT_LISTING_SLUGS.DEFAULT:
+        const { page = 1, category = null } = this.state;
+
+        await this.getProductsListing(page, category);
+
+        return this.handleHistoryChange(navRouting);
+      default:
+        return this.handleHistoryChange(navRouting);
     }
   };
 
