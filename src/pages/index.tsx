@@ -12,6 +12,7 @@ import {
   PRODUCT_LISTING_SLUGS,
   LANDING_SLUGS,
   SITE_NAME,
+  CATEGORY_SLUGS,
 } from "../common/products/constants";
 
 import * as React from "react";
@@ -39,7 +40,7 @@ import { initStore } from "../store";
 
 interface Props extends InjectedFormProps {
   totalPages: number;
-  sideMenuItems: any;
+  categories: any;
   menuItems: any;
   products: any;
   category?: string;
@@ -67,14 +68,14 @@ class IndexPage extends React.Component<Props, State> {
     const initialPage = query.slug ? query.slug : 1;
     const initialProducts = await getProducts(api);
     const menuItems = await getMainMenu(api);
-    const sideMenuItems = await getSideMenu(api);
+    const categories = await getSideMenu(api);
 
     return {
       express: {
         query,
       },
       menuItems,
-      sideMenuItems,
+      categories,
       ...initialProducts,
       ...initialPage,
     };
@@ -96,10 +97,6 @@ class IndexPage extends React.Component<Props, State> {
       },
     };
   }
-
-  handleCategoryChange = (category: any) => {
-    this.getProductsListing(1, category);
-  };
 
   handlePagination = (props: any) => {
     const page = props.selected + 1;
@@ -129,6 +126,17 @@ class IndexPage extends React.Component<Props, State> {
     }
   };
 
+  getCategory = async (navRouting: LocationChangeProps) => {
+    const { categories } = this.props;
+    const category = categories.filter((item: any) => {
+      return item.slug === navRouting.pathName[0];
+    });
+
+    const id = category[0].id;
+
+    await this.getProductsListing(1, id);
+  };
+
   handleHistoryChange = (navRouting: LocationChangeProps) => {
     const siteName = SITE_NAME.DEFAULT;
 
@@ -147,6 +155,7 @@ class IndexPage extends React.Component<Props, State> {
 
   handleLocationChange = async (navRouting: LocationChangeProps) => {
     const { view, pathName = null } = navRouting;
+    const { page = 1, category = null } = this.state;
 
     this.setState({ isLoaderActive: true });
 
@@ -156,9 +165,11 @@ class IndexPage extends React.Component<Props, State> {
 
         return this.handleHistoryChange(navRouting);
       case PRODUCT_LISTING_SLUGS.DEFAULT:
-        const { page = 1, category = null } = this.state;
-
         await this.getProductsListing(page, category);
+
+        return this.handleHistoryChange(navRouting);
+      case CATEGORY_SLUGS.DEFAULT:
+        await this.getCategory(navRouting);
 
         return this.handleHistoryChange(navRouting);
       default:
@@ -167,7 +178,7 @@ class IndexPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { menuItems, sideMenuItems, totalPages, formValues } = this.props;
+    const { menuItems, categories, totalPages, formValues } = this.props;
     const { navRouting } = this.state;
     return (
       <Main
@@ -180,15 +191,21 @@ class IndexPage extends React.Component<Props, State> {
           />
         }
         renderSidebar={
-          !!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+          !!(
+            navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
+            navRouting.view === CATEGORY_SLUGS.DEFAULT
+          ) && (
             <CategoriesListing
-              categories={sideMenuItems}
-              change={this.handleCategoryChange}
+              categories={categories}
+              onLocationChange={this.handleLocationChange}
             />
           )
         }
         renderAfterMain={
-          !!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+          !!(
+            navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
+            navRouting.view === CATEGORY_SLUGS.DEFAULT
+          ) && (
             <ReactPaginate
               previousLabel={"<"}
               nextLabel={">"}
@@ -222,7 +239,10 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {!!(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT) && (
+        {!!(
+          navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
+          navRouting.view === CATEGORY_SLUGS.DEFAULT
+        ) && (
           <ProductsListing
             products={this.state.products}
             onLocationChange={this.handleLocationChange}

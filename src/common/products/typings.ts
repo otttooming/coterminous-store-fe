@@ -4,6 +4,7 @@ import {
   CHECKOUT_SLUGS,
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
+  CATEGORY_SLUGS,
 } from "./constants";
 
 export interface LocationChangeProps {
@@ -18,6 +19,7 @@ type ViewNames =
   | PRODUCT_LISTING_SLUGS
   | CART_SLUGS
   | PRODUCT_SLUGS
+  | CATEGORY_SLUGS
   | CHECKOUT_SLUGS;
 
 export interface SeoProps {

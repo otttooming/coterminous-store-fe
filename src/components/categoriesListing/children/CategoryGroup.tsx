@@ -1,10 +1,16 @@
 import * as React from "react";
 import { CategoryProps } from ".././CategoriesListing";
 import Icon from "../../../components/icon/Icon";
+import Link from "../../../components/link/Link";
+import {
+  LOCATION_TYPES,
+  CATEGORY_SLUGS,
+} from "../../../common/products/constants";
+import { LocationChangeProps } from "../../../common/products/typings";
 
 interface Props {
   category: CategoryProps;
-  change?: (id: number) => void;
+  onLocationChange?: (props: LocationChangeProps) => void;
   controls?: boolean;
 }
 
@@ -27,13 +33,9 @@ export default class CategoryGroup extends React.Component<Props, State> {
     });
   };
 
-  handleCategoryChange = (id: number) => {
-    this.props.change(id);
-  };
-
   render() {
-    const { children, controls } = this.props;
-    const { id, name, count, description } = this.props.category;
+    const { children, controls, onLocationChange } = this.props;
+    const { id, name, count, description, slug } = this.props.category;
     const { isSubMenuOpen } = this.state;
 
     if (!count) {
@@ -42,18 +44,26 @@ export default class CategoryGroup extends React.Component<Props, State> {
 
     return (
       <li
-        className={`cat-list__group ${isSubMenuOpen
-          ? "cat-list__group-open"
-          : ""}`}
+        className={`cat-list__group ${
+          isSubMenuOpen ? "cat-list__group-open" : ""
+        }`}
       >
         <h2 className="cat-list__title">
-          <a href="#" onClick={() => this.handleCategoryChange(id)}>
+          <Link
+            location={{
+              type: LOCATION_TYPES.PAGE,
+              view: CATEGORY_SLUGS.DEFAULT,
+              pathName: [slug],
+            }}
+            className="products-listing__link"
+            onLocationChange={onLocationChange}
+          >
             <span className="cat-list__name">{name}</span>
             {!!description && (
               <span className="cat-list__desc">{description}</span>
             )}
             <span className="cat-list__count">{count}</span>
-          </a>
+          </Link>
 
           {controls && (
             <div

@@ -1,10 +1,11 @@
 import * as React from "react";
 import { CategoryProps } from ".././CategoriesListing";
 import CategoryGroup from "./CategoryGroup";
+import { LocationChangeProps } from "../../../common/products/typings";
 
 interface Props {
   categories: CategoryProps[];
-  change?: (id: number) => void;
+  onLocationChange?: (props: LocationChangeProps) => void;
 }
 
 export default class SubCategories extends React.Component<Props, any> {
@@ -12,11 +13,9 @@ export default class SubCategories extends React.Component<Props, any> {
     super(props);
   }
 
-  handleCategoryChange = (id: number) => {
-    this.props.change(id);
-  };
-
   renderSubCategory(categories: CategoryProps[]) {
+    const { onLocationChange } = this.props;
+
     const categoryListing = categories.map((item: any, index: number) => {
       const { id, name, count, description, subCategories } = item;
 
@@ -24,7 +23,7 @@ export default class SubCategories extends React.Component<Props, any> {
         <CategoryGroup
           key={index}
           category={item}
-          change={this.handleCategoryChange}
+          onLocationChange={onLocationChange}
         />
       );
     });
@@ -33,7 +32,7 @@ export default class SubCategories extends React.Component<Props, any> {
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, onLocationChange } = this.props;
 
     const categoryListing = categories.map((item: any, index: number) => {
       const { id, name, count, description, subCategories } = item;
@@ -42,7 +41,7 @@ export default class SubCategories extends React.Component<Props, any> {
         <CategoryGroup
           key={index}
           category={item}
-          change={this.handleCategoryChange}
+          onLocationChange={onLocationChange}
         >
           {subCategories.length > 0 && this.renderSubCategory(subCategories)}
         </CategoryGroup>

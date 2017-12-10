@@ -26,3 +26,7 @@ export enum CART_SLUGS {
 export enum CHECKOUT_SLUGS {
   DEFAULT = "CHECKOUT",
 }
+
+export enum CATEGORY_SLUGS {
+  DEFAULT = "CATEGORY",
+}
