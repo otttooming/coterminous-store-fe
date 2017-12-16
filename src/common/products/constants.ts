@@ -30,3 +30,12 @@ export enum CHECKOUT_SLUGS {
 export enum CATEGORY_SLUGS {
   DEFAULT = "CATEGORY",
 }
+
+export const VIEW_NAMES = [
+  ...Object.values(LANDING_SLUGS),
+  ...Object.values(PRODUCT_LISTING_SLUGS),
+  ...Object.values(PRODUCT_SLUGS),
+  ...Object.values(CART_SLUGS),
+  ...Object.values(CHECKOUT_SLUGS),
+  ...Object.values(CATEGORY_SLUGS),
+];

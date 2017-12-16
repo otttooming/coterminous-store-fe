@@ -13,6 +13,7 @@ import {
   LANDING_SLUGS,
   SITE_NAME,
   CATEGORY_SLUGS,
+  VIEW_NAMES,
 } from "../common/products/constants";
 
 import * as React from "react";
@@ -39,22 +40,18 @@ import { LocationChangeProps } from "../common/products/typings";
 import { initStore } from "../store";
 
 interface Props extends InjectedFormProps {
-  totalPages: number;
   categories: any;
   menuItems: any;
   products: any;
-  category?: string;
-  page: number;
   formValues: any;
+  initialRouting: State;
 }
 
 interface State {
-  category?: string;
+  categories: any;
   isLoaderActive: boolean;
   products?: any;
-  page: number;
-  totalPages: number;
-  navRouting: LocationChangeProps;
+  navRouting?: LocationChangeProps;
   singleProduct?: any;
 }
 
@@ -63,78 +60,137 @@ interface InitialProps {
   res: any;
 }
 
+const handleProductsListing = async (
+  props: State,
+  category?: number
+): Promise<State> => {
+  const { navRouting } = props;
+  const { page } = navRouting;
+
+  const categoryRequest = !!category ? category : "";
+
+  const products = await getProducts(api, page, categoryRequest);
+
+  const nextNavRouting = {
+    ...navRouting,
+    page: products.page,
+    totalPages: products.totalPages,
+  };
+
+  return { ...props, products: products.products, navRouting: nextNavRouting };
+};
+
+const handleSingleProduct = async (props: State): Promise<State> => {
+  const { navRouting } = props;
+  const { pathName } = navRouting;
+
+  const name = pathName[0];
+
+  const isProductFetched =
+    props.singleProduct && props.singleProduct.product.slug === name;
+
+  if (isProductFetched) {
+    return props;
+  }
+
+  const singleProduct = await getSingleProduct(api, name);
+
+  return { ...props, singleProduct };
+};
+
+const handleCategory = async (props: State): Promise<State> => {
+  const { categories, navRouting } = props;
+
+  const category = categories.filter((item: any) => {
+    return item.slug === navRouting.pathName[0];
+  });
+
+  const id = category[0].id;
+
+  const products = await handleProductsListing(props, id);
+
+  return { ...props, ...products };
+};
+
+const handleLocationChange = async (props: State): Promise<State> => {
+  const { navRouting } = props;
+  const { view } = navRouting;
+
+  switch (view) {
+    case PRODUCT_SLUGS.DEFAULT:
+      return handleSingleProduct(props);
+    case PRODUCT_LISTING_SLUGS.DEFAULT:
+      return handleProductsListing(props);
+    case CATEGORY_SLUGS.DEFAULT:
+      return handleCategory(props);
+    default:
+      return handleProductsListing(props);
+  }
+};
+
+const createNavRoutingFromQuery = (request: any) => {
+  const pathName = request.path.split("/").filter((item: string) => {
+    return item !== "";
+  });
+
+  const view =
+    !!pathName.length && VIEW_NAMES.includes(pathName[0].toUpperCase())
+      ? pathName[0].toUpperCase()
+      : LANDING_SLUGS.DEFAULT;
+
+  const page =
+    !!pathName.length && !isNaN(Number(pathName[pathName.length]))
+      ? Number(pathName[pathName.length])
+      : 1;
+
+  const navRouting: LocationChangeProps = {
+    type: LOCATION_TYPES.PAGE,
+    view,
+    pathName,
+    page,
+  };
+
+  return navRouting;
+};
+
 class IndexPage extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
-    const initialPage = query.slug ? query.slug : 1;
-    const initialProducts = await getProducts(api);
     const menuItems = await getMainMenu(api);
     const categories = await getSideMenu(api);
 
+    const navRouting: LocationChangeProps = createNavRoutingFromQuery(query);
+
+    const initialProps: State = {
+      navRouting,
+      categories,
+      isLoaderActive: false,
+    };
+
+    const initialRouting: State = await handleLocationChange(initialProps);
+
     return {
-      express: {
-        query,
-      },
+      express: { query },
       menuItems,
       categories,
-      ...initialProducts,
-      ...initialPage,
+      initialRouting,
     };
   }
 
   constructor(props: Props) {
-    super(props as Props);
+    super(props);
 
     this.state = {
-      products: props.products,
-      totalPages: props.totalPages,
-      category: props.category,
-      page: props.products.page,
+      categories: props.categories,
       singleProduct: null,
       isLoaderActive: false,
-      navRouting: {
-        type: LOCATION_TYPES.PAGE,
-        view: LANDING_SLUGS.DEFAULT,
-      },
+      ...props.initialRouting,
     };
   }
 
   handlePagination = (props: any) => {
-    const page = props.selected + 1;
-    const category = this.state.category;
-
-    this.getProductsListing(page, category);
-  };
-
-  getProductsListing = async (page: number, category: string) => {
-    if (this.state.page !== page || this.state.category !== category) {
-      const products = await getProducts(api, page, category);
-
-      this.setState({ ...products });
-    }
-  };
-
-  getSingleProduct = async (name: string) => {
-    if (
-      !(
-        !!this.state.singleProduct &&
-        this.state.singleProduct.product.slug === name
-      )
-    ) {
-      const singleProduct = await getSingleProduct(api, name);
-
-      this.setState({ singleProduct });
-    }
-  };
-
-  getCategory = async (navRouting: LocationChangeProps) => {
-    const { categories } = this.props;
-    const category = categories.filter((item: any) => {
-      return item.slug === navRouting.pathName[0];
-    });
-
-    const id = category[0].id;
-
-    await this.getProductsListing(1, id);
+    // const page = props.selected + 1;
+    // const category = this.state.category;
+    // this.getProductsListing(page, category);
   };
 
   handleHistoryChange = (navRouting: LocationChangeProps) => {
@@ -154,31 +210,15 @@ class IndexPage extends React.Component<Props, State> {
   };
 
   handleLocationChange = async (navRouting: LocationChangeProps) => {
-    const { view, pathName = null } = navRouting;
-    const { page = 1, category = null } = this.state;
+    const props = { ...this.state, navRouting };
 
-    this.setState({ isLoaderActive: true });
+    const routing = await handleLocationChange(props);
 
-    switch (view) {
-      case PRODUCT_SLUGS.DEFAULT:
-        await this.getSingleProduct(pathName[0]);
-
-        return this.handleHistoryChange(navRouting);
-      case PRODUCT_LISTING_SLUGS.DEFAULT:
-        await this.getProductsListing(page, category);
-
-        return this.handleHistoryChange(navRouting);
-      case CATEGORY_SLUGS.DEFAULT:
-        await this.getCategory(navRouting);
-
-        return this.handleHistoryChange(navRouting);
-      default:
-        return this.handleHistoryChange(navRouting);
-    }
+    this.setState({ ...routing, navRouting });
   };
 
   render() {
-    const { menuItems, categories, totalPages, formValues } = this.props;
+    const { menuItems, categories, formValues } = this.props;
     const { navRouting } = this.state;
     return (
       <Main
@@ -211,7 +251,7 @@ class IndexPage extends React.Component<Props, State> {
               nextLabel={">"}
               breakLabel={<a href="">...</a>}
               breakClassName={"pagination__btn button medium"}
-              pageCount={this.state.totalPages}
+              pageCount={navRouting.totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={this.handlePagination}

@@ -12,6 +12,8 @@ export interface LocationChangeProps {
   view?: ViewNames;
   pathName?: string[];
   query?: string[];
+  page?: number;
+  totalPages?: number;
 }
 
 type ViewNames =

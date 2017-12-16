@@ -3,7 +3,7 @@ import { getAllMedia } from "../mediaApi/mediaApi";
 export async function getProducts(
   api: any,
   page: number = 1,
-  category?: string
+  category?: number | string
 ) {
   const categoryParameter = category ? "category=" + category : "";
   const url = api.buildUrl(
