@@ -172,7 +172,7 @@ class IndexPage extends React.Component<Props, State> {
       isLoaderActive: false,
     };
 
-    const initialRouting: State = await handleLocationChange(initialProps);
+    const initialRouting: State = await handleRouting(initialProps);
 
     return {
       express: { query },
@@ -223,14 +223,18 @@ class IndexPage extends React.Component<Props, State> {
   handleLocationChange = async (navRouting: LocationChangeProps) => {
     const props = { ...this.state, navRouting };
 
-    const routing = await handleLocationChange(props);
+    const routing = await handleRouting(props);
 
-    this.setState({ ...routing, navRouting });
+    this.setState({ ...routing, navRouting }, () => {
+      this.handleHistoryChange(this.state.navRouting);
+    });
   };
 
   render() {
     const { menuItems, categories, formValues } = this.props;
     const { navRouting } = this.state;
+    const { totalPages = 1, page = 1 } = navRouting;
+
     return (
       <Main
         renderHeader={
@@ -262,7 +266,7 @@ class IndexPage extends React.Component<Props, State> {
               nextLabel={">"}
               breakLabel={<a href="">...</a>}
               breakClassName={"pagination__btn button medium"}
-              pageCount={navRouting.totalPages}
+              pageCount={totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={this.handlePagination}
