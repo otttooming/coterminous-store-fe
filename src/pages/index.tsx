@@ -129,19 +129,25 @@ const handleLocationChange = async (props: State): Promise<State> => {
 };
 
 const createNavRoutingFromQuery = (request: any) => {
-  const pathName = request.path.split("/").filter((item: string) => {
+  const requestPathName = request.path.split("/").filter((item: string) => {
     return item !== "";
   });
 
   const view =
-    !!pathName.length && VIEW_NAMES.includes(pathName[0].toUpperCase())
-      ? pathName[0].toUpperCase()
+    !!requestPathName.length &&
+    VIEW_NAMES.includes(requestPathName[0].toUpperCase())
+      ? requestPathName[0].toUpperCase()
       : LANDING_SLUGS.DEFAULT;
 
   const page =
-    !!pathName.length && !isNaN(Number(pathName[pathName.length]))
-      ? Number(pathName[pathName.length])
+    !!requestPathName.length &&
+    !isNaN(Number(requestPathName[requestPathName.length]))
+      ? Number(requestPathName[requestPathName.length])
       : 1;
+
+  const pathName = requestPathName.filter((item: string) => {
+    return VIEW_NAMES.includes(item);
+  });
 
   const navRouting: LocationChangeProps = {
     type: LOCATION_TYPES.PAGE,
