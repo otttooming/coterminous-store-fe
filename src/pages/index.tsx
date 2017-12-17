@@ -188,9 +188,14 @@ class IndexPage extends React.Component<Props, State> {
   }
 
   handlePagination = (props: any) => {
-    // const page = props.selected + 1;
-    // const category = this.state.category;
-    // this.getProductsListing(page, category);
+    const page = props.selected + 1;
+
+    const nextNavRouting = {
+      ...this.state.navRouting,
+      page,
+    };
+
+    this.handleLocationChange(nextNavRouting);
   };
 
   handleHistoryChange = (navRouting: LocationChangeProps) => {
