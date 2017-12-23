@@ -225,7 +225,7 @@ class IndexPage extends React.Component<Props, State> {
 
     const routing = await handleRouting(props);
 
-    this.setState({ ...routing, navRouting }, () => {
+    this.setState({ navRouting, ...routing }, () => {
       this.handleHistoryChange(this.state.navRouting);
     });
   };
