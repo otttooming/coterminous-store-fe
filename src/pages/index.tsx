@@ -112,7 +112,11 @@ const handleCategory = async (props: State): Promise<State> => {
   return { ...props, ...products };
 };
 
-const handleLocationChange = async (props: State): Promise<State> => {
+const handleDefault = async (props: State): Promise<State> => {
+  return { ...props };
+};
+
+const handleRouting = async (props: State): Promise<State> => {
   const { navRouting } = props;
   const { view } = navRouting;
 
@@ -124,7 +128,7 @@ const handleLocationChange = async (props: State): Promise<State> => {
     case CATEGORY_SLUGS.DEFAULT:
       return handleCategory(props);
     default:
-      return handleProductsListing(props);
+      return handleDefault(props);
   }
 };
 
