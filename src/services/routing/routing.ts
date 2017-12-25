@@ -76,6 +76,20 @@ const handleDefault = async (props: State): Promise<State> => {
   return { ...props };
 };
 
+export const handleHistoryChange = (navRouting: LocationChangeProps) => {
+  const siteName = SITE_NAME.DEFAULT;
+
+  const title = Object.values(LANDING_SLUGS).includes(navRouting.view)
+    ? ""
+    : navRouting.view.toLowerCase();
+
+  const pathName = !!navRouting.pathName ? navRouting.pathName.join("/") : "";
+
+  const root = `${window.location.protocol}//${window.location.host}`;
+
+  history.pushState("", siteName, `${root}/${title}/${pathName}`);
+};
+
 export const handleRouting = async (props: State): Promise<State> => {
   const { navRouting } = props;
   const { view } = navRouting;

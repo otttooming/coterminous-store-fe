@@ -106,22 +106,14 @@ class IndexPage extends React.Component<Props, State> {
   };
 
   handleHistoryChange = (navRouting: LocationChangeProps) => {
-    const siteName = SITE_NAME.DEFAULT;
+    Routing.handleHistoryChange(navRouting);
 
-    const title = Object.values(LANDING_SLUGS).includes(navRouting.view)
-      ? ""
-      : navRouting.view.toLowerCase();
-
-    const pathName = !!navRouting.pathName ? navRouting.pathName.join("/") : "";
-
-    const root = `${window.location.protocol}//${window.location.host}`;
-
-    history.pushState("", siteName, `${root}/${title}/${pathName}`);
-
-    this.setState({ navRouting, isLoaderActive: false });
+    this.setState({ isLoaderActive: false });
   };
 
   handleLocationChange = async (navRouting: LocationChangeProps) => {
+    this.setState({ isLoaderActive: true });
+
     const props = { ...this.state, navRouting };
 
     const routing = await Routing.handleRouting(props);
