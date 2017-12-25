@@ -88,6 +88,8 @@ export const handleHistoryChange = (navRouting: LocationChangeProps) => {
   const root = `${window.location.protocol}//${window.location.host}`;
 
   history.pushState("", siteName, `${root}/${title}/${pathName}`);
+
+  window.scroll({ top: 0, left: 0, behavior: "smooth" });
 };
 
 export const handleRouting = async (props: State): Promise<State> => {
