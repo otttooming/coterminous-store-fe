@@ -1,7 +1,5 @@
 import * as api from "../services/api/Api";
-import { getProducts } from "../services/productApi/productApi";
-import { getSingleProduct } from "../services/productApi/singleProductApi";
-
+import * as Routing from "../services/routing/routing";
 import { getMainMenu, getSideMenu } from "../services/menuApi/menuApi";
 
 import {
@@ -47,7 +45,7 @@ interface Props extends InjectedFormProps {
   initialRouting: State;
 }
 
-interface State {
+export interface State {
   categories: any;
   isLoaderActive: boolean;
   products?: any;
@@ -60,115 +58,14 @@ interface InitialProps {
   res: any;
 }
 
-const handleProductsListing = async (
-  props: State,
-  category?: number
-): Promise<State> => {
-  const { navRouting } = props;
-  const { page } = navRouting;
-
-  const categoryRequest = !!category ? category : "";
-
-  const products = await getProducts(api, page, categoryRequest);
-
-  const nextNavRouting = {
-    ...navRouting,
-    page: products.page,
-    totalPages: products.totalPages,
-  };
-
-  return { ...props, products: products.products, navRouting: nextNavRouting };
-};
-
-const handleSingleProduct = async (props: State): Promise<State> => {
-  const { navRouting } = props;
-  const { pathName } = navRouting;
-
-  const name = pathName[0];
-
-  const isProductFetched =
-    props.singleProduct && props.singleProduct.product.slug === name;
-
-  if (isProductFetched) {
-    return props;
-  }
-
-  const singleProduct = await getSingleProduct(api, name);
-
-  return { ...props, singleProduct };
-};
-
-const handleCategory = async (props: State): Promise<State> => {
-  const { categories, navRouting } = props;
-
-  const category = categories.filter((item: any) => {
-    return item.slug === navRouting.pathName[0];
-  });
-
-  const id = category[0].id;
-
-  const products = await handleProductsListing(props, id);
-
-  return { ...props, ...products };
-};
-
-const handleDefault = async (props: State): Promise<State> => {
-  return { ...props };
-};
-
-const handleRouting = async (props: State): Promise<State> => {
-  const { navRouting } = props;
-  const { view } = navRouting;
-
-  switch (view) {
-    case PRODUCT_SLUGS.DEFAULT:
-      return handleSingleProduct(props);
-    case PRODUCT_LISTING_SLUGS.DEFAULT:
-      return handleProductsListing(props);
-    case CATEGORY_SLUGS.DEFAULT:
-      return handleCategory(props);
-    default:
-      return handleDefault(props);
-  }
-};
-
-const createNavRoutingFromQuery = (request: any) => {
-  const requestPathName = request.path.split("/").filter((item: string) => {
-    return item !== "";
-  });
-
-  const view =
-    !!requestPathName.length &&
-    VIEW_NAMES.includes(requestPathName[0].toUpperCase())
-      ? requestPathName[0].toUpperCase()
-      : LANDING_SLUGS.DEFAULT;
-
-  const page =
-    !!requestPathName.length &&
-    !isNaN(Number(requestPathName[requestPathName.length]))
-      ? Number(requestPathName[requestPathName.length])
-      : 1;
-
-  const pathName = requestPathName.filter((item: string) => {
-    return VIEW_NAMES.includes(item);
-  });
-
-  const navRouting: LocationChangeProps = {
-    type: LOCATION_TYPES.PAGE,
-    view,
-    pathName,
-    page,
-  };
-
-  return navRouting;
-};
-
 class IndexPage extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
     const menuItems = await getMainMenu(api);
     const categories = await getSideMenu(api);
 
-    const navRouting: LocationChangeProps = createNavRoutingFromQuery(query);
+    const navRouting: LocationChangeProps = Routing.createNavRoutingFromQuery(
+      query
+    );
 
     const initialProps: State = {
       navRouting,
@@ -176,7 +73,7 @@ class IndexPage extends React.Component<Props, State> {
       isLoaderActive: false,
     };
 
-    const initialRouting: State = await handleRouting(initialProps);
+    const initialRouting: State = await Routing.handleRouting(initialProps);
 
     return {
       express: { query },
@@ -227,7 +124,7 @@ class IndexPage extends React.Component<Props, State> {
   handleLocationChange = async (navRouting: LocationChangeProps) => {
     const props = { ...this.state, navRouting };
 
-    const routing = await handleRouting(props);
+    const routing = await Routing.handleRouting(props);
 
     this.setState({ navRouting, ...routing }, () => {
       this.handleHistoryChange(this.state.navRouting);
