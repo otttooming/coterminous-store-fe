@@ -94,6 +94,20 @@ class IndexPage extends React.Component<Props, State> {
     };
   }
 
+  componentDidMount() {
+    window.onpopstate = this.handleBackButtonEvent;
+  }
+
+  handleBackButtonEvent = () => {
+    const query = { path: window.location.pathname };
+
+    const navRouting: LocationChangeProps = Routing.createNavRoutingFromQuery(
+      query
+    );
+
+    this.handleLocationChange(navRouting);
+  };
+
   handlePagination = (props: any) => {
     const page = props.selected + 1;
 
