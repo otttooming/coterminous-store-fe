@@ -126,7 +126,8 @@ export const createNavRoutingFromQuery = (request: any) => {
       : 1;
 
   const pathName = requestPathName.filter((item: string) => {
-    return VIEW_NAMES.includes(item);
+    const isExistingView = VIEW_NAMES.includes(item.toUpperCase());
+    return !isExistingView;
   });
 
   const navRouting: LocationChangeProps = {
