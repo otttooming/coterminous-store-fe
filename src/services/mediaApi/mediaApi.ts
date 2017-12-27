@@ -1,3 +1,5 @@
+import * as api from "../api/Api";
+
 import { MediaItemResponseTypes } from "./mediaTypes";
 import { fetchRequest } from "../fetchApi/fetchApi";
 
@@ -20,15 +22,18 @@ export interface MediaItemProps {
   imageSizes: ImageSizes[];
 }
 
-export async function getAllMedia(ids: number[], api: any) {
-  const mediaItems = ids.map((id: number) => getMedia(id, api));
+export async function getAllMedia(ids: number[]) {
+  const mediaItems = ids.map((id: number) => getMedia(id));
 
   return Promise.all(mediaItems);
 }
 
-export async function getMedia(id: number, api: any) {
+export async function getMedia(id: number) {
   try {
-    const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
+    const url = api.buildUrl(
+      { paths: [api.WP, "media", id.toString()] },
+      api.SITEURL
+    );
 
     const response = await fetchRequest({ url });
     const { payload } = response;

@@ -1,6 +1,5 @@
 import "isomorphic-unfetch";
 
-import * as api from "../../services/api/Api";
 import { getProducts } from "../../services/productApi/productApi";
 import { getSingleProduct } from "../../services/productApi/singleProductApi";
 
@@ -29,7 +28,7 @@ const handleProductsListing = async (
 
   const categoryRequest = !!category ? category : "";
 
-  const products = await getProducts(api, page, categoryRequest);
+  const products = await getProducts(page, categoryRequest);
 
   const nextNavRouting = {
     ...navRouting,
@@ -46,7 +45,7 @@ const handleSingleProduct = async (props: State): Promise<State> => {
 
   const name = pathName[0];
 
-  const singleProduct = await getSingleProduct(api, name);
+  const singleProduct = await getSingleProduct(name);
 
   return { ...props, singleProduct };
 };

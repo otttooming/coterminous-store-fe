@@ -1,4 +1,3 @@
-import * as api from "../services/api/Api";
 import * as Routing from "../services/routing/routing";
 import { getMainMenu, getSideMenu } from "../services/menuApi/menuApi";
 
@@ -60,8 +59,8 @@ interface InitialProps {
 
 class IndexPage extends React.Component<Props, State> {
   static async getInitialProps({ query, res }: InitialProps) {
-    const menuItems = await getMainMenu(api);
-    const categories = await getSideMenu(api);
+    const menuItems = await getMainMenu();
+    const categories = await getSideMenu();
 
     const navRouting: LocationChangeProps = Routing.createNavRoutingFromQuery(
       query

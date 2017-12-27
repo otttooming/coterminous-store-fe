@@ -1,8 +1,9 @@
+import * as api from "../api/Api";
+
 import { getAllMedia } from "../mediaApi/mediaApi";
 import { fetchRequest } from "../fetchApi/fetchApi";
 
 export async function getProducts(
-  api: any,
   page: number = 1,
   category?: number | string
 ) {
@@ -26,7 +27,7 @@ export async function getProducts(
   const { totalPages } = meta;
 
   const products = await Promise.all(
-    payload.map((item: any) => getProductsItem(item, api))
+    payload.map((item: any) => getProductsItem(item))
   );
 
   return {
@@ -37,12 +38,12 @@ export async function getProducts(
   };
 }
 
-async function getProductsItem(product: any, api) {
+async function getProductsItem(product: any) {
   const imageIds = product.images
     .map(item => item.id)
     .filter(item => item !== 0);
 
-  const images = await getAllMedia(imageIds, api);
+  const images = await getAllMedia(imageIds);
 
   return {
     product,

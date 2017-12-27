@@ -1,3 +1,4 @@
+import * as api from "../api/Api";
 import { getAllMedia } from "../mediaApi/mediaApi";
 import { fetchRequest } from "../fetchApi/fetchApi";
 
@@ -15,7 +16,6 @@ export interface SingleProductVariationProps {
 }
 
 export async function getSingleProduct(
-  api: any,
   name: string
 ): Promise<SingleProductProps> {
   const url = api.buildUrl(
@@ -32,14 +32,14 @@ export async function getSingleProduct(
     .map((item: any) => item.id)
     .filter((item: any) => item !== 0);
 
-  const images = await getAllMedia(imageIds, api);
+  const images = await getAllMedia(imageIds);
 
-  const variations = await getVariations(product, api);
+  const variations = await getVariations(product);
 
   return { product, images, variations };
 }
 
-async function getVariations(product: any, api: any) {
+async function getVariations(product: any) {
   const url = api.buildUrl(
     { paths: [api.WC, "products", product.id, "variations"] },
     api.SITEURL

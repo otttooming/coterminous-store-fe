@@ -1,8 +1,9 @@
+import * as api from "../api/Api";
 import { fetchRequest } from "../fetchApi/fetchApi";
 
-export async function getMainMenu(api: any) {
+export async function getMainMenu() {
   const url = api.buildUrl(
-    { paths: [api.WPMENUS, "menus", api.WP_MAIN_MENU_ID] },
+    { paths: [api.WPMENUS, "menus", api.WP_MAIN_MENU_ID.toString()] },
     api.SITEURL
   );
 
@@ -14,7 +15,7 @@ export async function getMainMenu(api: any) {
   return mainMenuItems;
 }
 
-export async function getSideMenu(api: any) {
+export async function getSideMenu() {
   const url = api.buildUrl(
     { paths: [api.WC, "products", "categories"], parameters: ["per_page=100"] },
     api.SITEURL
