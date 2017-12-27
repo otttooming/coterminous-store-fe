@@ -1,4 +1,5 @@
 import { getAllMedia } from "../mediaApi/mediaApi";
+import { fetchRequest } from "../fetchApi/fetchApi";
 
 export async function getProducts(
   api: any,
@@ -20,13 +21,12 @@ export async function getProducts(
     api.SITEURL
   );
 
-  const resp = await fetch(url);
-  const json = await resp.json();
-  const resHeaders = resp.headers.get("Link");
-  const totalPages = parseInt(resp.headers.get("X-WP-TotalPages"), 10);
+  const response = await fetchRequest({ url });
+  const { payload, meta } = response;
+  const { totalPages } = meta;
 
   const products = await Promise.all(
-    json.map((item: any) => getProductsItem(item, api))
+    payload.map((item: any) => getProductsItem(item, api))
   );
 
   return {

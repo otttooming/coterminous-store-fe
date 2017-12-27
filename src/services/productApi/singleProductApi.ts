@@ -1,4 +1,5 @@
 import { getAllMedia } from "../mediaApi/mediaApi";
+import { fetchRequest } from "../fetchApi/fetchApi";
 
 export interface SingleProductProps {
   product: any;
@@ -22,8 +23,10 @@ export async function getSingleProduct(
     api.SITEURL
   );
 
-  const resp = await fetch(url);
-  const product = await (await resp.json())[0];
+  const response = await fetchRequest({ url });
+  const { payload } = response;
+
+  const product = { ...payload[0] };
 
   const imageIds = product.images
     .map((item: any) => item.id)
@@ -42,8 +45,10 @@ async function getVariations(product: any, api: any) {
     api.SITEURL
   );
 
-  const request = await fetch(url);
-  const data = await request.json();
+  const response = await fetchRequest({ url });
+  const { payload } = response;
+
+  const data = [...payload];
 
   if (!data.length) {
     return buildSingleProductVariation(product);

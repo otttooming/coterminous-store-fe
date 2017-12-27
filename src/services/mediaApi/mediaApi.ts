@@ -1,4 +1,5 @@
 import { MediaItemResponseTypes } from "./mediaTypes";
+import { fetchRequest } from "../fetchApi/fetchApi";
 
 interface Dimensions {
   width: number;
@@ -28,17 +29,22 @@ export async function getAllMedia(ids: number[], api: any) {
 export async function getMedia(id: number, api: any) {
   try {
     const url = api.buildUrl({ paths: [api.WP, "media", id] }, api.SITEURL);
-    const response: MediaItemResponseTypes = await (await fetch(url)).json();
+
+    const response = await fetchRequest({ url });
+    const { payload } = response;
+
+    const data: MediaItemResponseTypes = { ...payload };
+
     const media: MediaItemProps = {
       dimensions: {
-        width: response.media_details.width,
-        height: response.media_details.height,
+        width: data.media_details.width,
+        height: data.media_details.height,
         aspectRatio: calcAspectRatio(
-          response.media_details.width,
-          response.media_details.height
+          data.media_details.width,
+          data.media_details.height
         ),
       },
-      imageSizes: Object.values(response.media_details.sizes),
+      imageSizes: Object.values(data.media_details.sizes),
     };
 
     return media;

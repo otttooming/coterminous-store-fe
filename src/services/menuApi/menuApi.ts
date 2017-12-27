@@ -1,10 +1,15 @@
+import { fetchRequest } from "../fetchApi/fetchApi";
+
 export async function getMainMenu(api: any) {
   const url = api.buildUrl(
     { paths: [api.WPMENUS, "menus", api.WP_MAIN_MENU_ID] },
     api.SITEURL
   );
-  const resp = await fetch(url);
-  const mainMenuItems = await resp.json();
+
+  const response = await fetchRequest({ url });
+  const { payload } = response;
+
+  const mainMenuItems = payload;
 
   return mainMenuItems;
 }
@@ -14,21 +19,22 @@ export async function getSideMenu(api: any) {
     { paths: [api.WC, "products", "categories"], parameters: ["per_page=100"] },
     api.SITEURL
   );
-  const resp = await fetch(url);
-  const json = await resp.json();
 
-  const subCategoryItems = json
+  const response = await fetchRequest({ url });
+  const { payload } = response;
+
+  const subCategoryItems = payload
     .filter((item: any) => item.parent !== 0)
     .map((item: any) => {
       return {
         ...item,
-        subCategories: json.filter((subCategoryItem: any) => {
+        subCategories: payload.filter((subCategoryItem: any) => {
           return subCategoryItem.parent === item.id;
         }),
       };
     });
 
-  const sideMenuItems = json
+  const sideMenuItems = payload
     .filter((item: any) => item.parent === 0)
     .map((item: any) => {
       return {
