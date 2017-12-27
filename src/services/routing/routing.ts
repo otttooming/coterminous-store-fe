@@ -46,13 +46,6 @@ const handleSingleProduct = async (props: State): Promise<State> => {
 
   const name = pathName[0];
 
-  const isProductFetched =
-    props.singleProduct && props.singleProduct.product.slug === name;
-
-  if (isProductFetched) {
-    return props;
-  }
-
   const singleProduct = await getSingleProduct(api, name);
 
   return { ...props, singleProduct };
