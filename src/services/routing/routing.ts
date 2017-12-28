@@ -84,9 +84,13 @@ export const handleHistoryChange = (navRouting: LocationChangeProps) => {
 
   const pathName = !!navRouting.pathName ? navRouting.pathName.join("/") : "";
 
+  const page = !!navRouting.page && navRouting.page > 1 ? navRouting.page : "";
+
   const root = `${window.location.protocol}//${window.location.host}`;
 
-  history.pushState("", siteName, `${root}/${title}/${pathName}`);
+  const url = [root, title, pathName, page].filter(item => !!item).join("/");
+
+  history.pushState("", siteName, url);
 
   window.scroll({ top: 0, left: 0, behavior: "smooth" });
 };
@@ -120,8 +124,8 @@ export const createNavRoutingFromQuery = (request: any) => {
 
   const page =
     !!requestPathName.length &&
-    !isNaN(Number(requestPathName[requestPathName.length]))
-      ? Number(requestPathName[requestPathName.length])
+    !isNaN(Number(requestPathName[requestPathName.length - 1]))
+      ? Number(requestPathName[requestPathName.length - 1])
       : 1;
 
   const pathName = requestPathName.filter((item: string) => {
