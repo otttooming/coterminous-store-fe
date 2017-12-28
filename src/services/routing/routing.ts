@@ -21,7 +21,7 @@ import { State } from "../../pages/index";
 
 const handleProductsListing = async (
   props: State,
-  category?: number
+  category?: number | string
 ): Promise<State> => {
   const { navRouting } = props;
   const { page } = navRouting;
@@ -43,7 +43,7 @@ const handleSingleProduct = async (props: State): Promise<State> => {
   const { navRouting } = props;
   const { pathName } = navRouting;
 
-  const name = pathName[0];
+  const name = pathName[0].toString();
 
   const singleProduct = await getSingleProduct(name);
 
@@ -52,9 +52,16 @@ const handleSingleProduct = async (props: State): Promise<State> => {
 
 const handleCategory = async (props: State): Promise<State> => {
   const { categories, navRouting } = props;
+  const { pathName } = navRouting;
 
-  const category = categories.filter((item: any) => {
-    return item.slug === navRouting.pathName[0];
+  const allSubCategories = categories.reduce((acc: any, cur: any) => {
+    return [...acc, ...cur.subCategories];
+  }, []);
+
+  const allCategories = [...categories, ...allSubCategories];
+
+  const category = allCategories.filter((cat: any) => {
+    return cat.slug === pathName[0];
   });
 
   const id = category[0].id;

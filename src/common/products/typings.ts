@@ -10,11 +10,13 @@ import {
 export interface LocationChangeProps {
   type: string;
   view?: ViewNames;
-  pathName?: string[];
+  pathName?: PathName[];
   query?: string[];
   page?: number;
   totalPages?: number;
 }
+
+type PathName = string | number;
 
 type ViewNames =
   | LANDING_SLUGS
