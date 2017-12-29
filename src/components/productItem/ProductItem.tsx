@@ -69,7 +69,7 @@ export default class ProductItem extends React.Component<Props, any> {
       !!tags.length;
 
     return (
-      <div className="container">
+      <div className="container container--no-gutters">
         <PhotoSwipe
           isOpen={this.state.isGalleryOpen}
           items={this.state.gallery}

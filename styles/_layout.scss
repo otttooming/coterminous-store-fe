@@ -5,6 +5,11 @@
   margin-left: auto;
   padding-right: $spacing-medium;
   padding-left: $spacing-medium;
+
+  &--no-gutters {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .row {
@@ -902,7 +907,7 @@
   min-height: 100vh;
   margin: 0 auto;
 
-  background: rgba($color-charcoal, .4);
+  background: rgba($color-charcoal, 0.4);
   box-shadow: $shadow-std;
 }
 

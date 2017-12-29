@@ -15,7 +15,7 @@ const Main = ({
   renderAfterMain,
   renderFooter,
 }: Props) => (
-  <div>
+  <>
     <div className="wrapper">
       {!!renderHeader && renderHeader}
 
@@ -44,7 +44,7 @@ const Main = ({
     </div>
 
     <div className="bg__site" />
-  </div>
+  </>
 );
 
 export default Main;
