@@ -4,23 +4,21 @@ import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 import Variations from "./children/Variations";
 import Details from "./children/Details";
 import Gallery from "./children/Gallery";
-// import { PhotoSwipe } from "react-photoswipe";
+import { PhotoSwipe } from "react-photoswipe";
 
-function buildGalleryItems(images) {
-  const slides = [];
-
-  images.map((item, index) =>
-    slides.push({
-      src: !!item.media_details.sizes.large
-        ? item.media_details.sizes.large.source_url
-        : "",
-      thumbs: !!item.media_details.sizes.thumbnail
-        ? item.media_details.sizes.thumbnail.source_url
-        : "",
-      w: item.media_details.width,
-      h: item.media_details.height,
-    })
-  );
+function buildGalleryItems(images: MediaItemProps[]) {
+  const slides = images.map(item => {
+    return {
+      src: item.imageSizes.reduce(
+        (prev, current) => (prev.width > current.width ? prev : current)
+      ).source_url,
+      thumbs: item.imageSizes.reduce(
+        (prev, current) => (prev.width < current.width ? prev : current)
+      ).source_url,
+      w: item.dimensions.width,
+      h: item.dimensions.height,
+    };
+  });
 
   return slides;
 }
@@ -36,9 +34,10 @@ export default class ProductItem extends React.Component<Props, any> {
     super(props);
 
     this.state = {
-      // gallery: buildGalleryItems(props.images),
-      gallery: [],
-      galleryOptions: {},
+      gallery: buildGalleryItems(props.images),
+      galleryOptions: {
+        history: false,
+      },
       isGalleryOpen: false,
     };
   }
@@ -71,12 +70,12 @@ export default class ProductItem extends React.Component<Props, any> {
 
     return (
       <div className="container">
-        {/* <PhotoSwipe
+        <PhotoSwipe
           isOpen={this.state.isGalleryOpen}
           items={this.state.gallery}
           options={this.state.galleryOptions}
           onClose={this.handleGalleryClose}
-        /> */}
+        />
 
         <div
           itemScope={true}
@@ -87,7 +86,7 @@ export default class ProductItem extends React.Component<Props, any> {
             <Media
               image={!!images ? images[0] : null}
               className="main-image product__main-image"
-              handleClick={this.handleGalleryOpen}
+              onClick={this.handleGalleryOpen}
               isProduct={true}
             />
             {!!images &&

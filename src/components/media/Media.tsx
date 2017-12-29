@@ -7,7 +7,7 @@ interface Props {
   image?: MediaItemProps;
   className?: string;
   alt?: string;
-  handleClick?: (event: any) => void;
+  onClick?: (e: React.SyntheticEvent<HTMLElement>) => void;
   isProduct?: boolean;
   sizes?: Size[];
 }
@@ -49,7 +49,14 @@ const buildSizes = (sizes: Size[]) => {
   return undefined;
 };
 
-const Media = ({ image, className, alt, isProduct, sizes = [] }: Props) => {
+const Media = ({
+  image,
+  className,
+  alt,
+  isProduct,
+  sizes = [],
+  onClick,
+}: Props) => {
   if (!image) {
     return (
       <Figure
@@ -59,6 +66,7 @@ const Media = ({ image, className, alt, isProduct, sizes = [] }: Props) => {
         itemType="http://schema.org/ImageObject"
         className="aspect-ratio"
         style={{ paddingBottom: `100%` }}
+        onClick={onClick}
       >
         <NoImagePlaceholder
           icon="image"
@@ -81,6 +89,7 @@ const Media = ({ image, className, alt, isProduct, sizes = [] }: Props) => {
       itemType="http://schema.org/ImageObject"
       className="aspect-ratio"
       style={{ paddingBottom: `${aspectRatio}%` }}
+      onClick={onClick}
     >
       <img
         width={width}
