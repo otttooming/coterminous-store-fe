@@ -6,6 +6,8 @@ import {
 } from "../../../components/apiShipping";
 import DropdownMenu from "../../../components/DropdownMenu";
 
+import { Fieldset } from "../styles/fieldset";
+
 // getOmnivaShippingLocations($tmp, 'EE')
 function getOmnivaShippingLocations(arr, local) {
   const stateNames = [
@@ -95,43 +97,32 @@ function getSmartpostShippingLocations(arr) {
 }
 
 const ShippingMethods = (props: any) => {
-  const listShippingMethods = props.shippingMethods.map((item, index) => {
-    return (
-      <li key={index} className="wc_payment_method">
-        <Field
-          name="shipping_method"
-          component="input"
-          type="radio"
-          value={item.id.toString(10)}
-          className="shipping_method"
-        />
-        <label htmlFor="shipping_method">{item.title}</label>
-        <div style={{ width: "100%" }}>
-          {item.id === "desirees_smartpost_shipping_method" && (
-            <Field
-              name="shipping_method_location"
-              component={DropdownMenu}
-              options={getSmartpostShippingLocations(
-                shippingSmartpostJSON,
-                "EE"
-              )}
-              className="shipping_method"
-            />
-          )}
-          {item.id === "desirees_omniva_shipping_method" && (
-            <Field
-              name="shipping_method_location"
-              component={DropdownMenu}
-              options={getOmnivaShippingLocations(shippingOmnivaJSON, "EE")}
-              className="shipping_method"
-            />
-          )}
-        </div>
-      </li>
-    );
-  });
+  return (
+    <Fieldset>
+      <h2 className="mb1">Shipping</h2>
+      <ul className="list-style-none">
+        <li>
+          <h3>Omniva</h3>
+          <Field
+            name="shipping_method_location"
+            component={DropdownMenu}
+            options={getOmnivaShippingLocations(shippingOmnivaJSON, "EE")}
+            className="shipping_method"
+          />
+        </li>
 
-  return <ul className="list-style-none">{listShippingMethods}</ul>;
+        <li>
+          <h3>SmartPost</h3>
+          <Field
+            name="shipping_method_location"
+            component={DropdownMenu}
+            options={getSmartpostShippingLocations(shippingSmartpostJSON, "EE")}
+            className="shipping_method"
+          />
+        </li>
+      </ul>
+    </Fieldset>
+  );
 };
 
 export default ShippingMethods;

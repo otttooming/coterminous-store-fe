@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
+import { Fieldset } from "../styles/fieldset";
+
 const ShippingFields = () => {
   return (
-    <div className="woocommerce-shipping-fields">
+    <Fieldset>
       <h3 id="ship-to-different-address">
         <label
           htmlFor="ship-to-different-address-checkbox"
@@ -162,7 +164,7 @@ const ShippingFields = () => {
         </p>
         <div className="clear" />
       </div>
-    </div>
+    </Fieldset>
   );
 };
 

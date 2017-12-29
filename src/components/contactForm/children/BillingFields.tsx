@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
+import { Fieldset } from "../styles/fieldset";
+
 const BillingFields = () => {
   return (
-    <div className="woocommerce-billing-fields">
+    <Fieldset>
       <h2>Billing Address</h2>
       <div>
         <label htmlFor="first_name">First Name</label>
@@ -81,7 +83,7 @@ const BillingFields = () => {
           required={true}
         />
       </div>
-    </div>
+    </Fieldset>
   );
 };
 

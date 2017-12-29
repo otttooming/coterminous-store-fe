@@ -10,8 +10,9 @@ interface Props {
 }
 
 const CartButton = ({ formValues, onLocationChange }: Props) => {
+  const isProductsInCart = !!formValues && formValues.products;
   const amount =
-    !!formValues &&
+    isProductsInCart &&
     Object.values(formValues.products)
       .map(
         item =>
