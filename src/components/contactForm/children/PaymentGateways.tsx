@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
-import { Fieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../styles/fieldset";
 
 const PaymentGateways = (props: any) => {
   const listPaymentGateways = props.paymentGateways.map(
@@ -32,12 +32,12 @@ const PaymentGateways = (props: any) => {
   );
 
   return (
-    <Fieldset>
-      <h2 className="mb1">Pay</h2>
+    <FormSectionFieldset>
+      <h2>Pay</h2>
       <ul className="wc_payment_methods payment_methods methods list-style-none">
         {listPaymentGateways}
       </ul>
-    </Fieldset>
+    </FormSectionFieldset>
   );
 };
 

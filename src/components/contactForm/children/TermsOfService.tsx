@@ -2,7 +2,7 @@ import * as React from "react";
 import { Field } from "redux-form";
 import styled from "styled-components";
 
-import { Fieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../styles/fieldset";
 
 const Label = styled.label`
   display: flex;
@@ -20,7 +20,7 @@ const Link = styled.a`
 
 const TermsOfService = (props: any) => {
   return (
-    <Fieldset>
+    <FormSectionFieldset>
       <h2>Terms &amp; conditions</h2>
       <p>
         <Label>
@@ -42,7 +42,7 @@ const TermsOfService = (props: any) => {
           </Link>
         </Label>
       </p>
-    </Fieldset>
+    </FormSectionFieldset>
   );
 };
 

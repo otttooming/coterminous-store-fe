@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
-import { Fieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../styles/fieldset";
 
 const ShippingFields = () => {
   return (
-    <Fieldset>
+    <FormSectionFieldset>
       <h3 id="ship-to-different-address">
         <label
           htmlFor="ship-to-different-address-checkbox"
@@ -164,7 +164,7 @@ const ShippingFields = () => {
         </p>
         <div className="clear" />
       </div>
-    </Fieldset>
+    </FormSectionFieldset>
   );
 };
 

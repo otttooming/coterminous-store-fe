@@ -6,7 +6,7 @@ import {
 } from "../../../components/apiShipping";
 import DropdownMenu from "../../../components/DropdownMenu";
 
-import { Fieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../styles/fieldset";
 
 // getOmnivaShippingLocations($tmp, 'EE')
 function getOmnivaShippingLocations(arr, local) {
@@ -98,8 +98,8 @@ function getSmartpostShippingLocations(arr) {
 
 const ShippingMethods = (props: any) => {
   return (
-    <Fieldset>
-      <h2 className="mb1">Shipping</h2>
+    <FormSectionFieldset>
+      <h2>Shipping</h2>
       <ul className="list-style-none">
         <li>
           <h3>Omniva</h3>
@@ -121,7 +121,7 @@ const ShippingMethods = (props: any) => {
           />
         </li>
       </ul>
-    </Fieldset>
+    </FormSectionFieldset>
   );
 };
 

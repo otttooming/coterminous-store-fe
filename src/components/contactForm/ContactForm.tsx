@@ -12,12 +12,12 @@ import AdditionalInformation from "./children/AdditionalInformation";
 
 const ContactForm = ({ handleSubmit, paymentGateways, shippingMethods }) => {
   return (
-    <form name="checkout" id="contact-form" onSubmit={handleSubmit}>
+    <form name="checkout" onSubmit={handleSubmit}>
       <BillingFields />
 
       <AdditionalInformation />
 
-      <ShippingFields />
+      {/* <ShippingFields /> */}
 
       {/* <PaymentGateways paymentGateways={paymentGateways} /> */}
 

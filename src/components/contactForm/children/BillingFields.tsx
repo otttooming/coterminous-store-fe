@@ -1,13 +1,14 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
-import { Fieldset } from "../styles/fieldset";
+import { FormSection, Fieldset } from "../styles/fieldset";
 
 const BillingFields = () => {
   return (
-    <Fieldset>
+    <FormSection>
       <h2>Billing Address</h2>
-      <div>
+
+      <Fieldset>
         <label htmlFor="first_name">First Name</label>
         <Field
           name="contacts.billing.first_name"
@@ -15,8 +16,9 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="last_name">Last Name</label>
         <Field
           name="contacts.billing.last_name"
@@ -24,12 +26,14 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="email">Email</label>
         <Field name="contacts.billing.email" component="input" type="email" />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="phone">Phone</label>
         <Field
           name="contacts.billing.phone"
@@ -37,8 +41,9 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="country">Country</label>
         <Field
           name="contacts.billing.country"
@@ -48,8 +53,9 @@ const BillingFields = () => {
         >
           <option value="estonia">Estonia</option>
         </Field>
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="address_1">Address</label>
         <Field
           name="contacts.billing.address_1"
@@ -57,15 +63,17 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <Field
           name="contacts.billing.address_2"
           component="input"
           type="text"
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="postcode">Postcode / ZIP</label>
         <Field
           name="contacts.billing.postcode"
@@ -73,8 +81,9 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-      <div>
+      </Fieldset>
+
+      <Fieldset>
         <label htmlFor="city">Town / City</label>
         <Field
           name="contacts.billing.city"
@@ -82,8 +91,8 @@ const BillingFields = () => {
           type="text"
           required={true}
         />
-      </div>
-    </Fieldset>
+      </Fieldset>
+    </FormSection>
   );
 };
 
