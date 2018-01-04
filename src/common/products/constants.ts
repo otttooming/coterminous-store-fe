@@ -12,7 +12,7 @@ export enum LANDING_SLUGS {
 
 export enum PRODUCT_LISTING_SLUGS {
   DEFAULT = "PRODUCTS",
-  ET = "pood",
+  ET = "POOD",
 }
 
 export enum PRODUCT_SLUGS {
@@ -29,6 +29,11 @@ export enum CHECKOUT_SLUGS {
 
 export enum CATEGORY_SLUGS {
   DEFAULT = "CATEGORY",
+}
+
+export enum LANGUAGE {
+  DEFAULT = "DEFAULT",
+  ET = "ET",
 }
 
 export const VIEW_NAMES = [

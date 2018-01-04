@@ -13,11 +13,14 @@ import {
   SITE_NAME,
   CATEGORY_SLUGS,
   VIEW_NAMES,
+  LANGUAGE,
 } from "../../common/products/constants";
 
-import { LocationChangeProps } from "../../common/products/typings";
+import { LocationChangeProps, ViewNames } from "../../common/products/typings";
 
 import { State } from "../../pages/index";
+
+import * as RoutingHelpers from "./helpers";
 
 const handleProductsListing = async (
   props: State,
@@ -118,9 +121,7 @@ export const createNavRoutingFromQuery = (request: any) => {
 
   const view =
     !!requestPathName.length &&
-    VIEW_NAMES.includes(requestPathName[0].toUpperCase())
-      ? requestPathName[0].toUpperCase()
-      : LANDING_SLUGS.DEFAULT;
+    RoutingHelpers.findViewFromLocalizedValues(requestPathName[0], LANGUAGE.ET);
 
   const page =
     !!requestPathName.length &&

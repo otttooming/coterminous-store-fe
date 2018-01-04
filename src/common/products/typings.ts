@@ -18,7 +18,7 @@ export interface LocationChangeProps {
 
 type PathName = string | number;
 
-type ViewNames =
+export type ViewNames =
   | LANDING_SLUGS
   | PRODUCT_LISTING_SLUGS
   | CART_SLUGS
