@@ -20,7 +20,15 @@ const MENU_TYPES = {
 };
 
 function getLocation(type: string, TYPES: any) {
-  if (Object.values(TYPES.PRODUCT_LISTING).includes(type)) {
+  if (!type) {
+    return null;
+  }
+
+  const isLocationPresentInConstants = Object.values(
+    TYPES.PRODUCT_LISTING
+  ).includes(type.toUpperCase());
+
+  if (isLocationPresentInConstants) {
     return TYPES.PRODUCT_LISTING.DEFAULT;
   }
 }
