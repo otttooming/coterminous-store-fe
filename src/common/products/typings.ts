@@ -5,6 +5,7 @@ import {
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
   CATEGORY_SLUGS,
+  LANGUAGE,
 } from "./constants";
 
 export interface LocationChangeProps {
@@ -14,6 +15,7 @@ export interface LocationChangeProps {
   query?: string[];
   page?: number;
   totalPages?: number;
+  language?: LANGUAGE;
 }
 
 type PathName = string | number;

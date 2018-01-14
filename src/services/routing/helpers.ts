@@ -9,7 +9,7 @@ import {
   LANDING_SLUGS,
   SITE_NAME,
   CATEGORY_SLUGS,
-  VIEW_NAMES,
+  VIEWS,
   LANGUAGE,
 } from "../../common/products/constants";
 
@@ -51,4 +51,20 @@ export function findViewFromLocalizedValues(
     default:
       return LANDING_SLUGS.DEFAULT;
   }
+}
+
+export function findLanguage(view: string) {
+  if (!view) {
+    return LANGUAGE.DEFAULT;
+  }
+
+  const language = VIEWS.find(item => {
+    return item.name === view.toUpperCase();
+  });
+
+  if (!language) {
+    return LANGUAGE.DEFAULT;
+  }
+
+  return language.language;
 }

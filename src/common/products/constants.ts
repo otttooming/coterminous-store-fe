@@ -36,11 +36,29 @@ export enum LANGUAGE {
   ET = "ET",
 }
 
-export const VIEW_NAMES = [
-  ...Object.values(LANDING_SLUGS),
-  ...Object.values(PRODUCT_LISTING_SLUGS),
-  ...Object.values(PRODUCT_SLUGS),
-  ...Object.values(CART_SLUGS),
-  ...Object.values(CHECKOUT_SLUGS),
-  ...Object.values(CATEGORY_SLUGS),
+const VIEW_SLUGS = [
+  LANDING_SLUGS,
+  PRODUCT_LISTING_SLUGS,
+  PRODUCT_SLUGS,
+  CART_SLUGS,
+  CHECKOUT_SLUGS,
+  CATEGORY_SLUGS,
 ];
+
+export const VIEW_NAMES = VIEW_SLUGS.reduce((acc, cur) => {
+  return [...acc, ...Object.values(cur)];
+}, []);
+
+export const LANGUAGE_NAMES = VIEW_SLUGS.reduce((acc, cur) => {
+  if (acc.includes(cur)) {
+    return acc;
+  }
+  return [...acc, ...Object.keys(cur)];
+}, []);
+
+export const VIEWS = VIEW_SLUGS.reduce((acc, cur) => {
+  return [
+    ...acc,
+    ...Object.entries(cur).map(item => ({ name: item[1], language: item[0] })),
+  ];
+}, []);

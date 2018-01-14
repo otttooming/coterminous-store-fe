@@ -13,6 +13,7 @@ import {
   SITE_NAME,
   CATEGORY_SLUGS,
   VIEW_NAMES,
+  LANGUAGE_NAMES,
   LANGUAGE,
 } from "../../common/products/constants";
 
@@ -123,6 +124,8 @@ export const createNavRoutingFromQuery = (request: any) => {
     !!requestPathName.length &&
     RoutingHelpers.findViewFromLocalizedValues(requestPathName[0], LANGUAGE.ET);
 
+  const language = RoutingHelpers.findLanguage(requestPathName[0] || null);
+
   const page =
     !!requestPathName.length &&
     !isNaN(Number(requestPathName[requestPathName.length - 1]))
@@ -130,7 +133,9 @@ export const createNavRoutingFromQuery = (request: any) => {
       : 1;
 
   const pathName = requestPathName.filter((item: string) => {
-    const isExistingView = VIEW_NAMES.includes(item.toUpperCase());
+    const isExistingView = Object.values(VIEW_NAMES).includes(
+      item.toUpperCase()
+    );
     return !isExistingView;
   });
 
@@ -139,6 +144,7 @@ export const createNavRoutingFromQuery = (request: any) => {
     view,
     pathName,
     page,
+    language,
   };
 
   return navRouting;
