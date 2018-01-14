@@ -1,3 +1,10 @@
+import { ViewNames } from "./typings";
+
+interface ViewProps {
+  name: ViewNames;
+  language: LANGUAGE;
+}
+
 export enum SITE_NAME {
   DEFAULT = "Aadli Aare",
 }
@@ -56,7 +63,7 @@ export const LANGUAGE_NAMES = VIEW_SLUGS.reduce((acc, cur) => {
   return [...acc, ...Object.keys(cur)];
 }, []);
 
-export const VIEWS = VIEW_SLUGS.reduce((acc, cur) => {
+export const VIEWS: ViewProps[] = VIEW_SLUGS.reduce((acc, cur) => {
   return [
     ...acc,
     ...Object.entries(cur).map(item => ({ name: item[1], language: item[0] })),

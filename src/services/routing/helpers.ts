@@ -68,3 +68,9 @@ export function findLanguage(view: string) {
 
   return language.language;
 }
+
+export function checkForExistingView(view: string): boolean {
+  const isExistingView = VIEWS.find(item => item.name === view);
+
+  return !!isExistingView;
+}
