@@ -65,3 +65,6 @@ coverage/
 
 # TypeScript compiled target
 dist/
+
+# WebStorm/IntelliJ
+.idea/
