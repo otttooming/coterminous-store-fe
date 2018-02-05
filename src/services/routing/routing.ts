@@ -120,9 +120,15 @@ export const createNavRoutingFromQuery = (request: any) => {
     return item !== "";
   });
 
-  const view =
-    !!requestPathName.length &&
-    RoutingHelpers.findViewFromLocalizedValues(requestPathName[0], LANGUAGE.ET);
+  const view = !!requestPathName.length
+    ? RoutingHelpers.findViewFromLocalizedValues(
+        requestPathName[0],
+        LANGUAGE.ET
+      )
+    : RoutingHelpers.findViewFromLocalizedValues(
+        LANDING_SLUGS.DEFAULT,
+        LANGUAGE.ET
+      );
 
   const language = RoutingHelpers.findLanguage(requestPathName[0] || null);
 
