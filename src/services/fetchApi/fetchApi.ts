@@ -2,6 +2,7 @@ import * as localForage from "localforage";
 
 interface Props {
   url: string;
+  options?: Options;
 }
 
 interface Response {
@@ -9,18 +10,30 @@ interface Response {
   meta: any;
 }
 
-export async function fetchRequest({ url }: Props): Promise<Response> {
+interface Options {
+  type: FETCH_TYPE;
+}
+
+export enum FETCH_TYPE {
+  JSON = "JSON",
+  TEXT = "TEXT",
+}
+
+export async function fetchRequest({ url, options }: Props): Promise<Response> {
   try {
-    const isNodeEnv = typeof window !== "undefined";
+    const isNodeEnv = typeof window === "undefined";
+    const localData: any = !isNodeEnv && (await localForage.getItem(url));
 
-    const localData: any = isNodeEnv && (await localForage.getItem(url));
-
-    if (!!localData) {
+    if (!isNodeEnv && !!localData) {
       return localData;
     }
 
     const response = await fetch(url);
-    const payload = await response.json();
+    const payload =
+      options && options.type && options.type === FETCH_TYPE.TEXT
+        ? await response.text()
+        : await response.json();
+
     const headers = response.headers;
 
     const totalPages = parseInt(headers.get("X-WP-TotalPages"), 10);
@@ -29,7 +42,7 @@ export async function fetchRequest({ url }: Props): Promise<Response> {
 
     const data = { payload, meta };
 
-    if (!localData && isNodeEnv) {
+    if (!localData && !isNodeEnv) {
       localForage.setItem(url, data);
     }
 

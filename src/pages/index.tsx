@@ -11,6 +11,7 @@ import {
   SITE_NAME,
   CATEGORY_SLUGS,
   VIEW_NAMES,
+  PAGE_SLUGS,
 } from "../common/products/constants";
 
 import * as React from "react";
@@ -35,6 +36,8 @@ import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 import { LocationChangeProps } from "../common/products/typings";
 
 import { initStore } from "../store";
+import PageView from "../components/pageView/PageView";
+import { PageProps } from "../services/pageApi/pageApi";
 
 interface Props extends InjectedFormProps {
   categories: any;
@@ -50,6 +53,7 @@ export interface State {
   products?: any;
   navRouting?: LocationChangeProps;
   singleProduct?: any;
+  page?: PageProps;
 }
 
 interface InitialProps {
@@ -221,6 +225,13 @@ class IndexPage extends React.Component<Props, State> {
           <CheckoutView
             formValues={formValues}
             onLocationChange={this.handleLocationChange}
+          />
+        )}
+
+        {!!(navRouting.view === PAGE_SLUGS.DEFAULT) && (
+          <PageView
+            onLocationChange={this.handleLocationChange}
+            page={this.state.page}
           />
         )}
       </Main>

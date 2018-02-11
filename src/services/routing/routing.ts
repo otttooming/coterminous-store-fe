@@ -2,6 +2,7 @@ import "isomorphic-unfetch";
 
 import { getProducts } from "../../services/productApi/productApi";
 import { getSingleProduct } from "../../services/productApi/singleProductApi";
+import { getPage } from "../../services/pageApi/pageApi";
 
 import {
   CART_SLUGS,
@@ -15,6 +16,7 @@ import {
   VIEW_NAMES,
   LANGUAGE_NAMES,
   LANGUAGE,
+  PAGE_SLUGS,
 } from "../../common/products/constants";
 
 import { LocationChangeProps, ViewNames } from "../../common/products/typings";
@@ -75,6 +77,21 @@ const handleCategory = async (props: State): Promise<State> => {
   return { ...props, ...products };
 };
 
+const handleLanding = async (props: State): Promise<State> => {
+  return { ...props };
+};
+
+const handlePage = async (props: State): Promise<State> => {
+  const { navRouting } = props;
+  const { pathName } = navRouting;
+
+  const name = pathName[0].toString();
+
+  const page = await getPage(name);
+
+  return { ...props, page };
+};
+
 const handleDefault = async (props: State): Promise<State> => {
   return { ...props };
 };
@@ -110,6 +127,10 @@ export const handleRouting = async (props: State): Promise<State> => {
       return handleProductsListing(props);
     case CATEGORY_SLUGS.DEFAULT:
       return handleCategory(props);
+    case LANDING_SLUGS.DEFAULT:
+      return handleLanding(props);
+    case PAGE_SLUGS.DEFAULT:
+      return handlePage(props);
     default:
       return handleDefault(props);
   }

@@ -4,6 +4,8 @@ export const SITEURL = {
   consumerSecret: "cs_186c4d5992dab11ceb56059bccf0dc31ea77c37b",
 };
 
+export const STATIC_URL = { host: "http://localhost:3000" };
+
 export const WP = "wp/v2";
 export const WC = "wc/v2";
 export const WPMENUS = "wp-api-menus/v2";

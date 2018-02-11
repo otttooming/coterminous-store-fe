@@ -11,6 +11,7 @@ import {
   CATEGORY_SLUGS,
   VIEWS,
   LANGUAGE,
+  PAGE_SLUGS,
 } from "../../common/products/constants";
 
 function findFromLocalized(
@@ -48,6 +49,18 @@ export function findViewFromLocalizedValues(
       CATEGORY_SLUGS.DEFAULT
     ):
       return CATEGORY_SLUGS.DEFAULT;
+    case findFromLocalized(
+      Object.values(LANDING_SLUGS),
+      localizedView,
+      LANDING_SLUGS.DEFAULT
+    ):
+      return LANDING_SLUGS.DEFAULT;
+    case findFromLocalized(
+      Object.values(PAGE_SLUGS),
+      localizedView,
+      PAGE_SLUGS.DEFAULT
+    ):
+      return PAGE_SLUGS.DEFAULT;
     default:
       return LANDING_SLUGS.DEFAULT;
   }

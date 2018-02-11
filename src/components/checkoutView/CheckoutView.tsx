@@ -13,7 +13,7 @@ interface Props {
 }
 
 const CheckoutView = ({ formValues, onLocationChange }: Props) => {
-  return <ContactForm />;
+  return <ContactForm onLocationChange={onLocationChange} />;
 };
 
 export default CheckoutView;

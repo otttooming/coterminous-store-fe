@@ -38,6 +38,10 @@ export enum CATEGORY_SLUGS {
   DEFAULT = "CATEGORY",
 }
 
+export enum PAGE_SLUGS {
+  DEFAULT = "PAGE",
+}
+
 export enum LANGUAGE {
   DEFAULT = "DEFAULT",
   ET = "ET",
@@ -50,6 +54,7 @@ const VIEW_SLUGS = [
   CART_SLUGS,
   CHECKOUT_SLUGS,
   CATEGORY_SLUGS,
+  PAGE_SLUGS,
 ];
 
 export const VIEW_NAMES = VIEW_SLUGS.reduce((acc, cur) => {

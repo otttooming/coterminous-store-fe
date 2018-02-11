@@ -6,6 +6,7 @@ import {
   PRODUCT_LISTING_SLUGS,
   CATEGORY_SLUGS,
   LANGUAGE,
+  PAGE_SLUGS,
 } from "./constants";
 
 export interface LocationChangeProps {
@@ -21,6 +22,7 @@ export interface LocationChangeProps {
 type PathName = string | number;
 
 export type ViewNames =
+  | PAGE_SLUGS
   | LANDING_SLUGS
   | PRODUCT_LISTING_SLUGS
   | CART_SLUGS

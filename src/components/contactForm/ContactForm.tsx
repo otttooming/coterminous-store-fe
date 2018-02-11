@@ -9,8 +9,20 @@ import ShippingMethods from "./children/ShippingMethods";
 import TermsOfService from "./children/TermsOfService";
 import Submit from "./children/Submit";
 import AdditionalInformation from "./children/AdditionalInformation";
+import { LocationChangeProps } from "../../common/products/typings";
 
-const ContactForm = ({ handleSubmit, paymentGateways, shippingMethods }) => {
+interface Props {
+  handleSubmit?: any;
+  paymentGateways?: any;
+  shippingMethods?: any;
+  onLocationChange: (props: LocationChangeProps) => void;
+}
+const ContactForm = ({
+  handleSubmit,
+  paymentGateways,
+  shippingMethods,
+  onLocationChange,
+}: Props) => {
   return (
     <form name="checkout" onSubmit={handleSubmit}>
       <BillingFields />
@@ -23,7 +35,7 @@ const ContactForm = ({ handleSubmit, paymentGateways, shippingMethods }) => {
 
       {/* <ShippingMethods shippingMethods={shippingMethods} /> */}
 
-      <TermsOfService />
+      <TermsOfService onLocationChange={onLocationChange} />
 
       <Submit />
     </form>
