@@ -192,7 +192,7 @@ class IndexPage extends React.Component<Props, State> {
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        {!!(navRouting.view === LANDING_SLUGS.DEFAULT) && (
+        {!!(!navRouting.view || navRouting.view === LANDING_SLUGS.DEFAULT) && (
           <LandingView onLocationChange={this.handleLocationChange} />
         )}
 

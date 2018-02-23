@@ -99,9 +99,10 @@ const handleDefault = async (props: State): Promise<State> => {
 export const handleHistoryChange = (navRouting: LocationChangeProps) => {
   const siteName = SITE_NAME.DEFAULT;
 
-  const title = Object.values(LANDING_SLUGS).includes(navRouting.view)
-    ? ""
-    : navRouting.view.toLowerCase();
+  const title =
+    !navRouting.view || Object.values(LANDING_SLUGS).includes(navRouting.view)
+      ? ""
+      : navRouting.view.toLowerCase();
 
   const pathName = !!navRouting.pathName ? navRouting.pathName.join("/") : "";
 
