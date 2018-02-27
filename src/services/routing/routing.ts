@@ -64,7 +64,21 @@ const handleCategory = async (props: State): Promise<State> => {
     return [...acc, ...cur.subCategories];
   }, []);
 
-  const allCategories = [...categories, ...allSubCategories];
+  function flatten(cur) {
+    if (cur.hasOwnProperty("subCategories")) {
+      const subCategories = cur.subCategories.reduce(reduce, []);
+
+      return [...cur.subCategories, ...subCategories];
+    }
+
+    return [];
+  }
+
+  function reduce(acc, cur) {
+    return [...acc, ...flatten(cur)];
+  }
+
+  const allCategories = categories.reduce(reduce, []);
 
   const category = allCategories.filter((cat: any) => {
     return cat.slug === pathName[0];
