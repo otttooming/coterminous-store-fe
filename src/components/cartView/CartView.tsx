@@ -42,7 +42,11 @@ const CartView = ({ formValues, onLocationChange }: Props) => {
                 </tr>
               </thead>
               {!!formValues && (
-                <CartListing formValues={Object.values(formValues.products)} />
+                <CartListing
+                  products={
+                    !formValues.products ? undefined : formValues.products
+                  }
+                />
               )}
             </table>
             <div className="mb1">
