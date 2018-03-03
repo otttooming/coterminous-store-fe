@@ -20,7 +20,9 @@ import Main from "../layouts/Main";
 
 import * as ReactPaginate from "react-paginate";
 import ProductsListing from "../components/productsListing/ProductsListing";
-import CategoriesListing from "../components/categoriesListing/CategoriesListing";
+import CategoriesListing, {
+  CategoryProps,
+} from "../components/categoriesListing/CategoriesListing";
 import CartView from "../components/cartView/CartView";
 import CheckoutView from "../components/checkoutView/CheckoutView";
 import LandingView from "../components/landingView/LandingView";
@@ -40,7 +42,7 @@ import PageView from "../components/pageView/PageView";
 import { PageProps } from "../services/pageApi/pageApi";
 
 interface Props extends InjectedFormProps {
-  categories: any;
+  categories: CategoryProps[];
   menuItems: any;
   products: any;
   formValues: any;
@@ -48,7 +50,7 @@ interface Props extends InjectedFormProps {
 }
 
 export interface State {
-  categories: any;
+  categories: CategoryProps[];
   isLoaderActive: boolean;
   products?: any;
   navRouting?: LocationChangeProps;

@@ -24,6 +24,7 @@ import { LocationChangeProps, ViewNames } from "../../common/products/typings";
 import { State } from "../../pages/index";
 
 import * as RoutingHelpers from "./helpers";
+import { CategoryProps } from "../../components/categoriesListing/CategoriesListing";
 
 const handleProductsListing = async (
   props: State,
@@ -60,11 +61,11 @@ const handleCategory = async (props: State): Promise<State> => {
   const { categories, navRouting } = props;
   const { pathName } = navRouting;
 
-  const allSubCategories = categories.reduce((acc: any, cur: any) => {
+  const allSubCategories = categories.reduce((acc, cur) => {
     return [...acc, ...cur.subCategories];
   }, []);
 
-  function flatten(cur) {
+  function flatten(cur: CategoryProps): CategoryProps[] {
     if (cur.hasOwnProperty("subCategories")) {
       const subCategories = cur.subCategories.reduce(reduce, []);
 
@@ -74,13 +75,13 @@ const handleCategory = async (props: State): Promise<State> => {
     return [];
   }
 
-  function reduce(acc, cur) {
+  function reduce(acc: CategoryProps[], cur: CategoryProps): CategoryProps[] {
     return [...acc, ...flatten(cur)];
   }
 
-  const allCategories = categories.reduce(reduce, []);
+  const allCategories: CategoryProps[] = categories.reduce(reduce, []);
 
-  const category = allCategories.filter((cat: any) => {
+  const category = allCategories.filter((cat: CategoryProps) => {
     return cat.slug === pathName[0];
   });
 
