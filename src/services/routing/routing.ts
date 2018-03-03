@@ -79,7 +79,7 @@ const handleCategory = async (props: State): Promise<State> => {
     return [...acc, ...flatten(cur)];
   }
 
-  const allCategories: CategoryProps[] = categories.reduce(reduce, []);
+  const allCategories: CategoryProps[] = categories.reduce(reduce, categories);
 
   const category = allCategories.filter((cat: CategoryProps) => {
     return cat.slug === pathName[0];
