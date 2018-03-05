@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "lib": ["dom", "es2015", "es2017"],
     "experimentalDecorators": true,
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "sourceMap": true
   },
   "files": ["./typings/custom/index.d.ts"],
   "include": ["src/**/*"],
