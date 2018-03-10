@@ -5,22 +5,11 @@ import { LOCATION_TYPES, CART_SLUGS } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
 
 interface Props {
-  formValues: any;
   onLocationChange?: (props: LocationChangeProps) => void;
 }
 
-const CartButton = ({ formValues, onLocationChange }: Props) => {
-  const isProductsInCart = !!formValues && formValues.products;
-  const amount =
-    isProductsInCart &&
-    Object.values(formValues.products)
-      .map(
-        item =>
-          parseFloat(
-            item.variations.find(idItem => idItem.id === item.id).price
-          ) * item.quantity
-      )
-      .reduce((accumulator, currentValue) => accumulator + currentValue);
+const CartButton = ({ onLocationChange }: Props) => {
+  const amount = 0;
   return (
     <Link
       location={{ type: LOCATION_TYPES.PAGE, view: CART_SLUGS.DEFAULT }}

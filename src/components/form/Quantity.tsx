@@ -1,18 +1,13 @@
 import * as React from "react";
 import Icon from "../../components/icon/Icon";
-import { WrappedFieldProps } from "redux-form";
+import { WrappedFieldProps, InjectedFormProps } from "redux-form";
+import { CartItemProps } from "../../common/products/typings";
 
-interface Props extends WrappedFieldProps {
-  id: string;
-  product: any;
-  variations: any;
-}
+type Props = CartItemProps & WrappedFieldProps;
 
 const Quantity = (props: Props) => {
-  const { input: { value, onChange }, id, product, variations } = props;
+  const { input: { value, onChange }, productSlug, variationId } = props;
   const { quantity = 0 } = value;
-
-  const variation = product.variations.find((item: any) => item.id === id);
 
   return (
     <div className="product-variations__cart addto">
@@ -24,7 +19,11 @@ const Quantity = (props: Props) => {
       <button
         className="button medium active"
         onClick={() =>
-          onChange({ id, quantity: quantity + 1, product, variations })
+          onChange({
+            productSlug,
+            variationId,
+            quantity: quantity + 1,
+          })
         }
       >
         <Icon icon="cart-add" width={24} height={24} className="addto__icon" />

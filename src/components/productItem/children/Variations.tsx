@@ -4,6 +4,7 @@ import Quantity from "../../../components/form/Quantity";
 import styled from "styled-components";
 import { Field } from "redux-form";
 import { SingleProductVariationProps } from "../../../services/productApi/singleProductApi";
+import { CartItemProps } from "../../../common/products/typings";
 
 const VariationItem = styled.li`
   list-style: none;
@@ -16,6 +17,12 @@ const Variations = (props: any) => {
     (variation: SingleProductVariationProps, index: number) => {
       const { attributes, price, id } = variation;
       const { name } = attributes;
+
+      const fieldProps: CartItemProps = {
+        productSlug: product.slug,
+        variationId: id,
+      };
+
       return (
         <VariationItem key={index} className="product-variations__item">
           {!!attributes.length && (
@@ -32,10 +39,9 @@ const Variations = (props: any) => {
           )}
 
           <Field
-            name={`products.id_${id.toString()}`}
-            id={id}
+            {...fieldProps}
+            name={`cartItems.id_${id.toString()}`}
             component={Quantity}
-            props={props}
           />
         </VariationItem>
       );

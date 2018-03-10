@@ -35,24 +35,30 @@ import Loader from "../components/loader/Loader";
 import * as withRedux from "next-redux-wrapper";
 import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 
-import { LocationChangeProps } from "../common/products/typings";
+import {
+  FormValues,
+  LocationChangeProps,
+  ProductProps,
+} from "../common/products/typings";
 
 import { initStore } from "../store";
 import PageView from "../components/pageView/PageView";
 import { PageProps } from "../services/pageApi/pageApi";
+import { getMultipleSingleProducts } from "../services/productApi/singleProductApi";
 
 interface Props extends InjectedFormProps {
   categories: CategoryProps[];
   menuItems: any;
   products: any;
-  formValues: any;
+  formValues: FormValues;
   initialRouting: State;
 }
 
 export interface State {
   categories: CategoryProps[];
   isLoaderActive: boolean;
-  products?: any;
+  products?: ProductProps[] | undefined;
+  productsInCart?: ProductProps[] | undefined;
   navRouting?: LocationChangeProps;
   singleProduct?: any;
   page?: PageProps;
@@ -103,6 +109,12 @@ class IndexPage extends React.Component<Props, State> {
     window.onpopstate = this.handleBackButtonEvent;
   }
 
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.formValues && nextProps.formValues.cartItems) {
+      this.handleCartItems(nextProps);
+    }
+  }
+
   handleBackButtonEvent = () => {
     const query = { path: window.location.pathname };
 
@@ -142,6 +154,21 @@ class IndexPage extends React.Component<Props, State> {
     });
   };
 
+  handleCartItems = async (nextProps: Props) => {
+    if (!nextProps.formValues) {
+      return;
+    }
+
+    const cartItems = nextProps.formValues.cartItems;
+
+    const slugs = Object.values(cartItems).map(item => item.productSlug);
+    const products = await getMultipleSingleProducts(slugs);
+
+    this.setState({
+      productsInCart: products,
+    });
+  };
+
   render() {
     const { menuItems, categories, formValues } = this.props;
     const { navRouting } = this.state;
@@ -153,7 +180,6 @@ class IndexPage extends React.Component<Props, State> {
           <Header
             title="Products"
             menuItems={menuItems}
-            formValues={formValues}
             handleLocationChange={this.handleLocationChange}
           />
         }
@@ -217,15 +243,19 @@ class IndexPage extends React.Component<Props, State> {
         )}
 
         {!!(navRouting.view === CART_SLUGS.DEFAULT) && (
-          <CartView
-            formValues={formValues}
+          <CheckoutView
+            productsInCart={
+              !this.state.productsInCart ? undefined : this.state.productsInCart
+            }
             onLocationChange={this.handleLocationChange}
           />
         )}
 
         {!!(navRouting.view === CHECKOUT_SLUGS.DEFAULT) && (
           <CheckoutView
-            formValues={formValues}
+            productsInCart={
+              !this.state.productsInCart ? undefined : this.state.productsInCart
+            }
             onLocationChange={this.handleLocationChange}
           />
         )}

@@ -8,6 +8,7 @@ import {
   LANGUAGE,
   PAGE_SLUGS,
 } from "./constants";
+import { MediaItemProps } from "../../services/mediaApi/mediaApi";
 
 export interface LocationChangeProps {
   type: string;
@@ -32,4 +33,26 @@ export type ViewNames =
 
 export interface SeoProps {
   itemProp: string;
+}
+
+export interface CartItemProps {
+  productSlug: string;
+  variationId: number;
+}
+
+export interface FormValues {
+  cartItems: { [key: string]: CartItemProps };
+}
+
+export interface ProductProps {
+  product: ProductItem | undefined;
+  images?: MediaItemProps[];
+  variations?: any;
+}
+
+interface ProductItem {
+  name: string;
+  slug: string;
+  price: number;
+  price_html: string;
 }

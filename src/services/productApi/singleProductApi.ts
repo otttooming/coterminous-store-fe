@@ -15,6 +15,12 @@ export interface SingleProductVariationProps {
   name: string;
 }
 
+export async function getMultipleSingleProducts(slugs: string[]) {
+  const requests = slugs.map(item => getSingleProduct(item));
+
+  return Promise.all(requests);
+}
+
 export async function getSingleProduct(
   name: string
 ): Promise<SingleProductProps> {

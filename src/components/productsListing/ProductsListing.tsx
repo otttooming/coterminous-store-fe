@@ -7,26 +7,21 @@ import {
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
 } from "../../common/products/constants";
-import { LocationChangeProps } from "../../common/products/typings";
+import {
+  LocationChangeProps,
+  ProductProps,
+} from "../../common/products/typings";
 
 interface Props {
-  products: ProductListingProps[];
+  products: ProductProps[];
   onLocationChange?: (props: LocationChangeProps) => void;
 }
 
-interface ProductListingProps {
-  product: ProductItemProps;
-  images?: MediaItemProps[];
-}
-
-interface ProductItemProps {
-  name: string;
-  slug: string;
-  price: number;
-  price_html: string;
-}
-
 const ProductsListing = ({ products, onLocationChange }: Props) => {
+  if (!products) {
+    return null;
+  }
+
   const listProducts = products.map((item, index) => {
     const { name, slug, price, price_html } = item.product;
 
