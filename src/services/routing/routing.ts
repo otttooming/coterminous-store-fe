@@ -25,6 +25,7 @@ import { State } from "../../pages/index";
 
 import * as RoutingHelpers from "./helpers";
 import { CategoryProps } from "../../components/categoriesListing/CategoriesListing";
+import flattenArray from "../../common/utils/array-flatten";
 
 const handleProductsListing = async (
   props: State,
@@ -61,21 +62,10 @@ const handleCategory = async (props: State): Promise<State> => {
   const { categories, navRouting } = props;
   const { pathName } = navRouting;
 
-  function flatten(cur: CategoryProps): CategoryProps[] {
-    if (cur.hasOwnProperty("subCategories")) {
-      const subCategories = cur.subCategories.reduce(reduce, []);
-
-      return [...cur.subCategories, ...subCategories];
-    }
-
-    return [];
-  }
-
-  function reduce(acc: CategoryProps[], cur: CategoryProps): CategoryProps[] {
-    return [...acc, ...flatten(cur)];
-  }
-
-  const allCategories: CategoryProps[] = categories.reduce(reduce, categories);
+  const allCategories: CategoryProps[] = flattenArray(
+    categories,
+    "subCategories"
+  );
 
   const category = allCategories.filter((cat: CategoryProps) => {
     return cat.slug === pathName[0];
