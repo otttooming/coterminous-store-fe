@@ -1,0 +1,7009 @@
+[
+  {
+    "id": 843,
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 0,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/843"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 817,
+    "name": "Eriti soodsad tooted",
+    "slug": "eriti-soodsad-tooted",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 1,
+    "count": 61,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/817"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 18,
+    "name": "Dildod",
+    "slug": "dildod",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 2,
+    "count": 108,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 284,
+        "name": "Hiiglased",
+        "slug": "hiiglased",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 3,
+        "count": 22,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/284"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 479,
+        "name": "Keskmised",
+        "slug": "keskmised-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 4,
+        "count": 27,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/479"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 480,
+        "name": "Väikesed",
+        "slug": "vaikesed",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 5,
+        "count": 3,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/480"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 482,
+        "name": "Iminapaga",
+        "slug": "iminapaga-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 6,
+        "count": 13,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/482"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 94,
+        "name": "Ihuvärvi",
+        "slug": "ihuvarvi-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 7,
+        "count": 31,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/94"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 478,
+        "name": "Värvilised",
+        "slug": "varvilised-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 8,
+        "count": 17,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/478"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 415,
+        "name": "G-punkti jaoks",
+        "slug": "g-punkti-jaoks-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 9,
+        "count": 4,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/415"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 285,
+        "name": "Erilised",
+        "slug": "erilised-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 10,
+        "count": 13,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/285"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 304,
+        "name": "Eksklusiivsed",
+        "slug": "eksklusiivsed-dildod",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 11,
+        "count": 2,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/304"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 424,
+        "name": "Anaaldildod/-tapid",
+        "slug": "anaaldildod-tapid",
+        "parent": 18,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 12,
+        "count": 70,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/424"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Vibraatorid",
+    "slug": "vibraatorid",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 13,
+    "count": 283,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 626,
+        "name": "Pretty Love",
+        "slug": "pretty-love",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 14,
+        "count": 62,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/626"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 292,
+        "name": "Kliitoristimulaatorid",
+        "slug": "kliitoristimulaatorid",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 15,
+        "count": 125,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/292"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 294,
+        "name": "G-punkti jaoks",
+        "slug": "g-punkti-jaoks",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 16,
+        "count": 109,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/294"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 124,
+        "name": "Anaalsed",
+        "slug": "anaalsed",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 17,
+        "count": 47,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/124"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 469,
+        "name": "Iminapaga",
+        "slug": "iminapaga",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 18,
+        "count": 21,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/469"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 470,
+        "name": "Harulised",
+        "slug": "harulised",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 19,
+        "count": 78,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/470"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 112,
+        "name": "Ihuvärvi",
+        "slug": "ihuvarvi",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 20,
+        "count": 64,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/112"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 472,
+        "name": "Värvilised",
+        "slug": "varvilised",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 21,
+        "count": 194,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/472"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 298,
+        "name": "Veekindlad",
+        "slug": "veekindlad",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 22,
+        "count": 146,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/298"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 210,
+        "name": "Rütmilised",
+        "slug": "rutmilised",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 23,
+        "count": 149,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/210"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 297,
+        "name": "Sujuv kiirus",
+        "slug": "sujuv-kiirus",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 24,
+        "count": 107,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/297"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 149,
+        "name": "Minivibraatorid",
+        "slug": "minivibraatorid",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 25,
+        "count": 42,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/149"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 474,
+        "name": "Keskmised",
+        "slug": "keskmised",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 26,
+        "count": 180,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/474"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 473,
+        "name": "Suured",
+        "slug": "suured",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 27,
+        "count": 36,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/473"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 300,
+        "name": "Erilised",
+        "slug": "erilised",
+        "parent": 16,
+        "description":
+          "Eriliste kategoorias võite näha tooteid, mis on tavapärasest erineva kuju, kasutusvõimaluste ja materjalidega (klaas, metall, keraamika).",
+        "display": "default",
+        "image": null,
+        "menu_order": 28,
+        "count": 60,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/300"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 157,
+        "name": "Eksklusiivsed",
+        "slug": "eksklusiivsed",
+        "parent": 16,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 29,
+        "count": 26,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/157"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Abivahendid",
+    "slug": "abivahendid",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 30,
+    "count": 125,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 388,
+        "name": "Anaalkuulid/-ketid",
+        "slug": "anaalkuulid-ketid",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 31,
+        "count": 29,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/388"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 627,
+        "name": "Pretty Love",
+        "slug": "pretty-love-abivahendid",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 32,
+        "count": 6,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/627"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 249,
+        "name": "Tupekuulid",
+        "slug": "tupekuulid",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 33,
+        "count": 36,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/249"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 526,
+        "name": "Peenise juurde",
+        "slug": "peenise-juurde",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 34,
+        "count": 36,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 527,
+            "name": "-katted",
+            "slug": "katted",
+            "parent": 526,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 35,
+            "count": 10,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/527"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                }
+              ]
+            }
+          },
+          {
+            "id": 262,
+            "name": "-mansetid",
+            "slug": "mansetid",
+            "parent": 526,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 36,
+            "count": 4,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/262"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                }
+              ]
+            }
+          },
+          {
+            "id": 260,
+            "name": "-rõngad",
+            "slug": "rongad",
+            "parent": 526,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 37,
+            "count": 24,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/260"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 266,
+        "name": "Strap-on",
+        "slug": "strap-on",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 38,
+        "count": 19,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/266"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 247,
+        "name": "Pumbad",
+        "slug": "pumbad",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 39,
+        "count": 17,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 246,
+            "name": "Meestele",
+            "slug": "meestele-abivahendid",
+            "parent": 247,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 40,
+            "count": 11,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/246"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+                }
+              ]
+            }
+          },
+          {
+            "id": 248,
+            "name": "Naistele",
+            "slug": "naistele-pumbad",
+            "parent": 247,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 41,
+            "count": 7,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/248"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 123,
+        "name": "Puhastamine",
+        "slug": "puhastamine",
+        "parent": 142,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 42,
+        "count": 8,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/123"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Apteegikaubad",
+    "slug": "apteegikaubad",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 43,
+    "count": 167,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 13,
+        "name": "Kondoomid",
+        "slug": "kondoomid",
+        "parent": 20,
+        "description": "",
+        "display": "both",
+        "image": null,
+        "menu_order": 44,
+        "count": 61,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 312,
+            "name": "Actual",
+            "slug": "actual",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 45,
+            "count": 8,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/312"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 22,
+            "name": "Contex",
+            "slug": "contex",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 46,
+            "count": 2,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/22"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 27,
+            "name": "Durex",
+            "slug": "durex",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 47,
+            "count": 3,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/27"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 39,
+            "name": "LifeStyles",
+            "slug": "lifestyles",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 48,
+            "count": 2,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/39"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 58,
+            "name": "Luxe",
+            "slug": "luxe",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 49,
+            "count": 19,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/58"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 322,
+            "name": "MY.SIZE",
+            "slug": "my-size-kondoomid",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 50,
+            "count": 12,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/322"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 831,
+            "name": "Sico",
+            "slug": "sico",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 51,
+            "count": 6,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/831"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 516,
+            "name": "Erilised",
+            "slug": "erilised-kondoomid",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 52,
+            "count": 16,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/516"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 515,
+            "name": "Struktuursed",
+            "slug": "struktuursed",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 53,
+            "count": 18,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/515"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 513,
+            "name": "Lateksivabad",
+            "slug": "lateksivabad",
+            "parent": 13,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 54,
+            "count": 2,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/513"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Libestid/lubrikandid",
+        "slug": "libestid-lubrikandid",
+        "parent": 20,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 55,
+        "count": 52,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 59,
+            "name": "Vee baasil",
+            "slug": "veebaasil",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 56,
+            "count": 43,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/59"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          },
+          {
+            "id": 505,
+            "name": "Silikooni baasil",
+            "slug": "silikooni-baasil",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 57,
+            "count": 9,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/505"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          },
+          {
+            "id": 523,
+            "name": "Lõhnaga",
+            "slug": "lohnaga-libestid-lubrikandid",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 58,
+            "count": 10,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/523"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          },
+          {
+            "id": 524,
+            "name": "Oraalseks",
+            "slug": "oraalseks",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 59,
+            "count": 16,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/524"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          },
+          {
+            "id": 525,
+            "name": "Anaalseks",
+            "slug": "anaalseks",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 60,
+            "count": 21,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/525"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          },
+          {
+            "id": 481,
+            "name": "Erilised",
+            "slug": "erilised-libestid-lubrikandid",
+            "parent": 15,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 61,
+            "count": 12,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/481"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 151,
+        "name": "Massaažiks",
+        "slug": "massaaziks",
+        "parent": 20,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 62,
+        "count": 27,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 179,
+            "name": "Lõhnaga",
+            "slug": "lohnaga",
+            "parent": 151,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 63,
+            "count": 18,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/179"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                }
+              ]
+            }
+          },
+          {
+            "id": 180,
+            "name": "Lõhnata",
+            "slug": "lohnata",
+            "parent": 151,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 64,
+            "count": 7,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/180"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                }
+              ]
+            }
+          },
+          {
+            "id": 120,
+            "name": "Masaažiküünlad",
+            "slug": "masaazikuunlad",
+            "parent": 151,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 65,
+            "count": 3,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/120"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 152,
+        "name": "Stimulaatorid",
+        "slug": "stimulaatorid",
+        "parent": 20,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 66,
+        "count": 35,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 517,
+            "name": "Universaalsed",
+            "slug": "universaalsed",
+            "parent": 152,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 67,
+            "count": 5,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/517"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                }
+              ]
+            }
+          },
+          {
+            "id": 184,
+            "name": "Naistele",
+            "slug": "naistele",
+            "parent": 152,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 68,
+            "count": 4,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/184"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                }
+              ]
+            }
+          },
+          {
+            "id": 183,
+            "name": "Meestele",
+            "slug": "meestele",
+            "parent": 152,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 69,
+            "count": 20,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/183"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                }
+              ]
+            }
+          },
+          {
+            "id": 153,
+            "name": "Feromoonid",
+            "slug": "feromoonid",
+            "parent": 152,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 73,
+            "count": 8,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/153"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 444,
+        "name": "Tampoonid",
+        "slug": "tampoonid",
+        "parent": 20,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 74,
+        "count": 0,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/444"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 254,
+    "name": "Masturbaatorid",
+    "slug": "masturbaatorid",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 75,
+    "count": 37,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 200,
+        "name": "Vagiinad",
+        "slug": "vagiinad",
+        "parent": 254,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 76,
+        "count": 30,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 533,
+            "name": "Tavalised",
+            "slug": "tavalised",
+            "parent": 200,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 77,
+            "count": 16,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/533"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                }
+              ]
+            }
+          },
+          {
+            "id": 256,
+            "name": "Vibratsiooniga",
+            "slug": "vibratsiooniga",
+            "parent": 200,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 78,
+            "count": 10,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/256"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                }
+              ]
+            }
+          },
+          {
+            "id": 76,
+            "name": "Fleshlight",
+            "slug": "fleshlight",
+            "parent": 200,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 79,
+            "count": 4,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/76"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 449,
+        "name": "Tagumikud",
+        "slug": "tagumikud",
+        "parent": 254,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 80,
+        "count": 5,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/449"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "name": "Nukud",
+    "slug": "nukud",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 81,
+    "count": 26,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 264,
+        "name": "Meestele",
+        "slug": "meestele-nukud",
+        "parent": 263,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 82,
+        "count": 22,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/264"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 265,
+        "name": "Naistele",
+        "slug": "naistele-nukud",
+        "parent": 263,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 83,
+        "count": 4,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/265"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+            }
+          ]
+        },
+        "subCategories": []
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Riided/Pesu",
+    "slug": "riided",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 84,
+    "count": 175,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 283,
+        "name": "Meestele",
+        "slug": "meestele-riided",
+        "parent": 143,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 85,
+        "count": 27,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/283"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+            }
+          ]
+        },
+        "subCategories": []
+      },
+      {
+        "id": 216,
+        "name": "Naistele",
+        "slug": "naistele-riided",
+        "parent": 143,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 86,
+        "count": 148,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 219,
+            "name": "Beauty Night",
+            "slug": "beauty-night",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 87,
+            "count": 91,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/219"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 287,
+            "name": "Kehakaunistused",
+            "slug": "kehakaunistused",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 88,
+            "count": 0,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/287"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 239,
+            "name": "Kleidid",
+            "slug": "kleidid",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 89,
+            "count": 34,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/239"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 217,
+            "name": "Komplektid",
+            "slug": "komplektid",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 90,
+            "count": 60,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/217"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 241,
+            "name": "Korsetid",
+            "slug": "korsetid",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 91,
+            "count": 14,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/241"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 231,
+            "name": "Püksikud",
+            "slug": "puksikud",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 92,
+            "count": 26,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/231"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 237,
+            "name": "Sukad",
+            "slug": "sukad",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 93,
+            "count": 14,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/237"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          },
+          {
+            "id": 238,
+            "name": "Võrgud/Catsuit",
+            "slug": "vorgud-catsuit",
+            "parent": 216,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 94,
+            "count": 2,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/238"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Geid",
+    "slug": "geid",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 95,
+    "count": 17,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 207,
+        "name": "Masturbaatorid",
+        "slug": "gei-masturbaatorid",
+        "parent": 145,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 96,
+        "count": 3,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
+            }
+          ]
+        },
+        "subCategories": [
+          {
+            "id": 535,
+            "name": "Fleshjack",
+            "slug": "fleshjack",
+            "parent": 207,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 97,
+            "count": 1,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/535"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+                }
+              ]
+            }
+          },
+          {
+            "id": 208,
+            "name": "Fleshjack Boys",
+            "slug": "fleshjack-boys",
+            "parent": 207,
+            "description": "",
+            "display": "default",
+            "image": null,
+            "menu_order": 98,
+            "count": 1,
+            "_links": {
+              "self": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/208"
+                }
+              ],
+              "collection": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                }
+              ],
+              "up": [
+                {
+                  "href":
+                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "name": "BDSM",
+    "slug": "bdsm",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 99,
+    "count": 25,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/147"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 284,
+    "name": "Hiiglased",
+    "slug": "hiiglased",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 3,
+    "count": 22,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/284"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 479,
+    "name": "Keskmised",
+    "slug": "keskmised-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 4,
+    "count": 27,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/479"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 480,
+    "name": "Väikesed",
+    "slug": "vaikesed",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 5,
+    "count": 3,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/480"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 482,
+    "name": "Iminapaga",
+    "slug": "iminapaga-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 6,
+    "count": 13,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/482"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 94,
+    "name": "Ihuvärvi",
+    "slug": "ihuvarvi-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 7,
+    "count": 31,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/94"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 478,
+    "name": "Värvilised",
+    "slug": "varvilised-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 8,
+    "count": 17,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/478"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 415,
+    "name": "G-punkti jaoks",
+    "slug": "g-punkti-jaoks-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 9,
+    "count": 4,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/415"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 285,
+    "name": "Erilised",
+    "slug": "erilised-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 10,
+    "count": 13,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/285"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 304,
+    "name": "Eksklusiivsed",
+    "slug": "eksklusiivsed-dildod",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 11,
+    "count": 2,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/304"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 424,
+    "name": "Anaaldildod/-tapid",
+    "slug": "anaaldildod-tapid",
+    "parent": 18,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 12,
+    "count": 70,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/424"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 626,
+    "name": "Pretty Love",
+    "slug": "pretty-love",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 14,
+    "count": 62,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/626"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 292,
+    "name": "Kliitoristimulaatorid",
+    "slug": "kliitoristimulaatorid",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 15,
+    "count": 125,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/292"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 294,
+    "name": "G-punkti jaoks",
+    "slug": "g-punkti-jaoks",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 16,
+    "count": 109,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/294"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 124,
+    "name": "Anaalsed",
+    "slug": "anaalsed",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 17,
+    "count": 47,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/124"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 469,
+    "name": "Iminapaga",
+    "slug": "iminapaga",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 18,
+    "count": 21,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/469"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 470,
+    "name": "Harulised",
+    "slug": "harulised",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 19,
+    "count": 78,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/470"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 112,
+    "name": "Ihuvärvi",
+    "slug": "ihuvarvi",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 20,
+    "count": 64,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/112"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 472,
+    "name": "Värvilised",
+    "slug": "varvilised",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 21,
+    "count": 194,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/472"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 298,
+    "name": "Veekindlad",
+    "slug": "veekindlad",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 22,
+    "count": 146,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/298"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 210,
+    "name": "Rütmilised",
+    "slug": "rutmilised",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 23,
+    "count": 149,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/210"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 297,
+    "name": "Sujuv kiirus",
+    "slug": "sujuv-kiirus",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 24,
+    "count": 107,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/297"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 149,
+    "name": "Minivibraatorid",
+    "slug": "minivibraatorid",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 25,
+    "count": 42,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/149"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 474,
+    "name": "Keskmised",
+    "slug": "keskmised",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 26,
+    "count": 180,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/474"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 473,
+    "name": "Suured",
+    "slug": "suured",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 27,
+    "count": 36,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/473"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 300,
+    "name": "Erilised",
+    "slug": "erilised",
+    "parent": 16,
+    "description":
+      "Eriliste kategoorias võite näha tooteid, mis on tavapärasest erineva kuju, kasutusvõimaluste ja materjalidega (klaas, metall, keraamika).",
+    "display": "default",
+    "image": null,
+    "menu_order": 28,
+    "count": 60,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/300"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 157,
+    "name": "Eksklusiivsed",
+    "slug": "eksklusiivsed",
+    "parent": 16,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 29,
+    "count": 26,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/157"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 388,
+    "name": "Anaalkuulid/-ketid",
+    "slug": "anaalkuulid-ketid",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 31,
+    "count": 29,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/388"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 627,
+    "name": "Pretty Love",
+    "slug": "pretty-love-abivahendid",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 32,
+    "count": 6,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/627"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 249,
+    "name": "Tupekuulid",
+    "slug": "tupekuulid",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 33,
+    "count": 36,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/249"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 526,
+    "name": "Peenise juurde",
+    "slug": "peenise-juurde",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 34,
+    "count": 36,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 527,
+        "name": "-katted",
+        "slug": "katted",
+        "parent": 526,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 35,
+        "count": 10,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/527"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+            }
+          ]
+        }
+      },
+      {
+        "id": 262,
+        "name": "-mansetid",
+        "slug": "mansetid",
+        "parent": 526,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 36,
+        "count": 4,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/262"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+            }
+          ]
+        }
+      },
+      {
+        "id": 260,
+        "name": "-rõngad",
+        "slug": "rongad",
+        "parent": 526,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 37,
+        "count": 24,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/260"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 266,
+    "name": "Strap-on",
+    "slug": "strap-on",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 38,
+    "count": 19,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/266"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 247,
+    "name": "Pumbad",
+    "slug": "pumbad",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 39,
+    "count": 17,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 246,
+        "name": "Meestele",
+        "slug": "meestele-abivahendid",
+        "parent": 247,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 40,
+        "count": 11,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/246"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+            }
+          ]
+        }
+      },
+      {
+        "id": 248,
+        "name": "Naistele",
+        "slug": "naistele-pumbad",
+        "parent": 247,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 41,
+        "count": 7,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/248"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Puhastamine",
+    "slug": "puhastamine",
+    "parent": 142,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 42,
+    "count": 8,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/123"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 527,
+    "name": "-katted",
+    "slug": "katted",
+    "parent": 526,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 35,
+    "count": 10,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/527"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+        }
+      ]
+    }
+  },
+  {
+    "id": 262,
+    "name": "-mansetid",
+    "slug": "mansetid",
+    "parent": 526,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 36,
+    "count": 4,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/262"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+        }
+      ]
+    }
+  },
+  {
+    "id": 260,
+    "name": "-rõngad",
+    "slug": "rongad",
+    "parent": 526,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 37,
+    "count": 24,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/260"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+        }
+      ]
+    }
+  },
+  {
+    "id": 246,
+    "name": "Meestele",
+    "slug": "meestele-abivahendid",
+    "parent": 247,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 40,
+    "count": 11,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/246"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+        }
+      ]
+    }
+  },
+  {
+    "id": 248,
+    "name": "Naistele",
+    "slug": "naistele-pumbad",
+    "parent": 247,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 41,
+    "count": 7,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/248"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Kondoomid",
+    "slug": "kondoomid",
+    "parent": 20,
+    "description": "",
+    "display": "both",
+    "image": null,
+    "menu_order": 44,
+    "count": 61,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 312,
+        "name": "Actual",
+        "slug": "actual",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 45,
+        "count": 8,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/312"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 22,
+        "name": "Contex",
+        "slug": "contex",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 46,
+        "count": 2,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/22"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 27,
+        "name": "Durex",
+        "slug": "durex",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 47,
+        "count": 3,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/27"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 39,
+        "name": "LifeStyles",
+        "slug": "lifestyles",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 48,
+        "count": 2,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/39"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 58,
+        "name": "Luxe",
+        "slug": "luxe",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 49,
+        "count": 19,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/58"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 322,
+        "name": "MY.SIZE",
+        "slug": "my-size-kondoomid",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 50,
+        "count": 12,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/322"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 831,
+        "name": "Sico",
+        "slug": "sico",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 51,
+        "count": 6,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/831"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 516,
+        "name": "Erilised",
+        "slug": "erilised-kondoomid",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 52,
+        "count": 16,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/516"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 515,
+        "name": "Struktuursed",
+        "slug": "struktuursed",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 53,
+        "count": 18,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/515"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      },
+      {
+        "id": 513,
+        "name": "Lateksivabad",
+        "slug": "lateksivabad",
+        "parent": 13,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 54,
+        "count": 2,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/513"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Libestid/lubrikandid",
+    "slug": "libestid-lubrikandid",
+    "parent": 20,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 55,
+    "count": 52,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 59,
+        "name": "Vee baasil",
+        "slug": "veebaasil",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 56,
+        "count": 43,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/59"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      },
+      {
+        "id": 505,
+        "name": "Silikooni baasil",
+        "slug": "silikooni-baasil",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 57,
+        "count": 9,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/505"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      },
+      {
+        "id": 523,
+        "name": "Lõhnaga",
+        "slug": "lohnaga-libestid-lubrikandid",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 58,
+        "count": 10,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/523"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      },
+      {
+        "id": 524,
+        "name": "Oraalseks",
+        "slug": "oraalseks",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 59,
+        "count": 16,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/524"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      },
+      {
+        "id": 525,
+        "name": "Anaalseks",
+        "slug": "anaalseks",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 60,
+        "count": 21,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/525"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      },
+      {
+        "id": 481,
+        "name": "Erilised",
+        "slug": "erilised-libestid-lubrikandid",
+        "parent": 15,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 61,
+        "count": 12,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/481"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "name": "Massaažiks",
+    "slug": "massaaziks",
+    "parent": 20,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 62,
+    "count": 27,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 179,
+        "name": "Lõhnaga",
+        "slug": "lohnaga",
+        "parent": 151,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 63,
+        "count": 18,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/179"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+            }
+          ]
+        }
+      },
+      {
+        "id": 180,
+        "name": "Lõhnata",
+        "slug": "lohnata",
+        "parent": 151,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 64,
+        "count": 7,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/180"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+            }
+          ]
+        }
+      },
+      {
+        "id": 120,
+        "name": "Masaažiküünlad",
+        "slug": "masaazikuunlad",
+        "parent": 151,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 65,
+        "count": 3,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/120"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "name": "Stimulaatorid",
+    "slug": "stimulaatorid",
+    "parent": 20,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 66,
+    "count": 35,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 517,
+        "name": "Universaalsed",
+        "slug": "universaalsed",
+        "parent": 152,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 67,
+        "count": 5,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/517"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+            }
+          ]
+        }
+      },
+      {
+        "id": 184,
+        "name": "Naistele",
+        "slug": "naistele",
+        "parent": 152,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 68,
+        "count": 4,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/184"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+            }
+          ]
+        }
+      },
+      {
+        "id": 183,
+        "name": "Meestele",
+        "slug": "meestele",
+        "parent": 152,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 69,
+        "count": 20,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/183"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+            }
+          ]
+        }
+      },
+      {
+        "id": 153,
+        "name": "Feromoonid",
+        "slug": "feromoonid",
+        "parent": 152,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 73,
+        "count": 8,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/153"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 444,
+    "name": "Tampoonid",
+    "slug": "tampoonid",
+    "parent": 20,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 74,
+    "count": 0,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/444"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 312,
+    "name": "Actual",
+    "slug": "actual",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 45,
+    "count": 8,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/312"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "name": "Contex",
+    "slug": "contex",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 46,
+    "count": 2,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/22"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "name": "Durex",
+    "slug": "durex",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 47,
+    "count": 3,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/27"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "name": "LifeStyles",
+    "slug": "lifestyles",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 48,
+    "count": 2,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/39"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 58,
+    "name": "Luxe",
+    "slug": "luxe",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 49,
+    "count": 19,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/58"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 322,
+    "name": "MY.SIZE",
+    "slug": "my-size-kondoomid",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 50,
+    "count": 12,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/322"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 831,
+    "name": "Sico",
+    "slug": "sico",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 51,
+    "count": 6,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/831"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 516,
+    "name": "Erilised",
+    "slug": "erilised-kondoomid",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 52,
+    "count": 16,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/516"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 515,
+    "name": "Struktuursed",
+    "slug": "struktuursed",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 53,
+    "count": 18,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/515"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 513,
+    "name": "Lateksivabad",
+    "slug": "lateksivabad",
+    "parent": 13,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 54,
+    "count": 2,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/513"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 59,
+    "name": "Vee baasil",
+    "slug": "veebaasil",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 56,
+    "count": 43,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/59"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 505,
+    "name": "Silikooni baasil",
+    "slug": "silikooni-baasil",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 57,
+    "count": 9,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/505"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 523,
+    "name": "Lõhnaga",
+    "slug": "lohnaga-libestid-lubrikandid",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 58,
+    "count": 10,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/523"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 524,
+    "name": "Oraalseks",
+    "slug": "oraalseks",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 59,
+    "count": 16,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/524"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 525,
+    "name": "Anaalseks",
+    "slug": "anaalseks",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 60,
+    "count": 21,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/525"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 481,
+    "name": "Erilised",
+    "slug": "erilised-libestid-lubrikandid",
+    "parent": 15,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 61,
+    "count": 12,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/481"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+        }
+      ]
+    }
+  },
+  {
+    "id": 179,
+    "name": "Lõhnaga",
+    "slug": "lohnaga",
+    "parent": 151,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 63,
+    "count": 18,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/179"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+        }
+      ]
+    }
+  },
+  {
+    "id": 180,
+    "name": "Lõhnata",
+    "slug": "lohnata",
+    "parent": 151,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 64,
+    "count": 7,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/180"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+        }
+      ]
+    }
+  },
+  {
+    "id": 120,
+    "name": "Masaažiküünlad",
+    "slug": "masaazikuunlad",
+    "parent": 151,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 65,
+    "count": 3,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/120"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+        }
+      ]
+    }
+  },
+  {
+    "id": 517,
+    "name": "Universaalsed",
+    "slug": "universaalsed",
+    "parent": 152,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 67,
+    "count": 5,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/517"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+        }
+      ]
+    }
+  },
+  {
+    "id": 184,
+    "name": "Naistele",
+    "slug": "naistele",
+    "parent": 152,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 68,
+    "count": 4,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/184"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+        }
+      ]
+    }
+  },
+  {
+    "id": 183,
+    "name": "Meestele",
+    "slug": "meestele",
+    "parent": 152,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 69,
+    "count": 20,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/183"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+        }
+      ]
+    }
+  },
+  {
+    "id": 153,
+    "name": "Feromoonid",
+    "slug": "feromoonid",
+    "parent": 152,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 73,
+    "count": 8,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/153"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+        }
+      ]
+    }
+  },
+  {
+    "id": 200,
+    "name": "Vagiinad",
+    "slug": "vagiinad",
+    "parent": 254,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 76,
+    "count": 30,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 533,
+        "name": "Tavalised",
+        "slug": "tavalised",
+        "parent": 200,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 77,
+        "count": 16,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/533"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+            }
+          ]
+        }
+      },
+      {
+        "id": 256,
+        "name": "Vibratsiooniga",
+        "slug": "vibratsiooniga",
+        "parent": 200,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 78,
+        "count": 10,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/256"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+            }
+          ]
+        }
+      },
+      {
+        "id": 76,
+        "name": "Fleshlight",
+        "slug": "fleshlight",
+        "parent": 200,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 79,
+        "count": 4,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/76"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 449,
+    "name": "Tagumikud",
+    "slug": "tagumikud",
+    "parent": 254,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 80,
+    "count": 5,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/449"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 533,
+    "name": "Tavalised",
+    "slug": "tavalised",
+    "parent": 200,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 77,
+    "count": 16,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/533"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+        }
+      ]
+    }
+  },
+  {
+    "id": 256,
+    "name": "Vibratsiooniga",
+    "slug": "vibratsiooniga",
+    "parent": 200,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 78,
+    "count": 10,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/256"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+        }
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "name": "Fleshlight",
+    "slug": "fleshlight",
+    "parent": 200,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 79,
+    "count": 4,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/76"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+        }
+      ]
+    }
+  },
+  {
+    "id": 264,
+    "name": "Meestele",
+    "slug": "meestele-nukud",
+    "parent": 263,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 82,
+    "count": 22,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/264"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 265,
+    "name": "Naistele",
+    "slug": "naistele-nukud",
+    "parent": 263,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 83,
+    "count": 4,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/265"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 283,
+    "name": "Meestele",
+    "slug": "meestele-riided",
+    "parent": 143,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 85,
+    "count": 27,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/283"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+        }
+      ]
+    },
+    "subCategories": []
+  },
+  {
+    "id": 216,
+    "name": "Naistele",
+    "slug": "naistele-riided",
+    "parent": 143,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 86,
+    "count": 148,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 219,
+        "name": "Beauty Night",
+        "slug": "beauty-night",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 87,
+        "count": 91,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/219"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 287,
+        "name": "Kehakaunistused",
+        "slug": "kehakaunistused",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 88,
+        "count": 0,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/287"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 239,
+        "name": "Kleidid",
+        "slug": "kleidid",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 89,
+        "count": 34,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/239"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 217,
+        "name": "Komplektid",
+        "slug": "komplektid",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 90,
+        "count": 60,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/217"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 241,
+        "name": "Korsetid",
+        "slug": "korsetid",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 91,
+        "count": 14,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/241"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 231,
+        "name": "Püksikud",
+        "slug": "puksikud",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 92,
+        "count": 26,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/231"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 237,
+        "name": "Sukad",
+        "slug": "sukad",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 93,
+        "count": 14,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/237"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      },
+      {
+        "id": 238,
+        "name": "Võrgud/Catsuit",
+        "slug": "vorgud-catsuit",
+        "parent": 216,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 94,
+        "count": 2,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/238"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 219,
+    "name": "Beauty Night",
+    "slug": "beauty-night",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 87,
+    "count": 91,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/219"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 287,
+    "name": "Kehakaunistused",
+    "slug": "kehakaunistused",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 88,
+    "count": 0,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/287"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 239,
+    "name": "Kleidid",
+    "slug": "kleidid",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 89,
+    "count": 34,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/239"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 217,
+    "name": "Komplektid",
+    "slug": "komplektid",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 90,
+    "count": 60,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/217"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 241,
+    "name": "Korsetid",
+    "slug": "korsetid",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 91,
+    "count": 14,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/241"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 231,
+    "name": "Püksikud",
+    "slug": "puksikud",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 92,
+    "count": 26,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/231"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 237,
+    "name": "Sukad",
+    "slug": "sukad",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 93,
+    "count": 14,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/237"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 238,
+    "name": "Võrgud/Catsuit",
+    "slug": "vorgud-catsuit",
+    "parent": 216,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 94,
+    "count": 2,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/238"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+        }
+      ]
+    }
+  },
+  {
+    "id": 207,
+    "name": "Masturbaatorid",
+    "slug": "gei-masturbaatorid",
+    "parent": 145,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 96,
+    "count": 3,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
+        }
+      ]
+    },
+    "subCategories": [
+      {
+        "id": 535,
+        "name": "Fleshjack",
+        "slug": "fleshjack",
+        "parent": 207,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 97,
+        "count": 1,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/535"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+            }
+          ]
+        }
+      },
+      {
+        "id": 208,
+        "name": "Fleshjack Boys",
+        "slug": "fleshjack-boys",
+        "parent": 207,
+        "description": "",
+        "display": "default",
+        "image": null,
+        "menu_order": 98,
+        "count": 1,
+        "_links": {
+          "self": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/208"
+            }
+          ],
+          "collection": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+            }
+          ],
+          "up": [
+            {
+              "href":
+                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 535,
+    "name": "Fleshjack",
+    "slug": "fleshjack",
+    "parent": 207,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 97,
+    "count": 1,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/535"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+        }
+      ]
+    }
+  },
+  {
+    "id": 208,
+    "name": "Fleshjack Boys",
+    "slug": "fleshjack-boys",
+    "parent": 207,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 98,
+    "count": 1,
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/208"
+        }
+      ],
+      "collection": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+        }
+      ],
+      "up": [
+        {
+          "href":
+            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+        }
+      ]
+    }
+  }
+]

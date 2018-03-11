@@ -1,5 +1,8 @@
 import flattenArray from "../array-flatten";
 
+const flat = require("../__data__/flat.json");
+const original = require("../__data__/original.json");
+
 const mockObject = {
   name: "Test",
 };
@@ -49,5 +52,9 @@ describe("array-flatten", () => {
     const expected = [mockObjectWithNestedArray, 1, mockObject];
 
     expect(flattenArray([...mockArray, 1], "nestedArray")).toEqual(expected);
+  });
+
+  it("should match mocked flat array from original", () => {
+    expect(flattenArray(original, "subCategories")).toEqual(flat);
   });
 });
