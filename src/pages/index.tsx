@@ -162,7 +162,9 @@ class IndexPage extends React.Component<Props, State> {
     const cartItems = nextProps.formValues.cartItems;
 
     const slugs = Object.values(cartItems).map(item => item.productSlug);
-    const products = await getMultipleSingleProducts(slugs);
+    const uniqueSlugs = [...new Set(slugs)];
+
+    const products = await getMultipleSingleProducts(uniqueSlugs);
 
     this.setState({
       productsInCart: products,
