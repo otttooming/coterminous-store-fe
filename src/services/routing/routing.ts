@@ -61,10 +61,6 @@ const handleCategory = async (props: State): Promise<State> => {
   const { categories, navRouting } = props;
   const { pathName } = navRouting;
 
-  const allSubCategories = categories.reduce((acc, cur) => {
-    return [...acc, ...cur.subCategories];
-  }, []);
-
   function flatten(cur: CategoryProps): CategoryProps[] {
     if (cur.hasOwnProperty("subCategories")) {
       const subCategories = cur.subCategories.reduce(reduce, []);
