@@ -166,9 +166,37 @@ class IndexPage extends React.Component<Props, State> {
 
     const products = await getMultipleSingleProducts(uniqueSlugs);
 
-    this.setState({
-      productsInCart: products,
-    });
+    this.setState(
+      {
+        productsInCart: products,
+      },
+      () => this.calculatePrice(nextProps)
+    );
+  };
+
+  calculatePrice = (nextProps: Props) => {
+    if (!nextProps.formValues || !this.state.productsInCart) {
+      return;
+    }
+
+    const cartItems = Object.values(nextProps.formValues.cartItems);
+
+    const productsInCart = this.state.productsInCart;
+
+    const variations = productsInCart.reduce(
+      (acc, cur) => [...acc, ...cur.variations],
+      []
+    );
+
+    const price = variations.reduce(
+      (acc, cur) =>
+        acc +
+        Number(cur.price) *
+          cartItems.find(item => item.variationId === cur.id).quantity,
+      0
+    );
+
+    console.log(variations, price);
   };
 
   render() {
