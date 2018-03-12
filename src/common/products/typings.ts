@@ -38,6 +38,7 @@ export interface SeoProps {
 export interface CartItemProps {
   productSlug: string;
   variationId: number;
+  quantity: number;
 }
 
 export interface FormValues {
