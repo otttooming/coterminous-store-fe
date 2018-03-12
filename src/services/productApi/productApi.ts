@@ -5,9 +5,12 @@ import { fetchRequest } from "../fetchApi/fetchApi";
 
 export async function getProducts(
   page: number = 1,
-  category?: number | string
+  category?: number | string,
+  include?: number[]
 ) {
   const categoryParameter = category ? "category=" + category : "";
+  const includeParameter = include ? `include=${include.join()}` : "";
+
   const url = api.buildUrl(
     {
       paths: [api.WC, "products"],
@@ -17,6 +20,7 @@ export async function getProducts(
         categoryParameter,
         "page=" + page,
         "per_page=16",
+        includeParameter,
       ],
     },
     api.SITEURL
