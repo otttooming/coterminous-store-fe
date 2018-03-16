@@ -191,7 +191,7 @@ class IndexPage extends React.Component<Props, State> {
     const price = variations.reduce((acc, cur) => {
       const currentCartItem = cartItems.find(
         item => item.variationId === cur.id
-    );
+      );
 
       if (!currentCartItem) {
         return acc;
@@ -254,11 +254,11 @@ class IndexPage extends React.Component<Props, State> {
       >
         <Loader isLoaderActive={this.state.isLoaderActive} />
 
-        {!!(!navRouting.view || navRouting.view === LANDING_SLUGS.DEFAULT) && (
+        {(!navRouting.view || navRouting.view === LANDING_SLUGS.DEFAULT) && (
           <LandingView onLocationChange={this.handleLocationChange} />
         )}
 
-        {!!(navRouting.view === PRODUCT_SLUGS.DEFAULT) && (
+        {navRouting.view === PRODUCT_SLUGS.DEFAULT && (
           <ProductItem
             product={this.state.singleProduct.product}
             images={this.state.singleProduct.images}
@@ -266,17 +266,15 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {!!(
-          navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
-          navRouting.view === CATEGORY_SLUGS.DEFAULT
-        ) && (
+        {(navRouting.view === PRODUCT_LISTING_SLUGS.DEFAULT ||
+          navRouting.view === CATEGORY_SLUGS.DEFAULT) && (
           <ProductsListing
             products={this.state.products}
             onLocationChange={this.handleLocationChange}
           />
         )}
 
-        {!!(navRouting.view === CART_SLUGS.DEFAULT) && (
+        {navRouting.view === CART_SLUGS.DEFAULT && (
           <CheckoutView
             productsInCart={
               !this.state.productsInCart ? undefined : this.state.productsInCart
@@ -285,7 +283,7 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {!!(navRouting.view === CHECKOUT_SLUGS.DEFAULT) && (
+        {navRouting.view === CHECKOUT_SLUGS.DEFAULT && (
           <CheckoutView
             productsInCart={
               !this.state.productsInCart ? undefined : this.state.productsInCart
@@ -294,7 +292,7 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {!!(navRouting.view === PAGE_SLUGS.DEFAULT) && (
+        {navRouting.view === PAGE_SLUGS.DEFAULT && (
           <PageView
             onLocationChange={this.handleLocationChange}
             page={this.state.page}
