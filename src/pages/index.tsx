@@ -85,6 +85,7 @@ class IndexPage extends React.Component<Props, State> {
       navRouting,
       categories,
       isLoaderActive: false,
+      price: undefined,
     };
 
     const initialRouting: State = await Routing.handleRouting(initialProps);
