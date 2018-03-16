@@ -3,15 +3,19 @@ import Head from "next/head";
 import CartButton from "./children/CartButton";
 import MainMenu from "./children/MainMenu";
 import Logo from "./children/Logo";
-import { LocationChangeProps } from "../../common/products/typings";
+import {
+  LocationChangeProps,
+  ShoppingCartPrice,
+} from "../../common/products/typings";
 
 interface Props {
   title: string;
   menuItems: any;
   handleLocationChange: (props: LocationChangeProps) => void;
+  price: ShoppingCartPrice | undefined;
 }
 
-const Header = ({ title, menuItems, handleLocationChange }: Props) => {
+const Header = ({ title, menuItems, handleLocationChange, price }: Props) => {
   return (
     <header className="container">
       <Head>
@@ -62,7 +66,7 @@ const Header = ({ title, menuItems, handleLocationChange }: Props) => {
           </form>
         </div>
         <div className="col-sm-9 col-lg-3 header__cart hidden-sm-down align-self-center">
-          <CartButton onLocationChange={handleLocationChange} />
+          <CartButton onLocationChange={handleLocationChange} price={price} />
           <div className="menu-mobile__toggle button hidden-lg-up">
             <span>Menu</span>
 

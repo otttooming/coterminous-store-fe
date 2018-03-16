@@ -51,9 +51,13 @@ export interface ProductProps {
   variations?: any;
 }
 
-interface ProductItem {
+export interface ProductItem {
   name: string;
   slug: string;
   price: number;
   price_html: string;
+}
+
+export interface ShoppingCartPrice {
+  total: number;
 }
