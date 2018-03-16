@@ -188,13 +188,17 @@ class IndexPage extends React.Component<Props, State> {
       []
     );
 
-    const price = variations.reduce(
-      (acc, cur) =>
-        acc +
-        Number(cur.price) *
-          cartItems.find(item => item.variationId === cur.id).quantity,
-      0
+    const price = variations.reduce((acc, cur) => {
+      const currentCartItem = cartItems.find(
+        item => item.variationId === cur.id
     );
+
+      if (!currentCartItem) {
+        return acc;
+      }
+
+      return acc + Number(cur.price) * currentCartItem.quantity;
+    }, 0);
 
     console.log(variations, price);
   };
