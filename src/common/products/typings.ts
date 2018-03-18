@@ -1,3 +1,4 @@
+import { Billing } from "./../woocommerce/typings";
 import {
   LANDING_SLUGS,
   CART_SLUGS,
@@ -43,6 +44,7 @@ export interface CartItemProps {
 
 export interface FormValues {
   cartItems: { [key: string]: CartItemProps };
+  billing: Billing;
 }
 
 export interface ProductProps {
@@ -52,6 +54,7 @@ export interface ProductProps {
 }
 
 export interface ProductItem {
+  id: number;
   name: string;
   slug: string;
   price: number;
