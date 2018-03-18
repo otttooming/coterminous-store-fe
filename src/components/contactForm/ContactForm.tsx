@@ -12,7 +12,7 @@ import AdditionalInformation from "./children/AdditionalInformation";
 import { LocationChangeProps } from "../../common/products/typings";
 
 interface Props {
-  handleSubmit?: any;
+  handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
   paymentGateways?: any;
   shippingMethods?: any;
   onLocationChange: (props: LocationChangeProps) => void;

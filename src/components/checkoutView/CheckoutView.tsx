@@ -19,9 +19,14 @@ import ProductsListing from "../productsListing/ProductsListing";
 interface Props {
   productsInCart: ProductProps[] | undefined;
   onLocationChange?: (props: LocationChangeProps) => void;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const CheckoutView = ({ productsInCart, onLocationChange }: Props) => {
+const CheckoutView = ({
+  productsInCart,
+  onLocationChange,
+  handleSubmit,
+}: Props) => {
   return (
     <>
       <section className="bg__common mb1 p1">
@@ -33,7 +38,10 @@ const CheckoutView = ({ productsInCart, onLocationChange }: Props) => {
         />
       </section>
 
-      <ContactForm onLocationChange={onLocationChange} />
+      <ContactForm
+        handleSubmit={handleSubmit}
+        onLocationChange={onLocationChange}
+      />
     </>
   );
 };

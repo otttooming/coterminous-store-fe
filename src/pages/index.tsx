@@ -47,6 +47,7 @@ import PageView from "../components/pageView/PageView";
 import { PageProps } from "../services/pageApi/pageApi";
 import { getMultipleSingleProducts } from "../services/productApi/singleProductApi";
 import { calculateShoppingCartPrice } from "../services/pricing/pricing";
+import { buildOrder } from "../services/orderApi/helpers";
 
 interface Props extends InjectedFormProps {
   categories: CategoryProps[];
@@ -189,6 +190,17 @@ class IndexPage extends React.Component<Props, State> {
     });
   };
 
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const { formValues } = this.props;
+    const { productsInCart } = this.state;
+
+    const order = buildOrder(formValues, productsInCart);
+
+    console.log("handleSubmit", order);
+  };
+
   render() {
     const { menuItems, categories, formValues } = this.props;
     const { navRouting } = this.state;
@@ -267,6 +279,7 @@ class IndexPage extends React.Component<Props, State> {
               !this.state.productsInCart ? undefined : this.state.productsInCart
             }
             onLocationChange={this.handleLocationChange}
+            handleSubmit={this.handleSubmit}
           />
         )}
 
@@ -276,6 +289,7 @@ class IndexPage extends React.Component<Props, State> {
               !this.state.productsInCart ? undefined : this.state.productsInCart
             }
             onLocationChange={this.handleLocationChange}
+            handleSubmit={this.handleSubmit}
           />
         )}
 
