@@ -11,7 +11,7 @@ const BillingFields = () => {
         <label htmlFor="first_name">First Name</label>
         <Field
           id="first_name"
-          name="contacts.billing.first_name"
+          name="billing.first_name"
           component="input"
           type="text"
           required={true}
@@ -22,7 +22,7 @@ const BillingFields = () => {
         <label htmlFor="last_name">Last Name</label>
         <Field
           id="last_name"
-          name="contacts.billing.last_name"
+          name="billing.last_name"
           component="input"
           type="text"
           required={true}
@@ -31,19 +31,14 @@ const BillingFields = () => {
 
       <Fieldset>
         <label htmlFor="email">Email</label>
-        <Field
-          id="email"
-          name="contacts.billing.email"
-          component="input"
-          type="text"
-        />
+        <Field id="email" name="billing.email" component="input" type="text" />
       </Fieldset>
 
       <Fieldset>
         <label htmlFor="phone">Phone</label>
         <Field
           id="phone"
-          name="contacts.billing.phone"
+          name="billing.phone"
           component="input"
           type="text"
           required={true}
@@ -54,7 +49,7 @@ const BillingFields = () => {
         <label htmlFor="country">Country</label>
         <Field
           id="country"
-          name="contacts.billing.country"
+          name="billing.country"
           component="select"
           defaultValue="estonia"
           value="estonia"
@@ -67,7 +62,7 @@ const BillingFields = () => {
         <label htmlFor="address_1">Address</label>
         <Field
           id="address_1"
-          name="contacts.billing.address_1"
+          name="billing.address_1"
           component="input"
           type="text"
           required={true}
@@ -75,18 +70,14 @@ const BillingFields = () => {
       </Fieldset>
 
       <Fieldset>
-        <Field
-          name="contacts.billing.address_2"
-          component="input"
-          type="text"
-        />
+        <Field name="billing.address_2" component="input" type="text" />
       </Fieldset>
 
       <Fieldset>
         <label htmlFor="postcode">Postcode / ZIP</label>
         <Field
           id="postcode"
-          name="contacts.billing.postcode"
+          name="billing.postcode"
           component="input"
           type="text"
           required={true}
@@ -97,7 +88,7 @@ const BillingFields = () => {
         <label htmlFor="city">Town / City</label>
         <Field
           id="city"
-          name="contacts.billing.city"
+          name="billing.city"
           component="input"
           type="text"
           required={true}
