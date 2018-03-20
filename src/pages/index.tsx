@@ -47,7 +47,15 @@ import PageView from "../components/pageView/PageView";
 import { PageProps } from "../services/pageApi/pageApi";
 import { getMultipleSingleProducts } from "../services/productApi/singleProductApi";
 import { calculateShoppingCartPrice } from "../services/pricing/pricing";
-import { buildOrder } from "../services/orderApi/helpers";
+import {
+  buildOrder,
+  handleCreateOrderRequest,
+} from "../services/orderApi/helpers";
+import { createOrder } from "../services/orderApi/orderApi";
+import {
+  CreateOrderResponse,
+  WCRestApiError,
+} from "../common/woocommerce/typings";
 
 interface Props extends InjectedFormProps {
   categories: CategoryProps[];
@@ -66,6 +74,7 @@ export interface State {
   singleProduct?: any;
   page?: PageProps;
   price: ShoppingCartPrice | undefined;
+  order: CreateOrderResponse | undefined;
 }
 
 interface InitialProps {
@@ -87,6 +96,7 @@ class IndexPage extends React.Component<Props, State> {
       categories,
       isLoaderActive: false,
       price: undefined,
+      order: undefined,
     };
 
     const initialRouting: State = await Routing.handleRouting(initialProps);
@@ -190,7 +200,7 @@ class IndexPage extends React.Component<Props, State> {
     });
   };
 
-  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const { formValues } = this.props;
@@ -198,7 +208,13 @@ class IndexPage extends React.Component<Props, State> {
 
     const order = buildOrder(formValues, productsInCart);
 
-    console.log("handleSubmit", order);
+    const response: CreateOrderResponse | WCRestApiError = await createOrder(
+      order
+    );
+
+    const nextState = handleCreateOrderRequest(response, this.state);
+
+    this.setState(nextState);
   };
 
   render() {
