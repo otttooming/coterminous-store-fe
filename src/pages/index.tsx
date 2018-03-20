@@ -23,7 +23,6 @@ import ProductsListing from "../components/productsListing/ProductsListing";
 import CategoriesListing, {
   CategoryProps,
 } from "../components/categoriesListing/CategoriesListing";
-import CartView from "../components/cartView/CartView";
 import CheckoutView from "../components/checkoutView/CheckoutView";
 import LandingView from "../components/landingView/LandingView";
 
