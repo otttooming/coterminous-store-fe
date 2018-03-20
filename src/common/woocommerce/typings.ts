@@ -37,6 +37,11 @@ export interface ShippingLines {
   total: number;
 }
 
+export interface MetaData {
+  key: string;
+  value: string;
+}
+
 export interface CreateOrderRequest {
   payment_method: string;
   payment_method_title: string;
@@ -45,6 +50,7 @@ export interface CreateOrderRequest {
   shipping?: Shipping;
   line_items: LineItems[];
   shipping_lines: ShippingLines[];
+  meta_data?: MetaData[];
 }
 
 export interface CreateOrderResponse {
@@ -113,12 +119,12 @@ export interface CreateOrderResponseLine {
   total: string;
   total_tax: string;
   taxes: Tax[];
-  meta_data: MetaData[];
+  meta_data: ResponseMetaData[];
   sku: string;
   price: number;
 }
 
-export interface MetaData {
+export interface ResponseMetaData {
   id: number;
   key: string;
   value: string;
