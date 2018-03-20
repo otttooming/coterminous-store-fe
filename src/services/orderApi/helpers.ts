@@ -1,12 +1,16 @@
 import {
   CreateOrderRequest,
+  CreateOrderResponse,
   Billing,
   LineItems,
+  WCRestApiError,
+  isWCRestApiError,
 } from "./../../common/woocommerce/typings";
 import { ProductProps } from "./../../common/products/typings";
 
 import { FormValues } from "./../../common/products/typings";
 import { Countries } from "../../common/countries/constants";
+import { State } from "../../pages";
 
 export function buildOrder(
   values: FormValues,
@@ -46,4 +50,15 @@ export function buildOrder(
   };
 
   return order;
+}
+
+export function handleCreateOrderRequest(
+  response: CreateOrderResponse | WCRestApiError,
+  state: State
+): State {
+  if (!isWCRestApiError(response)) {
+    return { ...state, order: response };
+  } else {
+    return state;
+  }
 }
