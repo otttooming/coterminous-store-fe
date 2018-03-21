@@ -1,7 +1,7 @@
 import { ViewNames } from "../../common/products/typings";
 
 import {
-  CART_SLUGS,
+  ORDER_SLUGS,
   CHECKOUT_SLUGS,
   LOCATION_TYPES,
   PRODUCT_SLUGS,
@@ -61,6 +61,12 @@ export function findViewFromLocalizedValues(
       PAGE_SLUGS.DEFAULT
     ):
       return PAGE_SLUGS.DEFAULT;
+    case findFromLocalized(
+      Object.values(ORDER_SLUGS),
+      localizedView,
+      ORDER_SLUGS.DEFAULT
+    ):
+      return ORDER_SLUGS.DEFAULT;
     default:
       return LANDING_SLUGS.DEFAULT;
   }

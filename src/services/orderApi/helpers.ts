@@ -1,4 +1,9 @@
 import {
+  LOCATION_TYPES,
+  CHECKOUT_SLUGS,
+  ORDER_SLUGS,
+} from "./../../common/products/constants";
+import {
   CreateOrderRequest,
   CreateOrderResponse,
   Billing,
@@ -57,7 +62,9 @@ export function handleCreateOrderRequest(
   state: State
 ): State {
   if (!isWCRestApiError(response)) {
-    return { ...state, order: response };
+    const navRouting = { type: LOCATION_TYPES.PAGE, view: ORDER_SLUGS.DEFAULT };
+
+    return { ...state, order: response, navRouting };
   } else {
     return state;
   }

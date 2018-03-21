@@ -5,7 +5,7 @@ import { getSingleProduct } from "../../services/productApi/singleProductApi";
 import { getPage } from "../../services/pageApi/pageApi";
 
 import {
-  CART_SLUGS,
+  ORDER_SLUGS,
   CHECKOUT_SLUGS,
   LOCATION_TYPES,
   PRODUCT_SLUGS,

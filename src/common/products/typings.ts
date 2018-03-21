@@ -1,7 +1,7 @@
 import { Billing } from "./../woocommerce/typings";
 import {
   LANDING_SLUGS,
-  CART_SLUGS,
+  ORDER_SLUGS,
   CHECKOUT_SLUGS,
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
@@ -27,7 +27,7 @@ export type ViewNames =
   | PAGE_SLUGS
   | LANDING_SLUGS
   | PRODUCT_LISTING_SLUGS
-  | CART_SLUGS
+  | ORDER_SLUGS
   | PRODUCT_SLUGS
   | CATEGORY_SLUGS
   | CHECKOUT_SLUGS;

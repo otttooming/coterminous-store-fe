@@ -1,7 +1,10 @@
 import * as React from "react";
 import Icon from "../../../components/icon/Icon";
 import Link from "../../../components/link/Link";
-import { LOCATION_TYPES, CART_SLUGS } from "../../../common/products/constants";
+import {
+  LOCATION_TYPES,
+  CHECKOUT_SLUGS,
+} from "../../../common/products/constants";
 import {
   LocationChangeProps,
   ShoppingCartPrice,
@@ -16,7 +19,7 @@ const CartButton = ({ onLocationChange, price }: Props) => {
   const total = !price ? 0 : price.total;
   return (
     <Link
-      location={{ type: LOCATION_TYPES.PAGE, view: CART_SLUGS.DEFAULT }}
+      location={{ type: LOCATION_TYPES.PAGE, view: CHECKOUT_SLUGS.DEFAULT }}
       className="cart-links amount"
       onLocationChange={onLocationChange}
     >

@@ -2,7 +2,7 @@ import * as Routing from "../services/routing/routing";
 import { getMainMenu, getSideMenu } from "../services/menuApi/menuApi";
 
 import {
-  CART_SLUGS,
+  ORDER_SLUGS,
   CHECKOUT_SLUGS,
   LOCATION_TYPES,
   PRODUCT_SLUGS,
@@ -55,6 +55,7 @@ import {
   CreateOrderResponse,
   WCRestApiError,
 } from "../common/woocommerce/typings";
+import OrderView from "../components/orderView/OrderView";
 
 interface Props extends InjectedFormProps {
   categories: CategoryProps[];
@@ -288,13 +289,13 @@ class IndexPage extends React.Component<Props, State> {
           />
         )}
 
-        {navRouting.view === CART_SLUGS.DEFAULT && (
-          <CheckoutView
+        {navRouting.view === ORDER_SLUGS.DEFAULT && (
+          <OrderView
+            order={!this.state.order ? undefined : this.state.order}
             productsInCart={
               !this.state.productsInCart ? undefined : this.state.productsInCart
             }
             onLocationChange={this.handleLocationChange}
-            handleSubmit={this.handleSubmit}
           />
         )}
 
