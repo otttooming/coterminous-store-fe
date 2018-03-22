@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CreateOrderResponse } from "../../../common/woocommerce/typings";
 import { LocationChangeProps } from "../../../common/products/typings";
+import CustomerDetails from "./CustomerDetails";
 
 interface Props {
   order: CreateOrderResponse | undefined;
@@ -130,25 +131,7 @@ const Order = ({ order }: Props) => {
                 </tr>
               </tfoot>
             </table>
-            <section className="woocommerce-customer-details">
-              <h2>Kliendi andmed</h2>
-              <table className="woocommerce-table woocommerce-table--customer-details shop_table customer_details">
-                <tbody>
-                  <tr>
-                    <th>E-post:</th>
-                    <td>eriktooming@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <th>Telefon:</th>
-                    <td>5218059</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 className="woocommerce-column__title">Arveaadress</h3>
-              <address>
-                Erik Tooming<br />Spea 23<br />2 Tartu{" "}
-              </address>
-            </section>
+            <CustomerDetails order={order} />
           </section>
         </div>
       </div>
