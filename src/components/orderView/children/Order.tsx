@@ -13,6 +13,18 @@ const Order = ({ order }: Props) => {
     return null;
   }
 
+  const dateCreated: string = new Date(order.date_created).toLocaleDateString(
+    "ee-est",
+    {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  );
+
+  const total: string = order.total + order.currency;
+
   return (
     <div className="col-xs-12 grid_content with-sidebar-top cfx">
       <div className="woocommerce">
@@ -26,22 +38,12 @@ const Order = ({ order }: Props) => {
               Tellimuse number: <strong>{order.id}</strong>
             </li>
             <li className="woocommerce-order-overview__date date">
-              Kuupäev:{" "}
-              <strong>
-                {new Date(order.date_created).toLocaleDateString("ee-est", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </strong>
+              Kuupäev: <strong>{dateCreated}</strong>
             </li>
             <li className="woocommerce-order-overview__total total">
               Kokku:{" "}
               <strong>
-                <span className="price__block">
-                  {order.total + order.currency}
-                </span>
+                <span className="price__block">{total}</span>
               </strong>
             </li>
             <li className="woocommerce-order-overview__payment-method method">
