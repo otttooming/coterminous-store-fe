@@ -68,3 +68,6 @@ dist/
 
 # WebStorm/IntelliJ
 .idea/
+
+# Static remotely fetched assets
+static/shipping/

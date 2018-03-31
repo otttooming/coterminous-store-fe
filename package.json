@@ -72,13 +72,15 @@
     "typescript": "2.8.1"
   },
   "scripts": {
-    "dev": "node server.js",
+    "dev": "npm run get:omniva && npm run get:smartpost && node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "sprite": "svg-sprite-generate -d ./static/assets -o ./static/sprite.svg",
-    "style": "node-sass styles/main.scss static/css/styles.css"
+    "style": "node-sass styles/main.scss static/css/styles.css",
+    "get:omniva": "curl https://www.omniva.ee/locations.json -o ./static/shipping/omniva.json",
+    "get:smartpost": "curl http://uus.smartpost.ee/places.json -o ./static/shipping/smartpost.json"
   },
   "jest": {
     "moduleFileExtensions": [
