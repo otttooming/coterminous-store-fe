@@ -56,6 +56,7 @@ import {
   WCRestApiError,
 } from "../common/woocommerce/typings";
 import OrderView from "../components/orderView/OrderView";
+import { ShippingLocations } from "../services/shippingApi/shippingApi";
 
 interface Props extends InjectedFormProps {
   categories: CategoryProps[];
@@ -75,6 +76,7 @@ export interface State {
   page?: PageProps;
   price: ShoppingCartPrice | undefined;
   order: CreateOrderResponse | undefined;
+  shippingLocations?: ShippingLocations;
 }
 
 interface InitialProps {

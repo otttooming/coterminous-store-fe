@@ -1,3 +1,4 @@
+import { CHECKOUT_SLUGS } from "./../../common/products/constants";
 import "isomorphic-unfetch";
 
 import { getProducts } from "../../services/productApi/productApi";
@@ -26,6 +27,7 @@ import { State } from "../../pages/index";
 import * as RoutingHelpers from "./helpers";
 import { CategoryProps } from "../../components/categoriesListing/CategoriesListing";
 import flattenArray from "../../common/utils/array-flatten";
+import { getShippingMethods } from "../shippingApi/shippingApi";
 
 const handleProductsListing = async (
   props: State,
@@ -93,6 +95,12 @@ const handlePage = async (props: State): Promise<State> => {
   return { ...props, page };
 };
 
+const handleCheckout = async (props: State): Promise<State> => {
+  const response = await getShippingMethods();
+
+  return { ...props, ...response };
+};
+
 const handleDefault = async (props: State): Promise<State> => {
   return { ...props };
 };
@@ -131,6 +139,8 @@ export const handleRouting = async (props: State): Promise<State> => {
       return handleCategory(props);
     case LANDING_SLUGS.DEFAULT:
       return handleLanding(props);
+    case CHECKOUT_SLUGS.DEFAULT:
+      return handleCheckout(props);
     case PAGE_SLUGS.DEFAULT:
       return handlePage(props);
     default:
