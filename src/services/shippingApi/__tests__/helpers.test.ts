@@ -5,7 +5,7 @@ import {
 } from "./../helpers";
 
 describe("shippingApi helpers", () => {
-  it("should return mapped response", () => {
+  it("should return mapped Omniva shippingLocation response", () => {
     const omnivaJSON: OmnivaShippingJSON = {
       ZIP: "74594",
       NAME: "Aegviidu postipunkt",
