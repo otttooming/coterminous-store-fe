@@ -12,7 +12,18 @@ export interface ShippingLocations {
   smartpost?: ShippingLocationItems[];
 }
 
-export interface ShippingLocationItems {}
+export interface ShippingLocationItems {
+  title: string;
+  locations: Locations[];
+}
+
+export interface Locations {
+  address: string;
+  name: string;
+  service_hours: string;
+  state: string;
+  raw: any;
+}
 
 export async function getOmnivaShippingLocations(): Promise<
   ShippingLocationItems[]
