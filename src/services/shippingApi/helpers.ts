@@ -1,3 +1,5 @@
+import { ShippingLocationItems, Locations } from "./shippingApi";
+
 export interface OmnivaShippingJSON {
   ZIP: string;
   NAME: string;
@@ -27,29 +29,29 @@ export interface OmnivaShippingJSON {
 }
 
 // getOmnivaShippingLocations($tmp, 'EE')
-export function createOmnivaShippingLocations(arr, local) {
-  console.log(arr);
-  const stateNames = [
-    ...new Set(
-      arr.map(item => {
-        if (item.A0_NAME === local) {
-          return item.A1_NAME;
-        } else {
-          return "other";
-        }
-      })
-    ),
-  ].sort();
-  const states = stateNames.map(item => {
-    return { title: item, locations: [] };
+export function createOmnivaShippingLocations(
+  omnivaShipping: OmnivaShippingJSON[],
+  language: string
+): ShippingLocationItems[] {
+  const languageMatchedStateNames: string[] = omnivaShipping.map(item => {
+    if (item.A0_NAME === language) {
+      return item.A1_NAME;
+    } else {
+      return "other";
+    }
   });
 
-  const shippingLocations = states;
+  const uniqueStateNames: string[] = [
+    ...new Set(languageMatchedStateNames),
+  ].sort();
 
-  function stateMap(location) {
-    states.map((item, index) => {
-      if (item.title === location.A1_NAME) {
-        shippingLocations[index].locations.push({
+  const createStateLocations = (
+    omnivaShipping: OmnivaShippingJSON[],
+    stateName: string
+  ): Locations[] => {
+    return omnivaShipping.map(location => {
+      if (stateName === location.A1_NAME) {
+        return {
           name: location.NAME,
           address: [
             location.A2_NAME,
@@ -65,20 +67,25 @@ export function createOmnivaShippingLocations(arr, local) {
           state: location.A1_NAME,
           service_hours: location.SERVICE_HOURS,
           raw: location,
-        });
+        };
       }
     });
-  }
+  };
 
-  arr.map(location => {
-    stateMap(location);
-  });
+  const shippingLocations: ShippingLocationItems[] = uniqueStateNames.map(
+    stateName => {
+      return {
+        title: stateName,
+        locations: createStateLocations(omnivaShipping, stateName),
+      };
+    }
+  );
 
   return shippingLocations;
 }
 
 // getSmartpostShippingLocations($tmp)
-export function createSmartpostShippingLocations(arr) {
+export function createSmartpostShippingLocations(arr): any {
   const stateNames = [
     ...new Set(
       arr.map(item => {
