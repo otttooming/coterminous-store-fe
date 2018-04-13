@@ -1,3 +1,4 @@
+import { Countries } from "./../../common/countries/constants";
 import { ShippingLocationItems, Locations } from "./shippingApi";
 
 export interface OmnivaShippingJSON {
@@ -28,10 +29,9 @@ export interface OmnivaShippingJSON {
   MODIFIED: string;
 }
 
-// getOmnivaShippingLocations($tmp, 'EE')
 export function createOmnivaShippingLocations(
   omnivaShipping: OmnivaShippingJSON[],
-  language: string
+  language: Countries
 ): ShippingLocationItems[] {
   const languageMatchedStateNames: string[] = omnivaShipping.map(item => {
     if (item.A0_NAME === language) {
