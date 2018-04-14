@@ -8,6 +8,8 @@ import DropdownMenu from "../../../components/DropdownMenu";
 
 import { FormSectionFieldset } from "../styles/fieldset";
 
+import { ShippingLocations } from "../../../services/shippingApi/shippingApi";
+
 // getOmnivaShippingLocations($tmp, 'EE')
 function getOmnivaShippingLocations(arr, local) {
   const stateNames = [
@@ -96,30 +98,40 @@ function getSmartpostShippingLocations(arr) {
   return shippingLocations;
 }
 
-const ShippingMethods = (props: any) => {
-  return (
+interface ShippingMethodsProps {
+  shippingLocations: ShippingLocations | undefined;
+}
+
+const ShippingMethods = (props: ShippingMethodsProps) => {
+  const { shippingLocations } = props;
+
+  return !shippingLocations ? null : (
     <FormSectionFieldset>
       <h2>Shipping</h2>
       <ul className="list-style-none">
-        <li>
-          <h3>Omniva</h3>
-          <Field
-            name="shipping_method_location"
-            component={DropdownMenu}
-            options={getOmnivaShippingLocations(shippingOmnivaJSON, "EE")}
-            className="shipping_method"
-          />
-        </li>
+        {shippingLocations.omniva && (
+          <li>
+            <h3>Omniva</h3>
+            <Field
+              name="shipping_method_location"
+              component={DropdownMenu}
+              options={shippingLocations.omniva}
+              className="shipping_method"
+            />
+          </li>
+        )}
 
-        <li>
-          <h3>SmartPost</h3>
-          <Field
-            name="shipping_method_location"
-            component={DropdownMenu}
-            options={getSmartpostShippingLocations(shippingSmartpostJSON, "EE")}
-            className="shipping_method"
-          />
-        </li>
+        {shippingLocations.smartpost && (
+          <li>
+            <h3>SmartPost</h3>
+            <Field
+              name="shipping_method_location"
+              component={DropdownMenu}
+              options={shippingLocations.smartpost}
+              className="shipping_method"
+            />
+          </li>
+        )}
       </ul>
     </FormSectionFieldset>
   );

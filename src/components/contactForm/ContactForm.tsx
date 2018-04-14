@@ -10,6 +10,11 @@ import TermsOfService from "./children/TermsOfService";
 import Submit from "./children/Submit";
 import AdditionalInformation from "./children/AdditionalInformation";
 import { LocationChangeProps } from "../../common/products/typings";
+import {
+  ShippingMethodsContext,
+  ShippingMethodsProvider,
+  ShippingMethodsProviderState,
+} from "../../components/shippingMethods/ShippingMethodsContext";
 
 interface Props {
   handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -33,7 +38,15 @@ const ContactForm = ({
 
       {/* <PaymentGateways paymentGateways={paymentGateways} /> */}
 
-      {/* <ShippingMethods shippingMethods={shippingMethods} /> */}
+      <ShippingMethodsProvider>
+        <ShippingMethodsContext.Consumer>
+          {value => (
+            <ShippingMethods
+              shippingLocations={!value ? undefined : value.shippingLocations}
+            />
+          )}
+        </ShippingMethodsContext.Consumer>
+      </ShippingMethodsProvider>
 
       <TermsOfService onLocationChange={onLocationChange} />
 
