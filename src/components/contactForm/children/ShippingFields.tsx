@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Field } from "redux-form";
 
-import { FormSectionFieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../../../common/styles/fieldset";
 
 const ShippingFields = () => {
   return (

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Field } from "redux-form";
-import { FormSection, Fieldset } from "../styles/fieldset";
+import { FormSection, Fieldset } from "../../../common/styles/fieldset";
 
 const BillingFields = () => {
   return (

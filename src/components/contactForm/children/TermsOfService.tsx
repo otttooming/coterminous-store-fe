@@ -2,7 +2,7 @@ import * as React from "react";
 import { Field } from "redux-form";
 import styled from "styled-components";
 import Link from "../../../components/link/Link";
-import { FormSectionFieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../../../common/styles/fieldset";
 import { LOCATION_TYPES, PAGE_SLUGS } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
 

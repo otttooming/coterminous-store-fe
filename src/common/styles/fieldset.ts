@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { color, border, spacing } from "../../../common/styles/constants";
+import { color, border, spacing } from "./constants";
 
 const section = css`
   background-color: ${color.background};

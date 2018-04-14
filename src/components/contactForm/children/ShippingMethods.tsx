@@ -6,7 +6,7 @@ import {
 } from "../../../components/apiShipping";
 import DropdownMenu from "../../../components/DropdownMenu";
 
-import { FormSectionFieldset } from "../styles/fieldset";
+import { FormSectionFieldset } from "../../../common/styles/fieldset";
 
 import { ShippingLocations } from "../../../services/shippingApi/shippingApi";
 
