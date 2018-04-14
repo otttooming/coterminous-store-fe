@@ -3,12 +3,12 @@ import { Field, reduxForm } from "redux-form";
 import {
   shippingOmnivaJSON,
   shippingSmartpostJSON,
-} from "../../../components/apiShipping";
-import DropdownMenu from "../../../components/DropdownMenu";
+} from "../../components/apiShipping";
+import DropdownMenu from "../../components/DropdownMenu";
 
-import { FormSectionFieldset } from "../../../common/styles/fieldset";
+import { FormSectionFieldset } from "../../common/styles/fieldset";
 
-import { ShippingLocations } from "../../../services/shippingApi/shippingApi";
+import { ShippingLocations } from "../../services/shippingApi/shippingApi";
 
 // getOmnivaShippingLocations($tmp, 'EE')
 function getOmnivaShippingLocations(arr, local) {
@@ -102,7 +102,7 @@ interface ShippingMethodsProps {
   shippingLocations: ShippingLocations | undefined;
 }
 
-const ShippingMethods = (props: ShippingMethodsProps) => {
+const ShippingMethodInternal = (props: ShippingMethodsProps) => {
   const { shippingLocations } = props;
 
   return !shippingLocations ? null : (
@@ -137,4 +137,4 @@ const ShippingMethods = (props: ShippingMethodsProps) => {
   );
 };
 
-export default ShippingMethods;
+export default ShippingMethodInternal;

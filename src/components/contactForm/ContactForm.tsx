@@ -4,17 +4,11 @@ import { Field } from "redux-form";
 import BillingFields from "./children/BillingFields";
 import ShippingFields from "./children/ShippingFields";
 
-import ShippingMethods from "./children/ShippingMethods";
-
 import TermsOfService from "./children/TermsOfService";
 import Submit from "./children/Submit";
 import AdditionalInformation from "./children/AdditionalInformation";
 import { LocationChangeProps } from "../../common/products/typings";
-import {
-  ShippingMethodsContext,
-  ShippingMethodsProvider,
-  ShippingMethodsProviderState,
-} from "../../components/shippingMethods/ShippingMethodsContext";
+import ShippingMethods from "../../components/shippingMethods/ShippingMethodsWrapper";
 
 interface Props {
   handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -38,15 +32,7 @@ const ContactForm = ({
 
       {/* <PaymentGateways paymentGateways={paymentGateways} /> */}
 
-      <ShippingMethodsProvider>
-        <ShippingMethodsContext.Consumer>
-          {value => (
-            <ShippingMethods
-              shippingLocations={!value ? undefined : value.shippingLocations}
-            />
-          )}
-        </ShippingMethodsContext.Consumer>
-      </ShippingMethodsProvider>
+      <ShippingMethods />
 
       <TermsOfService onLocationChange={onLocationChange} />
 
