@@ -28,7 +28,7 @@ export interface Locations {
 export async function getOmnivaShippingLocations(): Promise<
   ShippingLocationItems[]
 > {
-  const url = `./static/shipping/omniva.json`;
+  const url = `http://localhost:3000/static/shipping/omniva.json`;
 
   const resp = await fetch(url);
   const raw = await resp.json();
@@ -44,7 +44,7 @@ export async function getOmnivaShippingLocations(): Promise<
 export async function getSmartpostaShippingLocations(): Promise<
   ShippingLocationItems[]
 > {
-  const url = `./static/shipping/smartpost.json`;
+  const url = `http://localhost:3000/static/shipping/smartpost.json`;
 
   const resp = await fetch(url);
   const raw = await resp.json();
