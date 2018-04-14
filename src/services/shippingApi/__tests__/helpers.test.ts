@@ -3,6 +3,7 @@ import {
   OmnivaShippingJSON,
   createOmnivaShippingLocations,
 } from "./../helpers";
+import { Countries } from "../../../common/countries/constants";
 
 const omnivaJSON: OmnivaShippingJSON = {
   ZIP: "74594",
@@ -75,14 +76,16 @@ const expectedResponse: ShippingLocationItems[] = [
 
 describe("shippingApi helpers", () => {
   it("should return mapped Omniva shippingLocation response", () => {
-    expect(createOmnivaShippingLocations([omnivaJSON], "EE")).toEqual(
-      expectedResponse
-    );
+    expect(
+      createOmnivaShippingLocations([omnivaJSON], Countries.Estonia)
+    ).toEqual(expectedResponse);
   });
 
   it("should return only one state location", () => {
     expect(
-      createOmnivaShippingLocations([omnivaJSON], "EE").map(item => item.title)
+      createOmnivaShippingLocations([omnivaJSON], Countries.Estonia).map(
+        item => item.title
+      )
     ).toHaveLength(1);
   });
 
@@ -93,7 +96,7 @@ describe("shippingApi helpers", () => {
     expect(
       createOmnivaShippingLocations(
         mockOmnivaShippingLocationsWithTwoStates,
-        "EE"
+        Countries.Estonia
       ).map(item => item.title)
     ).toHaveLength(2);
   });
