@@ -49,8 +49,9 @@ export function createOmnivaShippingLocations(
     omnivaShipping: OmnivaShippingJSON[],
     stateName: string
   ): Locations[] => {
-    return omnivaShipping.map(location => {
-      if (stateName === location.A1_NAME) {
+    return omnivaShipping
+      .filter(location => stateName === location.A1_NAME)
+      .map(location => {
         return {
           name: location.NAME,
           address: [
@@ -68,8 +69,7 @@ export function createOmnivaShippingLocations(
           service_hours: location.SERVICE_HOURS,
           raw: location,
         };
-      }
-    });
+      });
   };
 
   const shippingLocations: ShippingLocationItems[] = uniqueStateNames.map(

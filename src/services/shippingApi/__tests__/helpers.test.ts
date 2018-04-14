@@ -100,4 +100,18 @@ describe("shippingApi helpers", () => {
       ).map(item => item.title)
     ).toHaveLength(2);
   });
+
+  it("should not return null values when state is mismatched", () => {
+    const alteredState = { ...omnivaJSON, A1_NAME: "Test state" };
+    const mockOmnivaShippingLocationsWithTwoStates = [omnivaJSON, alteredState];
+
+    expect(
+      createOmnivaShippingLocations(
+        mockOmnivaShippingLocationsWithTwoStates,
+        Countries.Estonia
+      )
+        .reduce((acc, cur) => [...acc, ...cur.locations], [])
+        .filter(item => !item)
+    ).toHaveLength(0);
+  });
 });
