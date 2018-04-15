@@ -2,6 +2,7 @@ import {
   createOmnivaShippingLocations,
   createSmartpostShippingLocations,
 } from "./helpers";
+import { Countries } from "../../common/countries/constants";
 
 export interface ShippingProps {
   shippingLocations: ShippingLocations;
@@ -35,7 +36,7 @@ export async function getOmnivaShippingLocations(): Promise<
 
   const shippingLocation: ShippingLocationItems[] = createOmnivaShippingLocations(
     raw,
-    "EE"
+    Countries.Estonia
   );
 
   return shippingLocation;
