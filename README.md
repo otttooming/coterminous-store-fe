@@ -1,4 +1,4 @@
-# wp-next
+# coterminous-core
 
 Next.js website built using WP REST API
 
