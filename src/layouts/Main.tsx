@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ThemeProvider } from "next-styled";
+import { ThemeProvider } from "coterminous-styled";
 
 interface Props {
   children: React.ReactNode;
