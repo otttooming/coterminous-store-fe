@@ -1,7 +1,11 @@
 {
   "name": "coterminous-core",
   "version": "1.0.0",
-  "description": "",
+  "description": "React ecommerce project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/otttooming/coterminous-core.git"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "1.5.1",
     "classnames": "2.2.5",
