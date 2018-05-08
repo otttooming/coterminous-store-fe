@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ThemeProvider } from "coterminous-styled";
+import { ThemeProvider, theme, GlobalStyle } from "coterminous-styled";
 
 interface Props {
   children: React.ReactNode;
@@ -16,8 +16,9 @@ const Main = ({
   renderAfterMain,
   renderFooter,
 }: Props) => (
-  <ThemeProvider theme={{ primaryColor: "red", primaryColorInverted: "blue" }}>
+  <ThemeProvider theme={theme}>
     <>
+      <GlobalStyle />
       <div className="wrapper">
         {!!renderHeader && renderHeader}
 
