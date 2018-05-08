@@ -1,100 +1,45 @@
 import * as React from "react";
-import { Field } from "redux-form";
-import { FormSection, Fieldset } from "../../../common/styles/fieldset";
+import { TextInput } from "coterminous-styled/dist/components/Form/TextInput/TextInput";
+import { TextInputField, Heading, Section } from "coterminous-styled";
 
 const BillingFields = () => {
   return (
-    <FormSection>
-      <h2>Billing Address</h2>
+    <Section>
+      <Heading.H2>Billing Address</Heading.H2>
 
-      <Fieldset>
-        <label htmlFor="first_name">First Name</label>
-        <Field
-          id="first_name"
-          name="billing.first_name"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="last_name">Last Name</label>
-        <Field
-          id="last_name"
-          name="billing.last_name"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="email">Email</label>
-        <Field id="email" name="billing.email" component="input" type="text" />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="phone">Phone</label>
-        <Field
-          id="phone"
-          name="billing.phone"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="country">Country</label>
-        <Field
-          id="country"
-          name="billing.country"
-          component="select"
-          defaultValue="estonia"
-          value="estonia"
-        >
-          <option value="estonia">Estonia</option>
-        </Field>
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="address_1">Address</label>
-        <Field
-          id="address_1"
-          name="billing.address_1"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-
-      <Fieldset>
-        <Field name="billing.address_2" component="input" type="text" />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="postcode">Postcode / ZIP</label>
-        <Field
-          id="postcode"
-          name="billing.postcode"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-
-      <Fieldset>
-        <label htmlFor="city">Town / City</label>
-        <Field
-          id="city"
-          name="billing.city"
-          component="input"
-          type="text"
-          required={true}
-        />
-      </Fieldset>
-    </FormSection>
+      <TextInputField.Input
+        label="First name"
+        name="billing_first_name"
+        isRequired={true}
+      />
+      <TextInputField.Input
+        label="Last name"
+        name="billing_last_name"
+        isRequired={true}
+      />
+      <TextInputField.Input label="Email" name="billing_email" />
+      <TextInputField.Input
+        label="Phone"
+        name="billing_phone"
+        isRequired={true}
+      />
+      <TextInputField.Input
+        label="Country"
+        name="billing_country"
+        isRequired={true}
+      />
+      <TextInputField.Input label="Address" name="billing_address_1" />
+      <TextInputField.Input
+        label="Postcode / ZIP"
+        name="billing_postcode"
+        isRequired={true}
+      />
+      <TextInputField.Input
+        label="Town / City"
+        name="billing_city"
+        isRequired={true}
+      />
+    </Section>
   );
 };
 
