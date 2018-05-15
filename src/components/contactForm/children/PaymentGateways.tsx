@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Field } from "redux-form";
-
-import { FormSectionFieldset } from "../../../common/styles/fieldset";
+import { Section } from "coterminous-styled";
 
 const PaymentGateways = (props: any) => {
   const listPaymentGateways = props.paymentGateways.map(
@@ -32,12 +31,12 @@ const PaymentGateways = (props: any) => {
   );
 
   return (
-    <FormSectionFieldset>
+    <Section>
       <h2>Pay</h2>
       <ul className="wc_payment_methods payment_methods methods list-style-none">
         {listPaymentGateways}
       </ul>
-    </FormSectionFieldset>
+    </Section>
   );
 };
 

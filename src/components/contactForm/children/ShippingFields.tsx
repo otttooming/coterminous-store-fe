@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Field } from "redux-form";
-
-import { FormSectionFieldset } from "../../../common/styles/fieldset";
+import { Section } from "coterminous-styled";
 
 const ShippingFields = () => {
   return (
-    <FormSectionFieldset>
+    <Section>
       <h3 id="ship-to-different-address">
         <label
           htmlFor="ship-to-different-address-checkbox"
@@ -164,7 +163,7 @@ const ShippingFields = () => {
         </p>
         <div className="clear" />
       </div>
-    </FormSectionFieldset>
+    </Section>
   );
 };
 
