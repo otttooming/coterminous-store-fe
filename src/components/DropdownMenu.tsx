@@ -137,8 +137,8 @@ function shouldRenderSuggestions() {
 }
 
 interface Props extends WrappedFieldProps {
-  optionsD?: any;
-  classNameD: any;
+  options?: any;
+  className: any;
 }
 
 export default class DropdownMenu extends React.Component<Props, any> {
