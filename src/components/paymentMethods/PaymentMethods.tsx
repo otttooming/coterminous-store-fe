@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
-import { FormSectionFieldset } from "../../common/styles/fieldset";
 import { PaymentMethods } from "../../services/paymentMethodsApi/paymentMethodsApi";
+import { Section, Heading } from "coterminous-styled";
 
 interface PaymentMethodsProps {
   paymentMethods: PaymentMethods | undefined;
@@ -11,8 +11,9 @@ const PaymentMethodsInternal = (props: PaymentMethodsProps) => {
   const { paymentMethods } = props;
 
   return !paymentMethods ? null : (
-    <FormSectionFieldset>
-      <h2>Shipping</h2>
+    <Section>
+      <Heading.H1>Shipping</Heading.H1>
+
       <ul className="list-style-none">
         {paymentMethods.swedbank && (
           <li>
@@ -38,7 +39,7 @@ const PaymentMethodsInternal = (props: PaymentMethodsProps) => {
           </li>
         )}
       </ul>
-    </FormSectionFieldset>
+    </Section>
   );
 };
 

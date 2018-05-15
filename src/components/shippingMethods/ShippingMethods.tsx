@@ -1,10 +1,8 @@
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 import DropdownMenu from "../../components/DropdownMenu";
-
-import { FormSectionFieldset } from "../../common/styles/fieldset";
-
 import { ShippingLocations } from "../../services/shippingApi/shippingApi";
+import { Section, Heading } from "coterminous-styled";
 
 interface ShippingMethodsProps {
   shippingLocations: ShippingLocations | undefined;
@@ -14,8 +12,9 @@ const ShippingMethodInternal = (props: ShippingMethodsProps) => {
   const { shippingLocations } = props;
 
   return !shippingLocations ? null : (
-    <FormSectionFieldset>
-      <h2>Shipping</h2>
+    <Section>
+      <Heading.H1>Shipping</Heading.H1>
+
       <ul className="list-style-none">
         {shippingLocations.omniva && (
           <li>
@@ -41,7 +40,7 @@ const ShippingMethodInternal = (props: ShippingMethodsProps) => {
           </li>
         )}
       </ul>
-    </FormSectionFieldset>
+    </Section>
   );
 };
 
