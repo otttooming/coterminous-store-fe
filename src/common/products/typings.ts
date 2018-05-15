@@ -45,6 +45,7 @@ export interface CartItemProps {
 export interface FormValues {
   cartItems: { [key: string]: CartItemProps };
   billing: Billing;
+  payment_method: string;
 }
 
 export interface ProductProps {
