@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Field } from "redux-form";
 import styled from "styled-components";
 import Link from "../../../components/link/Link";
 import { FormSectionFieldset } from "../../../common/styles/fieldset";
 import { LOCATION_TYPES, PAGE_SLUGS } from "../../../common/products/constants";
 import { LocationChangeProps } from "../../../common/products/typings";
+import { Section, Heading, CheckboxField } from "coterminous-styled";
 
 interface Props {
   onLocationChange: (props: LocationChangeProps) => void;
@@ -26,33 +26,29 @@ const LinkWithStyle = styled(Link)`
 
 const TermsOfService = ({ onLocationChange }: Props) => {
   return (
-    <FormSectionFieldset>
-      <h2>Terms and conditions</h2>
-      <p>
-        <Label>
-          <Field
-            name="terms"
-            component="input"
-            type="checkbox"
-            value="terms"
-            required={true}
-          />
+    <Section>
+      <Heading.H1>Terms and conditions</Heading.H1>
 
-          <Text>I’ve read and accept the</Text>
+      <Text>I’ve read and accept the</Text>
 
-          <LinkWithStyle
-            location={{
-              type: LOCATION_TYPES.PAGE,
-              view: PAGE_SLUGS.DEFAULT,
-              pathName: ["tos"],
-            }}
-            onLocationChange={onLocationChange}
-          >
-            terms and conditions
-          </LinkWithStyle>
-        </Label>
-      </p>
-    </FormSectionFieldset>
+      <LinkWithStyle
+        location={{
+          type: LOCATION_TYPES.PAGE,
+          view: PAGE_SLUGS.DEFAULT,
+          pathName: ["tos"],
+        }}
+        onLocationChange={onLocationChange}
+      >
+        terms and conditions
+      </LinkWithStyle>
+
+      <CheckboxField
+        label={null}
+        inputLabel="terms of service"
+        name="terms"
+        isRequired={true}
+      />
+    </Section>
   );
 };
 
