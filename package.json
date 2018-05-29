@@ -16,7 +16,7 @@
     "next": "5.1.0",
     "next-redux-wrapper": "1.3.5",
     "next-routes": "1.4.1",
-    "coterminous-styled": "git+ssh://git@github.com/otttooming/coterminous-styled.git",
+    "coterminous-styled": "git+https://eecac4a4af30c56755b8f5fde964782b490ecc32:x-oauth-basic@github.com/otttooming/coterminous-styled.git",
     "path-match": "1.2.4",
     "react": "16.3.2",
     "react-autosuggest": "9.3.4",
