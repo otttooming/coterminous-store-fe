@@ -1,5 +1,4 @@
 import * as React from "react";
-import DropdownMenu from "../../components/DropdownMenu";
 import { ShippingLocations } from "../../services/shippingApi/shippingApi";
 import { Section, Heading } from "coterminous-styled";
 
