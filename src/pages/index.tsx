@@ -31,8 +31,6 @@ import Footer from "../components/footer/Footer";
 import ProductItem from "../components/productItem/ProductItem";
 import Loader from "../components/loader/Loader";
 
-import * as withRedux from "next-redux-wrapper";
-
 import {
   FormValues,
   LocationChangeProps,
@@ -56,6 +54,7 @@ import {
 } from "../common/woocommerce/typings";
 import OrderView from "../components/orderView/OrderView";
 import { ShippingLocations } from "../services/shippingApi/shippingApi";
+import { connect } from "react-redux";
 
 interface Props {
   categories: CategoryProps[];
@@ -321,4 +320,4 @@ class IndexPage extends React.Component<Props, State> {
   }
 }
 
-export default withRedux(initStore, null, null)(IndexPage);
+export default IndexPage;

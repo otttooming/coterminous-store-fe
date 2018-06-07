@@ -3,7 +3,7 @@
   "jsRules": {},
   "rules": {
     "prettier": true,
-    "no-console": true,
+    "no-console": false,
     "object-literal-sort-keys": false,
     "no-var-keyword": true,
     "no-submodule-imports": [true, "next"],

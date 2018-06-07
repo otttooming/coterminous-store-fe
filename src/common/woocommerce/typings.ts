@@ -170,5 +170,5 @@ export interface WCRestApiErrorData {
 export function isWCRestApiError<T>(
   response: WCRestApiError | T
 ): response is WCRestApiError {
-  return !response ? false : (<WCRestApiError>response).code !== undefined;
+  return !response ? false : (response as WCRestApiError).code !== undefined;
 }

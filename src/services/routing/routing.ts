@@ -1,4 +1,3 @@
-import { CHECKOUT_SLUGS } from "./../../common/products/constants";
 import "isomorphic-unfetch";
 
 import { getProducts } from "../../services/productApi/productApi";
