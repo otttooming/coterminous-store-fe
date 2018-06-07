@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Field, reduxForm } from "redux-form";
 import { PaymentMethods } from "../../services/paymentMethodsApi/paymentMethodsApi";
 import { Section, Heading } from "coterminous-styled";
 
@@ -18,24 +17,24 @@ const PaymentMethodsInternal = (props: PaymentMethodsProps) => {
         {paymentMethods.swedbank && (
           <li>
             <h3>{paymentMethods.swedbank.title}</h3>
-            <Field
+            {/* <Field
               name="payment_method"
               component="input"
               type="radio"
               value={paymentMethods.swedbank.title}
-            />
+            /> */}
           </li>
         )}
 
         {paymentMethods.seb && (
           <li>
             <h3>{paymentMethods.seb.title}</h3>
-            <Field
+            {/* <Field
               name="payment_method"
               component="input"
               type="radio"
               value={paymentMethods.seb.title}
-            />
+            /> */}
           </li>
         )}
       </ul>

@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Field } from "redux-form";
-import { Section, Heading } from "coterminous-styled";
+import { Section, Heading, CheckboxField } from "coterminous-styled";
 
 const PaymentGateways = (props: any) => {
   const listPaymentGateways = props.paymentGateways.map(
@@ -9,11 +8,11 @@ const PaymentGateways = (props: any) => {
         return (
           <li key={index} className="wc_payment_method payment_method_bacs">
             {/* <input id="payment_method_bacs" type="radio" className="input-radio" name="payment_method" defaultValue="bacs" defaultChecked="checked" data-order_button_text /> */}
-            <Field
+
+            <CheckboxField
               name="payment_method"
-              component="input"
-              type="radio"
-              value={item.id}
+              inputLabel="Payment method"
+              label="label"
             />
 
             <label htmlFor="payment_method_bacs">

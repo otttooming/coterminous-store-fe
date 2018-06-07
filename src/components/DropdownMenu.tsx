@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as Autosuggest from "react-autosuggest";
-import { WrappedFieldProps } from "redux-form";
 
 const languages = [
   {
@@ -136,7 +135,7 @@ function shouldRenderSuggestions() {
   return true;
 }
 
-interface Props extends WrappedFieldProps {
+interface Props {
   options?: any;
   className: any;
 }

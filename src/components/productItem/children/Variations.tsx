@@ -2,7 +2,6 @@ import * as React from "react";
 import Icon from "../../../components/icon/Icon";
 import Quantity from "../../../components/form/Quantity";
 import styled from "styled-components";
-import { Field } from "redux-form";
 import { SingleProductVariationProps } from "../../../services/productApi/singleProductApi";
 import { CartItemProps } from "../../../common/products/typings";
 
@@ -18,10 +17,10 @@ const Variations = (props: any) => {
       const { attributes, price, id } = variation;
       const { name } = attributes;
 
-      const fieldProps: CartItemProps = {
-        productSlug: product.slug,
-        variationId: id,
-      };
+      // const fieldProps: CartItemProps = {
+      //   productSlug: product.slug,
+      //   variationId: id,
+      // };
 
       return (
         <VariationItem key={index} className="product-variations__item">
@@ -38,11 +37,11 @@ const Variations = (props: any) => {
             </div>
           )}
 
-          <Field
+          {/* <Field
             {...fieldProps}
             name={`cartItems.id_${id.toString()}`}
             component={Quantity}
-          />
+          /> */}
         </VariationItem>
       );
     }

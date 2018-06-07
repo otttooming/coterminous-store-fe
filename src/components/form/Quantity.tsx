@@ -1,12 +1,15 @@
 import * as React from "react";
 import Icon from "../../components/icon/Icon";
-import { WrappedFieldProps, InjectedFormProps } from "redux-form";
 import { CartItemProps } from "../../common/products/typings";
 
-type Props = CartItemProps & WrappedFieldProps;
+type Props = CartItemProps & any;
 
 const Quantity = (props: Props) => {
-  const { input: { value, onChange }, productSlug, variationId } = props;
+  const {
+    input: { value, onChange },
+    productSlug,
+    variationId,
+  } = props;
   const { quantity = 0 } = value;
 
   return (

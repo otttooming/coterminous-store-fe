@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Field, reduxForm } from "redux-form";
 import DropdownMenu from "../../components/DropdownMenu";
 import { ShippingLocations } from "../../services/shippingApi/shippingApi";
 import { Section, Heading } from "coterminous-styled";
@@ -19,24 +18,24 @@ const ShippingMethodInternal = (props: ShippingMethodsProps) => {
         {shippingLocations.omniva && (
           <li>
             <h3>Omniva</h3>
-            <Field
+            {/* <Field
               name="shipping_method_location"
               component={DropdownMenu}
               options={shippingLocations.omniva}
               className="shipping_method"
-            />
+            /> */}
           </li>
         )}
 
         {shippingLocations.smartpost && (
           <li>
             <h3>SmartPost</h3>
-            <Field
+            {/* <Field
               name="shipping_method_location"
               component={DropdownMenu}
               options={shippingLocations.smartpost}
               className="shipping_method"
-            />
+            /> */}
           </li>
         )}
       </ul>

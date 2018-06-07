@@ -27,7 +27,6 @@
     "react-redux": "5.0.7",
     "redux": "4.0.0",
     "redux-devtools-extension": "2.13.2",
-    "redux-form": "7.3.0",
     "redux-persist": "5.9.1",
     "redux-thunk": "2.2.0",
     "styled-components": "3.2.6"
@@ -47,7 +46,6 @@
     "@types/react-dom": "16.0.5",
     "@types/react-paginate": "4.3.2",
     "@types/react-redux": "5.0.18",
-    "@types/redux-form": "7.2.4",
     "@types/whatwg-fetch": "0.0.33",
     "@zeit/next-typescript": "0.1.1",
     "babel-cli": "6.26.0",

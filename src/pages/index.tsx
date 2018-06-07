@@ -32,7 +32,6 @@ import ProductItem from "../components/productItem/ProductItem";
 import Loader from "../components/loader/Loader";
 
 import * as withRedux from "next-redux-wrapper";
-import { reduxForm, getFormValues, InjectedFormProps } from "redux-form";
 
 import {
   FormValues,
@@ -58,7 +57,7 @@ import {
 import OrderView from "../components/orderView/OrderView";
 import { ShippingLocations } from "../services/shippingApi/shippingApi";
 
-interface Props extends InjectedFormProps {
+interface Props {
   categories: CategoryProps[];
   menuItems: any;
   products: any;
@@ -322,16 +321,4 @@ class IndexPage extends React.Component<Props, State> {
   }
 }
 
-const getShoppingCartFormValues = (state: any) => {
-  return getFormValues("shoppingCart")(state) as any;
-};
-
-const mapStateToProps = (state: any) => ({
-  formValues: getShoppingCartFormValues(state),
-});
-
-export default withRedux(initStore, mapStateToProps, null)(
-  reduxForm({
-    form: "shoppingCart",
-  })(IndexPage)
-);
+export default withRedux(initStore, null, null)(IndexPage);

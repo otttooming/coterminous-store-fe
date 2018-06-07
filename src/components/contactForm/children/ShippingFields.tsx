@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Field } from "redux-form";
 import { Section } from "coterminous-styled";
 
 const ShippingFields = () => {
