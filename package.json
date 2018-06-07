@@ -70,7 +70,7 @@
     "tslint-loader": "3.6.0",
     "tslint-plugin-prettier": "1.3.0",
     "tslint-react": "3.5.1",
-    "typescript": "2.8.3"
+    "typescript": "2.9.1"
   },
   "scripts": {
     "dev": "npm run get:omniva && npm run get:smartpost && node server.js",
