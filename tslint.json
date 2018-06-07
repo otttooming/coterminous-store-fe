@@ -1,6 +1,4 @@
 {
-  // https://github.com/buzinas/tslint-eslint-rules
-
   "defaultSeverity": "error",
   "jsRules": {},
   "rules": {
