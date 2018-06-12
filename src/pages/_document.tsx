@@ -13,9 +13,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const sheet = new ServerStyleSheet();
-    const main = sheet.collectStyles(<Main />);
-    const styleTags = sheet.getStyleElement();
     return (
       <html>
         <Head>
@@ -24,7 +21,7 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         <body>
-          <div className="root">{main}</div>
+          <Main />
           <NextScript />
         </body>
       </html>
