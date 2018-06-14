@@ -36,7 +36,6 @@
     "@types/jest": "23.1.0",
     "@types/next": "6.0.0",
     "@types/next-redux-wrapper": "1.4.1",
-    "@types/node-sass": "3.10.32",
     "@types/photoswipe": "^4.0.28",
     "@types/prettier": "1.13.1",
     "@types/react": "16.3.17",
@@ -56,7 +55,6 @@
     "babel-preset-react": "6.24.1",
     "jest": "23.1.0",
     "jest-cli": "23.1.0",
-    "node-sass": "4.9.0",
     "nodemon": "^1.17.5",
     "photoswipe": "^4.1.2",
     "prettier": "1.13.5",
@@ -78,7 +76,6 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "sprite": "svg-sprite-generate -d ./static/assets -o ./static/sprite.svg",
-    "style": "node-sass styles/main.scss static/css/styles.css",
     "get:omniva": "curl https://www.omniva.ee/locations.json -o ./static/shipping/omniva.json",
     "get:smartpost": "curl http://uus.smartpost.ee/places.json -o ./static/shipping/smartpost.json"
   },
