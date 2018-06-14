@@ -1,6 +1,6 @@
 import * as React from "react";
 import { PaymentMethods } from "../../services/paymentMethodsApi/paymentMethodsApi";
-import { Section, Heading } from "coterminous-styled";
+import { Section, Heading, RadioButtonField } from "coterminous-styled";
 
 interface PaymentMethodsProps {
   paymentMethods: PaymentMethods | undefined;
@@ -16,25 +16,23 @@ const PaymentMethodsInternal = (props: PaymentMethodsProps) => {
       <ul className="list-style-none">
         {paymentMethods.swedbank && (
           <li>
-            <h3>{paymentMethods.swedbank.title}</h3>
-            {/* <Field
+            <RadioButtonField
               name="payment_method"
-              component="input"
-              type="radio"
-              value={paymentMethods.swedbank.title}
-            /> */}
+              label={null}
+              inputLabel={paymentMethods.swedbank.title}
+              value="swedbank"
+            />
           </li>
         )}
 
         {paymentMethods.seb && (
           <li>
-            <h3>{paymentMethods.seb.title}</h3>
-            {/* <Field
+            <RadioButtonField
               name="payment_method"
-              component="input"
-              type="radio"
-              value={paymentMethods.seb.title}
-            /> */}
+              label={null}
+              inputLabel={paymentMethods.seb.title}
+              value="seb"
+            />
           </li>
         )}
       </ul>
