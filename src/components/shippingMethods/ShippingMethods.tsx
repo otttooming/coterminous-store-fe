@@ -31,7 +31,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
         <ul className="list-style-none">
           {shippingLocations.omniva && (
             <li>
-              <h3>Omniva</h3>
+              <Heading.H3>Omniva</Heading.H3>
 
               <SelectField
                 label={null}
@@ -43,7 +43,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
 
           {shippingLocations.smartpost && (
             <li>
-              <h3>SmartPost</h3>
+              <Heading.H3>SmartPost</Heading.H3>
 
               <SelectField
                 label={null}
