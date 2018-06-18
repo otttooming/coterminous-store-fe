@@ -44,7 +44,7 @@
     "@types/react-paginate": "4.3.2",
     "@types/react-redux": "6.0.2",
     "@types/whatwg-fetch": "0.0.33",
-    "@zeit/next-typescript": "1.0.1",
+    "@zeit/next-typescript": "1.1.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-jest": "23.0.1",
