@@ -8,6 +8,7 @@ import {
   Heading,
   SelectField,
   SelectItemProps,
+  RadioButtonField,
 } from "coterminous-styled";
 
 interface ShippingMethodsProps {
@@ -33,8 +34,15 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
             <li>
               <Heading.H3>Omniva</Heading.H3>
 
-              <SelectField
+              <RadioButtonField
                 label={null}
+                inputLabel="Use Omniva package station"
+                name="shipping_method"
+                value="omniva"
+              />
+
+              <SelectField
+                label="Select terminal"
                 name="shipping_method_location_omniva"
                 items={this.renderSelectSection(omniva)}
               />
@@ -45,8 +53,15 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
             <li>
               <Heading.H3>SmartPost</Heading.H3>
 
-              <SelectField
+              <RadioButtonField
                 label={null}
+                inputLabel="Use SmartPost package station"
+                name="shipping_method"
+                value="smartpost"
+              />
+
+              <SelectField
+                label="Select terminal"
                 name="shipping_method_location_smartpost"
                 items={this.renderSelectSection(smartpost)}
               />
