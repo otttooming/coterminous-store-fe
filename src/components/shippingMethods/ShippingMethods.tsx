@@ -90,6 +90,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
                   { label: location.state },
                 ],
                 group: { label: location.state },
+                meta: [{ label: location.service_hours }],
               };
 
               return re;
