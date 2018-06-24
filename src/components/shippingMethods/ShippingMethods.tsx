@@ -72,26 +72,32 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
     );
   }
 
-  renderSelectSection(items: ShippingLocationItems[]) {
+  renderSelectSection(
+    items: ShippingLocationItems[]
+  ): SelectItemProps[] | null {
+    const arr: SelectItemProps[] = [];
+
     return !items
       ? null
       : items.reduce((acc, cur) => {
-          const state = cur.locations.map((location, index) => {
-            return {
-              label: `${location.name}`,
-              renderContent: (
-                <li key={index}>
-                  <div>{location.name}</div>
-                  <div>{location.state}</div>
-                </li>
-              ),
-              value: location.name,
-              searchTerms: [location.name, location.state],
-            };
-          });
+          const state: SelectItemProps[] = cur.locations.map(
+            (location, index) => {
+              const re: SelectItemProps = {
+                label: `${location.name}`,
+                value: location.name,
+                searchTerms: [
+                  { label: location.name },
+                  { label: location.state },
+                ],
+                group: { label: location.state },
+              };
+
+              return re;
+            }
+          );
 
           return [...acc, ...state];
-        }, []);
+        }, arr);
   }
 }
 
