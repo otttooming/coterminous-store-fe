@@ -9,7 +9,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "1.5.1",
     "classnames": "2.2.6",
-    "coterminous-styled": "git+https://eecac4a4af30c56755b8f5fde964782b490ecc32:x-oauth-basic@github.com/otttooming/coterminous-styled.git#bd4509541d47c59527d0ea53e4de997939b40a15",
+    "coterminous-styled": "git+https://eecac4a4af30c56755b8f5fde964782b490ecc32:x-oauth-basic@github.com/otttooming/coterminous-styled.git#94ac5f6209a6203717a692539079d2f435575a8a",
     "downshift": "^2.0.0",
     "express": "4.16.3",
     "front-matter": "2.3.0",
