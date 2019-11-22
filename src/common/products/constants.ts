@@ -1,4 +1,4 @@
-import { ViewNames } from "./typings";
+import { ViewNames } from './typings';
 
 interface ViewProps {
   name: ViewNames;
@@ -6,45 +6,45 @@ interface ViewProps {
 }
 
 export enum SITE_NAME {
-  DEFAULT = "Aadli Aare",
+  DEFAULT = 'Aadli Aare',
 }
 
 export enum LOCATION_TYPES {
-  PAGE = "page",
+  PAGE = 'page',
 }
 
 export enum LANDING_SLUGS {
-  DEFAULT = "LANDING_VIEW",
+  DEFAULT = 'LANDING_VIEW',
 }
 
 export enum PRODUCT_LISTING_SLUGS {
-  DEFAULT = "PRODUCTS",
-  ET = "POOD",
+  DEFAULT = 'PRODUCTS',
+  ET = 'POOD',
 }
 
 export enum PRODUCT_SLUGS {
-  DEFAULT = "PRODUCT",
+  DEFAULT = 'PRODUCT',
 }
 
 export enum ORDER_SLUGS {
-  DEFAULT = "ORDER",
+  DEFAULT = 'ORDER',
 }
 
 export enum CHECKOUT_SLUGS {
-  DEFAULT = "CHECKOUT",
+  DEFAULT = 'CHECKOUT',
 }
 
 export enum CATEGORY_SLUGS {
-  DEFAULT = "CATEGORY",
+  DEFAULT = 'CATEGORY',
 }
 
 export enum PAGE_SLUGS {
-  DEFAULT = "PAGE",
+  DEFAULT = 'PAGE',
 }
 
 export enum LANGUAGE {
-  DEFAULT = "DEFAULT",
-  ET = "ET",
+  DEFAULT = 'DEFAULT',
+  ET = 'ET',
 }
 
 const VIEW_SLUGS = [

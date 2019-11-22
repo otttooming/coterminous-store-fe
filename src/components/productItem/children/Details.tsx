@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Details = ({ attributes, categories, description, tags }) => {
   const productAttributes = attributes.map((attribute, index) => (
     <tr key={index}>
       <th>{attribute.name}</th>
       <td>
-        <p>{attribute.options.map(option => option + " ")}</p>
+        <p>{attribute.options.map(option => option + ' ')}</p>
       </td>
     </tr>
   ));
@@ -30,7 +30,7 @@ const Details = ({ attributes, categories, description, tags }) => {
           <div
             id="content_tab_1"
             className="tab-content"
-            style={{ display: "block" }}
+            style={{ display: 'block' }}
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>

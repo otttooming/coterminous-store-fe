@@ -1,5 +1,5 @@
-import * as React from "react";
-import styled from "styled-components";
+import * as React from 'react';
+import styled from 'styled-components';
 
 interface LoaderProps {
   isLoaderActive: boolean;
@@ -39,11 +39,11 @@ const Spinner = styled.span`
   font-size: 10px;
   z-index: 9999;
   border-top-color: ${({ isDark }: SpinnerProps) =>
-    isDark ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"};
+    isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
   border-right-color: ${({ isDark }: SpinnerProps) =>
-    isDark ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"};
+    isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
   border-bottom-color: ${({ isDark }: SpinnerProps) =>
-    isDark ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"};
+    isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
   &:after {
     width: 30em;
     height: 30em;

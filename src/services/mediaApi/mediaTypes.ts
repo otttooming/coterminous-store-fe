@@ -70,7 +70,7 @@ export interface MediaItemResponseTypes {
    * Context: edit
    * One of: publish, future, draft, pending, private
    */
-  status: "publish" | "future" | "draft" | "pending" | "private";
+  status: 'publish' | 'future' | 'draft' | 'pending' | 'private';
 
   /**
    * string
@@ -100,7 +100,7 @@ export interface MediaItemResponseTypes {
    * Context: view, edit
    * One of: open, closed
    */
-  comment_status: "open" | "closed";
+  comment_status: 'open' | 'closed';
 
   /**
    * string
@@ -108,7 +108,7 @@ export interface MediaItemResponseTypes {
    * Context: view, edit
    * One of: open, closed
    */
-  ping_status: "open" | "closed";
+  ping_status: 'open' | 'closed';
 
   /**
    * object
@@ -145,7 +145,7 @@ export interface MediaItemResponseTypes {
    * One of: image, file
    * @readonly
    */
-  media_type: "image" | "file";
+  media_type: 'image' | 'file';
 
   /**
    * string

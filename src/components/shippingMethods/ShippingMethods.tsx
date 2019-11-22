@@ -1,15 +1,15 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   ShippingLocations,
   ShippingLocationItems,
-} from "../../services/shippingApi/shippingApi";
+} from '../../services/shippingApi/shippingApi';
 import {
   Section,
   Heading,
   SelectField,
   SelectItemProps,
   RadioButtonField,
-} from "coterminous-styled";
+} from '@coterminous/ui-lib';
 
 interface ShippingMethodsProps {
   shippingLocations: ShippingLocations | undefined;
@@ -27,12 +27,12 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
 
     return !shippingLocations ? null : (
       <Section>
-        <Heading.H1>Shipping</Heading.H1>
+        <Heading as="h1">Shipping</Heading>
 
         <ul className="list-style-none">
           {shippingLocations.omniva && (
             <li>
-              <Heading.H3>Omniva</Heading.H3>
+              <Heading as="h3">Omniva</Heading>
 
               <RadioButtonField
                 label={null}
@@ -51,7 +51,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
 
           {shippingLocations.smartpost && (
             <li>
-              <Heading.H3>SmartPost</Heading.H3>
+              <Heading as="h3">SmartPost</Heading>
 
               <RadioButtonField
                 label={null}
@@ -73,7 +73,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
   }
 
   renderSelectSection(
-    items: ShippingLocationItems[]
+    items: ShippingLocationItems[],
   ): SelectItemProps[] | null {
     const arr: SelectItemProps[] = [];
 
@@ -94,7 +94,7 @@ class ShippingMethodInternal extends React.Component<ShippingMethodsProps, {}> {
               };
 
               return re;
-            }
+            },
           );
 
           return [...acc, ...state];

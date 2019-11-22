@@ -1,7 +1,7 @@
-import * as api from "../api/Api";
+import * as api from '../api/Api';
 
-import { MediaItemResponseTypes } from "./mediaTypes";
-import { fetchRequest } from "../fetchApi/fetchApi";
+import { MediaItemResponseTypes } from './mediaTypes';
+import { fetchRequest } from '../fetchApi/fetchApi';
 
 interface Dimensions {
   width: number;
@@ -31,8 +31,8 @@ export async function getAllMedia(ids: number[]) {
 export async function getMedia(id: number) {
   try {
     const url = api.buildUrl(
-      { paths: [api.WP, "media", id.toString()] },
-      api.SITEURL
+      { paths: [api.WP, 'media', id.toString()] },
+      api.SITEURL,
     );
 
     const response = await fetchRequest({ url });
@@ -46,7 +46,7 @@ export async function getMedia(id: number) {
         height: data.media_details.height,
         aspectRatio: calcAspectRatio(
           data.media_details.width,
-          data.media_details.height
+          data.media_details.height,
         ),
       },
       imageSizes: Object.values(data.media_details.sizes),
@@ -60,7 +60,7 @@ export async function getMedia(id: number) {
 }
 
 function calcAspectRatio(width: number, height: number) {
-  const aspectRatio = height / width * 100;
+  const aspectRatio = (height / width) * 100;
 
   return aspectRatio;
 }

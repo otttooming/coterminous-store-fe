@@ -1,7 +1,7 @@
-import * as React from "react";
-import styled from "styled-components";
-import { MediaItemProps } from "../../services/mediaApi/mediaApi";
-import Icon from "../../components/icon/Icon";
+import * as React from 'react';
+import styled from 'styled-components';
+import { MediaItemProps } from '../../services/mediaApi/mediaApi';
+import Icon from '../../components/icon/Icon';
 
 interface Props {
   image?: MediaItemProps;
@@ -29,8 +29,8 @@ const NoImagePlaceholder = styled(Icon)`
 
 const Figure = styled.figure`
   background-color: ${(props: FigureProps) =>
-    props.isProduct ? "#fff" : "transparent"};
-  border-radius: ${(props: FigureProps) => (props.isProduct ? "4px" : "0")};
+    props.isProduct ? '#fff' : 'transparent'};
+  border-radius: ${(props: FigureProps) => (props.isProduct ? '4px' : '0')};
 `;
 
 const buildSizes = (sizes: Size[]) => {
@@ -43,7 +43,7 @@ const buildSizes = (sizes: Size[]) => {
           }
           return `${size.size}`;
         })
-        .join(",") || undefined
+        .join(',') || undefined
     );
   }
   return undefined;

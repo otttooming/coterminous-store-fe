@@ -1,6 +1,6 @@
-import * as React from "react";
-import Media from "../../../components/media/Media";
-import { MediaItemProps } from "../../../services/mediaApi/mediaApi";
+import * as React from 'react';
+import Media from '../../../components/media/Media';
+import { MediaItemProps } from '../../../services/mediaApi/mediaApi';
 
 interface Props {
   images: MediaItemProps[];

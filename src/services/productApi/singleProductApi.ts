@@ -1,6 +1,6 @@
-import * as api from "../api/Api";
-import { getAllMedia } from "../mediaApi/mediaApi";
-import { fetchRequest } from "../fetchApi/fetchApi";
+import * as api from '../api/Api';
+import { getAllMedia } from '../mediaApi/mediaApi';
+import { fetchRequest } from '../fetchApi/fetchApi';
 
 export interface SingleProductProps {
   product: any;
@@ -22,11 +22,11 @@ export async function getMultipleSingleProducts(slugs: string[]) {
 }
 
 export async function getSingleProduct(
-  name: string
+  name: string,
 ): Promise<SingleProductProps> {
   const url = api.buildUrl(
-    { paths: [api.WC, "products"], parameters: ["slug=" + name] },
-    api.SITEURL
+    { paths: [api.WC, 'products'], parameters: ['slug=' + name] },
+    api.SITEURL,
   );
 
   const response = await fetchRequest({ url });
@@ -47,8 +47,8 @@ export async function getSingleProduct(
 
 async function getVariations(product: any) {
   const url = api.buildUrl(
-    { paths: [api.WC, "products", product.id, "variations"] },
-    api.SITEURL
+    { paths: [api.WC, 'products', product.id, 'variations'] },
+    api.SITEURL,
   );
 
   const response = await fetchRequest({ url });
@@ -61,7 +61,7 @@ async function getVariations(product: any) {
   }
 
   const availableVariations = data.filter(
-    (variation: any) => variation.purchasable === true
+    (variation: any) => variation.purchasable === true,
   );
 
   return availableVariations;
@@ -72,7 +72,7 @@ function buildSingleProductVariation(product: any) {
     id: product.id,
     price: product.price,
     attributes: [],
-    name: "",
+    name: '',
   };
 
   return [variation];

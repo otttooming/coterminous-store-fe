@@ -1,5 +1,5 @@
-import { Billing } from "./typings";
-import { Countries } from "./../countries/constants";
+import { Billing } from './typings';
+import { Countries } from './../countries/constants';
 
 export interface Billing {
   first_name: string;
@@ -158,7 +158,7 @@ export interface TaxLine {
 }
 
 export interface WCRestApiError {
-  code: "woocommerce_rest_term_invalid";
+  code: 'woocommerce_rest_term_invalid';
   message: string;
   data: WCRestApiErrorData;
 }
@@ -168,7 +168,7 @@ export interface WCRestApiErrorData {
 }
 
 export function isWCRestApiError<T>(
-  response: WCRestApiError | T
+  response: WCRestApiError | T,
 ): response is WCRestApiError {
   return !response ? false : (response as WCRestApiError).code !== undefined;
 }

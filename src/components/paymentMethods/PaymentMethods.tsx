@@ -1,6 +1,6 @@
-import * as React from "react";
-import { PaymentMethods } from "../../services/paymentMethodsApi/paymentMethodsApi";
-import { Section, Heading, RadioButtonField } from "coterminous-styled";
+import * as React from 'react';
+import { PaymentMethods } from '../../services/paymentMethodsApi/paymentMethodsApi';
+import { Section, Heading, RadioButtonField } from '@coterminous/ui-lib';
 
 interface PaymentMethodsProps {
   paymentMethods: PaymentMethods | undefined;
@@ -11,7 +11,7 @@ const PaymentMethodsInternal = (props: PaymentMethodsProps) => {
 
   return !paymentMethods ? null : (
     <Section>
-      <Heading.H1>Payment</Heading.H1>
+      <Heading as="h1">Payment</Heading>
 
       <ul className="list-style-none">
         {paymentMethods.swedbank && (

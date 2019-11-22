@@ -1,10 +1,10 @@
-import * as React from "react";
-import PaymentMethods from "./PaymentMethods";
+import * as React from 'react';
+import PaymentMethods from './PaymentMethods';
 import {
   PaymentMethodsContext,
   PaymentMethodsProvider,
   PaymentMethodsProviderState,
-} from "./PaymentMethodsContext";
+} from './PaymentMethodsContext';
 
 interface PaymentMethodsWrapperProps {}
 

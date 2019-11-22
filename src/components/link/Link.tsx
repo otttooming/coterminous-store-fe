@@ -1,5 +1,5 @@
-import * as React from "react";
-import { LocationChangeProps, SeoProps } from "../../common/products/typings";
+import * as React from 'react';
+import { LocationChangeProps, SeoProps } from '../../common/products/typings';
 
 interface Props {
   location: LocationChangeProps;

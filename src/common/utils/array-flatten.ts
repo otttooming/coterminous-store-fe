@@ -5,7 +5,7 @@ function flatten(cur: any[], nestedArrayName: string): any[] {
 
     const subCategories = nestedArray.reduce(
       (acc, cur) => [...acc, ...flatten(cur, nestedArrayName)],
-      []
+      [],
     );
 
     return [...currentObject[nestedArrayName], ...subCategories];
@@ -16,11 +16,11 @@ function flatten(cur: any[], nestedArrayName: string): any[] {
 
 export default function flattenArray(
   array: any[],
-  nestedArrayName: string
+  nestedArrayName: string,
 ): any[] {
   const all: any[] = array.reduce(
     (acc, cur) => [...acc, ...flatten(cur, nestedArrayName)],
-    array
+    array,
   );
 
   return all;

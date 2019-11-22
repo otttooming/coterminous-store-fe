@@ -1,16 +1,16 @@
-import * as React from "react";
-import { MediaItemProps } from "../../services/mediaApi/mediaApi";
-import Media from "../../components/media/Media";
-import Link from "../../components/link/Link";
+import * as React from 'react';
+import { MediaItemProps } from '../../services/mediaApi/mediaApi';
+import Media from '../../components/media/Media';
+import Link from '../../components/link/Link';
 import {
   LOCATION_TYPES,
   PRODUCT_SLUGS,
   PRODUCT_LISTING_SLUGS,
-} from "../../common/products/constants";
+} from '../../common/products/constants';
 import {
   LocationChangeProps,
   ProductProps,
-} from "../../common/products/typings";
+} from '../../common/products/typings';
 
 interface Props {
   products: ProductProps[];
@@ -40,9 +40,9 @@ const ProductsListing = ({ products, onLocationChange }: Props) => {
             className="main-image product__main-image"
             alt={name}
             sizes={[
-              { size: "100vw", mediaCondition: "(max-width: 30em)" },
-              { size: "50vw", mediaCondition: "(max-width: 50em)" },
-              { size: "calc(33vw - 100px)" },
+              { size: '100vw', mediaCondition: '(max-width: 30em)' },
+              { size: '50vw', mediaCondition: '(max-width: 50em)' },
+              { size: 'calc(33vw - 100px)' },
             ]}
           />
         ) : (
@@ -56,7 +56,7 @@ const ProductsListing = ({ products, onLocationChange }: Props) => {
             pathName: [slug],
           }}
           className="products-listing__link"
-          seo={{ itemProp: "url" }}
+          seo={{ itemProp: 'url' }}
           onLocationChange={onLocationChange}
         >
           <h3 itemProp="name" className="products-listing__name">

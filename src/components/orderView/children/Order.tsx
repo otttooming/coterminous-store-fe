@@ -1,7 +1,7 @@
-import * as React from "react";
-import { CreateOrderResponse } from "../../../common/woocommerce/typings";
-import { LocationChangeProps } from "../../../common/products/typings";
-import CustomerDetails from "./CustomerDetails";
+import * as React from 'react';
+import { CreateOrderResponse } from '../../../common/woocommerce/typings';
+import { LocationChangeProps } from '../../../common/products/typings';
+import CustomerDetails from './CustomerDetails';
 
 interface Props {
   order: CreateOrderResponse | undefined;
@@ -14,13 +14,13 @@ const Order = ({ order }: Props) => {
   }
 
   const dateCreated: string = new Date(order.date_created).toLocaleDateString(
-    "ee-est",
+    'ee-est',
     {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    },
   );
 
   const total: string = order.total + order.currency;
@@ -41,7 +41,7 @@ const Order = ({ order }: Props) => {
               Kuupäev: <strong>{dateCreated}</strong>
             </li>
             <li className="woocommerce-order-overview__total total">
-              Kokku:{" "}
+              Kokku:{' '}
               <strong>
                 <span className="price__block">{total}</span>
               </strong>
@@ -79,7 +79,7 @@ const Order = ({ order }: Props) => {
                 BIC: <strong>HABAEE2X</strong>
               </li>
             </ul>
-          </section>{" "}
+          </section>{' '}
         </div>
         <div className="bg__common p1 mb1">
           <section className="woocommerce-order-details">
@@ -102,11 +102,11 @@ const Order = ({ order }: Props) => {
                   <td className="woocommerce-table__product-name product-name">
                     <a href="http://spiceflow.net.ee/pood/doc-johnson-american-bombshell-ballistic/">
                       Doc Johnson American Bombshell Ballistic
-                    </a>{" "}
-                    <strong className="product-quantity">× 1</strong>{" "}
+                    </a>{' '}
+                    <strong className="product-quantity">× 1</strong>{' '}
                   </td>
                   <td className="woocommerce-table__product-total product-total">
-                    <span className="price__block">65€</span>{" "}
+                    <span className="price__block">65€</span>{' '}
                   </td>
                 </tr>
               </tbody>

@@ -1,31 +1,15 @@
-import * as React from "react";
-import Media from "../../components/media/Media";
-import { MediaItemProps } from "../../services/mediaApi/mediaApi";
-import Variations from "./children/Variations";
-import Details from "./children/Details";
-import Gallery from "./children/Gallery";
-import { PhotoSwipe } from "react-photoswipe";
-
-function buildGalleryItems(images: MediaItemProps[]) {
-  const slides = images.map(item => {
-    return {
-      src: item.imageSizes.reduce(
-        (prev, current) => (prev.width > current.width ? prev : current)
-      ).source_url,
-      thumbs: item.imageSizes.reduce(
-        (prev, current) => (prev.width < current.width ? prev : current)
-      ).source_url,
-      w: item.dimensions.width,
-      h: item.dimensions.height,
-    };
-  });
-
-  return slides;
-}
+import * as React from 'react';
+import Media from '../../components/media/Media';
+import { MediaItemProps } from '../../services/mediaApi/mediaApi';
+import Variations from './children/Variations';
+import Details from './children/Details';
+import Gallery from './children/Gallery';
+import { Lightbox, Image } from '@coterminous/ui-lib';
+import { ProductTemplateImages } from '../../generated-models';
 
 interface Props {
   product: any;
-  images: MediaItemProps[];
+  images: ProductTemplateImages[];
   variations: any;
 }
 
@@ -34,10 +18,6 @@ export default class ProductItem extends React.Component<Props, any> {
     super(props);
 
     this.state = {
-      gallery: buildGalleryItems(props.images),
-      galleryOptions: {
-        history: false,
-      },
       isGalleryOpen: false,
     };
   }
@@ -52,7 +32,7 @@ export default class ProductItem extends React.Component<Props, any> {
   };
 
   render() {
-    const { images = null, product, variations } = this.props;
+    const { images = [], product, variations } = this.props;
     const {
       attributes,
       categories,
@@ -63,17 +43,16 @@ export default class ProductItem extends React.Component<Props, any> {
     } = product;
 
     const isDetailsPopulated =
-      !!attributes.length ||
-      !!categories.length ||
+      Array.isArray(attributes) ||
+      Array.isArray(categories) ||
       !!description ||
-      !!tags.length;
+      Array.isArray(tags);
 
     return (
       <div className="container container--no-gutters">
-        <PhotoSwipe
+        <Lightbox
           isOpen={this.state.isGalleryOpen}
-          items={this.state.gallery}
-          options={this.state.galleryOptions}
+          images={images}
           onClose={this.handleGalleryClose}
         />
 
@@ -83,14 +62,14 @@ export default class ProductItem extends React.Component<Props, any> {
           className="row product"
         >
           <div className="col-xs-12 col-md-5 product__left-wrap">
-            <Media
-              image={!!images ? images[0] : null}
-              className="main-image product__main-image"
+            <Image
+              image={images[0]}
               onClick={this.handleGalleryOpen}
               isProduct={true}
             />
-            {!!images &&
-              images.length !== 1 && <Gallery images={images} alt={name} />}
+            {/* {!!images && images.length !== 1 && (
+              <Gallery images={images} alt={name} />
+            )} */}
           </div>
 
           <div className="col-xs-12 col-md-7">
@@ -111,7 +90,7 @@ export default class ProductItem extends React.Component<Props, any> {
 
                 {in_stock && (
                   <div className="product-stock in-stock">
-                    <span className="stock__header">Availability</span>{" "}
+                    <span className="stock__header">Availability</span>{' '}
                     <span className="stock__number">In stock</span>
                   </div>
                 )}

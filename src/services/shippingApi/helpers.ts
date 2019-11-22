@@ -1,5 +1,5 @@
-import { Countries } from "./../../common/countries/constants";
-import { ShippingLocationItems, Locations } from "./shippingApi";
+import { Countries } from './../../common/countries/constants';
+import { ShippingLocationItems, Locations } from './shippingApi';
 
 export interface OmnivaShippingJSON {
   ZIP: string;
@@ -31,13 +31,13 @@ export interface OmnivaShippingJSON {
 
 export function createOmnivaShippingLocations(
   omnivaShipping: OmnivaShippingJSON[],
-  language: Countries
+  language: Countries,
 ): ShippingLocationItems[] {
   const languageMatchedStateNames: string[] = omnivaShipping.map(item => {
     if (item.A0_NAME === language) {
       return item.A1_NAME;
     } else {
-      return "other";
+      return 'other';
     }
   });
 
@@ -47,7 +47,7 @@ export function createOmnivaShippingLocations(
 
   const createStateLocations = (
     omnivaShipping: OmnivaShippingJSON[],
-    stateName: string
+    stateName: string,
   ): Locations[] => {
     return omnivaShipping
       .filter(location => stateName === location.A1_NAME)
@@ -63,8 +63,8 @@ export function createOmnivaShippingLocations(
             location.A7_NAME,
             location.A8_NAME,
           ]
-            .filter(item => item !== "NULL")
-            .join(", "),
+            .filter(item => item !== 'NULL')
+            .join(', '),
           state: location.A1_NAME,
           service_hours: location.SERVICE_HOURS,
           raw: location,
@@ -78,7 +78,7 @@ export function createOmnivaShippingLocations(
         title: stateName,
         locations: createStateLocations(omnivaShipping, stateName),
       };
-    }
+    },
   );
 
   return shippingLocations;
@@ -90,7 +90,7 @@ export function createSmartpostShippingLocations(arr): any {
     ...new Set(
       arr.map(item => {
         return item.group_name;
-      })
+      }),
     ),
   ].sort();
   const states = stateNames.map(item => {
@@ -105,8 +105,8 @@ export function createSmartpostShippingLocations(arr): any {
         shippingLocations[index].locations.push({
           name: location.name,
           address: [location.city, location.address]
-            .filter(item => item !== "NULL")
-            .join(", "),
+            .filter(item => item !== 'NULL')
+            .join(', '),
           state: location.group_name,
           service_hours: location.opened,
           raw: location,

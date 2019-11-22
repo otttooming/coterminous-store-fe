@@ -1,20 +1,20 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   LOCATION_TYPES,
   CHECKOUT_SLUGS,
-} from "../../common/products/constants";
+} from '../../common/products/constants';
 import {
   LocationChangeProps,
   CartItemProps,
   ProductProps,
-} from "../../common/products/typings";
+} from '../../common/products/typings';
 
-import ContactForm from "../contactForm/ContactForm";
+import ContactForm from '../contactForm/ContactForm';
 import {
   getMultipleSingleProducts,
   SingleProductProps,
-} from "../../services/productApi/singleProductApi";
-import ProductsListing from "../productsListing/ProductsListing";
+} from '../../services/productApi/singleProductApi';
+import ProductsListing from '../productsListing/ProductsListing';
 
 interface Props {
   productsInCart: ProductProps[] | undefined;

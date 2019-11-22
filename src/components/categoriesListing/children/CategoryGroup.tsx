@@ -1,12 +1,12 @@
-import * as React from "react";
-import { CategoryProps } from ".././CategoriesListing";
-import Icon from "../../../components/icon/Icon";
-import Link from "../../../components/link/Link";
+import * as React from 'react';
+import { CategoryProps } from '.././CategoriesListing';
+import Icon from '../../../components/icon/Icon';
+import Link from '../../../components/link/Link';
 import {
   LOCATION_TYPES,
   CATEGORY_SLUGS,
-} from "../../../common/products/constants";
-import { LocationChangeProps } from "../../../common/products/typings";
+} from '../../../common/products/constants';
+import { LocationChangeProps } from '../../../common/products/typings';
 
 interface Props {
   category: CategoryProps;
@@ -45,7 +45,7 @@ export default class CategoryGroup extends React.Component<Props, State> {
     return (
       <li
         className={`cat-list__group ${
-          isSubMenuOpen ? "cat-list__group-open" : ""
+          isSubMenuOpen ? 'cat-list__group-open' : ''
         }`}
       >
         <h2 className="cat-list__title">

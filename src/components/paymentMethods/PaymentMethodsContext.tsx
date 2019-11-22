@@ -1,17 +1,17 @@
-import * as React from "react";
-import "isomorphic-unfetch";
+import * as React from 'react';
+import 'isomorphic-unfetch';
 
 import {
   getPaymentMethods,
   PaymentMethods,
-} from "../../services/paymentMethodsApi/paymentMethodsApi";
+} from '../../services/paymentMethodsApi/paymentMethodsApi';
 
 const PaymentMethodsDefaultValue: PaymentMethodsProviderState = {
   paymentMethods: null,
 };
 
 export const PaymentMethodsContext = React.createContext(
-  PaymentMethodsDefaultValue
+  PaymentMethodsDefaultValue,
 );
 
 export interface PaymentMethodsProviderProps {}

@@ -61,10 +61,20 @@ jspm_packages/
 coverage/
 
 # TypeScript compiled target
-dist/
+**/dist/
 
 # WebStorm/IntelliJ
 .idea/
 
+# MacOS specific files
+.DS_Store
+
 # Static remotely fetched assets
-static/shipping/
+packages/coterminous-store-fe/static/shipping/*
+
+# Retain specific files
+!*.keep
+
+# Gatsby
+public
+.cache

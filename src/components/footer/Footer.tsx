@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Footer = () => (
   <footer className="container container__footer mt1 py1">
@@ -7,10 +7,14 @@ const Footer = () => (
         <div className="textwidget">
           <h1>OÜ Aadli Aare</h1>
           <p>
-            Reg. nr. 12708321<br />
-            Aadliaare@gmail.com<br />
-            +372 58 83 88 85<br />
-            Rahu 3a-36, Tartu<br />
+            Reg. nr. 12708321
+            <br />
+            Aadliaare@gmail.com
+            <br />
+            +372 58 83 88 85
+            <br />
+            Rahu 3a-36, Tartu
+            <br />
             50112, Eesti
           </p>
         </div>

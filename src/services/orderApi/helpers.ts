@@ -2,7 +2,7 @@ import {
   LOCATION_TYPES,
   CHECKOUT_SLUGS,
   ORDER_SLUGS,
-} from "./../../common/products/constants";
+} from './../../common/products/constants';
 import {
   CreateOrderRequest,
   CreateOrderResponse,
@@ -10,16 +10,16 @@ import {
   LineItems,
   WCRestApiError,
   isWCRestApiError,
-} from "./../../common/woocommerce/typings";
-import { ProductProps } from "./../../common/products/typings";
+} from './../../common/woocommerce/typings';
+import { ProductProps } from './../../common/products/typings';
 
-import { FormValues } from "./../../common/products/typings";
-import { Countries } from "../../common/countries/constants";
-import { State } from "../../pages";
+import { FormValues } from './../../common/products/typings';
+import { Countries } from '../../common/countries/constants';
+import { State } from '../../pages';
 
 export function buildOrder(
   values: FormValues,
-  productsInCart: ProductProps[]
+  productsInCart: ProductProps[],
 ): CreateOrderRequest | undefined {
   if (!values || !values.billing || !productsInCart) {
     return undefined;
@@ -33,7 +33,7 @@ export function buildOrder(
     city: values.billing.city,
     postcode: values.billing.postcode,
     country: Countries.Estonia,
-    state: "",
+    state: '',
     email: values.billing.email,
     phone: values.billing.phone,
   };
@@ -46,8 +46,8 @@ export function buildOrder(
   });
 
   const order: CreateOrderRequest = {
-    payment_method: "",
-    payment_method_title: "",
+    payment_method: '',
+    payment_method_title: '',
     set_paid: false,
     billing,
     line_items: items,
@@ -59,7 +59,7 @@ export function buildOrder(
 
 export function handleCreateOrderRequest(
   response: CreateOrderResponse | WCRestApiError,
-  state: State
+  state: State,
 ): State {
   if (!isWCRestApiError(response)) {
     const navRouting = { type: LOCATION_TYPES.PAGE, view: ORDER_SLUGS.DEFAULT };

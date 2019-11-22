@@ -1,4 +1,4 @@
-import * as localForage from "localforage";
+import * as localForage from 'localforage';
 
 interface Props {
   url: string;
@@ -15,13 +15,13 @@ interface Options {
 }
 
 export enum FETCH_TYPE {
-  JSON = "JSON",
-  TEXT = "TEXT",
+  JSON = 'JSON',
+  TEXT = 'TEXT',
 }
 
 export async function fetchRequest({ url, options }: Props): Promise<Response> {
   try {
-    const isNodeEnv = typeof window === "undefined";
+    const isNodeEnv = typeof window === 'undefined';
     const localData: any = !isNodeEnv && (await localForage.getItem(url));
 
     if (!isNodeEnv && !!localData) {
@@ -36,7 +36,7 @@ export async function fetchRequest({ url, options }: Props): Promise<Response> {
 
     const headers = response.headers;
 
-    const totalPages = parseInt(headers.get("X-WP-TotalPages"), 10);
+    const totalPages = parseInt(headers.get('X-WP-TotalPages'), 10);
 
     const meta = { totalPages };
 

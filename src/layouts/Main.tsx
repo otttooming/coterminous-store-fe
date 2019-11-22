@@ -1,5 +1,15 @@
 import * as React from "react";
-import { ThemeProvider, theme, GlobalStyle } from "coterminous-styled";
+import {
+  GlobalStyle,
+  Grid,
+  theme,
+  GridItem,
+  Image,
+  List,
+  ListItem,
+} from "@coterminous/ui";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { MainLayoutQuery } from "../generated-models";
 
 interface Props {
   children: React.ReactNode;
@@ -9,48 +19,77 @@ interface Props {
   renderFooter?: React.ReactNode;
 }
 
-const Main = ({
-  children,
-  renderHeader,
-  renderSidebar,
-  renderAfterMain,
-  renderFooter,
-}: Props) => (
-  <ThemeProvider theme={theme}>
+const Main = ({ children, renderHeader, renderFooter }: Props) => {
+  const data: MainLayoutQuery = useStaticQuery(graphql`
+    query MainLayout {
+      site {
+        siteMetadata {
+          siteName
+        }
+      }
+      cms {
+        productCategories {
+          edges {
+            node {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return (
     <>
       <GlobalStyle />
-      <div className="wrapper">
+
+      <Grid
+        gridTemplateAreas="'sidebar content'"
+        gridTemplateColumns="16rem 1fr"
+        gridGap={theme.space.xl}
+        maxWidth={1680}
+        ml="auto"
+        mr="auto"
+        pt={64}
+        pb={64}
+        pl={32}
+        pr={32}
+      >
         {!!renderHeader && renderHeader}
 
-        <div className="container">
-          <div className="row">
-            {!!renderSidebar && (
-              <aside className="col-lg-3 sidebar_grid hidden-md-down">
-                <div className="widget-container widget_desirees-subcategories">
-                  <div className="widget-container cat-list">
-                    {renderSidebar}
-                  </div>
-                </div>
-              </aside>
+        <GridItem as="aside" area="sidebar">
+          <Image
+            width={430}
+            height={160}
+            srcSet={[
+              {
+                url:
+                  "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
+                width: 430,
+                height: 160,
+              },
+            ]}
+          />
+          <List>
+            {data.cms.productCategories.edges.map(
+              ({ node: { name, slug } }) => (
+                <ListItem>
+                  <Link to={slug}>{name}</Link>
+                </ListItem>
+              )
             )}
+          </List>
+        </GridItem>
 
-            <div
-              className={`col-xs-12 ${
-                !!renderSidebar ? "col-lg-9" : "col-lg-12"
-              }`}
-            >
-              <main>{children}</main>
+        <GridItem as="main" area="content">
+          {children}
+        </GridItem>
 
-              {!!renderAfterMain && renderAfterMain}
-            </div>
-          </div>
-        </div>
         {!!renderFooter && renderFooter}
-      </div>
-
-      <div className="bg__site" />
+      </Grid>
     </>
-  </ThemeProvider>
-);
+  );
+};
 
 export default Main;

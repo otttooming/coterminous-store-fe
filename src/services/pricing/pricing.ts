@@ -1,9 +1,9 @@
-import { FormValues, ProductProps } from "./../../common/products/typings";
-import { ShoppingCartPrice } from "../../common/products/typings";
+import { FormValues, ProductProps } from './../../common/products/typings';
+import { ShoppingCartPrice } from '../../common/products/typings';
 
 export function calculateShoppingCartPrice(
   formValues: FormValues,
-  productsInCart: ProductProps[]
+  productsInCart: ProductProps[],
 ): ShoppingCartPrice | undefined {
   if (!formValues || !productsInCart) {
     return undefined;
@@ -13,7 +13,7 @@ export function calculateShoppingCartPrice(
 
   const variations = productsInCart.reduce(
     (acc, cur) => [...acc, ...cur.variations],
-    []
+    [],
   );
 
   const total = variations.reduce((acc, cur) => {

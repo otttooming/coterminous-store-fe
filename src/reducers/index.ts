@@ -1,6 +1,14 @@
-import { combineReducers } from "redux";
-import formReducer from "./formReducer";
+import { combineReducers } from 'redux';
+import productsListingLayerReducer, {
+  ProductsListingLayerState,
+} from '../layers/productsListingLayer/productsListingLayerReducer';
 
-export default combineReducers({
-  formReducer,
+const rootReducer = combineReducers({
+  productsListingLayerReducer,
 });
+
+export interface GlobalState {
+  productsListingLayerReducer: ProductsListingLayerState;
+}
+
+export default rootReducer;

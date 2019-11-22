@@ -1,7 +1,7 @@
-import * as api from "../api/Api";
-import * as frontMatter from "front-matter";
-import { fetchRequest, FETCH_TYPE } from "../fetchApi/fetchApi";
-import { LANGUAGE } from "../../common/products/constants";
+import * as api from '../api/Api';
+import * as frontMatter from 'front-matter';
+import { fetchRequest, FETCH_TYPE } from '../fetchApi/fetchApi';
+import { LANGUAGE } from '../../common/products/constants';
 
 export interface PageProps {
   attributes: any;
@@ -10,7 +10,7 @@ export interface PageProps {
 
 export async function getPage(
   page: string,
-  language: string = LANGUAGE.DEFAULT
+  language: string = LANGUAGE.DEFAULT,
 ) {
   try {
     const url = `${

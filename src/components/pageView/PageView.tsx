@@ -1,8 +1,8 @@
-import * as React from "react";
-import * as ReactMarkdown from "react-markdown";
-import * as frontMatter from "front-matter";
-import { LocationChangeProps } from "../../common/products/typings";
-import { PageProps } from "../../services/pageApi/pageApi";
+import * as React from 'react';
+import * as ReactMarkdown from 'react-markdown';
+import * as frontMatter from 'front-matter';
+import { LocationChangeProps } from '../../common/products/typings';
+import { PageProps } from '../../services/pageApi/pageApi';
 
 interface Props {
   onLocationChange?: (props: LocationChangeProps) => void;

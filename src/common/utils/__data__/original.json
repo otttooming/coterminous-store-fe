@@ -12,14 +12,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/843"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/843"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -38,14 +36,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/817"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/817"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -64,14 +60,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -89,20 +83,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/284"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/284"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -121,20 +112,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/479"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/479"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -153,20 +141,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/480"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/480"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -185,20 +170,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/482"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/482"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -217,20 +199,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/94"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/94"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -249,20 +228,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/478"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/478"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -281,20 +257,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/415"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/415"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -313,20 +286,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/285"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/285"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -345,20 +315,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/304"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/304"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -377,20 +344,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/424"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/424"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/18"
             }
           ]
         },
@@ -411,14 +375,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -436,20 +398,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/626"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/626"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -468,20 +427,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/292"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/292"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -500,20 +456,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/294"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/294"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -532,20 +485,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/124"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/124"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -564,20 +514,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/469"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/469"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -596,20 +543,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/470"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/470"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -628,20 +572,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/112"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/112"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -660,20 +601,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/472"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/472"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -692,20 +630,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/298"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/298"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -724,20 +659,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/210"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/210"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -756,20 +688,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/297"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/297"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -788,20 +717,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/149"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/149"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -820,20 +746,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/474"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/474"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -852,20 +775,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/473"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/473"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -876,8 +796,7 @@
         "name": "Erilised",
         "slug": "erilised",
         "parent": 16,
-        "description":
-          "Eriliste kategoorias võite näha tooteid, mis on tavapärasest erineva kuju, kasutusvõimaluste ja materjalidega (klaas, metall, keraamika).",
+        "description": "Eriliste kategoorias võite näha tooteid, mis on tavapärasest erineva kuju, kasutusvõimaluste ja materjalidega (klaas, metall, keraamika).",
         "display": "default",
         "image": null,
         "menu_order": 28,
@@ -885,20 +804,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/300"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/300"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -917,20 +833,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/157"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/157"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/16"
             }
           ]
         },
@@ -951,14 +864,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -976,20 +887,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/388"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/388"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1008,20 +916,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/627"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/627"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1040,20 +945,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/249"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/249"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1072,20 +974,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1103,20 +1002,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/527"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/527"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
                 }
               ]
             }
@@ -1134,20 +1030,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/262"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/262"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
                 }
               ]
             }
@@ -1165,20 +1058,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/260"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/260"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/526"
                 }
               ]
             }
@@ -1198,20 +1088,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/266"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/266"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1230,20 +1117,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1261,20 +1145,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/246"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/246"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
                 }
               ]
             }
@@ -1292,20 +1173,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/248"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/248"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/247"
                 }
               ]
             }
@@ -1325,20 +1203,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/123"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/123"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/142"
             }
           ]
         },
@@ -1359,14 +1234,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -1384,20 +1257,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
             }
           ]
         },
@@ -1415,20 +1285,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/312"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/312"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1446,20 +1313,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/22"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/22"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1477,20 +1341,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/27"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/27"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1508,20 +1369,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/39"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/39"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1539,20 +1397,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/58"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/58"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1570,20 +1425,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/322"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/322"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1601,20 +1453,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/831"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/831"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1632,20 +1481,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/516"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/516"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1663,20 +1509,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/515"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/515"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1694,20 +1537,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/513"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/513"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/13"
                 }
               ]
             }
@@ -1727,20 +1567,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
             }
           ]
         },
@@ -1758,20 +1595,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/59"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/59"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1789,20 +1623,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/505"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/505"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1820,20 +1651,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/523"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/523"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1851,20 +1679,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/524"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/524"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1882,20 +1707,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/525"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/525"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1913,20 +1735,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/481"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/481"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/15"
                 }
               ]
             }
@@ -1946,20 +1765,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
             }
           ]
         },
@@ -1977,20 +1793,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/179"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/179"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
                 }
               ]
             }
@@ -2008,20 +1821,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/180"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/180"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
                 }
               ]
             }
@@ -2039,20 +1849,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/120"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/120"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/151"
                 }
               ]
             }
@@ -2072,20 +1879,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
             }
           ]
         },
@@ -2103,20 +1907,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/517"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/517"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
                 }
               ]
             }
@@ -2134,20 +1935,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/184"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/184"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
                 }
               ]
             }
@@ -2165,20 +1963,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/183"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/183"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
                 }
               ]
             }
@@ -2196,20 +1991,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/153"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/153"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/152"
                 }
               ]
             }
@@ -2229,20 +2021,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/444"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/444"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/20"
             }
           ]
         },
@@ -2263,14 +2052,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -2288,20 +2075,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
             }
           ]
         },
@@ -2319,20 +2103,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/533"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/533"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
                 }
               ]
             }
@@ -2350,20 +2131,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/256"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/256"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
                 }
               ]
             }
@@ -2381,20 +2159,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/76"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/76"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/200"
                 }
               ]
             }
@@ -2414,20 +2189,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/449"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/449"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/254"
             }
           ]
         },
@@ -2448,14 +2220,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -2473,20 +2243,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/264"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/264"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
             }
           ]
         },
@@ -2505,20 +2272,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/265"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/265"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/263"
             }
           ]
         },
@@ -2539,14 +2303,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -2564,20 +2326,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/283"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/283"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
             }
           ]
         },
@@ -2596,20 +2355,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/143"
             }
           ]
         },
@@ -2627,20 +2383,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/219"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/219"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2658,20 +2411,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/287"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/287"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2689,20 +2439,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/239"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/239"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2720,20 +2467,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/217"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/217"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2751,20 +2495,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/241"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/241"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2782,20 +2523,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/231"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/231"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2813,20 +2551,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/237"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/237"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2844,20 +2579,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/238"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/238"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/216"
                 }
               ]
             }
@@ -2879,14 +2611,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },
@@ -2904,20 +2634,17 @@
         "_links": {
           "self": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
             }
           ],
           "collection": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
             }
           ],
           "up": [
             {
-              "href":
-                "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
+              "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/145"
             }
           ]
         },
@@ -2935,20 +2662,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/535"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/535"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
                 }
               ]
             }
@@ -2966,20 +2690,17 @@
             "_links": {
               "self": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/208"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/208"
                 }
               ],
               "collection": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
                 }
               ],
               "up": [
                 {
-                  "href":
-                    "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
+                  "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/207"
                 }
               ]
             }
@@ -3001,14 +2722,12 @@
     "_links": {
       "self": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/147"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories/147"
         }
       ],
       "collection": [
         {
-          "href":
-            "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
+          "href": "https://dev-spiceflow.pantheonsite.io/wp-json/wc/v2/products/categories"
         }
       ]
     },

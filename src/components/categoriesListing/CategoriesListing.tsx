@@ -1,7 +1,7 @@
-import * as React from "react";
-import CategoryGroup from "./children/CategoryGroup";
-import SubCategories from "./children/SubCategoriesListing";
-import { LocationChangeProps } from "../../common/products/typings";
+import * as React from 'react';
+import CategoryGroup from './children/CategoryGroup';
+import SubCategories from './children/SubCategoriesListing';
+import { LocationChangeProps } from '../../common/products/typings';
 
 interface Props {
   categories: CategoryProps[];

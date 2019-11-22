@@ -1,14 +1,14 @@
-import * as React from "react";
-import Icon from "../../../components/icon/Icon";
-import Link from "../../../components/link/Link";
+import * as React from 'react';
+import Icon from '../../../components/icon/Icon';
+import Link from '../../../components/link/Link';
 import {
   LOCATION_TYPES,
   CHECKOUT_SLUGS,
-} from "../../../common/products/constants";
+} from '../../../common/products/constants';
 import {
   LocationChangeProps,
   ShoppingCartPrice,
-} from "../../../common/products/typings";
+} from '../../../common/products/typings';
 
 interface Props {
   onLocationChange?: (props: LocationChangeProps) => void;

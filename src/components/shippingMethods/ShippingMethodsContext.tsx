@@ -1,18 +1,18 @@
-import * as React from "react";
-import "isomorphic-unfetch";
+import * as React from 'react';
+import 'isomorphic-unfetch';
 
 import {
   ShippingLocations,
   ShippingProps,
   getShippingMethods,
-} from "../../services/shippingApi/shippingApi";
+} from '../../services/shippingApi/shippingApi';
 
 const ShippingMethodsDefaultValue: ShippingMethodsProviderState = {
   shippingLocations: null,
 };
 
 export const ShippingMethodsContext = React.createContext(
-  ShippingMethodsDefaultValue
+  ShippingMethodsDefaultValue,
 );
 
 export interface ShippingMethodsProviderProps {}

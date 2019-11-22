@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   LOCATION_TYPES,
   LANDING_SLUGS,
-} from "../../../common/products/constants";
-import { LocationChangeProps } from "../../../common/products/typings";
-import Link from "../../../components/link/Link";
+} from '../../../common/products/constants';
+import { LocationChangeProps } from '../../../common/products/typings';
+import Link from '../../../components/link/Link';
 
 interface Props {
   onLocationChange?: (props: LocationChangeProps) => void;
@@ -19,7 +19,7 @@ const Logo = ({ onLocationChange }: Props) => {
     >
       <figure
         className="aspect-ratio"
-        style={{ paddingBottom: "37.209302325581%" }}
+        style={{ paddingBottom: '37.209302325581%' }}
       >
         <img
           width={430}

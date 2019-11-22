@@ -1,6 +1,6 @@
-import * as React from "react";
-import Icon from "../../components/icon/Icon";
-import { CartItemProps } from "../../common/products/typings";
+import * as React from 'react';
+import Icon from '../../components/icon/Icon';
+import { CartItemProps } from '../../common/products/typings';
 
 type Props = CartItemProps & any;
 

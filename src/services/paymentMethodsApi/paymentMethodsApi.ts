@@ -13,7 +13,7 @@ export interface PaymentMethod {
 
 export async function getSwedbankPaymentMethod(): Promise<PaymentMethod> {
   const paymentMethod: PaymentMethod = {
-    title: "SwedBank",
+    title: 'SwedBank',
   };
 
   return paymentMethod;
@@ -21,7 +21,7 @@ export async function getSwedbankPaymentMethod(): Promise<PaymentMethod> {
 
 export async function getSebPaymentMethod(): Promise<PaymentMethod> {
   const paymentMethod: PaymentMethod = {
-    title: "SEB",
+    title: 'SEB',
   };
 
   return paymentMethod;

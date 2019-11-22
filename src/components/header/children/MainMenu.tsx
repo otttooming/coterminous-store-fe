@@ -1,7 +1,7 @@
-import * as React from "react";
-import { PRODUCT_LISTING_SLUGS } from "../../../common/products/constants";
-import { LocationChangeProps } from "../../../common/products/typings";
-import Link from "../../../components/link/Link";
+import * as React from 'react';
+import { PRODUCT_LISTING_SLUGS } from '../../../common/products/constants';
+import { LocationChangeProps } from '../../../common/products/typings';
+import Link from '../../../components/link/Link';
 
 interface Props {
   items?: MenuItems[];
@@ -25,7 +25,7 @@ function getLocation(type: string, TYPES: any) {
   }
 
   const isLocationPresentInConstants = Object.values(
-    TYPES.PRODUCT_LISTING
+    TYPES.PRODUCT_LISTING,
   ).includes(type.toUpperCase());
 
   if (isLocationPresentInConstants) {
@@ -34,7 +34,7 @@ function getLocation(type: string, TYPES: any) {
 }
 
 const MainMenu = ({ items, onLocationChange }: Props) => {
-  if (!!items.length) {
+  if (Array.isArray(items)) {
     const menuItems = items.map(({ id, title, object, object_slug }) => (
       <li key={id} className="menu__item">
         <Link

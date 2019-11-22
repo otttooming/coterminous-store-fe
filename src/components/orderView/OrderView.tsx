@@ -1,21 +1,21 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   LOCATION_TYPES,
   CHECKOUT_SLUGS,
-} from "../../common/products/constants";
+} from '../../common/products/constants';
 import {
   LocationChangeProps,
   CartItemProps,
   ProductProps,
-} from "../../common/products/typings";
+} from '../../common/products/typings';
 
-import Order from "./children/Order";
+import Order from './children/Order';
 import {
   getMultipleSingleProducts,
   SingleProductProps,
-} from "../../services/productApi/singleProductApi";
-import ProductsListing from "../productsListing/ProductsListing";
-import { CreateOrderResponse } from "../../common/woocommerce/typings";
+} from '../../services/productApi/singleProductApi';
+import ProductsListing from '../productsListing/ProductsListing';
+import { CreateOrderResponse } from '../../common/woocommerce/typings';
 
 interface Props {
   productsInCart: ProductProps[] | undefined;

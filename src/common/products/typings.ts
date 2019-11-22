@@ -1,4 +1,4 @@
-import { Billing } from "./../woocommerce/typings";
+import { Billing } from './../woocommerce/typings';
 import {
   LANDING_SLUGS,
   ORDER_SLUGS,
@@ -8,8 +8,8 @@ import {
   CATEGORY_SLUGS,
   LANGUAGE,
   PAGE_SLUGS,
-} from "./constants";
-import { MediaItemProps } from "../../services/mediaApi/mediaApi";
+} from './constants';
+import { MediaItemProps } from '../../services/mediaApi/mediaApi';
 
 export interface LocationChangeProps {
   type: string;

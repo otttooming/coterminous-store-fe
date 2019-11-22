@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Section, Heading, TextInputField } from "coterminous-styled";
+import { Section, Heading, TextInputField } from "@coterminous/ui";
 
 const AdditionalInformation = () => {
   return (
     <Section>
-      <Heading.H2>Order notes</Heading.H2>
+      <Heading as="h2">Order notes</Heading>
 
       <TextInputField.TextArea label={null} name="comments" />
     </Section>

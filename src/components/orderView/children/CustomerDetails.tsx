@@ -1,5 +1,5 @@
-import * as React from "react";
-import { CreateOrderResponse } from "../../../common/woocommerce/typings";
+import * as React from 'react';
+import { CreateOrderResponse } from '../../../common/woocommerce/typings';
 
 interface Props {
   order: CreateOrderResponse | undefined;

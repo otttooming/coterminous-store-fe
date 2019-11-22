@@ -1,10 +1,10 @@
-import * as React from "react";
-import ShippingMethods from "./ShippingMethods";
+import * as React from 'react';
+import ShippingMethods from './ShippingMethods';
 import {
   ShippingMethodsContext,
   ShippingMethodsProvider,
   ShippingMethodsProviderState,
-} from "./ShippingMethodsContext";
+} from './ShippingMethodsContext';
 
 interface ShippingMethodWrapperProps {}
 

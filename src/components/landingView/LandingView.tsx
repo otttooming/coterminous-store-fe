@@ -1,12 +1,16 @@
-import * as React from "react";
-import { LocationChangeProps } from "../../common/products/typings";
-import { Heading } from "coterminous-styled";
+import * as React from 'react';
+import { LocationChangeProps } from '../../common/products/typings';
+import { Heading } from '@coterminous/ui-lib';
+import ProductsListing from '../productsListing/ProductsListing';
+import { ProductsListingComponent } from '../../generated-models';
+import { setProductListing } from '../../store';
+import ProductsListingLayer from '../../layers/productsListingLayer';
 
 interface Props {
   onLocationChange?: (props: LocationChangeProps) => void;
 }
 
-const LandingView = ({ onLocationChange }: Props) => {
+const LandingView = ({ onLocationChange, dispatch }: Props) => {
   return (
     <div className="container container__content">
       <div className="row">
@@ -29,7 +33,7 @@ const LandingView = ({ onLocationChange }: Props) => {
             <p className="simple-image" />
             <figure
               className="aspect-ratio"
-              style={{ paddingBottom: "30.081300813008%" }}
+              style={{ paddingBottom: '30.081300813008%' }}
             >
               <img
                 width={1230}
@@ -167,6 +171,18 @@ const LandingView = ({ onLocationChange }: Props) => {
           <div className="bg__common p1 w100">
             <div id="text-33" className="widget-container widget_text">
               <h2 className="widget-title">DISCRETE SERVICE</h2>
+              <ProductsListingLayer>
+                {(productsListing: any) => {
+                  return (
+                    <div>
+                      a
+                      {!!productsListing &&
+                        !!productsListing.edges &&
+                        productsListing.edges[0].node.name}
+                    </div>
+                  );
+                }}
+              </ProductsListingLayer>
               <div className="textwidget" />
             </div>
           </div>
@@ -174,7 +190,7 @@ const LandingView = ({ onLocationChange }: Props) => {
         <div className="col-xs-12 col-sm-6 col-md-3 d__flex">
           <div className="bg__common p1 w100">
             <div id="text-35" className="widget-container widget_text">
-              <Heading.H2>CHEAP PRICES</Heading.H2>
+              a
               <div className="textwidget" />
             </div>
           </div>

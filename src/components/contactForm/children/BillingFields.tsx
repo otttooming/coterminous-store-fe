@@ -1,10 +1,10 @@
 import * as React from "react";
-import { TextInputField, Heading, Section } from "coterminous-styled";
+import { TextInputField, Heading, Section } from "@coterminous/ui";
 
 const BillingFields = () => {
   return (
     <Section>
-      <Heading.H2>Billing Address</Heading.H2>
+      <Heading as="h2">Billing Address</Heading>
 
       <TextInputField.Input
         label="First name"

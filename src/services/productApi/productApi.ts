@@ -1,37 +1,42 @@
-import * as api from "../api/Api";
+import * as api from '../api/Api';
 
-import { getAllMedia } from "../mediaApi/mediaApi";
-import { fetchRequest } from "../fetchApi/fetchApi";
+import { getAllMedia } from '../mediaApi/mediaApi';
+import { fetchRequest } from '../fetchApi/fetchApi';
 
 export async function getProducts(
   page: number = 1,
   category?: number | string,
-  include?: number[]
+  include?: number[],
 ) {
-  const categoryParameter = category ? "category=" + category : "";
-  const includeParameter = include ? `include=${include.join()}` : "";
+  const categoryParameter = category ? 'category=' + category : '';
+  const includeParameter = include ? `include=${include.join()}` : '';
 
   const url = api.buildUrl(
     {
-      paths: [api.WC, "products"],
+      paths: [api.WC, 'products'],
       parameters: [
-        "in_stock=true",
-        "status=publish",
+        'in_stock=true',
+        'status=publish',
         categoryParameter,
-        "page=" + page,
-        "per_page=16",
+        'page=' + page,
+        'per_page=16',
         includeParameter,
       ],
     },
-    api.SITEURL
+    api.SITEURL,
   );
 
   const response = await fetchRequest({ url });
+
+  if (!response) {
+    return null;
+  }
+
   const { payload, meta } = response;
   const { totalPages } = meta;
 
   const products = await Promise.all(
-    payload.map((item: any) => getProductsItem(item))
+    payload.map((item: any) => getProductsItem(item)),
   );
 
   return {
