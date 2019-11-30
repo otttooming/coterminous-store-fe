@@ -7,6 +7,7 @@ import {
   Image,
   List,
   ListItem,
+  Heading,
 } from "@coterminous/ui";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { MainLayoutQuery } from "../generated-models";
@@ -38,7 +39,9 @@ const MainGrid = styled.div`
 
 const Header = styled.header`
   grid-column: span 2;
-  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const MainContent = styled.main`
@@ -85,7 +88,7 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
       <GlobalStyle />
 
       <MainGrid>
-        <aside>
+        <Header>
           <Logo>
             <Image
               width={430}
@@ -101,6 +104,13 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
             />
           </Logo>
 
+          <div>
+            Cart ({totalUniqueItems} - {cartTotal})
+          </div>
+        </Header>
+
+        <aside>
+          <Heading as="h2">Categories</Heading>
           <List>
             {data.cms.productCategories.edges.map(
               ({ node: { name, slug } }) => (
@@ -112,12 +122,7 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
           </List>
         </aside>
 
-        <MainContent>
-          <div>
-            Cart ({totalUniqueItems} - {cartTotal})
-          </div>
-          {children}
-        </MainContent>
+        <MainContent>{children}</MainContent>
 
         {/* {!!renderFooter && renderFooter} */}
       </MainGrid>
