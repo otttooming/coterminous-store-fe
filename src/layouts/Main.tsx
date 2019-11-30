@@ -25,8 +25,11 @@ const MainGrid = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: ${theme.space.xl};
+  max-width: 1440px;
+  margin: 0 auto;
 
-  @media (min-width: 768px) {
+  @media (min-width: 960px) {
     display: grid;
     grid-template-columns: 320px 1fr;
     grid-template-rows: auto 1fr;
@@ -82,13 +85,6 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
       <GlobalStyle />
 
       <MainGrid>
-        <Header>
-          {!!renderHeader && renderHeader}
-          <div>
-            Cart ({totalUniqueItems} - {cartTotal})
-          </div>
-        </Header>
-
         <aside>
           <Logo>
             <Image
@@ -116,7 +112,12 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
           </List>
         </aside>
 
-        <MainContent>{children}</MainContent>
+        <MainContent>
+          <div>
+            Cart ({totalUniqueItems} - {cartTotal})
+          </div>
+          {children}
+        </MainContent>
 
         {/* {!!renderFooter && renderFooter} */}
       </MainGrid>
