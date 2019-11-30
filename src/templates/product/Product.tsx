@@ -38,7 +38,7 @@ const ProductTemplate: React.FC<Props> = ({
   console.log(useCart);
 
   return (
-    <Main>
+    <Main hasSidebar={false}>
       <Heading as="h2">{name}</Heading>
       <Grid
         gridTemplateAreas={`"left right"`}
