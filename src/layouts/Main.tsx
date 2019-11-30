@@ -10,6 +10,7 @@ import {
 } from "@coterminous/ui";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { MainLayoutQuery } from "../generated-models";
+import { useCart } from "react-use-cart";
 
 interface Props {
   children: React.ReactNode;
@@ -40,6 +41,16 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
     }
   `);
 
+  const {
+    isEmpty,
+    cartTotal,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
+
   return (
     <>
       <GlobalStyle />
@@ -57,6 +68,9 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
         pr={32}
       >
         {!!renderHeader && renderHeader}
+        <div>
+          Cart ({totalUniqueItems} - {cartTotal})
+        </div>
 
         <GridItem as="aside" area="sidebar">
           <Image
