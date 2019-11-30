@@ -11,6 +11,7 @@ import {
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { MainLayoutQuery } from "../generated-models";
 import { useCart } from "react-use-cart";
+import styled from "styled-components";
 
 interface Props {
   children: React.ReactNode;
@@ -19,6 +20,31 @@ interface Props {
   renderSidebar?: React.ReactNode;
   renderFooter?: React.ReactNode;
 }
+
+const MainGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: auto 1fr;
+  }
+`;
+
+const Header = styled.header`
+  grid-column: span 2;
+  padding: 30px;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+`;
+
+const Logo = styled.div`
+  width: 300px;
+`;
 
 const Main = ({ children, renderHeader, renderFooter }: Props) => {
   const data: MainLayoutQuery = useStaticQuery(graphql`
@@ -55,36 +81,30 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
     <>
       <GlobalStyle />
 
-      <Grid
-        gridTemplateAreas="'sidebar content'"
-        gridTemplateColumns="16rem 1fr"
-        gridGap={theme.space.xl}
-        maxWidth={1680}
-        ml="auto"
-        mr="auto"
-        pt={64}
-        pb={64}
-        pl={32}
-        pr={32}
-      >
-        {!!renderHeader && renderHeader}
-        <div>
-          Cart ({totalUniqueItems} - {cartTotal})
-        </div>
+      <MainGrid>
+        <Header>
+          {!!renderHeader && renderHeader}
+          <div>
+            Cart ({totalUniqueItems} - {cartTotal})
+          </div>
+        </Header>
 
-        <GridItem as="aside" area="sidebar">
-          <Image
-            width={430}
-            height={160}
-            srcSet={[
-              {
-                url:
-                  "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
-                width: 430,
-                height: 160,
-              },
-            ]}
-          />
+        <aside>
+          <Logo>
+            <Image
+              width={430}
+              height={160}
+              srcSet={[
+                {
+                  url:
+                    "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
+                  width: 430,
+                  height: 160,
+                },
+              ]}
+            />
+          </Logo>
+
           <List>
             {data.cms.productCategories.edges.map(
               ({ node: { name, slug } }) => (
@@ -94,14 +114,12 @@ const Main = ({ children, renderHeader, renderFooter }: Props) => {
               )
             )}
           </List>
-        </GridItem>
+        </aside>
 
-        <GridItem as="main" area="content">
-          {children}
-        </GridItem>
+        <MainContent>{children}</MainContent>
 
-        {!!renderFooter && renderFooter}
-      </Grid>
+        {/* {!!renderFooter && renderFooter} */}
+      </MainGrid>
     </>
   );
 };
