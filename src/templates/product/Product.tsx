@@ -2,22 +2,37 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
 import { ProductTemplateQuery } from "../../generated-models";
-import {
-  Heading,
-  Grid,
-  GridItem,
-  Card,
-  Image,
-  theme,
-  CardType,
-  Button,
-} from "@coterminous/ui";
+import { Heading, Card, Image, theme, CardType, Button } from "@coterminous/ui";
 //@ts-ignore
 import { useCart } from "react-use-cart";
+import styled from "styled-components";
 
 interface Props {
   data: ProductTemplateQuery;
 }
+
+const Grid = styled.div`
+  display: grid;
+  margin-top: var(--space-m);
+  grid-gap: var(--space-xl);
+  grid-template-columns: repeat(5, 1fr);
+`;
+
+const GridItemIllustration = styled.div`
+  grid-column: 1/6;
+
+  @media (min-width: 960px) {
+    grid-column: 1/3;
+  }
+`;
+
+const GridItemDescription = styled.div`
+  grid-column: 1/6;
+
+  @media (min-width: 960px) {
+    grid-column: 3/6;
+  }
+`;
 
 const ProductTemplate: React.FC<Props> = ({
   data: {
@@ -40,22 +55,18 @@ const ProductTemplate: React.FC<Props> = ({
   return (
     <Main hasSidebar={false}>
       <Heading as="h2">{name}</Heading>
-      <Grid
-        gridTemplateAreas={`"left right"`}
-        gridTemplateColumns="480px 1fr"
-        gridGap={theme.space.xl}
-      >
-        <GridItem area="left">
+      <Grid>
+        <GridItemIllustration>
           <Card
             as="div"
             type={CardType.PORTRAIT}
             content={<Image width={width} height={height} srcSet={srcSet} />}
           />
-        </GridItem>
-        <GridItem area="right">
+        </GridItemIllustration>
+        <GridItemDescription>
           <div dangerouslySetInnerHTML={{ __html: description }} />
           <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button>
-        </GridItem>
+        </GridItemDescription>
       </Grid>
     </Main>
   );
