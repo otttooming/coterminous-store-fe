@@ -46,8 +46,13 @@ const Header = styled.header`
 `;
 
 const MainContent = styled.main<any>`
+  margin-top: ${theme.space.l};
   grid-column: ${({ hasSidebar }) => (hasSidebar ? "span 1" : `span 2`)};
   flex: 1;
+`;
+
+const Aside = styled.aside`
+  margin-top: ${theme.space.l};
 `;
 
 const Logo = styled.div`
@@ -117,7 +122,7 @@ const Main = ({
         </Header>
 
         {hasSidebar && (
-          <aside>
+          <Aside>
             <Heading as="h2">Categories</Heading>
             <List>
               {data.cms.productCategories.edges.map(
@@ -128,7 +133,7 @@ const Main = ({
                 )
               )}
             </List>
-          </aside>
+          </Aside>
         )}
 
         <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
