@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@coterminous/ui": "github:otttooming/coterminous-ui#5994115",
-    "classnames": "2.2.6",
     "downshift": "^4.0.0",
     "gatsby": "2.18.16",
     "gatsby-plugin-styled-components": "3.1.16",
