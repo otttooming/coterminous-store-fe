@@ -16,7 +16,7 @@ export const pageQuery = graphql`
       }
     }
     cms {
-      products {
+      products(where: { stockStatus: IN_STOCK }) {
         edges {
           node {
             ...ProductForListing

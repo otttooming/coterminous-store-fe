@@ -4,7 +4,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const QUERY_PRODUCT_LIST = `
     query productList($after: String) {
       cms {
-        products(first: 100 after: $after) {
+        products(first: 100 after: $after, where: { stockStatus: IN_STOCK }) {
           pageInfo {
             startCursor
             endCursor

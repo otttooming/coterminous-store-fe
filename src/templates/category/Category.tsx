@@ -67,7 +67,7 @@ export const query = graphql`
     cms {
       productCategory(id: $id) {
         name
-        products {
+        products(where: { stockStatus: IN_STOCK }) {
           edges {
             node {
               ...ProductForListing
