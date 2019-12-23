@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { data: initialResponse } = await graphql(QUERY_PRODUCT_LIST);
   let data = initialResponse;
 
-  const productList = [data.cms.products.edges];
+  let productList = [...data.cms.products.edges];
 
   while (data.cms.products.pageInfo.hasNextPage) {
     const { data: newResponse } = await graphql(QUERY_PRODUCT_LIST, {
@@ -35,18 +35,16 @@ exports.createPages = async ({ actions, graphql }) => {
 
     data = newResponse;
 
-    productList.push(data.cms.products.edges);
+    productList = [...productList, ...data.cms.products.edges];
   }
 
-  productList.forEach(chunk => {
-    chunk.forEach(blog => {
-      actions.createPage({
-        path: blog.node.slug,
-        component: path.resolve(`./src/templates/product/Product.tsx`),
-        context: {
-          id: blog.node.id,
-        },
-      });
+  productList.forEach(edge => {
+    actions.createPage({
+      path: edge.node.slug,
+      component: path.resolve(`./src/templates/product/Product.tsx`),
+      context: {
+        id: edge.node.id,
+      },
     });
   });
 
