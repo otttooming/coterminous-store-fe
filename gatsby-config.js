@@ -10,11 +10,10 @@ module.exports = {
         fieldName: `cms`,
         url: `https://dev-spiceflow.pantheonsite.io/graphql`,
         typeName: `GraphCMS`,
-        refetchInterval: 60,
       },
     },
     {
-      resolve: 'gatsby-plugin-eslint',
+      resolve: "gatsby-plugin-eslint",
       options: {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules|cache|public)/,
