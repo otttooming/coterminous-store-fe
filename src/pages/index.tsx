@@ -36,8 +36,8 @@ class Index extends React.Component<IndexPageProps, {}> {
         <Heading as="h2">Product list</Heading>
         <Grid
           as="ul"
-          gridTemplateColumns="repeat(auto-fill, minmax(14rem, 1fr))"
-          gridGap={theme.space.xl}
+          gridTemplateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
+          gridGap={theme.space.s}
         >
           {data.cms.products.edges.map(
             (

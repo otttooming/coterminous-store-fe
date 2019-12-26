@@ -30,6 +30,8 @@ const MainGrid = styled.div`
   padding: ${theme.space.xl};
   max-width: 1440px;
   margin: 0 auto;
+  background: #333;
+  border-radius: 16px;
 
   @media (min-width: 960px) {
     display: grid;
@@ -99,28 +101,28 @@ const Main = ({
     <>
       <GlobalStyle />
 
+      <Header>
+        <Logo>
+          <Image
+            width={430}
+            height={160}
+            srcSet={[
+              {
+                url:
+                  "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
+                width: 430,
+                height: 160,
+              },
+            ]}
+          />
+        </Logo>
+
+        <div>
+          Cart ({totalUniqueItems} - {cartTotal})
+        </div>
+      </Header>
+
       <MainGrid>
-        <Header>
-          <Logo>
-            <Image
-              width={430}
-              height={160}
-              srcSet={[
-                {
-                  url:
-                    "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
-                  width: 430,
-                  height: 160,
-                },
-              ]}
-            />
-          </Logo>
-
-          <div>
-            Cart ({totalUniqueItems} - {cartTotal})
-          </div>
-        </Header>
-
         {hasSidebar && (
           <Aside>
             <Heading as="h2">Categories</Heading>
@@ -137,8 +139,6 @@ const Main = ({
         )}
 
         <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
-
-        {/* {!!renderFooter && renderFooter} */}
       </MainGrid>
     </>
   );
