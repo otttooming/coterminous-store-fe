@@ -1,5 +1,4 @@
 import * as React from "react";
-import { theme } from "@coterminous/ui";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { MainLayoutQuery } from "../generated-models";
 import { useCart } from "react-use-cart";
@@ -27,7 +26,7 @@ const MainGrid = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: ${theme.space.xl};
+  padding: 32px;
   max-width: 1440px;
   margin: 0 auto;
   /* background: #333; */
@@ -48,7 +47,7 @@ const Header = styled.header`
 `;
 
 const MainContent = styled.main<any>`
-  margin-top: ${theme.space.l};
+  margin-top: 24px;
   grid-column: ${({ hasSidebar }) => (hasSidebar ? "span 1" : `span 2`)};
   flex: 1;
 `;
