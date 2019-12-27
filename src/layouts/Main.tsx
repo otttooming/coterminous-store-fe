@@ -5,13 +5,13 @@ import { MainLayoutQuery } from "../generated-models";
 import { useCart } from "react-use-cart";
 import styled from "@emotion/styled";
 import {
-  DarkMode,
   Image,
   List,
   ListItem,
   Heading,
-  Text,
   Box,
+  useColorMode,
+  Button,
 } from "@chakra-ui/core";
 
 interface Props {
@@ -53,16 +53,7 @@ const MainContent = styled.main<any>`
   flex: 1;
 `;
 
-const Logo = styled.div`
-  width: 300px;
-`;
-
-const Main = ({
-  children,
-  hasSidebar = true,
-  renderHeader,
-  renderFooter,
-}: Props) => {
+const Main = ({ children, hasSidebar = true }: Props) => {
   const data: MainLayoutQuery = useStaticQuery(graphql`
     query MainLayout {
       site {
@@ -83,56 +74,50 @@ const Main = ({
     }
   `);
 
-  const {
-    isEmpty,
-    cartTotal,
-    totalUniqueItems,
-    items,
-    updateItemQuantity,
-    removeItem,
-    emptyCart,
-  } = useCart();
+  const { cartTotal, totalUniqueItems } = useCart();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
       <Header>
-        <Logo>
-          <Image
-            htmlWidth={430}
-            htmlHeight={160}
-            src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
-          />
-        </Logo>
+        <Image
+          width="300px"
+          htmlWidth={430}
+          htmlHeight={160}
+          src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
+        />
+
+        <Button onClick={toggleColorMode}>
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        </Button>
 
         <div>
           Cart ({totalUniqueItems} - {cartTotal})
         </div>
       </Header>
 
-      <DarkMode>
-        <MainGrid>
-          {hasSidebar && (
-            <Box as="aside" pl="24px" pr="24px">
-              <Heading as="h2" mb="24px">
-                Categories
-              </Heading>
-              <List>
-                {data.cms.productCategories.edges.map(
-                  ({ node: { name, slug } }) => (
-                    <ListItem>
-                      <Box as="h3" fontWeight="semibold" mt="8px">
-                        <Link to={slug}>{name}</Link>
-                      </Box>
-                    </ListItem>
-                  )
-                )}
-              </List>
-            </Box>
-          )}
+      <MainGrid>
+        {hasSidebar && (
+          <Box as="aside" pl="24px" pr="24px">
+            <Heading as="h2" mb="24px">
+              Categories
+            </Heading>
+            <List>
+              {data.cms.productCategories.edges.map(
+                ({ node: { name, slug } }) => (
+                  <ListItem>
+                    <Box as="h3" fontWeight="semibold" mt="8px">
+                      <Link to={slug}>{name}</Link>
+                    </Box>
+                  </ListItem>
+                )
+              )}
+            </List>
+          </Box>
+        )}
 
-          <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
-        </MainGrid>
-      </DarkMode>
+        <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
+      </MainGrid>
     </>
   );
 };
