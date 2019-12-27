@@ -1,8 +1,9 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import * as React from "react";
 import Main from "../layouts/Main";
-import { Box, Grid, Heading, Image } from "@chakra-ui/core";
+import { Grid, Heading } from "@chakra-ui/core";
 import { IndexQueryQuery } from "../generated-models";
+import ProductCard from "../components/productCard/ProductCard";
 
 interface IndexPageProps {
   data: IndexQueryQuery;
@@ -53,40 +54,13 @@ class Index extends React.Component<IndexPageProps, {}> {
               },
               index
             ) => (
-              <Box
-                as="li"
-                maxW="sm"
-                // borderWidth="1px"
-                rounded="lg"
-                overflow="hidden"
+              <ProductCard
                 key={index}
+                slug={slug}
+                image={{ width, height, srcset: srcSet }}
               >
-                <Link
-                  to={`/${slug}/`}
-                  activeStyle={{
-                    color: "red",
-                  }}
-                  state={{
-                    pleasant: "reasonably",
-                  }}
-                >
-                  <Image
-                    htmlWidth={width}
-                    htmlHeight={height}
-                    srcSet={srcSet}
-                  />
-
-                  <Box
-                    mt="1"
-                    fontWeight="semibold"
-                    as="h4"
-                    lineHeight="tight"
-                    isTruncated
-                  >
-                    {name}
-                  </Box>
-                </Link>
-              </Box>
+                {name}
+              </ProductCard>
             )
           )}
         </Grid>

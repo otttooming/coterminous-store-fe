@@ -1,8 +1,9 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { CategoryTemplateQuery } from "../../generated-models";
 import Main from "../../layouts/Main";
-import { Image, GridItem, Heading, Grid, theme, Card } from "@coterminous/ui";
+import ProductCard from "../../components/productCard/ProductCard";
+import { Grid, Heading } from "@chakra-ui/core";
 
 interface Props {
   data: CategoryTemplateQuery;
@@ -14,8 +15,8 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
       <Heading as="h2">Product list</Heading>
       <Grid
         as="ul"
-        gridTemplateColumns="repeat(auto-fill, minmax(14rem, 1fr))"
-        gridGap={theme.space.xl}
+        templateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
+        gap="16px"
       >
         {data.cms.productCategory.products.edges.map(
           (
@@ -31,25 +32,13 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
             },
             index
           ) => (
-            <GridItem key={index}>
-              <Link
-                to={`/${slug}/`}
-                activeStyle={{
-                  color: "red",
-                }}
-                state={{
-                  pleasant: "reasonably",
-                }}
-              >
-                <Card
-                  content={
-                    <Image width={width} height={height} srcSet={srcSet} />
-                  }
-                >
-                  {name}
-                </Card>
-              </Link>
-            </GridItem>
+            <ProductCard
+              key={index}
+              slug={slug}
+              image={{ width, height, srcset: srcSet }}
+            >
+              {name}
+            </ProductCard>
           )
         )}
       </Grid>
