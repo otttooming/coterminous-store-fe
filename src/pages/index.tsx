@@ -34,7 +34,9 @@ class Index extends React.Component<IndexPageProps, {}> {
 
     return (
       <Main>
-        <Heading as="h2">Product list</Heading>
+        <Heading as="h2" mb="24px">
+          Product list
+        </Heading>
         <Grid
           as="ul"
           templateColumns="repeat(auto-fill, minmax(10rem, 1fr))"

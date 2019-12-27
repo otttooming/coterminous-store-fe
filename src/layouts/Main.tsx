@@ -47,7 +47,6 @@ const Header = styled.header`
 `;
 
 const MainContent = styled.main<any>`
-  margin-top: 24px;
   grid-column: ${({ hasSidebar }) => (hasSidebar ? "span 1" : `span 2`)};
   flex: 1;
 `;
