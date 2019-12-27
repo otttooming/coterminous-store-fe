@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { Box, Grid, Heading, Image } from "@chakra-ui/core";
+import { Box, Image } from "@chakra-ui/core";
 
 export interface ProductCardProps {
   slug: string;
@@ -9,12 +9,13 @@ export interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ slug, image, children }) => {
   return (
-    <Box as="li" maxW="sm" rounded="lg" overflow="hidden">
+    <Box as="li" maxW="sm" overflow="hidden">
       <Link to={`/${slug}/`}>
         <Image
           htmlWidth={image.width}
           htmlHeight={image.height}
           srcSet={image.srcset}
+          rounded="lg"
         />
 
         <Box
