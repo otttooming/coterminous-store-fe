@@ -12,12 +12,6 @@ module.exports = {
         typeName: `GraphCMS`,
       },
     },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
     `gatsby-plugin-chakra-ui`,
     `gatsby-plugin-emotion`,
   ],
