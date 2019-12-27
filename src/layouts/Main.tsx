@@ -1,18 +1,18 @@
 import * as React from "react";
+import { theme } from "@coterminous/ui";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { MainLayoutQuery } from "../generated-models";
+import { useCart } from "react-use-cart";
+import styled from "@emotion/styled";
 import {
-  GlobalStyle,
-  Grid,
-  theme,
-  GridItem,
+  DarkMode,
   Image,
   List,
   ListItem,
   Heading,
-} from "@coterminous/ui";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { MainLayoutQuery } from "../generated-models";
-import { useCart } from "react-use-cart";
-import styled from "styled-components";
+  Text,
+  Box,
+} from "@chakra-ui/core";
 
 interface Props {
   children: React.ReactNode;
@@ -30,7 +30,7 @@ const MainGrid = styled.div`
   padding: ${theme.space.xl};
   max-width: 1440px;
   margin: 0 auto;
-  background: #333;
+  /* background: #333; */
   border-radius: 16px;
 
   @media (min-width: 960px) {
@@ -51,10 +51,6 @@ const MainContent = styled.main<any>`
   margin-top: ${theme.space.l};
   grid-column: ${({ hasSidebar }) => (hasSidebar ? "span 1" : `span 2`)};
   flex: 1;
-`;
-
-const Aside = styled.aside`
-  margin-top: ${theme.space.l};
 `;
 
 const Logo = styled.div`
@@ -99,21 +95,12 @@ const Main = ({
 
   return (
     <>
-      <GlobalStyle />
-
       <Header>
         <Logo>
           <Image
-            width={430}
-            height={160}
-            srcSet={[
-              {
-                url:
-                  "https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png",
-                width: 430,
-                height: 160,
-              },
-            ]}
+            htmlWidth={430}
+            htmlHeight={160}
+            src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
           />
         </Logo>
 
@@ -122,24 +109,30 @@ const Main = ({
         </div>
       </Header>
 
-      <MainGrid>
-        {hasSidebar && (
-          <Aside>
-            <Heading as="h2">Categories</Heading>
-            <List>
-              {data.cms.productCategories.edges.map(
-                ({ node: { name, slug } }) => (
-                  <ListItem>
-                    <Link to={slug}>{name}</Link>
-                  </ListItem>
-                )
-              )}
-            </List>
-          </Aside>
-        )}
+      <DarkMode>
+        <MainGrid>
+          {hasSidebar && (
+            <Box as="aside" pl="24px" pr="24px">
+              <Heading as="h2" mb="24px">
+                Categories
+              </Heading>
+              <List>
+                {data.cms.productCategories.edges.map(
+                  ({ node: { name, slug } }) => (
+                    <ListItem>
+                      <Box as="h3" fontWeight="semibold" mt="8px">
+                        <Link to={slug}>{name}</Link>
+                      </Box>
+                    </ListItem>
+                  )
+                )}
+              </List>
+            </Box>
+          )}
 
-        <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
-      </MainGrid>
+          <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
+        </MainGrid>
+      </DarkMode>
     </>
   );
 };

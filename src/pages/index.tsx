@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby";
 import * as React from "react";
 import Main from "../layouts/Main";
-import { Image, GridItem, Heading, Grid, theme, Card } from "@coterminous/ui";
+import { Box, Grid, Heading, Image } from "@chakra-ui/core";
 import { IndexQueryQuery } from "../generated-models";
 
 interface IndexPageProps {
@@ -36,8 +36,8 @@ class Index extends React.Component<IndexPageProps, {}> {
         <Heading as="h2">Product list</Heading>
         <Grid
           as="ul"
-          gridTemplateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
-          gridGap={theme.space.s}
+          templateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
+          gap="16px"
         >
           {data.cms.products.edges.map(
             (
@@ -53,7 +53,14 @@ class Index extends React.Component<IndexPageProps, {}> {
               },
               index
             ) => (
-              <GridItem key={index}>
+              <Box
+                as="li"
+                maxW="sm"
+                // borderWidth="1px"
+                rounded="lg"
+                overflow="hidden"
+                key={index}
+              >
                 <Link
                   to={`/${slug}/`}
                   activeStyle={{
@@ -63,15 +70,23 @@ class Index extends React.Component<IndexPageProps, {}> {
                     pleasant: "reasonably",
                   }}
                 >
-                  <Card
-                    content={
-                      <Image width={width} height={height} srcSet={srcSet} />
-                    }
+                  <Image
+                    htmlWidth={width}
+                    htmlHeight={height}
+                    srcSet={srcSet}
+                  />
+
+                  <Box
+                    mt="1"
+                    fontWeight="semibold"
+                    as="h4"
+                    lineHeight="tight"
+                    isTruncated
                   >
                     {name}
-                  </Card>
+                  </Box>
                 </Link>
-              </GridItem>
+              </Box>
             )
           )}
         </Grid>
