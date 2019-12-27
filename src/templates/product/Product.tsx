@@ -2,10 +2,10 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
 import { ProductTemplateQuery } from "../../generated-models";
-import { Heading, Card, Image, theme, CardType, Button } from "@coterminous/ui";
 //@ts-ignore
 import { useCart } from "react-use-cart";
 import styled from "styled-components";
+import { Button, Heading, Image } from "@chakra-ui/core";
 
 interface Props {
   data: ProductTemplateQuery;
@@ -54,16 +54,13 @@ const ProductTemplate: React.FC<Props> = ({
 
   return (
     <Main hasSidebar={false}>
-      <Heading as="h2">{name}</Heading>
       <Grid>
         <GridItemIllustration>
-          <Card
-            as="div"
-            type={CardType.PORTRAIT}
-            content={<Image width={width} height={height} srcSet={srcSet} />}
-          />
+          <Image htmlWidth={width} htmlHeight={height} srcSet={srcSet} />
         </GridItemIllustration>
         <GridItemDescription>
+          <Heading as="h2">{name}</Heading>
+
           <div dangerouslySetInnerHTML={{ __html: description }} />
           <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button>
         </GridItemDescription>
