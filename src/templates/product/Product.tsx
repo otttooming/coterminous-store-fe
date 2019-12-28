@@ -1,10 +1,10 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
-import { ProductTemplateQuery } from "../../generated-models";
 //@ts-ignore
 import { useCart } from "react-use-cart";
 import { Button, Heading, Grid, Image, Box } from "@chakra-ui/core";
+import { ProductTemplateQuery } from "../../types";
 
 interface Props {
   data: ProductTemplateQuery;

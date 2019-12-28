@@ -1,9 +1,9 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { CategoryTemplateQuery } from "../../generated-models";
 import Main from "../../layouts/Main";
 import ProductCard from "../../components/productCard/ProductCard";
 import { Grid, Heading } from "@chakra-ui/core";
+import { CategoryTemplateQuery } from "../../types";
 
 interface Props {
   data: CategoryTemplateQuery;

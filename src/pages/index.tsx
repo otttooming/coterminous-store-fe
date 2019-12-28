@@ -2,8 +2,8 @@ import { graphql } from "gatsby";
 import * as React from "react";
 import Main from "../layouts/Main";
 import { Grid, Heading } from "@chakra-ui/core";
-import { IndexQueryQuery } from "../generated-models";
 import ProductCard from "../components/productCard/ProductCard";
+import { IndexQueryQuery } from "../types";
 
 interface IndexPageProps {
   data: IndexQueryQuery;

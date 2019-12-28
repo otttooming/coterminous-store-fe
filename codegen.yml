@@ -5,7 +5,7 @@ documents:
   - ./src/**/*.{ts,tsx}
   - ./node_modules/gatsby-*/**/*.js
 generates:
-  ./src/generated-models.tsx:
+  ./src/types.d.ts:
     plugins:
       - typescript
       - typescript-operations

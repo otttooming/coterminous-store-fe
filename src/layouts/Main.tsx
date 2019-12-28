@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { MainLayoutQuery } from "../generated-models";
 import { useCart } from "react-use-cart";
 import styled from "@emotion/styled";
 import {
@@ -12,6 +11,7 @@ import {
   useColorMode,
   Button,
 } from "@chakra-ui/core";
+import { MainLayoutQuery } from "../types";
 
 interface Props {
   children: React.ReactNode;
