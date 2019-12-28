@@ -35,11 +35,13 @@ const ProductTemplate: React.FC<Props> = ({
           htmlWidth={width}
           htmlHeight={height}
           srcSet={srcSet}
-          gridColumn={["1/6", "1/3"]}
+          gridColumn={["1/6", "1/6", "1/3"]}
         />
 
-        <Box gridColumn={["1/6", "3/6"]}>
-          <Heading as="h2">{name}</Heading>
+        <Box gridColumn={["1/6", "1/6", "3/6"]}>
+          <Heading as="h2" mb="1rem">
+            {name}
+          </Heading>
 
           <div dangerouslySetInnerHTML={{ __html: description }} />
           <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button>
