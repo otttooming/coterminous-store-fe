@@ -105,7 +105,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
                 ({ node: { name, slug } }) => (
                   <ListItem>
                     <Box as="h3" fontWeight="semibold" mt="8px">
-                      <Link to={slug}>{name}</Link>
+                      <Link to={`/${slug}`}>{name}</Link>
                     </Box>
                   </ListItem>
                 )
