@@ -103,7 +103,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
             <List>
               {data.cms.productCategories.edges.map(
                 ({ node: { name, slug } }) => (
-                  <ListItem>
+                  <ListItem key={slug}>
                     <Box as="h3" fontWeight="semibold" mt="8px">
                       <Link to={`/${slug}`}>{name}</Link>
                     </Box>
