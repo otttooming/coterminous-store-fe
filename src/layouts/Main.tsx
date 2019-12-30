@@ -99,9 +99,9 @@ const Main = ({ children, hasSidebar = true }: Props) => {
               {data.cms.productCategories.edges.map(
                 ({ node: { name, slug } }) => (
                   <ListItem key={slug}>
-                    <Box as="h3" fontWeight="semibold" mt="8px">
+                    <Heading as="h3" size="sm" mb="16px" isTruncated>
                       <Link to={`/${slug}`}>{name}</Link>
-                    </Box>
+                    </Heading>
                   </ListItem>
                 )
               )}
