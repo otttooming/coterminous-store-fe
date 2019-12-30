@@ -22,30 +22,6 @@ interface Props {
   hasSidebar?: boolean;
 }
 
-const MainGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 32px;
-  max-width: 1440px;
-  margin: 0 auto;
-  /* background: #333; */
-  border-radius: 16px;
-
-  @media (min-width: 960px) {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    grid-template-rows: auto 1fr;
-  }
-`;
-
-const Header = styled.header`
-  grid-column: span 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const MainContent = styled.main<any>`
   grid-column: ${({ hasSidebar }) => (hasSidebar ? "span 1" : `span 2`)};
   flex: 1;
@@ -77,7 +53,14 @@ const Main = ({ children, hasSidebar = true }: Props) => {
 
   return (
     <>
-      <Header>
+      <Box
+        maxWidth="1440px"
+        mx="auto"
+        mb="32px"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Link to="/">
           <Image
             width="300px"
@@ -94,11 +77,21 @@ const Main = ({ children, hasSidebar = true }: Props) => {
         <div>
           Cart ({totalUniqueItems} - {cartTotal})
         </div>
-      </Header>
+      </Box>
 
-      <MainGrid>
+      <Box
+        borderRadius="16px"
+        background="#322659"
+        maxWidth="1440px"
+        mx="auto"
+        p="32px"
+        display={["flex", "flex", "grid"]}
+        gridGap="32px"
+        flexDirection="column"
+        gridTemplateColumns="240px 1fr"
+      >
         {hasSidebar && (
-          <Box as="aside" pl="24px" pr="24px">
+          <Box as="aside">
             <Heading as="h2" mb="24px">
               Categories
             </Heading>
@@ -117,7 +110,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
         )}
 
         <MainContent hasSidebar={hasSidebar}>{children}</MainContent>
-      </MainGrid>
+      </Box>
     </>
   );
 };
