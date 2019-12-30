@@ -56,6 +56,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
       <Box
         maxWidth="1440px"
         mx="auto"
+        mt="16px"
         mb="32px"
         display="flex"
         justifyContent="space-between"
