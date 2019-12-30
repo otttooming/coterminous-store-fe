@@ -80,11 +80,8 @@ const Main = ({ children, hasSidebar = true }: Props) => {
       </Box>
 
       <Box
-        borderRadius="16px"
-        background="#322659"
         maxWidth="1440px"
         mx="auto"
-        p="32px"
         display={["flex", "flex", "grid"]}
         gridGap="32px"
         flexDirection="column"
@@ -95,7 +92,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
             <Heading as="h2" mb="24px">
               Categories
             </Heading>
-            <List>
+            <List borderRadius="16px" background="#322659" p="32px">
               {data.cms.productCategories.edges.map(
                 ({ node: { name, slug } }) => (
                   <ListItem key={slug}>
