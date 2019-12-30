@@ -4,6 +4,7 @@ import Main from "../layouts/Main";
 import { Grid, Heading } from "@chakra-ui/core";
 import ProductCard from "../components/productCard/ProductCard";
 import { IndexQueryQuery } from "../types";
+import { getLocalizedText } from "../common/getLocalizedText";
 
 interface IndexPageProps {
   data: IndexQueryQuery;
@@ -61,7 +62,7 @@ class Index extends React.Component<IndexPageProps, {}> {
                 slug={slug}
                 image={{ width, height, srcset: srcSet }}
               >
-                {name}
+                {getLocalizedText(name)}
               </ProductCard>
             )
           )}

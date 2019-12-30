@@ -5,6 +5,7 @@ import Main from "../../layouts/Main";
 import { useCart } from "react-use-cart";
 import { Button, Heading, Grid, Image, Box } from "@chakra-ui/core";
 import { ProductTemplateQuery } from "../../types";
+import { getLocalizedText } from "../../common/getLocalizedText";
 
 interface Props {
   data: ProductTemplateQuery;
@@ -40,10 +41,12 @@ const ProductTemplate: React.FC<Props> = ({
 
         <Box gridColumn={["1/6", "1/6", "3/6"]}>
           <Heading as="h2" mb="1rem">
-            {name}
+            {getLocalizedText(name)}
           </Heading>
 
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: getLocalizedText(description) }}
+          />
           <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button>
         </Box>
       </Grid>

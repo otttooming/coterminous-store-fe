@@ -4,6 +4,7 @@ import Main from "../../layouts/Main";
 import ProductCard from "../../components/productCard/ProductCard";
 import { Grid, Heading } from "@chakra-ui/core";
 import { CategoryTemplateQuery } from "../../types";
+import { getLocalizedText } from "../../common/getLocalizedText";
 
 interface Props {
   data: CategoryTemplateQuery;
@@ -39,7 +40,7 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
               slug={slug}
               image={{ width, height, srcset: srcSet }}
             >
-              {name}
+              {getLocalizedText(name)}
             </ProductCard>
           )
         )}
