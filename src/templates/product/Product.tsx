@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
 //@ts-ignore
 import { useCart } from "react-use-cart";
-import { Button, Heading, Grid, Image, Box } from "@chakra-ui/core";
+import { Button, Heading, Grid, Image, Box, Tag } from "@chakra-ui/core";
 import { ProductTemplateQuery } from "../../types";
 import { getLocalizedText } from "../../common/getLocalizedText";
 
@@ -23,7 +23,7 @@ const ProductTemplate: React.FC<Props> = ({
     return null;
   }
 
-  const { id, name, description, image } = product;
+  const { id, name, description, image, price } = product;
 
   return (
     <Main hasSidebar={false}>
@@ -47,7 +47,8 @@ const ProductTemplate: React.FC<Props> = ({
               __html: getLocalizedText(description || ""),
             }}
           />
-          <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button>
+          <Tag size="lg">{price}</Tag>
+          {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
       </Grid>
     </Main>
@@ -72,6 +73,13 @@ export const query = graphql`
             height
           }
           srcSet
+        }
+        ... on GraphCMS_SimpleProduct {
+          price
+        }
+
+        ... on GraphCMS_VariableProduct {
+          price
         }
       }
     }
