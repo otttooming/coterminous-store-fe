@@ -30,6 +30,7 @@ const ProductTemplate: React.FC<Props> = ({
       <Grid gap={8} templateColumns="repeat(5, 1fr)">
         {image && image.mediaDetails && (
           <Image
+            borderRadius="16px"
             htmlWidth={image.mediaDetails.width || undefined}
             htmlHeight={image.mediaDetails.height || undefined}
             srcSet={image.srcSet}
