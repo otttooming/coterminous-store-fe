@@ -78,12 +78,14 @@ const Main = ({ children, hasSidebar = true }: Props) => {
   return (
     <>
       <Header>
-        <Image
-          width="300px"
-          htmlWidth={430}
-          htmlHeight={160}
-          src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
-        />
+        <Link to="/">
+          <Image
+            width="300px"
+            htmlWidth={430}
+            htmlHeight={160}
+            src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
+          />
+        </Link>
 
         <Button onClick={toggleColorMode}>
           Toggle {colorMode === "light" ? "Dark" : "Light"}
