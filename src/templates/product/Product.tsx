@@ -3,7 +3,15 @@ import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
 //@ts-ignore
 import { useCart } from "react-use-cart";
-import { Button, Heading, Grid, Image, Box, Tag } from "@chakra-ui/core";
+import {
+  Button,
+  Heading,
+  Grid,
+  Image,
+  Box,
+  Text,
+  Badge,
+} from "@chakra-ui/core";
 import { ProductTemplateQuery } from "../../types";
 import { getLocalizedText } from "../../common/getLocalizedText";
 
@@ -43,12 +51,20 @@ const ProductTemplate: React.FC<Props> = ({
             {getLocalizedText(name || "")}
           </Heading>
 
+          <Box mb="2rem" display="flex" alignItems="center">
+            <Text fontSize="1.5rem" mr="1rem">
+              {price}
+            </Text>
+            <Badge variant="outline" variantColor="green">
+              Laos
+            </Badge>
+          </Box>
+
           <div
             dangerouslySetInnerHTML={{
               __html: getLocalizedText(description || ""),
             }}
           />
-          <Tag size="lg">{price}</Tag>
           {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
       </Grid>
