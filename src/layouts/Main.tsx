@@ -10,6 +10,10 @@ import {
   Box,
   useColorMode,
   Button,
+  Input,
+  InputGroup,
+  Icon,
+  InputLeftElement,
 } from "@chakra-ui/core";
 import { MainLayoutQuery } from "../types";
 
@@ -58,26 +62,37 @@ const Main = ({ children, hasSidebar = true }: Props) => {
         mx="auto"
         mt="16px"
         mb="32px"
-        display="flex"
+        display={["flex", "flex", "grid"]}
+        gridTemplateColumns="240px 1fr 240px"
+        gridGap="32px"
         justifyContent="space-between"
         alignItems="center"
       >
         <Link to="/">
           <Image
-            width="300px"
+            width="240px"
             htmlWidth={430}
             htmlHeight={160}
             src="https://www.aadliaare.ee/wp-content/uploads/2017/05/aadli_aare_logo.png"
           />
         </Link>
 
-        <Button onClick={toggleColorMode}>
-          Toggle {colorMode === "light" ? "Dark" : "Light"}
-        </Button>
+        <Box display="flex" flexDirection="row">
+          <InputGroup size="lg" width="100%" pr="8px">
+            <InputLeftElement
+              children={<Icon name="search" color="gray.300" />}
+            />
+            <Input type="phone" placeholder="Search products" />
+          </InputGroup>
 
-        <div>
+          <Button size="lg" minWidth="128px">
+            Search
+          </Button>
+        </Box>
+
+        <Box display="flex" justifyContent="flex-end">
           Cart ({totalUniqueItems} - {cartTotal})
-        </div>
+        </Box>
       </Box>
 
       <Box
@@ -104,6 +119,10 @@ const Main = ({ children, hasSidebar = true }: Props) => {
                 )
               )}
             </List>
+
+            <Button onClick={toggleColorMode} mt="32px">
+              Toggle {colorMode === "light" ? "Dark" : "Light"}
+            </Button>
           </Box>
         )}
 
