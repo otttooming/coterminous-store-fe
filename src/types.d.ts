@@ -676,8 +676,6 @@ export type GraphCms = {
   coupons?: Maybe<GraphCms_RootQueryToCouponConnection>,
   /** A customer object */
   customer?: Maybe<GraphCms_Customer>,
-  /** A customer object */
-  customerBy?: Maybe<GraphCms_Customer>,
   /** Connection between the RootQuery type and the RootQuery type */
   customers?: Maybe<GraphCms_RootQueryToCustomerConnection>,
   discussionSettings?: Maybe<GraphCms_DiscussionSettings>,
@@ -813,12 +811,8 @@ export type GraphCms = {
   refundBy?: Maybe<GraphCms_Refund>,
   /** Connection between the RootQuery type and the RootQuery type */
   refunds?: Maybe<GraphCms_RootQueryToRefundConnection>,
-  /** A 0bject */
-  revision?: Maybe<GraphCms_Revision>,
-  /** A revision object */
-  revisionBy?: Maybe<GraphCms_Revision>,
   /** Connection between the RootQuery type and the RootQuery type */
-  revisions?: Maybe<GraphCms_RootQueryToRevisionConnection>,
+  revisions?: Maybe<GraphCms_RootQueryToContentRevisionUnionConnection>,
   /** A 0bject */
   shippingClass?: Maybe<GraphCms_ShippingClass>,
   /** Connection between the RootQuery type and the RootQuery type */
@@ -931,13 +925,8 @@ export type GraphCmsCouponsArgs = {
 
 /** The root entry point into the Graph */
 export type GraphCmsCustomerArgs = {
-  id?: Maybe<Scalars['ID']>
-};
-
-
-/** The root entry point into the Graph */
-export type GraphCmsCustomerByArgs = {
-  customerId: Scalars['Int']
+  id?: Maybe<Scalars['ID']>,
+  customerId?: Maybe<Scalars['Int']>
 };
 
 
@@ -1474,27 +1463,12 @@ export type GraphCmsRefundsArgs = {
 
 
 /** The root entry point into the Graph */
-export type GraphCmsRevisionArgs = {
-  id: Scalars['ID']
-};
-
-
-/** The root entry point into the Graph */
-export type GraphCmsRevisionByArgs = {
-  id?: Maybe<Scalars['ID']>,
-  revisionId?: Maybe<Scalars['Int']>,
-  uri?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>
-};
-
-
-/** The root entry point into the Graph */
 export type GraphCmsRevisionsArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_RootQueryToRevisionConnectionWhereArgs>
+  where?: Maybe<GraphCms_RootQueryToContentRevisionUnionConnectionWhereArgs>
 };
 
 
@@ -1658,6 +1632,7 @@ export type GraphCms_AddFeeInput = {
 /** The payload for the addFee mutation */
 export type GraphCms_AddFeePayload = {
    __typename?: 'GraphCMS_AddFeePayload',
+  cart?: Maybe<GraphCms_Cart>,
   cartFee?: Maybe<GraphCms_CartFee>,
   clientMutationId: Scalars['String'],
 };
@@ -1680,6 +1655,7 @@ export type GraphCms_AddToCartInput = {
 /** The payload for the addToCart mutation */
 export type GraphCms_AddToCartPayload = {
    __typename?: 'GraphCMS_AddToCartPayload',
+  cart?: Maybe<GraphCms_Cart>,
   cartItem?: Maybe<GraphCms_CartItem>,
   clientMutationId: Scalars['String'],
 };
@@ -1758,6 +1734,10 @@ export type GraphCms_Cart = {
    __typename?: 'GraphCMS_Cart',
   /** Connection between the Cart type and the Cart type */
   appliedCoupons?: Maybe<GraphCms_CartToCouponConnection>,
+  /** Available shipping methods for this order. */
+  availableShippingMethods?: Maybe<Array<Maybe<GraphCms_ShippingPackage>>>,
+  /** Shipping method chosen for this order. */
+  chosenShippingMethod?: Maybe<Scalars['String']>,
   /** Connection between the Cart type and the Cart type */
   contents?: Maybe<GraphCms_CartToCartItemConnection>,
   /** Cart contents tax */
@@ -2451,6 +2431,8 @@ export type GraphCms_CommentToCommentConnectionWhereArgs = {
   /** Include comments for a specific user ID. */
   userId?: Maybe<Scalars['ID']>,
 };
+
+export type GraphCms_ContentRevisionUnion = GraphCms_Post | GraphCms_Page;
 
 /** Countries enumeration */
 export enum GraphCms_CountriesEnum {
@@ -3203,7 +3185,7 @@ export type GraphCms_CreateOrderInput = {
   /** Currency the order was created with, in ISO format. */
   currency?: Maybe<Scalars['String']>,
   /** Order customer ID */
-  customerId: Scalars['Int'],
+  customerId?: Maybe<Scalars['Int']>,
   /** Note left by customer during checkout. */
   customerNote?: Maybe<Scalars['String']>,
   /** Order shipping lines */
@@ -4714,25 +4696,6 @@ export type GraphCms_DeleteProductTypePayload = {
   productType?: Maybe<GraphCms_ProductType>,
 };
 
-/** Input for the deleteRevision mutation */
-export type GraphCms_DeleteRevisionInput = {
-  clientMutationId: Scalars['String'],
-  /** Whether the object should be force deleted instead of being moved to the trash */
-  forceDelete?: Maybe<Scalars['Boolean']>,
-  /** The ID of the revision to delete */
-  id: Scalars['ID'],
-};
-
-/** The payload for the deleteRevision mutation */
-export type GraphCms_DeleteRevisionPayload = {
-   __typename?: 'GraphCMS_DeleteRevisionPayload',
-  clientMutationId: Scalars['String'],
-  /** The ID of the deleted object */
-  deletedId?: Maybe<Scalars['ID']>,
-  /** The object before it was deleted */
-  revision?: Maybe<GraphCms_Revision>,
-};
-
 /** Input for the deleteShippingClass mutation */
 export type GraphCms_DeleteShippingClassInput = {
   clientMutationId: Scalars['String'],
@@ -4843,16 +4806,14 @@ export type GraphCms_EmptyCartPayload = {
 /** A external product object */
 export type GraphCms_ExternalProduct = GraphCms_Node & GraphCms_Product & {
    __typename?: 'GraphCMS_ExternalProduct',
-  /** Connection between the ExternalProduct type and the ExternalProduct type */
-  attributes?: Maybe<GraphCms_ExternalProductToProductAttributeConnection>,
+  /** Connection between the Product type and the Product type */
+  attributes?: Maybe<GraphCms_ProductToProductAttributeConnection>,
   /** Product average count */
   averageRating?: Maybe<Scalars['Float']>,
   /** External product Buy button text */
   buttonText?: Maybe<Scalars['String']>,
   /** Catalog visibility */
   catalogVisibility?: Maybe<GraphCms_CatalogVisibilityEnum>,
-  /** Connection between the Product type and the Product type */
-  categories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** Date product created */
   date?: Maybe<Scalars['String']>,
   /** Date on sale from */
@@ -4885,12 +4846,48 @@ export type GraphCms_ExternalProduct = GraphCms_Node & GraphCms_Product & {
   name?: Maybe<Scalars['String']>,
   /** Is product on sale? */
   onSale?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  paHinds?: Maybe<GraphCms_ProductToPaHindConnection>,
+  /** Connection between the Product type and the Product type */
+  paHulks?: Maybe<GraphCms_ProductToPaHulkConnection>,
+  /** Connection between the Product type and the Product type */
+  paKasutusaegs?: Maybe<GraphCms_ProductToPaKasutusaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoguses?: Maybe<GraphCms_ProductToPaKogusConnection>,
+  /** Connection between the Product type and the Product type */
+  paKontuurs?: Maybe<GraphCms_ProductToPaKontuurConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoostisaineds?: Maybe<GraphCms_ProductToPaKoostisainedConnection>,
+  /** Connection between the Product type and the Product type */
+  paLaadimisaegs?: Maybe<GraphCms_ProductToPaLaadimisaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paMaterjals?: Maybe<GraphCms_ProductToPaMaterjalConnection>,
+  /** Connection between the Product type and the Product type */
+  paMuratasas?: Maybe<GraphCms_ProductToPaMuratasaConnection>,
+  /** Connection between the Product type and the Product type */
+  paOhutuses?: Maybe<GraphCms_ProductToPaOhutusConnection>,
+  /** Connection between the Product type and the Product type */
+  paPatareids?: Maybe<GraphCms_ProductToPaPatareidConnection>,
+  /** Connection between the Product type and the Product type */
+  paSuuruses?: Maybe<GraphCms_ProductToPaSuurusConnection>,
+  /** Connection between the Product type and the Product type */
+  paVariants?: Maybe<GraphCms_ProductToPaVariantConnection>,
+  /** Connection between the Product type and the Product type */
+  paVarvs?: Maybe<GraphCms_ProductToPaVarvConnection>,
+  /** Connection between the Product type and the Product type */
+  paVeekindluses?: Maybe<GraphCms_ProductToPaVeekindlusConnection>,
   /** Parent product */
   parent?: Maybe<GraphCms_Product>,
   /** Product&#039;s active price */
   price?: Maybe<Scalars['String']>,
+  /** Connection between the Product type and the Product type */
+  productCategories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** The Id of the order. Equivalent to WP_Post-&gt;ID */
   productId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  productTags?: Maybe<GraphCms_ProductToProductTagConnection>,
+  /** Connection between the Product type and the Product type */
+  productTypes?: Maybe<GraphCms_ProductToProductTypeConnection>,
   /** Can product be purchased? */
   purchasable?: Maybe<Scalars['Boolean']>,
   /** Purchase note */
@@ -4905,6 +4902,8 @@ export type GraphCms_ExternalProduct = GraphCms_Node & GraphCms_Product & {
   reviewsAllowed?: Maybe<Scalars['Boolean']>,
   /** Product&#039;s sale price */
   salePrice?: Maybe<Scalars['String']>,
+  /** Connection between the Product type and the Product type */
+  shippingClasses?: Maybe<GraphCms_ProductToShippingClassConnection>,
   /** Product short description */
   shortDescription?: Maybe<Scalars['String']>,
   /** Product SKU */
@@ -4913,8 +4912,6 @@ export type GraphCms_ExternalProduct = GraphCms_Node & GraphCms_Product & {
   slug?: Maybe<Scalars['String']>,
   /** Product status */
   status?: Maybe<Scalars['String']>,
-  /** Connection between the Product type and the Product type */
-  tags?: Maybe<GraphCms_ProductToProductTagConnection>,
   /** Tax class */
   taxClass?: Maybe<GraphCms_TaxClassEnum>,
   /** Tax status */
@@ -4925,6 +4922,8 @@ export type GraphCms_ExternalProduct = GraphCms_Node & GraphCms_Product & {
   type?: Maybe<GraphCms_ProductTypesEnum>,
   /** Connection between the Product type and the Product type */
   upsell?: Maybe<GraphCms_ProductToProductConnection>,
+  /** Connection between the Product type and the Product type */
+  visibleProducts?: Maybe<GraphCms_ProductToVisibleProductConnection>,
 };
 
 
@@ -4934,16 +4933,6 @@ export type GraphCms_ExternalProductAttributesArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>
-};
-
-
-/** A external product object */
-export type GraphCms_ExternalProductCategoriesArgs = {
-  first?: Maybe<Scalars['Int']>,
-  last?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['String']>,
-  before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
 };
 
 
@@ -4981,8 +4970,188 @@ export type GraphCms_ExternalProductMetaDataArgs = {
 
 
 /** A external product object */
+export type GraphCms_ExternalProductPaHindsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHindConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaHulksArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHulkConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaKasutusaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKasutusaegConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaKogusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKogusConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaKontuursArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKontuurConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaKoostisainedsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKoostisainedConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaLaadimisaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaLaadimisaegConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaMaterjalsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMaterjalConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaMuratasasArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMuratasaConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaOhutusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaOhutusConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaPatareidsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaPatareidConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaSuurusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaSuurusConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaVariantsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVariantConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaVarvsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVarvConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductPaVeekindlusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVeekindlusConnectionWhereArgs>
+};
+
+
+/** A external product object */
 export type GraphCms_ExternalProductPriceArgs = {
   format?: Maybe<GraphCms_PricingFieldFormatEnum>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductProductCategoriesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductProductTagsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductProductTypesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTypeConnectionWhereArgs>
 };
 
 
@@ -5009,18 +5178,18 @@ export type GraphCms_ExternalProductSalePriceArgs = {
 
 
 /** A external product object */
-export type GraphCms_ExternalProductShortDescriptionArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** A external product object */
-export type GraphCms_ExternalProductTagsArgs = {
+export type GraphCms_ExternalProductShippingClassesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+  where?: Maybe<GraphCms_ProductToShippingClassConnectionWhereArgs>
+};
+
+
+/** A external product object */
+export type GraphCms_ExternalProductShortDescriptionArgs = {
+  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 
@@ -5033,24 +5202,14 @@ export type GraphCms_ExternalProductUpsellArgs = {
   where?: Maybe<GraphCms_ProductToProductConnectionWhereArgs>
 };
 
-/** Connection between the ExternalProduct type and the ExternalProduct type */
-export type GraphCms_ExternalProductToProductAttributeConnection = {
-   __typename?: 'GraphCMS_ExternalProductToProductAttributeConnection',
-  /** Edges for the ExternalProductToProductAttributeConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_ExternalProductToProductAttributeConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_ProductAttribute>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-};
 
-/** An edge in a connection */
-export type GraphCms_ExternalProductToProductAttributeConnectionEdge = {
-   __typename?: 'GraphCMS_ExternalProductToProductAttributeConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_ProductAttribute>,
+/** A external product object */
+export type GraphCms_ExternalProductVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToVisibleProductConnectionWhereArgs>
 };
 
 /** Connection between the ExternalProduct type and the ExternalProduct type */
@@ -5152,14 +5311,12 @@ export type GraphCms_GroupProduct = GraphCms_Node & GraphCms_Product & {
   addToCartDescription?: Maybe<Scalars['String']>,
   /** Product&#039;s add to cart button text description */
   addToCartText?: Maybe<Scalars['String']>,
-  /** Connection between the GroupProduct type and the GroupProduct type */
-  attributes?: Maybe<GraphCms_GroupProductToProductAttributeConnection>,
+  /** Connection between the Product type and the Product type */
+  attributes?: Maybe<GraphCms_ProductToProductAttributeConnection>,
   /** Product average count */
   averageRating?: Maybe<Scalars['Float']>,
   /** Catalog visibility */
   catalogVisibility?: Maybe<GraphCms_CatalogVisibilityEnum>,
-  /** Connection between the Product type and the Product type */
-  categories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** Date product created */
   date?: Maybe<Scalars['String']>,
   /** Date on sale from */
@@ -5190,10 +5347,46 @@ export type GraphCms_GroupProduct = GraphCms_Node & GraphCms_Product & {
   name?: Maybe<Scalars['String']>,
   /** Is product on sale? */
   onSale?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  paHinds?: Maybe<GraphCms_ProductToPaHindConnection>,
+  /** Connection between the Product type and the Product type */
+  paHulks?: Maybe<GraphCms_ProductToPaHulkConnection>,
+  /** Connection between the Product type and the Product type */
+  paKasutusaegs?: Maybe<GraphCms_ProductToPaKasutusaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoguses?: Maybe<GraphCms_ProductToPaKogusConnection>,
+  /** Connection between the Product type and the Product type */
+  paKontuurs?: Maybe<GraphCms_ProductToPaKontuurConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoostisaineds?: Maybe<GraphCms_ProductToPaKoostisainedConnection>,
+  /** Connection between the Product type and the Product type */
+  paLaadimisaegs?: Maybe<GraphCms_ProductToPaLaadimisaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paMaterjals?: Maybe<GraphCms_ProductToPaMaterjalConnection>,
+  /** Connection between the Product type and the Product type */
+  paMuratasas?: Maybe<GraphCms_ProductToPaMuratasaConnection>,
+  /** Connection between the Product type and the Product type */
+  paOhutuses?: Maybe<GraphCms_ProductToPaOhutusConnection>,
+  /** Connection between the Product type and the Product type */
+  paPatareids?: Maybe<GraphCms_ProductToPaPatareidConnection>,
+  /** Connection between the Product type and the Product type */
+  paSuuruses?: Maybe<GraphCms_ProductToPaSuurusConnection>,
+  /** Connection between the Product type and the Product type */
+  paVariants?: Maybe<GraphCms_ProductToPaVariantConnection>,
+  /** Connection between the Product type and the Product type */
+  paVarvs?: Maybe<GraphCms_ProductToPaVarvConnection>,
+  /** Connection between the Product type and the Product type */
+  paVeekindluses?: Maybe<GraphCms_ProductToPaVeekindlusConnection>,
   /** Parent product */
   parent?: Maybe<GraphCms_Product>,
+  /** Connection between the Product type and the Product type */
+  productCategories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** The Id of the order. Equivalent to WP_Post-&gt;ID */
   productId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  productTags?: Maybe<GraphCms_ProductToProductTagConnection>,
+  /** Connection between the Product type and the Product type */
+  productTypes?: Maybe<GraphCms_ProductToProductTypeConnection>,
   /** Connection between the GroupProduct type and the GroupProduct type */
   products?: Maybe<GraphCms_GroupProductToProductConnection>,
   /** Can product be purchased? */
@@ -5206,6 +5399,8 @@ export type GraphCms_GroupProduct = GraphCms_Node & GraphCms_Product & {
   reviewCount?: Maybe<Scalars['Int']>,
   /** If reviews are allowed */
   reviewsAllowed?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  shippingClasses?: Maybe<GraphCms_ProductToShippingClassConnection>,
   /** Product short description */
   shortDescription?: Maybe<Scalars['String']>,
   /** Product SKU */
@@ -5214,14 +5409,14 @@ export type GraphCms_GroupProduct = GraphCms_Node & GraphCms_Product & {
   slug?: Maybe<Scalars['String']>,
   /** Product status */
   status?: Maybe<Scalars['String']>,
-  /** Connection between the Product type and the Product type */
-  tags?: Maybe<GraphCms_ProductToProductTagConnection>,
   /** Number total of sales */
   totalSales?: Maybe<Scalars['Int']>,
   /** Product type */
   type?: Maybe<GraphCms_ProductTypesEnum>,
   /** Connection between the Product type and the Product type */
   upsell?: Maybe<GraphCms_ProductToProductConnection>,
+  /** Connection between the Product type and the Product type */
+  visibleProducts?: Maybe<GraphCms_ProductToVisibleProductConnection>,
 };
 
 
@@ -5231,16 +5426,6 @@ export type GraphCms_GroupProductAttributesArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>
-};
-
-
-/** A group product object */
-export type GraphCms_GroupProductCategoriesArgs = {
-  first?: Maybe<Scalars['Int']>,
-  last?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['String']>,
-  before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
 };
 
 
@@ -5278,6 +5463,186 @@ export type GraphCms_GroupProductMetaDataArgs = {
 
 
 /** A group product object */
+export type GraphCms_GroupProductPaHindsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHindConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaHulksArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHulkConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaKasutusaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKasutusaegConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaKogusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKogusConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaKontuursArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKontuurConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaKoostisainedsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKoostisainedConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaLaadimisaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaLaadimisaegConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaMaterjalsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMaterjalConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaMuratasasArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMuratasaConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaOhutusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaOhutusConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaPatareidsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaPatareidConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaSuurusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaSuurusConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaVariantsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVariantConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaVarvsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVarvConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductPaVeekindlusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVeekindlusConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductProductCategoriesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductProductTagsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductProductTypesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTypeConnectionWhereArgs>
+};
+
+
+/** A group product object */
 export type GraphCms_GroupProductProductsArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
@@ -5298,18 +5663,18 @@ export type GraphCms_GroupProductRelatedArgs = {
 
 
 /** A group product object */
-export type GraphCms_GroupProductShortDescriptionArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** A group product object */
-export type GraphCms_GroupProductTagsArgs = {
+export type GraphCms_GroupProductShippingClassesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+  where?: Maybe<GraphCms_ProductToShippingClassConnectionWhereArgs>
+};
+
+
+/** A group product object */
+export type GraphCms_GroupProductShortDescriptionArgs = {
+  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 
@@ -5322,24 +5687,14 @@ export type GraphCms_GroupProductUpsellArgs = {
   where?: Maybe<GraphCms_ProductToProductConnectionWhereArgs>
 };
 
-/** Connection between the GroupProduct type and the GroupProduct type */
-export type GraphCms_GroupProductToProductAttributeConnection = {
-   __typename?: 'GraphCMS_GroupProductToProductAttributeConnection',
-  /** Edges for the GroupProductToProductAttributeConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_GroupProductToProductAttributeConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_ProductAttribute>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-};
 
-/** An edge in a connection */
-export type GraphCms_GroupProductToProductAttributeConnectionEdge = {
-   __typename?: 'GraphCMS_GroupProductToProductAttributeConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_ProductAttribute>,
+/** A group product object */
+export type GraphCms_GroupProductVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToVisibleProductConnectionWhereArgs>
 };
 
 /** Connection between the GroupProduct type and the GroupProduct type */
@@ -5602,6 +5957,8 @@ export type GraphCms_MediaItem = GraphCms_Node & {
   id: Scalars['ID'],
   /** Whether the object is restricted from the current viewer */
   isRestricted?: Maybe<Scalars['Boolean']>,
+  /** Whether the object is a revision */
+  isRevision?: Maybe<Scalars['Boolean']>,
   /** The permalink of the post */
   link?: Maybe<Scalars['String']>,
   /** Details about the mediaItem */
@@ -6654,6 +7011,8 @@ export type GraphCms_Page = GraphCms_Node & {
   isFrontPage: Scalars['Boolean'],
   /** Whether the object is restricted from the current viewer */
   isRestricted?: Maybe<Scalars['Boolean']>,
+  /** Whether the object is a revision */
+  isRevision?: Maybe<Scalars['Boolean']>,
   /** The permalink of the post */
   link?: Maybe<Scalars['String']>,
   /** 
@@ -6680,7 +7039,7 @@ export type GraphCms_Page = GraphCms_Node & {
   /** URLs that have been pinged. */
   pinged?: Maybe<Array<Maybe<Scalars['String']>>>,
   /** Connection between the page type and the page type */
-  revisions?: Maybe<GraphCms_PageToRevisionConnection>,
+  revisions?: Maybe<GraphCms_PageToPageConnection>,
   /** 
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
@@ -6748,7 +7107,7 @@ export type GraphCms_PageRevisionsArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_PageToRevisionConnectionWhereArgs>
+  where?: Maybe<GraphCms_PageToPageConnectionWhereArgs>
 };
 
 
@@ -6902,125 +7261,6 @@ export type GraphCms_PageToPageConnectionEdge = {
 
 /** Arguments for filtering the PageToPageConnection connection */
 export type GraphCms_PageToPageConnectionWhereArgs = {
-  /** 
- * The user that's connected as the author of the object. Use the
-   * 							userId for the author object.
- */
-  author?: Maybe<Scalars['Int']>,
-  /** Find objects connected to author(s) in the array of author's userIds */
-  authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Find objects connected to the author by the author's nicename */
-  authorName?: Maybe<Scalars['String']>,
-  /** 
- * Find objects NOT connected to author(s) in the array of author's
-   * 							userIds
- */
-  authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Category ID */
-  categoryId?: Maybe<Scalars['Int']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Use Category Slug */
-  categoryName?: Maybe<Scalars['String']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Filter the connection based on dates */
-  dateQuery?: Maybe<GraphCms_DateQueryInput>,
-  /** 
- * True for objects with passwords; False for objects without passwords;
-   * 							null for all objects with or without passwords
- */
-  hasPassword?: Maybe<Scalars['Boolean']>,
-  /** Specific ID of the object */
-  id?: Maybe<Scalars['Int']>,
-  /** Array of IDs for the objects to retrieve */
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Get objects with a specific mimeType property */
-  mimeType?: Maybe<GraphCms_MimeTypeEnum>,
-  /** Slug / post_name of the object */
-  name?: Maybe<Scalars['String']>,
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Specify IDs NOT to retrieve. If this is used in the same query as "in",
-   * 							it will be ignored
- */
-  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** What paramater to use to order the objects by. */
-  orderby?: Maybe<Array<Maybe<GraphCms_PostObjectsConnectionOrderbyInput>>>,
-  /** 
- * Use ID to return only children. Use 0 to return only top-level
-   * 							items
- */
-  parent?: Maybe<Scalars['String']>,
-  /** Specify objects whose parent is in an array */
-  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Show posts with a specific password. */
-  password?: Maybe<Scalars['String']>,
-  /** Show Posts based on a keyword search */
-  search?: Maybe<Scalars['String']>,
-  stati?: Maybe<Array<Maybe<GraphCms_PostStatusEnum>>>,
-  status?: Maybe<GraphCms_PostStatusEnum>,
-  /** Tag Slug */
-  tag?: Maybe<Scalars['String']>,
-  /** Use Tag ID */
-  tagId?: Maybe<Scalars['String']>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag slugs, used to display objects from one tag OR
-   * 							another
- */
-  tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Array of tag slugs, used to exclude objects in specified
-   * 							tags
- */
-  tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** Title of the object */
-  title?: Maybe<Scalars['String']>,
-};
-
-/** Connection between the page type and the page type */
-export type GraphCms_PageToRevisionConnection = {
-   __typename?: 'GraphCMS_PageToRevisionConnection',
-  /** Edges for the PageToRevisionConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_PageToRevisionConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_Revision>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-  /** Information about the type of content being queried */
-  postTypeInfo?: Maybe<GraphCms_PostType>,
-};
-
-/** An edge in a connection */
-export type GraphCms_PageToRevisionConnectionEdge = {
-   __typename?: 'GraphCMS_PageToRevisionConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_Revision>,
-};
-
-/** Arguments for filtering the PageToRevisionConnection connection */
-export type GraphCms_PageToRevisionConnectionWhereArgs = {
   /** 
  * The user that's connected as the author of the object. Use the
    * 							userId for the author object.
@@ -10905,6 +11145,8 @@ export type GraphCms_Post = GraphCms_Node & {
   id: Scalars['ID'],
   /** Whether the object is restricted from the current viewer */
   isRestricted?: Maybe<Scalars['Boolean']>,
+  /** Whether the object is a revision */
+  isRevision?: Maybe<Scalars['Boolean']>,
   /** The permalink of the post */
   link?: Maybe<Scalars['String']>,
   /** 
@@ -10931,7 +11173,7 @@ export type GraphCms_Post = GraphCms_Node & {
   /** The id field matches the WP_Post-&gt;ID field. */
   postId: Scalars['Int'],
   /** Connection between the post type and the post type */
-  revisions?: Maybe<GraphCms_PostToRevisionConnection>,
+  revisions?: Maybe<GraphCms_PostToPostConnection>,
   /** 
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
@@ -11001,7 +11243,7 @@ export type GraphCms_PostRevisionsArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_PostToRevisionConnectionWhereArgs>
+  where?: Maybe<GraphCms_PostToPostConnectionWhereArgs>
 };
 
 
@@ -11124,7 +11366,7 @@ export type GraphCms_PostObjectsConnectionOrderbyInput = {
   order?: Maybe<GraphCms_OrderEnum>,
 };
 
-export type GraphCms_PostObjectUnion = GraphCms_Post | GraphCms_Page | GraphCms_MediaItem | GraphCms_Revision;
+export type GraphCms_PostObjectUnion = GraphCms_Post | GraphCms_Page | GraphCms_MediaItem;
 
 /** The status of the object. */
 export enum GraphCms_PostStatusEnum {
@@ -11401,12 +11643,12 @@ export type GraphCms_PostToCommentConnectionWhereArgs = {
 };
 
 /** Connection between the post type and the post type */
-export type GraphCms_PostToRevisionConnection = {
-   __typename?: 'GraphCMS_PostToRevisionConnection',
-  /** Edges for the PostToRevisionConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_PostToRevisionConnectionEdge>>>,
+export type GraphCms_PostToPostConnection = {
+   __typename?: 'GraphCMS_PostToPostConnection',
+  /** Edges for the PostToPostConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_PostToPostConnectionEdge>>>,
   /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_Revision>>>,
+  nodes?: Maybe<Array<Maybe<GraphCms_Post>>>,
   /** Information about pagination in a connection. */
   pageInfo?: Maybe<GraphCms_WpPageInfo>,
   /** Information about the type of content being queried */
@@ -11414,16 +11656,16 @@ export type GraphCms_PostToRevisionConnection = {
 };
 
 /** An edge in a connection */
-export type GraphCms_PostToRevisionConnectionEdge = {
-   __typename?: 'GraphCMS_PostToRevisionConnectionEdge',
+export type GraphCms_PostToPostConnectionEdge = {
+   __typename?: 'GraphCMS_PostToPostConnectionEdge',
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>,
   /** The item at the end of the edge */
-  node?: Maybe<GraphCms_Revision>,
+  node?: Maybe<GraphCms_Post>,
 };
 
-/** Arguments for filtering the PostToRevisionConnection connection */
-export type GraphCms_PostToRevisionConnectionWhereArgs = {
+/** Arguments for filtering the PostToPostConnection connection */
+export type GraphCms_PostToPostConnectionWhereArgs = {
   /** 
  * The user that's connected as the author of the object. Use the
    * 							userId for the author object.
@@ -11687,8 +11929,7 @@ export type GraphCms_PostTypeConnectedTaxonomyNamesArgs = {
 export enum GraphCms_PostTypeEnum {
   Attachment = 'ATTACHMENT',
   Page = 'PAGE',
-  Post = 'POST',
-  Revision = 'REVISION'
+  Post = 'POST'
 }
 
 /** Details for labels of the PostType */
@@ -11778,12 +12019,12 @@ export enum GraphCms_PricingFieldFormatEnum {
 
 /** Product object */
 export type GraphCms_Product = {
+  /** Connection between the Product type and the Product type */
+  attributes?: Maybe<GraphCms_ProductToProductAttributeConnection>,
   /** Product average count */
   averageRating?: Maybe<Scalars['Float']>,
   /** Catalog visibility */
   catalogVisibility?: Maybe<GraphCms_CatalogVisibilityEnum>,
-  /** Connection between the Product type and the Product type */
-  categories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** Date product created */
   date?: Maybe<Scalars['String']>,
   /** Date on sale from */
@@ -11810,10 +12051,46 @@ export type GraphCms_Product = {
   name?: Maybe<Scalars['String']>,
   /** Is product on sale? */
   onSale?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  paHinds?: Maybe<GraphCms_ProductToPaHindConnection>,
+  /** Connection between the Product type and the Product type */
+  paHulks?: Maybe<GraphCms_ProductToPaHulkConnection>,
+  /** Connection between the Product type and the Product type */
+  paKasutusaegs?: Maybe<GraphCms_ProductToPaKasutusaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoguses?: Maybe<GraphCms_ProductToPaKogusConnection>,
+  /** Connection between the Product type and the Product type */
+  paKontuurs?: Maybe<GraphCms_ProductToPaKontuurConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoostisaineds?: Maybe<GraphCms_ProductToPaKoostisainedConnection>,
+  /** Connection between the Product type and the Product type */
+  paLaadimisaegs?: Maybe<GraphCms_ProductToPaLaadimisaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paMaterjals?: Maybe<GraphCms_ProductToPaMaterjalConnection>,
+  /** Connection between the Product type and the Product type */
+  paMuratasas?: Maybe<GraphCms_ProductToPaMuratasaConnection>,
+  /** Connection between the Product type and the Product type */
+  paOhutuses?: Maybe<GraphCms_ProductToPaOhutusConnection>,
+  /** Connection between the Product type and the Product type */
+  paPatareids?: Maybe<GraphCms_ProductToPaPatareidConnection>,
+  /** Connection between the Product type and the Product type */
+  paSuuruses?: Maybe<GraphCms_ProductToPaSuurusConnection>,
+  /** Connection between the Product type and the Product type */
+  paVariants?: Maybe<GraphCms_ProductToPaVariantConnection>,
+  /** Connection between the Product type and the Product type */
+  paVarvs?: Maybe<GraphCms_ProductToPaVarvConnection>,
+  /** Connection between the Product type and the Product type */
+  paVeekindluses?: Maybe<GraphCms_ProductToPaVeekindlusConnection>,
   /** Parent product */
   parent?: Maybe<GraphCms_Product>,
+  /** Connection between the Product type and the Product type */
+  productCategories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** The Id of the order. Equivalent to WP_Post->ID */
   productId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  productTags?: Maybe<GraphCms_ProductToProductTagConnection>,
+  /** Connection between the Product type and the Product type */
+  productTypes?: Maybe<GraphCms_ProductToProductTypeConnection>,
   /** Can product be purchased? */
   purchasable?: Maybe<Scalars['Boolean']>,
   /** Purchase note */
@@ -11824,6 +12101,8 @@ export type GraphCms_Product = {
   reviewCount?: Maybe<Scalars['Int']>,
   /** If reviews are allowed */
   reviewsAllowed?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  shippingClasses?: Maybe<GraphCms_ProductToShippingClassConnection>,
   /** Product short description */
   shortDescription?: Maybe<Scalars['String']>,
   /** Product SKU */
@@ -11832,24 +12111,23 @@ export type GraphCms_Product = {
   slug?: Maybe<Scalars['String']>,
   /** Product status */
   status?: Maybe<Scalars['String']>,
-  /** Connection between the Product type and the Product type */
-  tags?: Maybe<GraphCms_ProductToProductTagConnection>,
   /** Number total of sales */
   totalSales?: Maybe<Scalars['Int']>,
   /** Product type */
   type?: Maybe<GraphCms_ProductTypesEnum>,
   /** Connection between the Product type and the Product type */
   upsell?: Maybe<GraphCms_ProductToProductConnection>,
+  /** Connection between the Product type and the Product type */
+  visibleProducts?: Maybe<GraphCms_ProductToVisibleProductConnection>,
 };
 
 
 /** Product object */
-export type GraphCms_ProductCategoriesArgs = {
+export type GraphCms_ProductAttributesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
-  before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+  before?: Maybe<Scalars['String']>
 };
 
 
@@ -11870,6 +12148,186 @@ export type GraphCms_ProductGalleryImagesArgs = {
 
 
 /** Product object */
+export type GraphCms_ProductPaHindsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHindConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaHulksArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHulkConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaKasutusaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKasutusaegConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaKogusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKogusConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaKontuursArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKontuurConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaKoostisainedsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKoostisainedConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaLaadimisaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaLaadimisaegConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaMaterjalsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMaterjalConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaMuratasasArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMuratasaConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaOhutusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaOhutusConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaPatareidsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaPatareidConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaSuurusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaSuurusConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaVariantsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVariantConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaVarvsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVarvConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductPaVeekindlusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVeekindlusConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductProductCategoriesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductProductTagsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductProductTypesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTypeConnectionWhereArgs>
+};
+
+
+/** Product object */
 export type GraphCms_ProductRelatedArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
@@ -11880,18 +12338,18 @@ export type GraphCms_ProductRelatedArgs = {
 
 
 /** Product object */
-export type GraphCms_ProductShortDescriptionArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** Product object */
-export type GraphCms_ProductTagsArgs = {
+export type GraphCms_ProductShippingClassesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+  where?: Maybe<GraphCms_ProductToShippingClassConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductShortDescriptionArgs = {
+  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 
@@ -11902,6 +12360,16 @@ export type GraphCms_ProductUpsellArgs = {
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
   where?: Maybe<GraphCms_ProductToProductConnectionWhereArgs>
+};
+
+
+/** Product object */
+export type GraphCms_ProductVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToVisibleProductConnectionWhereArgs>
 };
 
 /** A product attribute object */
@@ -12365,25 +12833,26 @@ export type GraphCms_ProductTagToProductConnectionWhereArgs = {
 
 /** Product taxonomies */
 export enum GraphCms_ProductTaxonomyEnum {
-  Brand = 'BRAND',
-  Category = 'CATEGORY',
-  PaHind = 'PA_HIND',
-  PaHulk = 'PA_HULK',
-  PaKasutusaeg = 'PA_KASUTUSAEG',
-  PaKogus = 'PA_KOGUS',
-  PaKontuur = 'PA_KONTUUR',
-  PaKoostisained = 'PA_KOOSTISAINED',
-  PaLaadimisaeg = 'PA_LAADIMISAEG',
-  PaMaterjal = 'PA_MATERJAL',
-  PaMuratasa = 'PA_MURATASA',
-  PaOhutus = 'PA_OHUTUS',
-  PaPatareid = 'PA_PATAREID',
-  PaSuurus = 'PA_SUURUS',
-  PaVariant = 'PA_VARIANT',
-  PaVarv = 'PA_VARV',
-  PaVeekindlus = 'PA_VEEKINDLUS',
-  Tag = 'TAG',
-  Type = 'TYPE'
+  Pahind = 'PAHIND',
+  Pahulk = 'PAHULK',
+  Pakasutusaeg = 'PAKASUTUSAEG',
+  Pakogus = 'PAKOGUS',
+  Pakontuur = 'PAKONTUUR',
+  Pakoostisained = 'PAKOOSTISAINED',
+  Palaadimisaeg = 'PALAADIMISAEG',
+  Pamaterjal = 'PAMATERJAL',
+  Pamuratasa = 'PAMURATASA',
+  Paohutus = 'PAOHUTUS',
+  Papatareid = 'PAPATAREID',
+  Pasuurus = 'PASUURUS',
+  Pavariant = 'PAVARIANT',
+  Pavarv = 'PAVARV',
+  Paveekindlus = 'PAVEEKINDLUS',
+  Productcategory = 'PRODUCTCATEGORY',
+  Producttag = 'PRODUCTTAG',
+  Producttype = 'PRODUCTTYPE',
+  Shippingclass = 'SHIPPINGCLASS',
+  Visibleproduct = 'VISIBLEPRODUCT'
 }
 
 /** Product filter */
@@ -12521,6 +12990,1241 @@ export type GraphCms_ProductToMediaItemConnectionWhereArgs = {
   tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
   /** Title of the object */
   title?: Maybe<Scalars['String']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaHindConnection = {
+   __typename?: 'GraphCMS_ProductToPaHindConnection',
+  /** Edges for the ProductToPaHindConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaHindConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaHind>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaHindConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaHindConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaHind>,
+};
+
+/** Arguments for filtering the ProductToPaHindConnection connection */
+export type GraphCms_ProductToPaHindConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaHulkConnection = {
+   __typename?: 'GraphCMS_ProductToPaHulkConnection',
+  /** Edges for the ProductToPaHulkConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaHulkConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaHulk>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaHulkConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaHulkConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaHulk>,
+};
+
+/** Arguments for filtering the ProductToPaHulkConnection connection */
+export type GraphCms_ProductToPaHulkConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaKasutusaegConnection = {
+   __typename?: 'GraphCMS_ProductToPaKasutusaegConnection',
+  /** Edges for the ProductToPaKasutusaegConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaKasutusaegConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaKasutusaeg>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaKasutusaegConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaKasutusaegConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaKasutusaeg>,
+};
+
+/** Arguments for filtering the ProductToPaKasutusaegConnection connection */
+export type GraphCms_ProductToPaKasutusaegConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaKogusConnection = {
+   __typename?: 'GraphCMS_ProductToPaKogusConnection',
+  /** Edges for the ProductToPaKogusConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaKogusConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaKogus>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaKogusConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaKogusConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaKogus>,
+};
+
+/** Arguments for filtering the ProductToPaKogusConnection connection */
+export type GraphCms_ProductToPaKogusConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaKontuurConnection = {
+   __typename?: 'GraphCMS_ProductToPaKontuurConnection',
+  /** Edges for the ProductToPaKontuurConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaKontuurConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaKontuur>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaKontuurConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaKontuurConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaKontuur>,
+};
+
+/** Arguments for filtering the ProductToPaKontuurConnection connection */
+export type GraphCms_ProductToPaKontuurConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaKoostisainedConnection = {
+   __typename?: 'GraphCMS_ProductToPaKoostisainedConnection',
+  /** Edges for the ProductToPaKoostisainedConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaKoostisainedConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaKoostisained>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaKoostisainedConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaKoostisainedConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaKoostisained>,
+};
+
+/** Arguments for filtering the ProductToPaKoostisainedConnection connection */
+export type GraphCms_ProductToPaKoostisainedConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaLaadimisaegConnection = {
+   __typename?: 'GraphCMS_ProductToPaLaadimisaegConnection',
+  /** Edges for the ProductToPaLaadimisaegConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaLaadimisaegConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaLaadimisaeg>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaLaadimisaegConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaLaadimisaegConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaLaadimisaeg>,
+};
+
+/** Arguments for filtering the ProductToPaLaadimisaegConnection connection */
+export type GraphCms_ProductToPaLaadimisaegConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaMaterjalConnection = {
+   __typename?: 'GraphCMS_ProductToPaMaterjalConnection',
+  /** Edges for the ProductToPaMaterjalConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaMaterjalConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaMaterjal>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaMaterjalConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaMaterjalConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaMaterjal>,
+};
+
+/** Arguments for filtering the ProductToPaMaterjalConnection connection */
+export type GraphCms_ProductToPaMaterjalConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaMuratasaConnection = {
+   __typename?: 'GraphCMS_ProductToPaMuratasaConnection',
+  /** Edges for the ProductToPaMuratasaConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaMuratasaConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaMuratasa>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaMuratasaConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaMuratasaConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaMuratasa>,
+};
+
+/** Arguments for filtering the ProductToPaMuratasaConnection connection */
+export type GraphCms_ProductToPaMuratasaConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaOhutusConnection = {
+   __typename?: 'GraphCMS_ProductToPaOhutusConnection',
+  /** Edges for the ProductToPaOhutusConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaOhutusConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaOhutus>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaOhutusConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaOhutusConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaOhutus>,
+};
+
+/** Arguments for filtering the ProductToPaOhutusConnection connection */
+export type GraphCms_ProductToPaOhutusConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaPatareidConnection = {
+   __typename?: 'GraphCMS_ProductToPaPatareidConnection',
+  /** Edges for the ProductToPaPatareidConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaPatareidConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaPatareid>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaPatareidConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaPatareidConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaPatareid>,
+};
+
+/** Arguments for filtering the ProductToPaPatareidConnection connection */
+export type GraphCms_ProductToPaPatareidConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaSuurusConnection = {
+   __typename?: 'GraphCMS_ProductToPaSuurusConnection',
+  /** Edges for the ProductToPaSuurusConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaSuurusConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaSuurus>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaSuurusConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaSuurusConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaSuurus>,
+};
+
+/** Arguments for filtering the ProductToPaSuurusConnection connection */
+export type GraphCms_ProductToPaSuurusConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaVariantConnection = {
+   __typename?: 'GraphCMS_ProductToPaVariantConnection',
+  /** Edges for the ProductToPaVariantConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaVariantConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaVariant>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaVariantConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaVariantConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaVariant>,
+};
+
+/** Arguments for filtering the ProductToPaVariantConnection connection */
+export type GraphCms_ProductToPaVariantConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaVarvConnection = {
+   __typename?: 'GraphCMS_ProductToPaVarvConnection',
+  /** Edges for the ProductToPaVarvConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaVarvConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaVarv>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaVarvConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaVarvConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaVarv>,
+};
+
+/** Arguments for filtering the ProductToPaVarvConnection connection */
+export type GraphCms_ProductToPaVarvConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToPaVeekindlusConnection = {
+   __typename?: 'GraphCMS_ProductToPaVeekindlusConnection',
+  /** Edges for the ProductToPaVeekindlusConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToPaVeekindlusConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_PaVeekindlus>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToPaVeekindlusConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToPaVeekindlusConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_PaVeekindlus>,
+};
+
+/** Arguments for filtering the ProductToPaVeekindlusConnection connection */
+export type GraphCms_ProductToPaVeekindlusConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToProductAttributeConnection = {
+   __typename?: 'GraphCMS_ProductToProductAttributeConnection',
+  /** Edges for the ProductToProductAttributeConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToProductAttributeConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ProductAttribute>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToProductAttributeConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToProductAttributeConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ProductAttribute>,
 };
 
 /** Connection between the Product type and the Product type */
@@ -12783,6 +14487,249 @@ export type GraphCms_ProductToProductTagConnectionWhereArgs = {
   updateTermMetaCache?: Maybe<Scalars['Boolean']>,
 };
 
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToProductTypeConnection = {
+   __typename?: 'GraphCMS_ProductToProductTypeConnection',
+  /** Edges for the ProductToProductTypeConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToProductTypeConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ProductType>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToProductTypeConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToProductTypeConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ProductType>,
+};
+
+/** Arguments for filtering the ProductToProductTypeConnection connection */
+export type GraphCms_ProductToProductTypeConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToShippingClassConnection = {
+   __typename?: 'GraphCMS_ProductToShippingClassConnection',
+  /** Edges for the ProductToShippingClassConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToShippingClassConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ShippingClass>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToShippingClassConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToShippingClassConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ShippingClass>,
+};
+
+/** Arguments for filtering the ProductToShippingClassConnection connection */
+export type GraphCms_ProductToShippingClassConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
+/** Connection between the Product type and the Product type */
+export type GraphCms_ProductToVisibleProductConnection = {
+   __typename?: 'GraphCMS_ProductToVisibleProductConnection',
+  /** Edges for the ProductToVisibleProductConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductToVisibleProductConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_VisibleProduct>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductToVisibleProductConnectionEdge = {
+   __typename?: 'GraphCMS_ProductToVisibleProductConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_VisibleProduct>,
+};
+
+/** Arguments for filtering the ProductToVisibleProductConnection connection */
+export type GraphCms_ProductToVisibleProductConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
 /** The productType type */
 export type GraphCms_ProductType = GraphCms_Node & {
    __typename?: 'GraphCMS_ProductType',
@@ -12887,6 +14834,8 @@ export type GraphCms_ProductVariation = GraphCms_Node & {
   salePrice?: Maybe<Scalars['String']>,
   /** Product variation shipping class */
   shippingClass?: Maybe<Scalars['String']>,
+  /** Connection between the ProductVariation type and the ProductVariation type */
+  shippingClasses?: Maybe<GraphCms_ProductVariationToShippingClassConnection>,
   /** Product variation SKU (Stock-keeping unit) */
   sku?: Maybe<Scalars['String']>,
   /** Variation status */
@@ -12905,6 +14854,8 @@ export type GraphCms_ProductVariation = GraphCms_Node & {
   variationId?: Maybe<Scalars['Int']>,
   /** Is product virtual? */
   virtual?: Maybe<Scalars['Boolean']>,
+  /** Connection between the ProductVariation type and the ProductVariation type */
+  visibleProducts?: Maybe<GraphCms_ProductVariationToVisibleProductConnection>,
   /** Product variation weight */
   weight?: Maybe<Scalars['String']>,
   /** Product variation width */
@@ -12946,6 +14897,107 @@ export type GraphCms_ProductVariationSalePriceArgs = {
   format?: Maybe<GraphCms_PricingFieldFormatEnum>
 };
 
+
+/** A product variation object */
+export type GraphCms_ProductVariationShippingClassesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductVariationToShippingClassConnectionWhereArgs>
+};
+
+
+/** A product variation object */
+export type GraphCms_ProductVariationVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductVariationToVisibleProductConnectionWhereArgs>
+};
+
+/** Connection between the ProductVariation type and the ProductVariation type */
+export type GraphCms_ProductVariationToShippingClassConnection = {
+   __typename?: 'GraphCMS_ProductVariationToShippingClassConnection',
+  /** Edges for the ProductVariationToShippingClassConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductVariationToShippingClassConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ShippingClass>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductVariationToShippingClassConnectionEdge = {
+   __typename?: 'GraphCMS_ProductVariationToShippingClassConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ShippingClass>,
+};
+
+/** Arguments for filtering the ProductVariationToShippingClassConnection connection */
+export type GraphCms_ProductVariationToShippingClassConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
+};
+
 /** Connection between the ProductVariation type and the ProductVariation type */
 export type GraphCms_ProductVariationToVariationAttributeConnection = {
    __typename?: 'GraphCMS_ProductVariationToVariationAttributeConnection',
@@ -12964,6 +15016,87 @@ export type GraphCms_ProductVariationToVariationAttributeConnectionEdge = {
   cursor?: Maybe<Scalars['String']>,
   /** The item at the end of the edge */
   node?: Maybe<GraphCms_VariationAttribute>,
+};
+
+/** Connection between the ProductVariation type and the ProductVariation type */
+export type GraphCms_ProductVariationToVisibleProductConnection = {
+   __typename?: 'GraphCMS_ProductVariationToVisibleProductConnection',
+  /** Edges for the ProductVariationToVisibleProductConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_ProductVariationToVisibleProductConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_VisibleProduct>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+  /** Information about the type of content being queried */
+  taxonomyInfo?: Maybe<GraphCms_Taxonomy>,
+};
+
+/** An edge in a connection */
+export type GraphCms_ProductVariationToVisibleProductConnectionEdge = {
+   __typename?: 'GraphCMS_ProductVariationToVisibleProductConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_VisibleProduct>,
+};
+
+/** Arguments for filtering the ProductVariationToVisibleProductConnection connection */
+export type GraphCms_ProductVariationToVisibleProductConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>,
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>,
+  /** 
+ * True to limit results to terms that have no children. This parameter has no
+   * effect on non-hierarchical taxonomies. Default false.
+ */
+  childless?: Maybe<Scalars['Boolean']>,
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>,
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of term ids to exclude along with all of their descendant terms. If
+   * $include is non-empty, $exclude_tree is ignored. Default empty array.
+ */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>,
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>,
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>,
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<GraphCms_TermObjectsConnectionOrderbyEnum>,
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>,
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>,
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>,
+  /** 
+ * Default false. If true, only the items connected to the source item will be
+   * returned. If false, all items will be returned regardless of connection to the source
+ */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>,
+  /** 
+ * Default false. If true, the connection will be output in a flat list instead
+   * of the hierarchical list. So child terms will be output in the same level as
+   * the parent terms
+ */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>,
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>,
 };
 
 /** The reading setting type */
@@ -13166,6 +15299,7 @@ export type GraphCms_RemoveItemsFromCartInput = {
 /** The payload for the removeItemsFromCart mutation */
 export type GraphCms_RemoveItemsFromCartPayload = {
    __typename?: 'GraphCMS_RemoveItemsFromCartPayload',
+  cart?: Maybe<GraphCms_Cart>,
   cartItems?: Maybe<Array<Maybe<GraphCms_CartItem>>>,
   clientMutationId: Scalars['String'],
 };
@@ -13198,6 +15332,7 @@ export type GraphCms_RestoreCartItemsInput = {
 /** The payload for the restoreCartItems mutation */
 export type GraphCms_RestoreCartItemsPayload = {
    __typename?: 'GraphCMS_RestoreCartItemsPayload',
+  cart?: Maybe<GraphCms_Cart>,
   cartItems?: Maybe<Array<Maybe<GraphCms_CartItem>>>,
   clientMutationId: Scalars['String'],
 };
@@ -13217,134 +15352,6 @@ export type GraphCms_RestoreCommentPayload = {
   comment?: Maybe<GraphCms_Comment>,
   /** The ID of the restored comment */
   restoredId?: Maybe<Scalars['ID']>,
-};
-
-/** The revision type */
-export type GraphCms_Revision = GraphCms_Node & {
-   __typename?: 'GraphCMS_Revision',
-  /** Ancestors of the object */
-  ancestors?: Maybe<Array<Maybe<GraphCms_PostObjectUnion>>>,
-  /** The author field will return a queryable User type matching the post&#039;s author. */
-  author?: Maybe<GraphCms_User>,
-  /** Whether the comments are open or closed for this particular post. */
-  commentStatus?: Maybe<Scalars['String']>,
-  /** The content of the post. */
-  content?: Maybe<Scalars['String']>,
-  /** Post publishing date. */
-  date?: Maybe<Scalars['String']>,
-  /** The publishing date set in GMT. */
-  dateGmt?: Maybe<Scalars['String']>,
-  /** The desired slug of the post */
-  desiredSlug?: Maybe<Scalars['String']>,
-  /** The user that most recently edited the object */
-  editLast?: Maybe<GraphCms_User>,
-  /** 
- * If a user has edited the object within the past 15 seconds, this will return
-   * the user and the time they last edited. Null if the edit lock doesn&#039;t
-   * exist or is greater than 15 seconds
- */
-  editLock?: Maybe<GraphCms_EditLock>,
-  /** The RSS enclosure for the object */
-  enclosure?: Maybe<Scalars['String']>,
-  /** The excerpt of the post. */
-  excerpt?: Maybe<Scalars['String']>,
-  /** 
- * The global unique identifier for this post. This currently matches the value
-   * stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot;
-   * database table.
- */
-  guid?: Maybe<Scalars['String']>,
-  /** The globally unique identifier of the revision object. */
-  id: Scalars['ID'],
-  /** Whether the object is restricted from the current viewer */
-  isRestricted?: Maybe<Scalars['Boolean']>,
-  /** The permalink of the post */
-  link?: Maybe<Scalars['String']>,
-  /** 
- * A field used for ordering posts. This is typically used with nav menu items or
-   * for special ordering of hierarchical content types.
- */
-  menuOrder?: Maybe<Scalars['Int']>,
-  /** 
- * The local modified time for a post. If a post was recently updated the
-   * modified field will change to match the corresponding time.
- */
-  modified?: Maybe<Scalars['String']>,
-  /** 
- * The GMT modified time for a post. If a post was recently updated the modified
-   * field will change to match the corresponding time in GMT.
- */
-  modifiedGmt?: Maybe<Scalars['String']>,
-  /** The parent of the object. The parent object can be of various types */
-  parent?: Maybe<GraphCms_PostObjectUnion>,
-  /** Whether the pings are open or closed for this particular post. */
-  pingStatus?: Maybe<Scalars['String']>,
-  /** URLs that have been pinged. */
-  pinged?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** The id field matches the WP_Post-&gt;ID field. */
-  revisionId: Scalars['Int'],
-  /** 
- * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
-   * field and the post_name column in the database for the
-   * &quot;post_objects&quot; table.
- */
-  slug?: Maybe<Scalars['String']>,
-  /** The current status of the object */
-  status?: Maybe<Scalars['String']>,
-  /** Terms connected to the revision */
-  termNames?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** Terms connected to the revision */
-  termSlugs?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** Terms connected to the revision */
-  terms?: Maybe<Array<Maybe<GraphCms_TermObjectUnion>>>,
-  /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
-  title?: Maybe<Scalars['String']>,
-  /** URLs queued to be pinged. */
-  toPing?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** URI path for the resource */
-  uri?: Maybe<Scalars['String']>,
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionAncestorsArgs = {
-  types?: Maybe<Array<Maybe<GraphCms_PostTypeEnum>>>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionContentArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionExcerptArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionTermNamesArgs = {
-  taxonomies?: Maybe<Array<Maybe<GraphCms_TaxonomyEnum>>>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionTermSlugsArgs = {
-  taxonomies?: Maybe<Array<Maybe<GraphCms_TaxonomyEnum>>>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionTermsArgs = {
-  taxonomies?: Maybe<Array<Maybe<GraphCms_TaxonomyEnum>>>
-};
-
-
-/** The revision type */
-export type GraphCms_RevisionTitleArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 /** Connection between the RootQuery type and the RootQuery type */
@@ -13529,6 +15536,123 @@ export type GraphCms_RootQueryToCommentConnectionWhereArgs = {
   status?: Maybe<Scalars['String']>,
   /** Include comments for a specific user ID. */
   userId?: Maybe<Scalars['ID']>,
+};
+
+/** Connection between the RootQuery type and the RootQuery type */
+export type GraphCms_RootQueryToContentRevisionUnionConnection = {
+   __typename?: 'GraphCMS_RootQueryToContentRevisionUnionConnection',
+  /** Edges for the RootQueryToContentRevisionUnionConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_RootQueryToContentRevisionUnionConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ContentRevisionUnion>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+};
+
+/** An edge in a connection */
+export type GraphCms_RootQueryToContentRevisionUnionConnectionEdge = {
+   __typename?: 'GraphCMS_RootQueryToContentRevisionUnionConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ContentRevisionUnion>,
+};
+
+/** Arguments for filtering the RootQueryToContentRevisionUnionConnection connection */
+export type GraphCms_RootQueryToContentRevisionUnionConnectionWhereArgs = {
+  /** 
+ * The user that's connected as the author of the object. Use the
+   * 							userId for the author object.
+ */
+  author?: Maybe<Scalars['Int']>,
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: Maybe<Scalars['String']>,
+  /** 
+ * Find objects NOT connected to author(s) in the array of author's
+   * 							userIds
+ */
+  authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Category ID */
+  categoryId?: Maybe<Scalars['Int']>,
+  /** 
+ * Array of category IDs, used to display objects from one
+   * 										category OR another
+ */
+  categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Use Category Slug */
+  categoryName?: Maybe<Scalars['String']>,
+  /** 
+ * Array of category IDs, used to display objects from one
+   * 										category OR another
+ */
+  categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Filter the connection based on dates */
+  dateQuery?: Maybe<GraphCms_DateQueryInput>,
+  /** 
+ * True for objects with passwords; False for objects without passwords;
+   * 							null for all objects with or without passwords
+ */
+  hasPassword?: Maybe<Scalars['Boolean']>,
+  /** Specific ID of the object */
+  id?: Maybe<Scalars['Int']>,
+  /** Array of IDs for the objects to retrieve */
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Get objects with a specific mimeType property */
+  mimeType?: Maybe<GraphCms_MimeTypeEnum>,
+  /** Slug / post_name of the object */
+  name?: Maybe<Scalars['String']>,
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** 
+ * Specify IDs NOT to retrieve. If this is used in the same query as "in",
+   * 							it will be ignored
+ */
+  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** What paramater to use to order the objects by. */
+  orderby?: Maybe<Array<Maybe<GraphCms_PostObjectsConnectionOrderbyInput>>>,
+  /** 
+ * Use ID to return only children. Use 0 to return only top-level
+   * 							items
+ */
+  parent?: Maybe<Scalars['String']>,
+  /** Specify objects whose parent is in an array */
+  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Show posts with a specific password. */
+  password?: Maybe<Scalars['String']>,
+  /** Show Posts based on a keyword search */
+  search?: Maybe<Scalars['String']>,
+  stati?: Maybe<Array<Maybe<GraphCms_PostStatusEnum>>>,
+  status?: Maybe<GraphCms_PostStatusEnum>,
+  /** Tag Slug */
+  tag?: Maybe<Scalars['String']>,
+  /** Use Tag ID */
+  tagId?: Maybe<Scalars['String']>,
+  /** 
+ * Array of tag IDs, used to display objects from one tag OR
+   * 							another
+ */
+  tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of tag IDs, used to display objects from one tag OR
+   * 							another
+ */
+  tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of tag slugs, used to display objects from one tag OR
+   * 							another
+ */
+  tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** 
+ * Array of tag slugs, used to exclude objects in specified
+   * 							tags
+ */
+  tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Title of the object */
+  title?: Maybe<Scalars['String']>,
 };
 
 /** Connection between the RootQuery type and the RootQuery type */
@@ -15725,123 +17849,6 @@ export type GraphCms_RootQueryToRefundConnectionWhereArgs = {
 };
 
 /** Connection between the RootQuery type and the RootQuery type */
-export type GraphCms_RootQueryToRevisionConnection = {
-   __typename?: 'GraphCMS_RootQueryToRevisionConnection',
-  /** Edges for the RootQueryToRevisionConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_RootQueryToRevisionConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_Revision>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-  /** Information about the type of content being queried */
-  postTypeInfo?: Maybe<GraphCms_PostType>,
-};
-
-/** An edge in a connection */
-export type GraphCms_RootQueryToRevisionConnectionEdge = {
-   __typename?: 'GraphCMS_RootQueryToRevisionConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_Revision>,
-};
-
-/** Arguments for filtering the RootQueryToRevisionConnection connection */
-export type GraphCms_RootQueryToRevisionConnectionWhereArgs = {
-  /** 
- * The user that's connected as the author of the object. Use the
-   * 							userId for the author object.
- */
-  author?: Maybe<Scalars['Int']>,
-  /** Find objects connected to author(s) in the array of author's userIds */
-  authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Find objects connected to the author by the author's nicename */
-  authorName?: Maybe<Scalars['String']>,
-  /** 
- * Find objects NOT connected to author(s) in the array of author's
-   * 							userIds
- */
-  authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Category ID */
-  categoryId?: Maybe<Scalars['Int']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Use Category Slug */
-  categoryName?: Maybe<Scalars['String']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Filter the connection based on dates */
-  dateQuery?: Maybe<GraphCms_DateQueryInput>,
-  /** 
- * True for objects with passwords; False for objects without passwords;
-   * 							null for all objects with or without passwords
- */
-  hasPassword?: Maybe<Scalars['Boolean']>,
-  /** Specific ID of the object */
-  id?: Maybe<Scalars['Int']>,
-  /** Array of IDs for the objects to retrieve */
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Get objects with a specific mimeType property */
-  mimeType?: Maybe<GraphCms_MimeTypeEnum>,
-  /** Slug / post_name of the object */
-  name?: Maybe<Scalars['String']>,
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Specify IDs NOT to retrieve. If this is used in the same query as "in",
-   * 							it will be ignored
- */
-  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** What paramater to use to order the objects by. */
-  orderby?: Maybe<Array<Maybe<GraphCms_PostObjectsConnectionOrderbyInput>>>,
-  /** 
- * Use ID to return only children. Use 0 to return only top-level
-   * 							items
- */
-  parent?: Maybe<Scalars['String']>,
-  /** Specify objects whose parent is in an array */
-  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Show posts with a specific password. */
-  password?: Maybe<Scalars['String']>,
-  /** Show Posts based on a keyword search */
-  search?: Maybe<Scalars['String']>,
-  /** Tag Slug */
-  tag?: Maybe<Scalars['String']>,
-  /** Use Tag ID */
-  tagId?: Maybe<Scalars['String']>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag slugs, used to display objects from one tag OR
-   * 							another
- */
-  tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Array of tag slugs, used to exclude objects in specified
-   * 							tags
- */
-  tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** Title of the object */
-  title?: Maybe<Scalars['String']>,
-};
-
-/** Connection between the RootQuery type and the RootQuery type */
 export type GraphCms_RootQueryToShippingClassConnection = {
    __typename?: 'GraphCMS_RootQueryToShippingClassConnection',
   /** Edges for the RootQueryToShippingClassConnection connection */
@@ -16370,11 +18377,37 @@ export type GraphCms_ShippingMethod = GraphCms_Node & {
   title?: Maybe<Scalars['String']>,
 };
 
+/** Shipping package object */
+export type GraphCms_ShippingPackage = {
+   __typename?: 'GraphCMS_ShippingPackage',
+  /** Shipping package details */
+  packageDetails?: Maybe<Scalars['String']>,
+  /** Shipping package rates */
+  rates?: Maybe<Array<Maybe<GraphCms_ShippingRate>>>,
+  /** This shipping package supports the shipping calculator. */
+  supportsShippingCalculator?: Maybe<Scalars['Boolean']>,
+};
+
+/** Shipping rate object */
+export type GraphCms_ShippingRate = {
+   __typename?: 'GraphCMS_ShippingRate',
+  /** Shipping rate cost */
+  cost?: Maybe<Scalars['String']>,
+  /** Shipping rate ID */
+  id: Scalars['ID'],
+  /** Shipping instance ID */
+  instanceId: Scalars['Int'],
+  /** Shipping rate label */
+  label?: Maybe<Scalars['String']>,
+  /** Shipping method ID */
+  methodId: Scalars['ID'],
+};
+
 /** A product object */
 export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
    __typename?: 'GraphCMS_SimpleProduct',
-  /** Connection between the SimpleProduct type and the SimpleProduct type */
-  attributes?: Maybe<GraphCms_SimpleProductToProductAttributeConnection>,
+  /** Connection between the Product type and the Product type */
+  attributes?: Maybe<GraphCms_ProductToProductAttributeConnection>,
   /** Product average count */
   averageRating?: Maybe<Scalars['Float']>,
   /** Product backorders status */
@@ -16383,8 +18416,6 @@ export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
   backordersAllowed?: Maybe<Scalars['Boolean']>,
   /** Catalog visibility */
   catalogVisibility?: Maybe<GraphCms_CatalogVisibilityEnum>,
-  /** Connection between the Product type and the Product type */
-  categories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** Connection between the SimpleProduct type and the SimpleProduct type */
   crossSell?: Maybe<GraphCms_SimpleProductToProductConnection>,
   /** Date product created */
@@ -16431,12 +18462,48 @@ export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
   name?: Maybe<Scalars['String']>,
   /** Is product on sale? */
   onSale?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  paHinds?: Maybe<GraphCms_ProductToPaHindConnection>,
+  /** Connection between the Product type and the Product type */
+  paHulks?: Maybe<GraphCms_ProductToPaHulkConnection>,
+  /** Connection between the Product type and the Product type */
+  paKasutusaegs?: Maybe<GraphCms_ProductToPaKasutusaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoguses?: Maybe<GraphCms_ProductToPaKogusConnection>,
+  /** Connection between the Product type and the Product type */
+  paKontuurs?: Maybe<GraphCms_ProductToPaKontuurConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoostisaineds?: Maybe<GraphCms_ProductToPaKoostisainedConnection>,
+  /** Connection between the Product type and the Product type */
+  paLaadimisaegs?: Maybe<GraphCms_ProductToPaLaadimisaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paMaterjals?: Maybe<GraphCms_ProductToPaMaterjalConnection>,
+  /** Connection between the Product type and the Product type */
+  paMuratasas?: Maybe<GraphCms_ProductToPaMuratasaConnection>,
+  /** Connection between the Product type and the Product type */
+  paOhutuses?: Maybe<GraphCms_ProductToPaOhutusConnection>,
+  /** Connection between the Product type and the Product type */
+  paPatareids?: Maybe<GraphCms_ProductToPaPatareidConnection>,
+  /** Connection between the Product type and the Product type */
+  paSuuruses?: Maybe<GraphCms_ProductToPaSuurusConnection>,
+  /** Connection between the Product type and the Product type */
+  paVariants?: Maybe<GraphCms_ProductToPaVariantConnection>,
+  /** Connection between the Product type and the Product type */
+  paVarvs?: Maybe<GraphCms_ProductToPaVarvConnection>,
+  /** Connection between the Product type and the Product type */
+  paVeekindluses?: Maybe<GraphCms_ProductToPaVeekindlusConnection>,
   /** Parent product */
   parent?: Maybe<GraphCms_Product>,
   /** Product&#039;s active price */
   price?: Maybe<Scalars['String']>,
+  /** Connection between the Product type and the Product type */
+  productCategories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** The Id of the order. Equivalent to WP_Post-&gt;ID */
   productId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  productTags?: Maybe<GraphCms_ProductToProductTagConnection>,
+  /** Connection between the Product type and the Product type */
+  productTypes?: Maybe<GraphCms_ProductToProductTypeConnection>,
   /** Can product be purchased? */
   purchasable?: Maybe<Scalars['Boolean']>,
   /** Purchase note */
@@ -16453,6 +18520,8 @@ export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
   salePrice?: Maybe<Scalars['String']>,
   /** shipping class ID */
   shippingClassId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  shippingClasses?: Maybe<GraphCms_ProductToShippingClassConnection>,
   /** Does product need to be shipped? */
   shippingRequired?: Maybe<Scalars['Boolean']>,
   /** Is product shipping taxable? */
@@ -16471,8 +18540,6 @@ export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
   stockQuantity?: Maybe<Scalars['Int']>,
   /** Product stock status */
   stockStatus?: Maybe<GraphCms_StockStatusEnum>,
-  /** Connection between the Product type and the Product type */
-  tags?: Maybe<GraphCms_ProductToProductTagConnection>,
   /** Tax class */
   taxClass?: Maybe<GraphCms_TaxClassEnum>,
   /** Tax status */
@@ -16485,6 +18552,8 @@ export type GraphCms_SimpleProduct = GraphCms_Node & GraphCms_Product & {
   upsell?: Maybe<GraphCms_ProductToProductConnection>,
   /** Is product virtual? */
   virtual?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  visibleProducts?: Maybe<GraphCms_ProductToVisibleProductConnection>,
   /** Product&#039;s weight */
   weight?: Maybe<Scalars['String']>,
   /** Product&#039;s width */
@@ -16498,16 +18567,6 @@ export type GraphCms_SimpleProductAttributesArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>
-};
-
-
-/** A product object */
-export type GraphCms_SimpleProductCategoriesArgs = {
-  first?: Maybe<Scalars['Int']>,
-  last?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['String']>,
-  before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
 };
 
 
@@ -16555,8 +18614,188 @@ export type GraphCms_SimpleProductMetaDataArgs = {
 
 
 /** A product object */
+export type GraphCms_SimpleProductPaHindsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHindConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaHulksArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHulkConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaKasutusaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKasutusaegConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaKogusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKogusConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaKontuursArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKontuurConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaKoostisainedsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKoostisainedConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaLaadimisaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaLaadimisaegConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaMaterjalsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMaterjalConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaMuratasasArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMuratasaConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaOhutusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaOhutusConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaPatareidsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaPatareidConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaSuurusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaSuurusConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaVariantsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVariantConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaVarvsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVarvConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductPaVeekindlusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVeekindlusConnectionWhereArgs>
+};
+
+
+/** A product object */
 export type GraphCms_SimpleProductPriceArgs = {
   format?: Maybe<GraphCms_PricingFieldFormatEnum>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductProductCategoriesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductProductTagsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductProductTypesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTypeConnectionWhereArgs>
 };
 
 
@@ -16583,18 +18822,18 @@ export type GraphCms_SimpleProductSalePriceArgs = {
 
 
 /** A product object */
-export type GraphCms_SimpleProductShortDescriptionArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** A product object */
-export type GraphCms_SimpleProductTagsArgs = {
+export type GraphCms_SimpleProductShippingClassesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+  where?: Maybe<GraphCms_ProductToShippingClassConnectionWhereArgs>
+};
+
+
+/** A product object */
+export type GraphCms_SimpleProductShortDescriptionArgs = {
+  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 
@@ -16607,24 +18846,14 @@ export type GraphCms_SimpleProductUpsellArgs = {
   where?: Maybe<GraphCms_ProductToProductConnectionWhereArgs>
 };
 
-/** Connection between the SimpleProduct type and the SimpleProduct type */
-export type GraphCms_SimpleProductToProductAttributeConnection = {
-   __typename?: 'GraphCMS_SimpleProductToProductAttributeConnection',
-  /** Edges for the SimpleProductToProductAttributeConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_SimpleProductToProductAttributeConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_ProductAttribute>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-};
 
-/** An edge in a connection */
-export type GraphCms_SimpleProductToProductAttributeConnectionEdge = {
-   __typename?: 'GraphCMS_SimpleProductToProductAttributeConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_ProductAttribute>,
+/** A product object */
+export type GraphCms_SimpleProductVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToVisibleProductConnectionWhereArgs>
 };
 
 /** Connection between the SimpleProduct type and the SimpleProduct type */
@@ -17253,7 +19482,7 @@ export type GraphCms_UpdateCustomerInput = {
   /** 	The user's first name. */
   firstName?: Maybe<Scalars['String']>,
   /** The ID of the user */
-  id: Scalars['ID'],
+  id?: Maybe<Scalars['ID']>,
   /** User's Jabber account. */
   jabber?: Maybe<Scalars['String']>,
   /** The user's last name. */
@@ -17299,6 +19528,7 @@ export type GraphCms_UpdateItemQuantitiesInput = {
 /** The payload for the updateItemQuantities mutation */
 export type GraphCms_UpdateItemQuantitiesPayload = {
    __typename?: 'GraphCMS_UpdateItemQuantitiesPayload',
+  cart?: Maybe<GraphCms_Cart>,
   clientMutationId: Scalars['String'],
   items?: Maybe<Array<Maybe<GraphCms_CartItem>>>,
   removed?: Maybe<Array<Maybe<GraphCms_CartItem>>>,
@@ -18141,6 +20371,19 @@ export type GraphCms_UpdateShippingClassPayload = {
   shippingClass?: Maybe<GraphCms_ShippingClass>,
 };
 
+/** Input for the updateShippingMethod mutation */
+export type GraphCms_UpdateShippingMethodInput = {
+  clientMutationId: Scalars['String'],
+  shippingMethods?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+/** The payload for the updateShippingMethod mutation */
+export type GraphCms_UpdateShippingMethodPayload = {
+   __typename?: 'GraphCMS_UpdateShippingMethodPayload',
+  cart?: Maybe<GraphCms_Cart>,
+  clientMutationId: Scalars['String'],
+};
+
 /** Input for the UpdateTag mutation */
 export type GraphCms_UpdateTagInput = {
   /** The slug that the post_tag will be an alias of */
@@ -18298,8 +20541,8 @@ export type GraphCms_User = GraphCms_Node & {
   posts?: Maybe<GraphCms_UserToPostConnection>,
   /** The date the user registered or was created. The field follows a full ISO8601 date string format. */
   registeredDate?: Maybe<Scalars['String']>,
-  /** Connection between the User type and the User type */
-  revisions?: Maybe<GraphCms_UserToRevisionConnection>,
+  /** Connection between the User and Revisions authored by the user */
+  revisions?: Maybe<GraphCms_UserToContentRevisionUnionConnection>,
   /** Connection between the User type and the User type */
   roles?: Maybe<GraphCms_UserToUserRoleConnection>,
   /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
@@ -18367,7 +20610,7 @@ export type GraphCms_UserRevisionsArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_UserToRevisionConnectionWhereArgs>
+  where?: Maybe<GraphCms_UserToContentRevisionUnionConnectionWhereArgs>
 };
 
 
@@ -18384,11 +20627,13 @@ export type GraphCms_UserRole = GraphCms_Node & {
    __typename?: 'GraphCMS_UserRole',
   /** The capabilities that belong to this role */
   capabilities?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** The display name of the role */
+  displayName?: Maybe<Scalars['String']>,
   /** The globally unique identifier for the user role object. */
   id: Scalars['ID'],
   /** Whether the object is restricted from the current viewer */
   isRestricted?: Maybe<Scalars['Boolean']>,
-  /** The UI friendly name of the role */
+  /** The registered name of the role */
   name?: Maybe<Scalars['String']>,
 };
 
@@ -18529,6 +20774,123 @@ export type GraphCms_UserToCommentConnectionWhereArgs = {
   status?: Maybe<Scalars['String']>,
   /** Include comments for a specific user ID. */
   userId?: Maybe<Scalars['ID']>,
+};
+
+/** Connection between the User type and the User type */
+export type GraphCms_UserToContentRevisionUnionConnection = {
+   __typename?: 'GraphCMS_UserToContentRevisionUnionConnection',
+  /** Edges for the UserToContentRevisionUnionConnection connection */
+  edges?: Maybe<Array<Maybe<GraphCms_UserToContentRevisionUnionConnectionEdge>>>,
+  /** The nodes of the connection, without the edges */
+  nodes?: Maybe<Array<Maybe<GraphCms_ContentRevisionUnion>>>,
+  /** Information about pagination in a connection. */
+  pageInfo?: Maybe<GraphCms_WpPageInfo>,
+};
+
+/** An edge in a connection */
+export type GraphCms_UserToContentRevisionUnionConnectionEdge = {
+   __typename?: 'GraphCMS_UserToContentRevisionUnionConnectionEdge',
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']>,
+  /** The item at the end of the edge */
+  node?: Maybe<GraphCms_ContentRevisionUnion>,
+};
+
+/** Arguments for filtering the UserToContentRevisionUnionConnection connection */
+export type GraphCms_UserToContentRevisionUnionConnectionWhereArgs = {
+  /** 
+ * The user that's connected as the author of the object. Use the
+   * 							userId for the author object.
+ */
+  author?: Maybe<Scalars['Int']>,
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: Maybe<Scalars['String']>,
+  /** 
+ * Find objects NOT connected to author(s) in the array of author's
+   * 							userIds
+ */
+  authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Category ID */
+  categoryId?: Maybe<Scalars['Int']>,
+  /** 
+ * Array of category IDs, used to display objects from one
+   * 										category OR another
+ */
+  categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Use Category Slug */
+  categoryName?: Maybe<Scalars['String']>,
+  /** 
+ * Array of category IDs, used to display objects from one
+   * 										category OR another
+ */
+  categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Filter the connection based on dates */
+  dateQuery?: Maybe<GraphCms_DateQueryInput>,
+  /** 
+ * True for objects with passwords; False for objects without passwords;
+   * 							null for all objects with or without passwords
+ */
+  hasPassword?: Maybe<Scalars['Boolean']>,
+  /** Specific ID of the object */
+  id?: Maybe<Scalars['Int']>,
+  /** Array of IDs for the objects to retrieve */
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Get objects with a specific mimeType property */
+  mimeType?: Maybe<GraphCms_MimeTypeEnum>,
+  /** Slug / post_name of the object */
+  name?: Maybe<Scalars['String']>,
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** 
+ * Specify IDs NOT to retrieve. If this is used in the same query as "in",
+   * 							it will be ignored
+ */
+  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** What paramater to use to order the objects by. */
+  orderby?: Maybe<Array<Maybe<GraphCms_PostObjectsConnectionOrderbyInput>>>,
+  /** 
+ * Use ID to return only children. Use 0 to return only top-level
+   * 							items
+ */
+  parent?: Maybe<Scalars['String']>,
+  /** Specify objects whose parent is in an array */
+  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** Show posts with a specific password. */
+  password?: Maybe<Scalars['String']>,
+  /** Show Posts based on a keyword search */
+  search?: Maybe<Scalars['String']>,
+  stati?: Maybe<Array<Maybe<GraphCms_PostStatusEnum>>>,
+  status?: Maybe<GraphCms_PostStatusEnum>,
+  /** Tag Slug */
+  tag?: Maybe<Scalars['String']>,
+  /** Use Tag ID */
+  tagId?: Maybe<Scalars['String']>,
+  /** 
+ * Array of tag IDs, used to display objects from one tag OR
+   * 							another
+ */
+  tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of tag IDs, used to display objects from one tag OR
+   * 							another
+ */
+  tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
+  /** 
+ * Array of tag slugs, used to display objects from one tag OR
+   * 							another
+ */
+  tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** 
+ * Array of tag slugs, used to exclude objects in specified
+   * 							tags
+ */
+  tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
+  /** Title of the object */
+  title?: Maybe<Scalars['String']>,
 };
 
 /** Connection between the User type and the User type */
@@ -18889,123 +21251,6 @@ export type GraphCms_UserToPostConnectionWhereArgs = {
 };
 
 /** Connection between the User type and the User type */
-export type GraphCms_UserToRevisionConnection = {
-   __typename?: 'GraphCMS_UserToRevisionConnection',
-  /** Edges for the UserToRevisionConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_UserToRevisionConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_Revision>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-  /** Information about the type of content being queried */
-  postTypeInfo?: Maybe<GraphCms_PostType>,
-};
-
-/** An edge in a connection */
-export type GraphCms_UserToRevisionConnectionEdge = {
-   __typename?: 'GraphCMS_UserToRevisionConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_Revision>,
-};
-
-/** Arguments for filtering the UserToRevisionConnection connection */
-export type GraphCms_UserToRevisionConnectionWhereArgs = {
-  /** 
- * The user that's connected as the author of the object. Use the
-   * 							userId for the author object.
- */
-  author?: Maybe<Scalars['Int']>,
-  /** Find objects connected to author(s) in the array of author's userIds */
-  authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Find objects connected to the author by the author's nicename */
-  authorName?: Maybe<Scalars['String']>,
-  /** 
- * Find objects NOT connected to author(s) in the array of author's
-   * 							userIds
- */
-  authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Category ID */
-  categoryId?: Maybe<Scalars['Int']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Use Category Slug */
-  categoryName?: Maybe<Scalars['String']>,
-  /** 
- * Array of category IDs, used to display objects from one
-   * 										category OR another
- */
-  categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Filter the connection based on dates */
-  dateQuery?: Maybe<GraphCms_DateQueryInput>,
-  /** 
- * True for objects with passwords; False for objects without passwords;
-   * 							null for all objects with or without passwords
- */
-  hasPassword?: Maybe<Scalars['Boolean']>,
-  /** Specific ID of the object */
-  id?: Maybe<Scalars['Int']>,
-  /** Array of IDs for the objects to retrieve */
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Get objects with a specific mimeType property */
-  mimeType?: Maybe<GraphCms_MimeTypeEnum>,
-  /** Slug / post_name of the object */
-  name?: Maybe<Scalars['String']>,
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Specify IDs NOT to retrieve. If this is used in the same query as "in",
-   * 							it will be ignored
- */
-  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** What paramater to use to order the objects by. */
-  orderby?: Maybe<Array<Maybe<GraphCms_PostObjectsConnectionOrderbyInput>>>,
-  /** 
- * Use ID to return only children. Use 0 to return only top-level
-   * 							items
- */
-  parent?: Maybe<Scalars['String']>,
-  /** Specify objects whose parent is in an array */
-  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** Show posts with a specific password. */
-  password?: Maybe<Scalars['String']>,
-  /** Show Posts based on a keyword search */
-  search?: Maybe<Scalars['String']>,
-  /** Tag Slug */
-  tag?: Maybe<Scalars['String']>,
-  /** Use Tag ID */
-  tagId?: Maybe<Scalars['String']>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag IDs, used to display objects from one tag OR
-   * 							another
- */
-  tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
- * Array of tag slugs, used to display objects from one tag OR
-   * 							another
- */
-  tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
- * Array of tag slugs, used to exclude objects in specified
-   * 							tags
- */
-  tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** Title of the object */
-  title?: Maybe<Scalars['String']>,
-};
-
-/** Connection between the User type and the User type */
 export type GraphCms_UserToUserRoleConnection = {
    __typename?: 'GraphCMS_UserToUserRoleConnection',
   /** Edges for the UserToUserRoleConnection connection */
@@ -19028,8 +21273,8 @@ export type GraphCms_UserToUserRoleConnectionEdge = {
 /** A variable product object */
 export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
    __typename?: 'GraphCMS_VariableProduct',
-  /** Connection between the VariableProduct type and the VariableProduct type */
-  attributes?: Maybe<GraphCms_VariableProductToProductAttributeConnection>,
+  /** Connection between the Product type and the Product type */
+  attributes?: Maybe<GraphCms_ProductToProductAttributeConnection>,
   /** Product average count */
   averageRating?: Maybe<Scalars['Float']>,
   /** Product backorders status */
@@ -19038,8 +21283,6 @@ export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
   backordersAllowed?: Maybe<Scalars['Boolean']>,
   /** Catalog visibility */
   catalogVisibility?: Maybe<GraphCms_CatalogVisibilityEnum>,
-  /** Connection between the Product type and the Product type */
-  categories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** Connection between the VariableProduct type and the VariableProduct type */
   crossSell?: Maybe<GraphCms_VariableProductToProductConnection>,
   /** Date product created */
@@ -19078,12 +21321,48 @@ export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
   name?: Maybe<Scalars['String']>,
   /** Is product on sale? */
   onSale?: Maybe<Scalars['Boolean']>,
+  /** Connection between the Product type and the Product type */
+  paHinds?: Maybe<GraphCms_ProductToPaHindConnection>,
+  /** Connection between the Product type and the Product type */
+  paHulks?: Maybe<GraphCms_ProductToPaHulkConnection>,
+  /** Connection between the Product type and the Product type */
+  paKasutusaegs?: Maybe<GraphCms_ProductToPaKasutusaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoguses?: Maybe<GraphCms_ProductToPaKogusConnection>,
+  /** Connection between the Product type and the Product type */
+  paKontuurs?: Maybe<GraphCms_ProductToPaKontuurConnection>,
+  /** Connection between the Product type and the Product type */
+  paKoostisaineds?: Maybe<GraphCms_ProductToPaKoostisainedConnection>,
+  /** Connection between the Product type and the Product type */
+  paLaadimisaegs?: Maybe<GraphCms_ProductToPaLaadimisaegConnection>,
+  /** Connection between the Product type and the Product type */
+  paMaterjals?: Maybe<GraphCms_ProductToPaMaterjalConnection>,
+  /** Connection between the Product type and the Product type */
+  paMuratasas?: Maybe<GraphCms_ProductToPaMuratasaConnection>,
+  /** Connection between the Product type and the Product type */
+  paOhutuses?: Maybe<GraphCms_ProductToPaOhutusConnection>,
+  /** Connection between the Product type and the Product type */
+  paPatareids?: Maybe<GraphCms_ProductToPaPatareidConnection>,
+  /** Connection between the Product type and the Product type */
+  paSuuruses?: Maybe<GraphCms_ProductToPaSuurusConnection>,
+  /** Connection between the Product type and the Product type */
+  paVariants?: Maybe<GraphCms_ProductToPaVariantConnection>,
+  /** Connection between the Product type and the Product type */
+  paVarvs?: Maybe<GraphCms_ProductToPaVarvConnection>,
+  /** Connection between the Product type and the Product type */
+  paVeekindluses?: Maybe<GraphCms_ProductToPaVeekindlusConnection>,
   /** Parent product */
   parent?: Maybe<GraphCms_Product>,
   /** Product&#039;s active price */
   price?: Maybe<Scalars['String']>,
+  /** Connection between the Product type and the Product type */
+  productCategories?: Maybe<GraphCms_ProductToProductCategoryConnection>,
   /** The Id of the order. Equivalent to WP_Post-&gt;ID */
   productId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  productTags?: Maybe<GraphCms_ProductToProductTagConnection>,
+  /** Connection between the Product type and the Product type */
+  productTypes?: Maybe<GraphCms_ProductToProductTypeConnection>,
   /** Can product be purchased? */
   purchasable?: Maybe<Scalars['Boolean']>,
   /** Purchase note */
@@ -19100,6 +21379,8 @@ export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
   salePrice?: Maybe<Scalars['String']>,
   /** shipping class ID */
   shippingClassId?: Maybe<Scalars['Int']>,
+  /** Connection between the Product type and the Product type */
+  shippingClasses?: Maybe<GraphCms_ProductToShippingClassConnection>,
   /** Does product need to be shipped? */
   shippingRequired?: Maybe<Scalars['Boolean']>,
   /** Is product shipping taxable? */
@@ -19116,8 +21397,6 @@ export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
   status?: Maybe<Scalars['String']>,
   /** Number of items available for sale */
   stockQuantity?: Maybe<Scalars['Int']>,
-  /** Connection between the Product type and the Product type */
-  tags?: Maybe<GraphCms_ProductToProductTagConnection>,
   /** Tax class */
   taxClass?: Maybe<GraphCms_TaxClassEnum>,
   /** Tax status */
@@ -19130,6 +21409,8 @@ export type GraphCms_VariableProduct = GraphCms_Node & GraphCms_Product & {
   upsell?: Maybe<GraphCms_ProductToProductConnection>,
   /** Connection between the VariableProduct type and the VariableProduct type */
   variations?: Maybe<GraphCms_VariableProductToProductVariationConnection>,
+  /** Connection between the Product type and the Product type */
+  visibleProducts?: Maybe<GraphCms_ProductToVisibleProductConnection>,
   /** Product&#039;s weight */
   weight?: Maybe<Scalars['String']>,
   /** Product&#039;s width */
@@ -19143,16 +21424,6 @@ export type GraphCms_VariableProductAttributesArgs = {
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>
-};
-
-
-/** A variable product object */
-export type GraphCms_VariableProductCategoriesArgs = {
-  first?: Maybe<Scalars['Int']>,
-  last?: Maybe<Scalars['Int']>,
-  after?: Maybe<Scalars['String']>,
-  before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
 };
 
 
@@ -19200,8 +21471,188 @@ export type GraphCms_VariableProductMetaDataArgs = {
 
 
 /** A variable product object */
+export type GraphCms_VariableProductPaHindsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHindConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaHulksArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaHulkConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaKasutusaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKasutusaegConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaKogusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKogusConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaKontuursArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKontuurConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaKoostisainedsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaKoostisainedConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaLaadimisaegsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaLaadimisaegConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaMaterjalsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMaterjalConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaMuratasasArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaMuratasaConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaOhutusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaOhutusConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaPatareidsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaPatareidConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaSuurusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaSuurusConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaVariantsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVariantConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaVarvsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVarvConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductPaVeekindlusesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToPaVeekindlusConnectionWhereArgs>
+};
+
+
+/** A variable product object */
 export type GraphCms_VariableProductPriceArgs = {
   format?: Maybe<GraphCms_PricingFieldFormatEnum>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductProductCategoriesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductCategoryConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductProductTagsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductProductTypesArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToProductTypeConnectionWhereArgs>
 };
 
 
@@ -19228,18 +21679,18 @@ export type GraphCms_VariableProductSalePriceArgs = {
 
 
 /** A variable product object */
-export type GraphCms_VariableProductShortDescriptionArgs = {
-  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
-};
-
-
-/** A variable product object */
-export type GraphCms_VariableProductTagsArgs = {
+export type GraphCms_VariableProductShippingClassesArgs = {
   first?: Maybe<Scalars['Int']>,
   last?: Maybe<Scalars['Int']>,
   after?: Maybe<Scalars['String']>,
   before?: Maybe<Scalars['String']>,
-  where?: Maybe<GraphCms_ProductToProductTagConnectionWhereArgs>
+  where?: Maybe<GraphCms_ProductToShippingClassConnectionWhereArgs>
+};
+
+
+/** A variable product object */
+export type GraphCms_VariableProductShortDescriptionArgs = {
+  format?: Maybe<GraphCms_PostObjectFieldFormatEnum>
 };
 
 
@@ -19262,24 +21713,14 @@ export type GraphCms_VariableProductVariationsArgs = {
   where?: Maybe<GraphCms_VariableProductToProductVariationConnectionWhereArgs>
 };
 
-/** Connection between the VariableProduct type and the VariableProduct type */
-export type GraphCms_VariableProductToProductAttributeConnection = {
-   __typename?: 'GraphCMS_VariableProductToProductAttributeConnection',
-  /** Edges for the VariableProductToProductAttributeConnection connection */
-  edges?: Maybe<Array<Maybe<GraphCms_VariableProductToProductAttributeConnectionEdge>>>,
-  /** The nodes of the connection, without the edges */
-  nodes?: Maybe<Array<Maybe<GraphCms_ProductAttribute>>>,
-  /** Information about pagination in a connection. */
-  pageInfo?: Maybe<GraphCms_WpPageInfo>,
-};
 
-/** An edge in a connection */
-export type GraphCms_VariableProductToProductAttributeConnectionEdge = {
-   __typename?: 'GraphCMS_VariableProductToProductAttributeConnectionEdge',
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>,
-  /** The item at the end of the edge */
-  node?: Maybe<GraphCms_ProductAttribute>,
+/** A variable product object */
+export type GraphCms_VariableProductVisibleProductsArgs = {
+  first?: Maybe<Scalars['Int']>,
+  last?: Maybe<Scalars['Int']>,
+  after?: Maybe<Scalars['String']>,
+  before?: Maybe<Scalars['String']>,
+  where?: Maybe<GraphCms_ProductToVisibleProductConnectionWhereArgs>
 };
 
 /** Connection between the VariableProduct type and the VariableProduct type */
@@ -20947,7 +23388,7 @@ export type ProductTemplateQuery = (
     { __typename?: 'GraphCMS' }
     & { product: Maybe<(
       { __typename?: 'GraphCMS_VariableProduct' }
-      & Pick<GraphCms_VariableProduct, 'id' | 'name' | 'description'>
+      & Pick<GraphCms_VariableProduct, 'price' | 'id' | 'name' | 'description'>
       & { image: Maybe<(
         { __typename?: 'GraphCMS_MediaItem' }
         & Pick<GraphCms_MediaItem, 'srcSet'>
@@ -20980,7 +23421,7 @@ export type ProductTemplateQuery = (
       )> }
     ) | (
       { __typename?: 'GraphCMS_SimpleProduct' }
-      & Pick<GraphCms_SimpleProduct, 'id' | 'name' | 'description'>
+      & Pick<GraphCms_SimpleProduct, 'price' | 'id' | 'name' | 'description'>
       & { image: Maybe<(
         { __typename?: 'GraphCMS_MediaItem' }
         & Pick<GraphCms_MediaItem, 'srcSet'>
