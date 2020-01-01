@@ -23396,6 +23396,16 @@ export type ProductTemplateQuery = (
           { __typename?: 'GraphCMS_MediaDetails' }
           & Pick<GraphCms_MediaDetails, 'width' | 'height'>
         )> }
+      )>, galleryImages: Maybe<(
+        { __typename?: 'GraphCMS_ProductToMediaItemConnection' }
+        & { nodes: Maybe<Array<Maybe<(
+          { __typename?: 'GraphCMS_MediaItem' }
+          & Pick<GraphCms_MediaItem, 'srcSet'>
+          & { mediaDetails: Maybe<(
+            { __typename?: 'GraphCMS_MediaDetails' }
+            & Pick<GraphCms_MediaDetails, 'width' | 'height'>
+          )> }
+        )>>> }
       )> }
     ) | (
       { __typename?: 'GraphCMS_ExternalProduct' }
@@ -23407,6 +23417,16 @@ export type ProductTemplateQuery = (
           { __typename?: 'GraphCMS_MediaDetails' }
           & Pick<GraphCms_MediaDetails, 'width' | 'height'>
         )> }
+      )>, galleryImages: Maybe<(
+        { __typename?: 'GraphCMS_ProductToMediaItemConnection' }
+        & { nodes: Maybe<Array<Maybe<(
+          { __typename?: 'GraphCMS_MediaItem' }
+          & Pick<GraphCms_MediaItem, 'srcSet'>
+          & { mediaDetails: Maybe<(
+            { __typename?: 'GraphCMS_MediaDetails' }
+            & Pick<GraphCms_MediaDetails, 'width' | 'height'>
+          )> }
+        )>>> }
       )> }
     ) | (
       { __typename?: 'GraphCMS_GroupProduct' }
@@ -23418,6 +23438,16 @@ export type ProductTemplateQuery = (
           { __typename?: 'GraphCMS_MediaDetails' }
           & Pick<GraphCms_MediaDetails, 'width' | 'height'>
         )> }
+      )>, galleryImages: Maybe<(
+        { __typename?: 'GraphCMS_ProductToMediaItemConnection' }
+        & { nodes: Maybe<Array<Maybe<(
+          { __typename?: 'GraphCMS_MediaItem' }
+          & Pick<GraphCms_MediaItem, 'srcSet'>
+          & { mediaDetails: Maybe<(
+            { __typename?: 'GraphCMS_MediaDetails' }
+            & Pick<GraphCms_MediaDetails, 'width' | 'height'>
+          )> }
+        )>>> }
       )> }
     ) | (
       { __typename?: 'GraphCMS_SimpleProduct' }
@@ -23429,6 +23459,16 @@ export type ProductTemplateQuery = (
           { __typename?: 'GraphCMS_MediaDetails' }
           & Pick<GraphCms_MediaDetails, 'width' | 'height'>
         )> }
+      )>, galleryImages: Maybe<(
+        { __typename?: 'GraphCMS_ProductToMediaItemConnection' }
+        & { nodes: Maybe<Array<Maybe<(
+          { __typename?: 'GraphCMS_MediaItem' }
+          & Pick<GraphCms_MediaItem, 'srcSet'>
+          & { mediaDetails: Maybe<(
+            { __typename?: 'GraphCMS_MediaDetails' }
+            & Pick<GraphCms_MediaDetails, 'width' | 'height'>
+          )> }
+        )>>> }
       )> }
     )> }
   ) }
