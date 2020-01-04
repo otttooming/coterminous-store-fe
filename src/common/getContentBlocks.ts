@@ -24,12 +24,30 @@ const getProps = (
     };
   }
 
-  const keyValue = Object.fromEntries([current.split("=")]);
+  const keyValue = Object.fromEntries([
+    current.split("=").map(removeEscapedCharsFromStringEnds),
+  ]);
 
   return {
     ...acc,
     ...keyValue,
   };
+};
+
+/**
+ * Remove potentially mismatching quotes from the ends of the string.
+ * &#8221;70&#8243; -> 70
+ * &#8221;left&#8221; -> left
+ */
+const removeEscapedCharsFromStringEnds = (item: string) => {
+  const regex = /&#.*?;(.*?)&#.*?;/i;
+  const match = item.match(regex);
+
+  if (!match) {
+    return item;
+  }
+
+  return match[1];
 };
 
 const removeMatchedBlocks = (acc: string, cur: string): string =>
