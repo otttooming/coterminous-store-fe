@@ -4,7 +4,7 @@ interface ContentBlocks {
 }
 
 interface BlockProps {
-  typeName: string | undefined;
+  typeName: string;
   [key: string]: string | undefined;
 }
 
@@ -66,7 +66,7 @@ const getBlockProps = (acc: BlockProps[], cur: string): BlockProps[] => {
 
   const props = match[1]
     .split(" ")
-    .reduce<BlockProps>(getProps, { typeName: undefined, children });
+    .reduce<BlockProps>(getProps, { typeName: "", children });
 
   return [...acc, props];
 };
