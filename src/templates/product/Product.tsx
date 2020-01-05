@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/core";
 import { ProductTemplateQuery } from "../../types";
 import { getLocalizedText } from "../../common/getLocalizedText";
+import { getContentBlocks } from "../../common/getContentBlocks";
+import BlockSwitch from "../../components/blockSwitch/BlockSwitch";
 
 interface Props {
   data: ProductTemplateQuery;
@@ -32,6 +34,8 @@ const ProductTemplate: React.FC<Props> = ({
   }
 
   const { id, name, description, image, galleryImages, price } = product;
+  const translatedDescription = getLocalizedText(description || "");
+  const content = getContentBlocks(translatedDescription);
 
   return (
     <Main hasSidebar={false}>
@@ -80,9 +84,12 @@ const ProductTemplate: React.FC<Props> = ({
 
           <div
             dangerouslySetInnerHTML={{
-              __html: getLocalizedText(description || ""),
+              __html: content.text || "",
             }}
           />
+
+          <BlockSwitch text={translatedDescription} />
+
           {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
       </Grid>
