@@ -89,7 +89,8 @@ const ProductTemplate: React.FC<Props> = ({
             </Badge>
           </Box>
 
-          <div
+          <Content
+            mb="3rem"
             dangerouslySetInnerHTML={{
               __html: content.text || "",
             }}
