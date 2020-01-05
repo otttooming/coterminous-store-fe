@@ -1,10 +1,8 @@
 import { graphql } from "gatsby";
 import * as React from "react";
 import Main from "../layouts/Main";
-import { Grid, Heading } from "@chakra-ui/core";
-import ProductCard from "../components/productCard/ProductCard";
 import { IndexQueryQuery } from "../types";
-import { getLocalizedText } from "../common/getLocalizedText";
+import ProductList from "../components/productList/ProductList";
 
 interface IndexPageProps {
   data: IndexQueryQuery;
@@ -35,40 +33,7 @@ class Index extends React.Component<IndexPageProps, {}> {
 
     return (
       <Main>
-        <Heading as="h2" mb="24px">
-          Product list
-        </Heading>
-        <Grid
-          as="ul"
-          templateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
-          gap="16px"
-        >
-          {data.cms.products.edges.map(
-            (
-              {
-                node: {
-                  slug,
-                  name,
-                  image: {
-                    srcSet,
-                    mediaDetails: { width, height },
-                  },
-                  price,
-                },
-              },
-              index
-            ) => (
-              <ProductCard
-                key={index}
-                slug={slug}
-                image={{ width, height, srcset: srcSet }}
-                price={price}
-              >
-                {getLocalizedText(name)}
-              </ProductCard>
-            )
-          )}
-        </Grid>
+        <ProductList title="Product list" products={data.cms.products} />
       </Main>
     );
   }

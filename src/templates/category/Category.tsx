@@ -1,10 +1,8 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
-import ProductCard from "../../components/productCard/ProductCard";
-import { Grid, Heading } from "@chakra-ui/core";
 import { CategoryTemplateQuery } from "../../types";
-import { getLocalizedText } from "../../common/getLocalizedText";
+import ProductList from "../../components/productList/ProductList";
 
 interface Props {
   data: CategoryTemplateQuery;
@@ -13,40 +11,10 @@ interface Props {
 const CategoryTemplate: React.FC<Props> = ({ data }) => {
   return (
     <Main>
-      <Heading as="h2" mb="24px">
-        Product list
-      </Heading>
-      <Grid
-        as="ul"
-        templateColumns="repeat(auto-fill, minmax(10rem, 1fr))"
-        gap="16px"
-      >
-        {data.cms.productCategory.products.edges.map(
-          (
-            {
-              node: {
-                slug,
-                name,
-                image: {
-                  srcSet,
-                  mediaDetails: { width, height },
-                },
-                price,
-              },
-            },
-            index
-          ) => (
-            <ProductCard
-              key={index}
-              slug={slug}
-              image={{ width, height, srcset: srcSet }}
-              price={price}
-            >
-              {getLocalizedText(name)}
-            </ProductCard>
-          )
-        )}
-      </Grid>
+      <ProductList
+        title="Category"
+        products={data.cms.productCategory?.products}
+      />
     </Main>
   );
 };
