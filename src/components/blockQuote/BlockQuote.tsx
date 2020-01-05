@@ -25,7 +25,7 @@ const Wrapper = styled.blockquote`
 const BlockQuote: React.SFC<BlockQuoteProps> = ({ children }) => {
   return (
     <Box as="blockquote" mb="1rem">
-      <Heading as="h5" size="lg">
+      <Heading as="h3" size="lg">
         Opinion
       </Heading>
       <Wrapper>

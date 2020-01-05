@@ -9,14 +9,14 @@ export interface ProgressBlockProps {
 const ProgressBlock: React.FC<ProgressBlockProps> = ({ title, complete }) => {
   return (
     <Box maxWidth="480px" mb="1rem">
-      <Heading as="h3" mb="8px" size="md">
+      <Heading as="h4" mb="8px" size="sm">
         {title}
       </Heading>
 
       <Progress
         borderRadius="8px"
         overflow="hidden"
-        size="lg"
+        size="sm"
         value={Number(complete)}
       />
     </Box>
