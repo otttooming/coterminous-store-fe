@@ -16,10 +16,17 @@ import { ProductTemplateQuery } from "../../types";
 import { getLocalizedText } from "../../common/getLocalizedText";
 import { getContentBlocks } from "../../common/getContentBlocks";
 import BlockSwitch from "../../components/blockSwitch/BlockSwitch";
+import styled from "@emotion/styled";
 
 interface Props {
   data: ProductTemplateQuery;
 }
+
+const Content = styled(Box)`
+  *:empty {
+    display: none;
+  }
+`;
 
 const ProductTemplate: React.FC<Props> = ({
   data: {
