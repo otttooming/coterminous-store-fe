@@ -5,9 +5,15 @@ import { Box, Image, Tag } from "@chakra-ui/core";
 export interface ProductCardProps {
   slug: string;
   image: Partial<HTMLImageElement>;
+  price: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ slug, image, children }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  slug,
+  image,
+  price,
+  children,
+}) => {
   return (
     <Box as="li" maxW="sm" overflow="hidden">
       <Link to={`/${slug}/`}>
@@ -26,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ slug, image, children }) => {
             left="4px"
             background="#322659"
           >
-            150
+            {price}
           </Tag>
         </Box>
 

@@ -53,6 +53,7 @@ class Index extends React.Component<IndexPageProps, {}> {
                     srcSet,
                     mediaDetails: { width, height },
                   },
+                  price,
                 },
               },
               index
@@ -61,6 +62,7 @@ class Index extends React.Component<IndexPageProps, {}> {
                 key={index}
                 slug={slug}
                 image={{ width, height, srcset: srcSet }}
+                price={price}
               >
                 {getLocalizedText(name)}
               </ProductCard>

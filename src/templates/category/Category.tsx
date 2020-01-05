@@ -31,6 +31,7 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
                   srcSet,
                   mediaDetails: { width, height },
                 },
+                price,
               },
             },
             index
@@ -39,6 +40,7 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
               key={index}
               slug={slug}
               image={{ width, height, srcset: srcSet }}
+              price={price}
             >
               {getLocalizedText(name)}
             </ProductCard>

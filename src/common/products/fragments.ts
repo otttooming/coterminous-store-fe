@@ -27,5 +27,12 @@ export const productQuery = graphql`
         }
       }
     }
+    ... on GraphCMS_SimpleProduct {
+      price
+    }
+
+    ... on GraphCMS_VariableProduct {
+      price
+    }
   }
 `;
