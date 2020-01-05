@@ -1,12 +1,14 @@
 import * as React from "react";
 import { getContentBlocks } from "../../common/getContentBlocks";
 import ProgressBlock from "../progressBlock/ProgressBlock";
+import BlockQuote from "../blockQuote/BlockQuote";
 
 export interface BlockSwitchProps {
   text: string;
 }
 
 const blockMap = {
+  blockquote: BlockQuote,
   progress: ProgressBlock,
 };
 
