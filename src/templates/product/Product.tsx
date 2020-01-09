@@ -118,7 +118,11 @@ const ProductTemplate: React.FC<Props> = ({
                 </Heading>
                 <div>
                   {item?.options?.map(item => {
-                    return <Badge>{item}</Badge>;
+                    return (
+                      <Badge mr="8px" variant="outline">
+                        {item}
+                      </Badge>
+                    );
                   })}
                 </div>
               </Box>
