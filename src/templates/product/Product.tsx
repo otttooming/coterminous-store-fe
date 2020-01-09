@@ -106,10 +106,14 @@ const ProductTemplate: React.FC<Props> = ({
 
           <BlockSwitch text={translatedDescription} />
 
+          <Heading as="h3" size="lg" mb="1rem">
+            Details
+          </Heading>
+
           {attributes?.nodes?.map(item => {
             return (
               <Box mb="1rem">
-                <Heading as="h3" size="lg">
+                <Heading as="h4" size="sm">
                   {item?.name}
                 </Heading>
                 <div>
