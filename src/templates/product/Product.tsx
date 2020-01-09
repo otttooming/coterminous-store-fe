@@ -40,7 +40,15 @@ const ProductTemplate: React.FC<Props> = ({
     return null;
   }
 
-  const { id, name, description, image, galleryImages, price } = product;
+  const {
+    id,
+    name,
+    description,
+    image,
+    galleryImages,
+    price,
+    attributes,
+  } = product;
   const translatedDescription = getLocalizedText(description || "");
   const content = getContentBlocks(translatedDescription);
 
@@ -98,6 +106,21 @@ const ProductTemplate: React.FC<Props> = ({
 
           <BlockSwitch text={translatedDescription} />
 
+          {attributes?.nodes?.map(item => {
+            return (
+              <Box mb="1rem">
+                <Heading as="h3" size="lg">
+                  {item?.name}
+                </Heading>
+                <div>
+                  {item?.options?.map(item => {
+                    return <Badge>{item}</Badge>;
+                  })}
+                </div>
+              </Box>
+            );
+          })}
+
           {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
       </Grid>
@@ -131,6 +154,12 @@ export const query = graphql`
               height
             }
             srcSet
+          }
+        }
+        attributes {
+          nodes {
+            name
+            options
           }
         }
         ... on GraphCMS_SimpleProduct {
