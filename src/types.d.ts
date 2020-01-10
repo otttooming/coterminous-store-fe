@@ -14165,6 +14165,52 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
+type ProductAttributes_GraphCms_VariableProduct_Fragment = (
+  { __typename?: 'GraphCMS_VariableProduct' }
+  & { attributes: Maybe<(
+    { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
+    & { nodes: Maybe<Array<Maybe<(
+      { __typename?: 'GraphCMS_ProductAttribute' }
+      & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
+    )>>> }
+  )> }
+);
+
+type ProductAttributes_GraphCms_ExternalProduct_Fragment = (
+  { __typename?: 'GraphCMS_ExternalProduct' }
+  & { attributes: Maybe<(
+    { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
+    & { nodes: Maybe<Array<Maybe<(
+      { __typename?: 'GraphCMS_ProductAttribute' }
+      & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
+    )>>> }
+  )> }
+);
+
+type ProductAttributes_GraphCms_GroupProduct_Fragment = (
+  { __typename?: 'GraphCMS_GroupProduct' }
+  & { attributes: Maybe<(
+    { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
+    & { nodes: Maybe<Array<Maybe<(
+      { __typename?: 'GraphCMS_ProductAttribute' }
+      & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
+    )>>> }
+  )> }
+);
+
+type ProductAttributes_GraphCms_SimpleProduct_Fragment = (
+  { __typename?: 'GraphCMS_SimpleProduct' }
+  & { attributes: Maybe<(
+    { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
+    & { nodes: Maybe<Array<Maybe<(
+      { __typename?: 'GraphCMS_ProductAttribute' }
+      & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
+    )>>> }
+  )> }
+);
+
+export type ProductAttributesFragment = ProductAttributes_GraphCms_VariableProduct_Fragment | ProductAttributes_GraphCms_ExternalProduct_Fragment | ProductAttributes_GraphCms_GroupProduct_Fragment | ProductAttributes_GraphCms_SimpleProduct_Fragment;
+
 type ProductForListing_GraphCms_VariableProduct_Fragment = (
   { __typename?: 'GraphCMS_VariableProduct' }
   & Pick<GraphCms_VariableProduct, 'price' | 'name' | 'slug'>
@@ -14424,13 +14470,8 @@ export type ProductTemplateQuery = (
             & Pick<GraphCms_MediaDetails, 'width' | 'height'>
           )> }
         )>>> }
-      )>, attributes: Maybe<(
-        { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
-        & { nodes: Maybe<Array<Maybe<(
-          { __typename?: 'GraphCMS_ProductAttribute' }
-          & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
-        )>>> }
       )> }
+      & ProductAttributes_GraphCms_VariableProduct_Fragment
     ) | (
       { __typename?: 'GraphCMS_ExternalProduct' }
       & Pick<GraphCms_ExternalProduct, 'id' | 'name' | 'description'>
@@ -14451,13 +14492,8 @@ export type ProductTemplateQuery = (
             & Pick<GraphCms_MediaDetails, 'width' | 'height'>
           )> }
         )>>> }
-      )>, attributes: Maybe<(
-        { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
-        & { nodes: Maybe<Array<Maybe<(
-          { __typename?: 'GraphCMS_ProductAttribute' }
-          & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
-        )>>> }
       )> }
+      & ProductAttributes_GraphCms_ExternalProduct_Fragment
     ) | (
       { __typename?: 'GraphCMS_GroupProduct' }
       & Pick<GraphCms_GroupProduct, 'id' | 'name' | 'description'>
@@ -14478,13 +14514,8 @@ export type ProductTemplateQuery = (
             & Pick<GraphCms_MediaDetails, 'width' | 'height'>
           )> }
         )>>> }
-      )>, attributes: Maybe<(
-        { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
-        & { nodes: Maybe<Array<Maybe<(
-          { __typename?: 'GraphCMS_ProductAttribute' }
-          & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
-        )>>> }
       )> }
+      & ProductAttributes_GraphCms_GroupProduct_Fragment
     ) | (
       { __typename?: 'GraphCMS_SimpleProduct' }
       & Pick<GraphCms_SimpleProduct, 'price' | 'id' | 'name' | 'description'>
@@ -14505,13 +14536,8 @@ export type ProductTemplateQuery = (
             & Pick<GraphCms_MediaDetails, 'width' | 'height'>
           )> }
         )>>> }
-      )>, attributes: Maybe<(
-        { __typename?: 'GraphCMS_ProductToProductAttributeConnection' }
-        & { nodes: Maybe<Array<Maybe<(
-          { __typename?: 'GraphCMS_ProductAttribute' }
-          & Pick<GraphCms_ProductAttribute, 'name' | 'options'>
-        )>>> }
       )> }
+      & ProductAttributes_GraphCms_SimpleProduct_Fragment
     )> }
   ) }
 );

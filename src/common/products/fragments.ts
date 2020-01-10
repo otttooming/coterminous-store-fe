@@ -1,6 +1,14 @@
 import { graphql } from "gatsby";
 
 export const productQuery = graphql`
+  fragment ProductAttributes on GraphCMS_Product {
+    attributes {
+      nodes {
+        name
+        options
+      }
+    }
+  }
   fragment ProductForListing on GraphCMS_Product {
     name
     slug

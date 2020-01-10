@@ -166,12 +166,7 @@ export const query = graphql`
             srcSet
           }
         }
-        attributes {
-          nodes {
-            name
-            options
-          }
-        }
+        ...ProductAttributes
         ... on GraphCMS_SimpleProduct {
           price
         }
