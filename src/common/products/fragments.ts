@@ -9,6 +9,22 @@ export const productQuery = graphql`
       }
     }
   }
+  fragment ProductVariation on GraphCMS_VariableProduct {
+    variations {
+      nodes {
+        id
+        name
+        price
+        stockStatus
+        attributes {
+          nodes {
+            name
+            value
+          }
+        }
+      }
+    }
+  }
   fragment ProductForListing on GraphCMS_Product {
     name
     slug

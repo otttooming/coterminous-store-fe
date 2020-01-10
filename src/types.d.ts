@@ -14211,6 +14211,24 @@ type ProductAttributes_GraphCms_SimpleProduct_Fragment = (
 
 export type ProductAttributesFragment = ProductAttributes_GraphCms_VariableProduct_Fragment | ProductAttributes_GraphCms_ExternalProduct_Fragment | ProductAttributes_GraphCms_GroupProduct_Fragment | ProductAttributes_GraphCms_SimpleProduct_Fragment;
 
+export type ProductVariationFragment = (
+  { __typename?: 'GraphCMS_VariableProduct' }
+  & { variations: Maybe<(
+    { __typename?: 'GraphCMS_VariableProductToProductVariationConnection' }
+    & { nodes: Maybe<Array<Maybe<(
+      { __typename?: 'GraphCMS_ProductVariation' }
+      & Pick<GraphCms_ProductVariation, 'id' | 'name' | 'price' | 'stockStatus'>
+      & { attributes: Maybe<(
+        { __typename?: 'GraphCMS_ProductVariationToVariationAttributeConnection' }
+        & { nodes: Maybe<Array<Maybe<(
+          { __typename?: 'GraphCMS_VariationAttribute' }
+          & Pick<GraphCms_VariationAttribute, 'name' | 'value'>
+        )>>> }
+      )> }
+    )>>> }
+  )> }
+);
+
 type ProductForListing_GraphCms_VariableProduct_Fragment = (
   { __typename?: 'GraphCMS_VariableProduct' }
   & Pick<GraphCms_VariableProduct, 'price' | 'name' | 'slug'>
@@ -14472,6 +14490,7 @@ export type ProductTemplateQuery = (
         )>>> }
       )> }
       & ProductAttributes_GraphCms_VariableProduct_Fragment
+      & ProductVariationFragment
     ) | (
       { __typename?: 'GraphCMS_ExternalProduct' }
       & Pick<GraphCms_ExternalProduct, 'id' | 'name' | 'description'>

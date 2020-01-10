@@ -152,6 +152,7 @@ export const query = graphql`
         ... on GraphCMS_VariableProduct {
           price
         }
+        ...ProductVariation
       }
     }
   }
