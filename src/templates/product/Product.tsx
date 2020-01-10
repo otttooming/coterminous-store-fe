@@ -17,6 +17,7 @@ import { getLocalizedText } from "../../common/getLocalizedText";
 import { getContentBlocks } from "../../common/getContentBlocks";
 import BlockSwitch from "../../components/blockSwitch/BlockSwitch";
 import styled from "@emotion/styled";
+import Attributes from "../../components/attributes/Attributes";
 
 interface Props {
   data: ProductTemplateQuery;
@@ -106,30 +107,7 @@ const ProductTemplate: React.FC<Props> = ({
 
           <BlockSwitch text={translatedDescription} />
 
-          <Heading as="h3" size="lg" mb="1rem">
-            Details
-          </Heading>
-
-          <Box display="grid" gridTemplateColumns="repeat(3,1fr)" gridGap="8px">
-            {attributes?.nodes?.map(item => {
-              return (
-                <Box mb="1rem">
-                  <Heading as="h4" size="sm">
-                    {item?.name}
-                  </Heading>
-                  <div>
-                    {item?.options?.map(item => {
-                      return (
-                        <Badge mr="8px" variant="outline">
-                          {item}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </Box>
-              );
-            })}
-          </Box>
+          <Attributes attributes={attributes} />
 
           {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
