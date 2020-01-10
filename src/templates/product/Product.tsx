@@ -110,24 +110,26 @@ const ProductTemplate: React.FC<Props> = ({
             Details
           </Heading>
 
-          {attributes?.nodes?.map(item => {
-            return (
-              <Box mb="1rem">
-                <Heading as="h4" size="sm">
-                  {item?.name}
-                </Heading>
-                <div>
-                  {item?.options?.map(item => {
-                    return (
-                      <Badge mr="8px" variant="outline">
-                        {item}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </Box>
-            );
-          })}
+          <Box display="grid" gridTemplateColumns="repeat(3,1fr)" gridGap="8px">
+            {attributes?.nodes?.map(item => {
+              return (
+                <Box mb="1rem">
+                  <Heading as="h4" size="sm">
+                    {item?.name}
+                  </Heading>
+                  <div>
+                    {item?.options?.map(item => {
+                      return (
+                        <Badge mr="8px" variant="outline">
+                          {item}
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                </Box>
+              );
+            })}
+          </Box>
 
           {/* <Button onClick={() => addItem({ id, price: 1 })}>Add to cart</Button> */}
         </Box>
