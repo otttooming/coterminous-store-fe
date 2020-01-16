@@ -11,6 +11,7 @@ import {
   Box,
   Text,
   Badge,
+  RadioButtonGroup,
 } from "@chakra-ui/core";
 import { ProductTemplateQuery } from "../../types";
 import { getLocalizedText } from "../../common/getLocalizedText";
@@ -28,6 +29,20 @@ const Content = styled(Box)`
     display: none;
   }
 `;
+
+const CustomRadio: React.FC<any> = React.forwardRef((props, ref) => {
+  const { isChecked, isDisabled, value, ...rest } = props;
+  return (
+    <Button
+      ref={ref}
+      variantColor={isChecked ? "red" : "gray"}
+      aria-checked={isChecked}
+      role="radio"
+      isDisabled={isDisabled}
+      {...rest}
+    />
+  );
+});
 
 const ProductTemplate: React.FC<Props> = ({
   data: {
@@ -52,6 +67,41 @@ const ProductTemplate: React.FC<Props> = ({
   } = product;
   const translatedDescription = getLocalizedText(description || "");
   const content = getContentBlocks(translatedDescription);
+
+  const variationNodes =
+    product.__typename === "GraphCMS_VariableProduct" &&
+    product.variations?.nodes;
+
+  const uniqueVariations = variationNodes
+    ? variationNodes.reduce<{ [key in string]: string[] }>(
+        (rootacc, rootcur) => {
+          const nodes = rootcur?.attributes?.nodes;
+
+          if (!nodes) {
+            return rootacc;
+          }
+
+          return nodes.reduce<{ [key in string]: string[] }>((acc, cur) => {
+            if (!cur || !cur.name || !cur.value) {
+              return acc;
+            }
+
+            const newAcc = { ...acc };
+
+            if (newAcc[cur.name]) {
+              newAcc[cur.name] = [...new Set([...newAcc[cur.name], cur.value])];
+            }
+
+            if (!newAcc[cur.name]) {
+              newAcc[cur.name] = [cur.value];
+            }
+
+            return { ...newAcc };
+          }, rootacc);
+        },
+        {}
+      )
+    : {};
 
   return (
     <Main hasSidebar={false}>
@@ -98,6 +148,22 @@ const ProductTemplate: React.FC<Props> = ({
             </Badge>
           </Box>
 
+          {Object.entries(uniqueVariations).map(item => (
+            <div>
+              {item[0]}
+
+              <RadioButtonGroup
+                defaultValue="rad2"
+                onChange={val => console.log(item[0], val)}
+                isInline
+              >
+                {item[1].map(sub => (
+                  <CustomRadio value={sub}>{sub}</CustomRadio>
+                ))}
+              </RadioButtonGroup>
+            </div>
+          ))}
+
           <Content
             mb="3rem"
             dangerouslySetInnerHTML={{
@@ -125,6 +191,7 @@ export const query = graphql`
     }
     cms {
       product(id: $id) {
+        __typename
         id
         name
         description
