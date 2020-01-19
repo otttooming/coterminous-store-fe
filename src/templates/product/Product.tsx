@@ -118,6 +118,32 @@ const ProductTemplate: React.FC<Props> = ({
       )
     : {};
 
+  const selectedVars = Object.entries(vars).reduce<
+    { [key in string]: { [key in string]: string[] } }
+  >((acc, cur) => {
+    const selectedAttributes = Object.entries(selected);
+    const variation = Object.entries(cur[1]);
+
+    const attributeValues = variation.flatMap(i2 => i2[1]);
+    const attributeNames = variation.map(i2 => i2[0]);
+
+    if (
+      selectedAttributes
+        .map(i4 => i4[0])
+        .every(i => attributeNames.includes(i)) &&
+      selectedAttributes
+        .map(i4 => i4[1])
+        .every(i => attributeValues.includes(i))
+    ) {
+      const newA = { ...acc };
+      newA[cur[0]] = cur[1];
+
+      return newA;
+    }
+
+    return acc;
+  }, {});
+
   console.log(vars);
 
   const uniqueVariations = Object.values(vars).reduce<
