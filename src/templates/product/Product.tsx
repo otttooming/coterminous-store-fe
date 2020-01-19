@@ -57,7 +57,6 @@ const ProductTemplate: React.FC<Props> = ({
   }
 
   const {
-    id,
     name,
     description,
     image,
@@ -68,40 +67,81 @@ const ProductTemplate: React.FC<Props> = ({
   const translatedDescription = getLocalizedText(description || "");
   const content = getContentBlocks(translatedDescription);
 
-  const variationNodes =
-    product.__typename === "GraphCMS_VariableProduct" &&
-    product.variations?.nodes;
+  const [selected, setSelected] = React.useState<{ [key in string]: string }>(
+    {}
+  );
 
-  const uniqueVariations = variationNodes
-    ? variationNodes.reduce<{ [key in string]: string[] }>(
+  const variationNodes =
+    (product.__typename === "GraphCMS_VariableProduct" &&
+      product.variations?.nodes) ||
+    [];
+
+  const vars = variationNodes
+    ? variationNodes.reduce<{ [key in string]: { [key in string]: string[] } }>(
         (rootacc, rootcur) => {
           const nodes = rootcur?.attributes?.nodes;
+          const id = rootcur?.id;
 
-          if (!nodes) {
+          if (!nodes || !id) {
             return rootacc;
           }
 
-          return nodes.reduce<{ [key in string]: string[] }>((acc, cur) => {
-            if (!cur || !cur.name || !cur.value) {
-              return acc;
-            }
+          const att = nodes.reduce<{ [key in string]: string[] }>(
+            (acc, cur) => {
+              if (!cur || !cur.name || !cur.value) {
+                return acc;
+              }
 
-            const newAcc = { ...acc };
+              const newAcc = { ...acc };
 
-            if (newAcc[cur.name]) {
-              newAcc[cur.name] = [...new Set([...newAcc[cur.name], cur.value])];
-            }
+              if (newAcc[cur.name]) {
+                newAcc[cur.name] = [
+                  ...new Set([...newAcc[cur.name], cur.value]),
+                ];
+              }
 
-            if (!newAcc[cur.name]) {
-              newAcc[cur.name] = [cur.value];
-            }
+              if (!newAcc[cur.name]) {
+                newAcc[cur.name] = [cur.value];
+              }
 
-            return { ...newAcc };
-          }, rootacc);
+              return { ...newAcc };
+            },
+            {}
+          );
+
+          const newacc = { ...rootacc };
+          newacc[id] = att;
+
+          return newacc;
         },
         {}
       )
     : {};
+
+  console.log(vars);
+
+  const uniqueVariations = Object.values(vars).reduce<
+    { [key in string]: string[] }
+  >((rootacc, rootcur) => {
+    return Object.entries(rootcur).reduce<{ [key in string]: string[] }>(
+      (acc, cur) => {
+        const newAcc = { ...acc };
+
+        if (newAcc[cur[0]]) {
+          newAcc[cur[0]] = [...new Set([...newAcc[cur[0]], ...cur[1]])];
+        }
+
+        if (!newAcc[cur[0]]) {
+          newAcc[cur[0]] = cur[1];
+        }
+
+        return { ...newAcc };
+      },
+      rootacc
+    );
+  }, {});
+
+  console.log(uniqueVariations);
 
   return (
     <Main hasSidebar={false}>
@@ -154,7 +194,13 @@ const ProductTemplate: React.FC<Props> = ({
 
               <RadioButtonGroup
                 defaultValue="rad2"
-                onChange={val => console.log(item[0], val)}
+                onChange={val => {
+                  console.log(item[0], val);
+                  const sevalue = Object.fromEntries([
+                    [item[0], val as string],
+                  ]);
+                  setSelected({ ...selected, ...sevalue });
+                }}
                 isInline
               >
                 {item[1].map(sub => (
