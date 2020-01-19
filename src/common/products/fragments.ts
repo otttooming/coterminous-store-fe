@@ -10,7 +10,7 @@ export const productQuery = graphql`
     }
   }
   fragment ProductVariation on GraphCMS_VariableProduct {
-    variations {
+    variations(where: { stockStatus: IN_STOCK }) {
       nodes {
         id
         name
