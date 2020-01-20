@@ -31,11 +31,11 @@ const Content = styled(Box)`
 `;
 
 const CustomRadio: React.FC<any> = React.forwardRef((props, ref) => {
-  const { isChecked, isDisabled, value, ...rest } = props;
+  const { isChecked, isDisabled, value, isAvailable, ...rest } = props;
   return (
     <Button
       ref={ref}
-      variantColor={isChecked ? "red" : "gray"}
+      variantColor={isChecked ? "red" : isAvailable ? "green" : "gray"}
       aria-checked={isChecked}
       role="radio"
       isDisabled={isDisabled}
@@ -146,6 +146,19 @@ const ProductTemplate: React.FC<Props> = ({
 
   console.log(vars);
 
+  const selectedOrAll = !!Object.keys(selected).length ? selectedVars : vars;
+
+  const getIsAvailable = (name: string, value: string): boolean => {
+    const allValAvailable = getUniqueVariations(selectedOrAll);
+    const nameMatch = allValAvailable[name];
+
+    if (nameMatch) {
+      return nameMatch.includes(value);
+    }
+
+    return false;
+  };
+
   const getUniqueVariations = (
     values: { [key in string]: { [key in string]: string[] } }
   ) => {
@@ -237,7 +250,12 @@ const ProductTemplate: React.FC<Props> = ({
                 isInline
               >
                 {item[1].map(sub => (
-                  <CustomRadio value={sub}>{sub}</CustomRadio>
+                  <CustomRadio
+                    value={sub}
+                    isAvailable={getIsAvailable(item[0], sub)}
+                  >
+                    {sub}
+                  </CustomRadio>
                 ))}
               </RadioButtonGroup>
             </div>
