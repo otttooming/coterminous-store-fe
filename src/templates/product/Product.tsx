@@ -71,6 +71,10 @@ const ProductTemplate: React.FC<Props> = ({
     {}
   );
 
+  const [resetVariationSelect, setResetVariationSelect] = React.useState(
+    Date.now()
+  );
+
   const variationNodes =
     (product.__typename === "GraphCMS_VariableProduct" &&
       product.variations?.nodes) ||
@@ -239,6 +243,7 @@ const ProductTemplate: React.FC<Props> = ({
               {item[0]}
 
               <RadioButtonGroup
+                key={resetVariationSelect}
                 defaultValue="rad2"
                 onChange={val => {
                   console.log(item[0], val);
@@ -260,6 +265,17 @@ const ProductTemplate: React.FC<Props> = ({
               </RadioButtonGroup>
             </div>
           ))}
+
+          <Button
+            size="xs"
+            mt="1rem"
+            onClick={() => {
+              setSelected({});
+              setResetVariationSelect(Date.now());
+            }}
+          >
+            Clear selection
+          </Button>
 
           <Content
             mb="3rem"
