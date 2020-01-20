@@ -146,26 +146,33 @@ const ProductTemplate: React.FC<Props> = ({
 
   console.log(vars);
 
-  const uniqueVariations = Object.values(vars).reduce<
-    { [key in string]: string[] }
-  >((rootacc, rootcur) => {
-    return Object.entries(rootcur).reduce<{ [key in string]: string[] }>(
-      (acc, cur) => {
-        const newAcc = { ...acc };
+  const getUniqueVariations = (
+    values: { [key in string]: { [key in string]: string[] } }
+  ) => {
+    return Object.values(values).reduce<{ [key in string]: string[] }>(
+      (rootacc, rootcur) => {
+        return Object.entries(rootcur).reduce<{ [key in string]: string[] }>(
+          (acc, cur) => {
+            const newAcc = { ...acc };
 
-        if (newAcc[cur[0]]) {
-          newAcc[cur[0]] = [...new Set([...newAcc[cur[0]], ...cur[1]])];
-        }
+            if (newAcc[cur[0]]) {
+              newAcc[cur[0]] = [...new Set([...newAcc[cur[0]], ...cur[1]])];
+            }
 
-        if (!newAcc[cur[0]]) {
-          newAcc[cur[0]] = cur[1];
-        }
+            if (!newAcc[cur[0]]) {
+              newAcc[cur[0]] = cur[1];
+            }
 
-        return { ...newAcc };
+            return { ...newAcc };
+          },
+          rootacc
+        );
       },
-      rootacc
+      {}
     );
-  }, {});
+  };
+
+  const uniqueVariations = getUniqueVariations(vars);
 
   console.log(uniqueVariations);
 
