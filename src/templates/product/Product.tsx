@@ -35,10 +35,13 @@ const CustomRadio: React.FC<any> = React.forwardRef((props, ref) => {
   return (
     <Button
       ref={ref}
-      variantColor={isChecked ? "red" : isAvailable ? "green" : "gray"}
+      variantColor={isChecked ? "green" : "gray"}
       aria-checked={isChecked}
       role="radio"
-      isDisabled={isDisabled}
+      variant={!isAvailable ? "ghost" : "solid"}
+      isDisabled={!isAvailable}
+      leftIcon={isChecked && "check"}
+      onClick={() => console.log("onclick")}
       {...rest}
     />
   );
