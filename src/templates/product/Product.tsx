@@ -59,6 +59,8 @@ const ProductTemplate: React.FC<Props> = ({
     return null;
   }
 
+  const isVariableProduct = product.__typename === "GraphCMS_VariableProduct";
+
   const {
     name,
     description,
@@ -241,44 +243,48 @@ const ProductTemplate: React.FC<Props> = ({
             </Badge>
           </Box>
 
-          {Object.entries(uniqueVariations).map(item => (
-            <div>
-              {item[0]}
+          {isVariableProduct && (
+            <>
+              {Object.entries(uniqueVariations).map(item => (
+                <div>
+                  {item[0]}
 
-              <RadioButtonGroup
-                key={resetVariationSelect}
-                defaultValue="rad2"
-                onChange={val => {
-                  console.log(item[0], val);
-                  const sevalue = Object.fromEntries([
-                    [item[0], val as string],
-                  ]);
-                  setSelected({ ...selected, ...sevalue });
-                }}
-                isInline
-              >
-                {item[1].map(sub => (
-                  <CustomRadio
-                    value={sub}
-                    isAvailable={getIsAvailable(item[0], sub)}
+                  <RadioButtonGroup
+                    key={resetVariationSelect}
+                    defaultValue="rad2"
+                    onChange={val => {
+                      console.log(item[0], val);
+                      const sevalue = Object.fromEntries([
+                        [item[0], val as string],
+                      ]);
+                      setSelected({ ...selected, ...sevalue });
+                    }}
+                    isInline
                   >
-                    {sub}
-                  </CustomRadio>
-                ))}
-              </RadioButtonGroup>
-            </div>
-          ))}
+                    {item[1].map(sub => (
+                      <CustomRadio
+                        value={sub}
+                        isAvailable={getIsAvailable(item[0], sub)}
+                      >
+                        {sub}
+                      </CustomRadio>
+                    ))}
+                  </RadioButtonGroup>
+                </div>
+              ))}
 
-          <Button
-            size="xs"
-            mt="1rem"
-            onClick={() => {
-              setSelected({});
-              setResetVariationSelect(Date.now());
-            }}
-          >
-            Clear selection
-          </Button>
+              <Button
+                size="xs"
+                mt="1rem"
+                onClick={() => {
+                  setSelected({});
+                  setResetVariationSelect(Date.now());
+                }}
+              >
+                Clear selection
+              </Button>
+            </>
+          )}
 
           <Content
             mb="3rem"
