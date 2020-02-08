@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { useCart } from "react-use-cart";
 import styled from "@emotion/styled";
 import {
   Image,
@@ -52,7 +51,6 @@ const Main = ({ children, hasSidebar = true }: Props) => {
     }
   `);
 
-  const { cartTotal, totalUniqueItems } = useCart();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -91,7 +89,7 @@ const Main = ({ children, hasSidebar = true }: Props) => {
         </Box>
 
         <Box display="flex" justifyContent="flex-end">
-          Cart ({totalUniqueItems} - {cartTotal})
+          Cart
         </Box>
       </Box>
 

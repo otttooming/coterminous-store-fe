@@ -1,8 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Main from "../../layouts/Main";
-//@ts-ignore
-import { useCart } from "react-use-cart";
 import {
   Button,
   Heading,
@@ -52,9 +50,6 @@ const ProductTemplate: React.FC<Props> = ({
     cms: { product },
   },
 }) => {
-  const { addItem, inCart } = useCart();
-  console.log(useCart);
-
   if (!product) {
     return null;
   }
