@@ -74,7 +74,7 @@ export const getLocalizedText = (
     return text;
   }
 
-  const results = translationBlocks.map(item =>
+  const results = translationBlocks.map((item) =>
     getTranslateBlock(item, language)
   );
 

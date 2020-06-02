@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
     productList = [...productList, ...data.cms.products.edges];
   }
 
-  productList.forEach(edge => {
+  productList.forEach((edge) => {
     actions.createPage({
       path: edge.node.slug,
       component: path.resolve(`./src/templates/product/Product.tsx`),
@@ -66,7 +66,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const { data: productCategories } = await graphql(QUERY_PRODUCT_CATEGORIES);
 
-  productCategories.cms.productCategories.edges.forEach(category => {
+  productCategories.cms.productCategories.edges.forEach((category) => {
     actions.createPage({
       path: category.node.slug,
       component: path.resolve(`./src/templates/category/Category.tsx`),

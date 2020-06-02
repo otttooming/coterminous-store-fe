@@ -14,14 +14,14 @@ const Attributes: React.FC<AttributesProps> = ({ attributes }) => {
       </Heading>
 
       <Box display="grid" gridTemplateColumns="repeat(3,1fr)" gridGap="8px">
-        {attributes?.nodes?.map(item => {
+        {attributes?.nodes?.map((item) => {
           return (
             <Box mb="1rem">
               <Heading as="h4" size="sm">
                 {item?.name}
               </Heading>
               <div>
-                {item?.options?.map(item => {
+                {item?.options?.map((item) => {
                   return (
                     <Badge mr="8px" variant="outline">
                       {item}

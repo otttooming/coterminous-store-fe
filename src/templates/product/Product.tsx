@@ -128,16 +128,16 @@ const ProductTemplate: React.FC<Props> = ({
     const selectedAttributes = Object.entries(selected);
     const variation = Object.entries(cur[1]);
 
-    const attributeValues = variation.flatMap(i2 => i2[1]);
-    const attributeNames = variation.map(i2 => i2[0]);
+    const attributeValues = variation.flatMap((i2) => i2[1]);
+    const attributeNames = variation.map((i2) => i2[0]);
 
     if (
       selectedAttributes
-        .map(i4 => i4[0])
-        .every(i => attributeNames.includes(i)) &&
+        .map((i4) => i4[0])
+        .every((i) => attributeNames.includes(i)) &&
       selectedAttributes
-        .map(i4 => i4[1])
-        .every(i => attributeValues.includes(i))
+        .map((i4) => i4[1])
+        .every((i) => attributeValues.includes(i))
     ) {
       const newA = { ...acc };
       newA[cur[0]] = cur[1];
@@ -240,14 +240,14 @@ const ProductTemplate: React.FC<Props> = ({
 
           {isVariableProduct && (
             <>
-              {Object.entries(uniqueVariations).map(item => (
+              {Object.entries(uniqueVariations).map((item) => (
                 <div>
                   {item[0]}
 
                   <RadioButtonGroup
                     key={resetVariationSelect}
                     defaultValue="rad2"
-                    onChange={val => {
+                    onChange={(val) => {
                       console.log(item[0], val);
                       const sevalue = Object.fromEntries([
                         [item[0], val as string],
@@ -256,7 +256,7 @@ const ProductTemplate: React.FC<Props> = ({
                     }}
                     isInline
                   >
-                    {item[1].map(sub => (
+                    {item[1].map((sub) => (
                       <CustomRadio
                         value={sub}
                         isAvailable={getIsAvailable(item[0], sub)}
