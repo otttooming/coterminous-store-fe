@@ -35,7 +35,8 @@
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "build:graphql": "graphql-codegen"
+    "build:graphql": "graphql-codegen",
+    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}\""
   },
   "author": "Ott Tooming",
   "license": "ISC"
